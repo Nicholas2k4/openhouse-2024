@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ukm', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->integer('kuota');
-            $table->string('kategori');
-            $table->boolean('early_bird');
-            $table->integer('harga');
+            $table->uuid('id')->primary();
+            $table->string('name');
+            $table->string('slug');
+            $table->integer('current_slot');
+            $table->integer('max_slot');
+            $table->integer('regist_fee');
         });
     }
 
