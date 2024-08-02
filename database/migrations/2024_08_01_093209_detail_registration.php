@@ -11,16 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admin', function (Blueprint $table) {
+        Schema::create('detail_registrations', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->uuid('user_id');
             $table->uuid('ukm_id');
-            $table->uuid('division_id');
-            $table->string('nrp', 9)->unique();
-            $table->string('field')->comment('Panitia/UKM');
+            $table->string('payment');
+            $table->string('drive_url')->nullable();
+            $table->tinyInteger('file_validated')->comment("0: No, 1: Yes");
+            $table->tinyInteger('payment_validated')->comment("0: No, 1: Yes");
             $table->timestamps();
 
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('ukm_id')->references('id')->on('ukm')->onDelete('cascade');
-            $table->foreign('division_id')->references('id')->on('divisions')->onDelete('cascade');
         });
     }
 
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admin');
+        Schema::dropIfExists('detail_registrations');
     }
 };
