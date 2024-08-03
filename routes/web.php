@@ -17,10 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Temporary routes buat liat hasil codingan
 Route::get('/validate', function () {
     return view('admin.validate');
 });
 
+//Temporary routes buat liat hasil codingan
 Route::get('/generate', function () {
     return view('admin.generate');
 });

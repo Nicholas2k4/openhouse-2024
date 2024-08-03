@@ -20,7 +20,13 @@
 </head>
 
 <body>
+    <!-- Navigation Includes -->
     @include('admin.includes.navigation')
+
+    <!-- Main Content -->
+    <div class="lg:ms-64">
+
+    </div>
 </body>
 
 </html>
