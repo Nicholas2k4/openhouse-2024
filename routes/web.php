@@ -21,4 +21,9 @@ Route::get('/', function () {
 Route::get('user/pendaftaran', function () {
     return view('/user/pendaftaran');
 });
+
 Route::post('user/pendaftaran', [PendaftaranController::class, 'submit']);
+
+Route::get('user/pembayaran', function () {
+    return view('/user/pembayaran');
+});
