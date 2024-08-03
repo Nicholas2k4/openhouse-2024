@@ -16,6 +16,7 @@ return new class extends Migration
             $table->uuid('user_id');
             $table->uuid('ukm_id');
             $table->string('payment');
+            $table->string('code');
             $table->string('drive_url')->nullable();
             $table->tinyInteger('file_validated')->comment("0: No, 1: Yes");
             $table->tinyInteger('payment_validated')->comment("0: No, 1: Yes");
