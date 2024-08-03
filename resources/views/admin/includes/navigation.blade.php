@@ -1,3 +1,73 @@
+<!-- Hamburger Style -->
+<style>
+    .ham {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        transition: transform 400ms;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .hamRotate.active {
+        transform: rotate(45deg);
+    }
+
+    .hamRotate180.active {
+        transform: rotate(180deg);
+    }
+
+    .line {
+        fill: none;
+        transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+        stroke: #000;
+        stroke-width: 5.5;
+        stroke-linecap: round;
+    }
+
+    .ham8 .top {
+        stroke-dasharray: 40 160;
+    }
+
+    .ham8 .middle {
+        stroke-dasharray: 40 142;
+        transform-origin: 50%;
+        transition: transform 400ms;
+    }
+
+    .ham8 .bottom {
+        stroke-dasharray: 40 85;
+        transform-origin: 50%;
+        transition: transform 400ms, stroke-dashoffset 400ms;
+    }
+
+    .ham8.active .top {
+        stroke-dashoffset: -64px;
+    }
+
+    .ham8.active .middle {
+        transform: rotate(90deg);
+    }
+
+    .ham8.active .bottom {
+        stroke-dashoffset: -64px;
+    }
+</style>
+
+<!-- Toggle Navbar Script -->
+<script>
+    $(document).ready(function() {
+        $('#toggle').on('click', function() {
+            if ($('#smallNav').hasClass('hidden')) {
+                $('#smallNav').removeClass('hidden');
+            } else {
+                $('#smallNav').addClass('hidden');
+            }
+        })
+    })
+</script>
+
 <!-- Side Navigation Bar (> 1024px) -->
 <aside class="w-64 h-screen border-e-2 bg-white fixed hidden lg:block">
     <div class="mx-6 h-full flex flex-col">
