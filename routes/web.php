@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/validate', function () {
+    return view('admin.validate');
+});
+
 Route::get('/generate', function () {
     return view('admin.generate');
 });
