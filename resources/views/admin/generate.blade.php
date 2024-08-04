@@ -1,32 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <!-- TAILWIND -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('css/hamburger.css') }}">
-
-    <!-- JS -->
-    <script src="{{ asset('js/toggleNav.js') }}"></script>
-</head>
-
-<body>
-    <!-- Navigation Includes -->
-    @include('admin.includes.navigation')
-
-    <!-- Main Content -->
-    <div class="lg:ms-64">
-
+@extends('admin.layouts.layout')
+@section('content')
+<div class="h-full flex justify-center px-4">
+    <div class="h-auto w-auto mx-auto mt-56 mb-auto lg:my-auto bg-gradient-to-tl from-indigo-300 to-blue-800 p-6 rounded-xl drop-shadow-lg z-10">
+        <p class="text-3xl text-white font-bold text-center mb-2">OpenHouse Game Words Generator</p>
+        <p class="text-white text-center mb-6">Input the NRP of the students to generate their collectible words.</p>
+        <form action="" method="" class="flex flex-col gap-4">
+            <input type="text" name="nrp" placeholder="NRP" class="h-12 p-2 border-2 rounded">
+            <input type="submit" class="font-semibold mb-2 h-12 border-2 bg-white hover:bg-green-400 transition rounded-lg">
+        </form>
     </div>
-</body>
-
-</html>
+    <img src="{{ asset('assets/CORALIS POSE 1.png') }}" alt="Coralis" class="absolute w-80 drop-shadow-lg mt-14 ms-10 z-1">
+</div>
+@endsection

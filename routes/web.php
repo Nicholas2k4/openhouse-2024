@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Temporary routes buat liat hasil codingan
-Route::get('/validate', function () {
-    return view('admin.validate');
-});
-
-//Temporary routes buat liat hasil codingan
-Route::get('/generate', function () {
-    return view('admin.generate');
-});
+Route::get('/validate', [AdminController::class, 'validatePage'])->name('admin.validate');
+Route::get('/generate', [AdminController::class, 'generatePage'])->name('admin.generate');
