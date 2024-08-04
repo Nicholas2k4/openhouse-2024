@@ -89,6 +89,7 @@
         a {
             font-family: GeneralSansItalic !important;
         }
+
     </style>
     @yield('head')
 </head>
@@ -112,6 +113,28 @@
 {{-- GSAP --}}
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script>
+    var lastScrollTop; // This Varibale will store the top position
+
+    navbar = document.getElementById('navbar'); // Get The NavBar
+
+    window.addEventListener('scroll', function() {
+        //on every scroll this funtion will be called
+
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        //This line will get the location on scroll
+
+        if (scrollTop > lastScrollTop) { //if it will be greater than the previous
+            navbar.style.top = '-80px';
+            //set the value to the negetive of height of navbar 
+        } else {
+            navbar.style.top = '0';
+        }
+
+        lastScrollTop = scrollTop; //New Position Stored
+    });
+</script>
 
 
 @yield('script')
