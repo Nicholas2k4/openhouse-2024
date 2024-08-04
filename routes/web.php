@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('user.homepage', [
-        'title' => 'Homepage'
-    ]);
+Route::group(['as' => 'user.'], function () {
+    Route::get('/', function () {
+        return view('user.homepage', [
+            'title' => 'Homepage'
+        ]);
+    })->name('home');
+
+    Route::get('/auth', [AuthController::class, 'googleAuth'])->name('auth');
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::get('/processLogin', [AuthController::class, 'processLogin'])->name('login.process');
 });

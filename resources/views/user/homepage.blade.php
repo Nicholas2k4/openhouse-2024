@@ -2,6 +2,7 @@
 
 @section('head')
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bubble.css') }}">
 @endsection
 
 @section('content')
