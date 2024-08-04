@@ -82,14 +82,23 @@
         }
 
         p,
-        input {
+        input,
+        a {
             font-family: GeneralSans !important;
         }
 
-        a {
+        /* a {
             font-family: GeneralSansItalic !important;
+        } */
+
+        /* .login-button {
+            font-family: GeneralSansBold !important;
         }
 
+        .login-button:hover {
+            text-shadow: 0 0 7px rgba(255, 255, 255, 1), 0 0 15px rgba(255, 255, 255, 1);
+            color: white;
+        } */
     </style>
     @yield('head')
 </head>
@@ -115,6 +124,12 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
 <script>
+    twe.config = {
+        darkMode: "class",
+        corePlugins: {
+            preflight: false,
+        },
+    };
     var lastScrollTop; // This Varibale will store the top position
 
     navbar = document.getElementById('navbar'); // Get The NavBar
@@ -134,6 +149,39 @@
 
         lastScrollTop = scrollTop; //New Position Stored
     });
+
+    const ukm = ['babi', 'ayam', 'ikan', 'apel', 'botol', 'monitor'];
+
+    function show() {
+        document.querySelector(".dropdown").classList.remove('hidden');
+        document.querySelector(".dropdown").classList.add('flex');
+    }
+
+    document.getElementById('search').addEventListener('blur', function() {
+        setTimeout(function() {
+            document.querySelector(".dropdown").classList.remove('flex');
+            document.querySelector(".dropdown").classList.add('hidden');
+        }, 100);
+    });
+
+    function search() {
+        // Declare variables
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById('search');
+        filter = input.value.toUpperCase();
+        ul = document.querySelector(".dropdown");
+        li = ul.getElementsByTagName('a');
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) {
+            txtValue = li[i].textContent || li[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
 </script>
 
 

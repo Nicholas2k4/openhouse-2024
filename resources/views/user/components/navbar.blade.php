@@ -5,30 +5,25 @@
         <div class="ms-2 md:me-2">
             <img src="{{ asset('assets/LOGO OPENHOUSE SEMIFINAL.png') }}" alt="">
         </div>
-        <div class="ms-5 flex justify-end items-center w-2/3">
-            <span class="me-2"><i class="fa-solid fa-gamepad fa-2xl"></i></span>
-            <div class="w-2/3 lg:pe-2">
-                <div class="relative flex border-2 rounded-full text-black">
-                    <input type="search"
-                        class="rounded-l-full z-20 min-w-0 flex-auto bg-transparent px-3 py-1 !text-black font-normal outline-none transition duration-200 ease-in-out focus:outline-none motion-reduce:transition-none"
-                        placeholder="Search" />
-                    <!--Search button-->
-                    <button
-                        class="relative px-3 pb-[7px] pt-2 rounded-r-full text-xs font-medium uppercase leading-normal"
-                        type="button" id="button-addon3" data-twe-ripple-init>
-                        <!--Search icon-->
-                        <span
-                            class="flex items-center whitespace-nowrap rounded text-center text-base font-normal text-gray-600 [&>svg]:w-5"
-                            id="basic-addon2">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd"
-                                    d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </span>
-                    </button>
+        <div class="ms-5 flex justify-end items-center w-2/3 md:space-x-3 space-x-2 md:me-3 me-1">
+            {{-- <span class=""><i class="fa-solid fa-gamepad fa-2xl"></i></span> --}}
+            <div class="md:w-1/3 w-2/3 lg:pe-2">
+                <div
+                    class="relative flex flex-col focus-within:ease-in-out duration-300 focus-within:shadow-white focus-within:shadow-2xl">
+                    <input type="search" id="search" autocomplete="off" onclick="show()" onkeyup="search()"
+                        class="!border-2 !rounded-full !border-white z-20 min-w-0 bg-transparent px-3 py-1 !text-black placeholder-[#074173] font-normal transition duration-200 focus:outline-none focus:ring-0"
+                        placeholder="Search UKM or LK" />
+                    <div class="dropdown bg-white p-3 rounded-xl absolute top-9 hidden flex-col w-full">
+                        <a href="">babi</a>
+                        <a href="">ayam</a>
+                        <a href="">kambing</a>
+                    </div>
                 </div>
             </div>
+
+            {{-- Sptw butuh login hehe --}}
+            {{-- <a href="#"
+                class="login-button border-2 rounded-full px-4 py-1 border-white font-bold text-lg hover:ease-in-out duration-300">Login</a> --}}
         </div>
     </div>
 </nav>
