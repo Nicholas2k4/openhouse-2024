@@ -60,3 +60,15 @@ body {
         opacity: 0;
     }
 }
+
+/* @media screen and (max-width: 1280px ) {
+    .pin-spacer {
+        padding-top: 0 !important;
+    }
+}
+
+@media screen and (max-width: 960px ) {
+    .pin-spacer {
+        padding-top: 50px !important;
+    }
+} */

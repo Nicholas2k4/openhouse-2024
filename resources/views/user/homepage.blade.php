@@ -6,15 +6,22 @@
 @endsection
 
 @section('content')
+    {{-- Elements --}}
     <img src="{{ asset('assets/Coral_2.png') }}" alt="Coral"
-        class="absolute sm:max-md:top-[1000px] md:max-lg:top-[600px] lg:top-[1000px] top-[400px] right-[-8vw] rotate-[-30deg] w-1/4">
+        class="absolute sm:top-[80vh] top-[50vh] md:top-[110vh] xl:top-[120vh] sm:right-[-10vw] right-[-25vw] rotate-[-30deg] sm:w-1/3 w-9/12">
     <img src="{{ asset('assets/Coral_1.png') }}" alt="Coral"
-        class="absolute sm:max-md:top-[1500px] top-[800px] lg:top-[1500px] left-[-8vw] rotate-[30deg] w-1/4">
+        class="absolute top-[200vh] sm:left-[-10vw] left-[-25vw] rotate-[30deg] sm:w-1/3 w-9/12">
     <img src="{{ asset('assets/Flower_2.png') }}" alt="Flower"
-        class="absolute sm:max-md:top-[2000px] top-[1200px] lg:top-[2000px] right-[-8vw] rotate-[-30deg] w-1/4">
+        class="absolute top-[350vh] sm:right-[-10vw] right-[-25vw] rotate-[-30deg] sm:w-1/3 w-9/12">
     <img src="{{ asset('assets/Flower_3.png') }}" alt="Flower"
-        class="absolute sm:max-md:top-[2500px] top-[1600px] lg:top-[2500px] left-[-8vw] rotate-[30deg] w-1/4">
-    <section class="video w-full md:h-screen lg:h-[120vh] z-50">
+        class="absolute hidden lg:block top-[450vh] sm:left-[-10vw] left-[-25vw] rotate-[30deg] sm:w-1/3 w-9/12">
+
+    {{-- Maskot --}}
+    {{-- <img src="{{ asset('assets/CORALIS POSE 1.png') }}" alt="Coralis"
+        class="absolute lg:right-[10vw] right-[-25vw] top-[555vh] lg:w-1/5 w-1/2">
+    <img src="{{ asset('assets/VERDARA POSE 1.png') }}" alt="Verdara"
+        class="absolute lg:left-[10vw] left-[-18vw] top-[555vh] lg:w-1/5 w-1/2"> --}}
+    <section class="video w-full xl:h-[120vh] z-50">
         <video src="{{ asset('assets/Video OH.mp4') }}" autoplay muted loop preload="auto"></video>
     </section>
     <section class="timeline">
