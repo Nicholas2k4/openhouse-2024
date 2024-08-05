@@ -97,7 +97,7 @@
     {{-- sptw dpt video res tinggi :D --}}
     {{-- <video src="{{ asset('assets/SS_Motion.mp4') }}" loop autoplay muted class="absolute w-[100vh] h-[100vh]"></video> --}}
 
-    <section class="login-container space-y-10 bg-[#ffffff4d] sm:p-10 rounded-2xl backdrop-blur-sm">
+    <section class="login-container space-y-10 bg-[#0000004d] sm:p-10 rounded-2xl backdrop-blur-sm">
         <h1
             class="font-bold sm:text-8xl text-6xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
             Open House 2024</h1>

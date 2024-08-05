@@ -21,9 +21,15 @@
                 </div>
             </div>
 
-            {{-- Sptw butuh login hehe --}}
-            {{-- <a href="#"
-                class="login-button border-2 rounded-full px-4 py-1 border-white font-bold text-lg hover:ease-in-out duration-300">Login</a> --}}
+            <a href="{{ route('user.login') }}"
+                class="login-button rounded-full px-4 py-1 border-white font-bold text-lg hover:ease-in-out duration-300"
+                data-te-ripple-init data-te-ripple-color='light'>
+                @if (session()->has('nrp'))
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                @else
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                @endif
+            </a>
         </div>
     </div>
 </nav>
