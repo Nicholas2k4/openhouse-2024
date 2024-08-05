@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('current_slot');
             $table->integer('max_slot');
             $table->integer('regist_fee');
+            $table->timestamps();
         });
     }
 

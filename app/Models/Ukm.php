@@ -11,7 +11,11 @@ class Ukm extends Model
     protected $table = 'ukm';
 
     protected $fillable= [
-        ''
+        'name',
+        'slug',
+        'current_slot',
+        'max_slot',
+        'regist_fee',
     ];
 
     use HasFactory, HasUuids;

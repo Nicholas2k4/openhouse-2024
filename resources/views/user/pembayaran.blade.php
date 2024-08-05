@@ -33,8 +33,8 @@
 </head>
 <body class="bg-gray-100 flex justify-center items-center min-h-screen px-4 sm:px-6">
     <div class="bg-black bg-opacity-50 rounded-lg p-6 shadow-lg max-w-3xl w-full mt-8 mb-8 backdrop-blur">
-    <form method="POST">
-
+    <form method="POST" enctype="multipart/form-data">
+      @csrf
         <div class="space-y-12">
           <div class="border-b border-gray-900/10 pb-12">
             <h2 class="text-base text-slate-50 leading-7 pb-6">Pembayaran UKM</h2>

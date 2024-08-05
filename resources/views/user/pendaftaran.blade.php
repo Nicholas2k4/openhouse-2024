@@ -18,8 +18,8 @@
 </head>
 <body class="bg-gray-100 flex justify-center items-center min-h-screen px-4 sm:px-6">
     <div class="bg-black bg-opacity-50 rounded-lg p-6 shadow-lg max-w-3xl w-full mt-8 mb-8 backdrop-blur">
-    <form method="POST">
-
+    <form method="POST" action = {{ route('pendaftaran.store') }}>
+      @csrf
         <div class="space-y-12">
           <div class="border-b border-gray-900/10 pb-12">
             <h2 class="text-xl font-semibold leading-7 text-slate-50">Pendaftaran UKM</h2>
@@ -39,7 +39,7 @@
               <div class="sm:col-span-3">
                 <label for="last-name" class="block text-sm font-medium leading-6 text-slate-50">NRP</label>
                 <div class="mt-2">
-                  <input type="text" name="nrp" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" disabled>
+                  <input type="text" name="nrp" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
               </div>
       
@@ -47,6 +47,13 @@
                 <label for="last_name" class="block text-sm font-medium leading-6 text-slate-50">ID line</label>
                 <div class="mt-2">
                   <input type="text" name="line_id" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+
+              <div class="sm:col-span-3">
+                <label for="last_name" class="block text-sm font-medium leading-6 text-slate-50">No. Telp</label>
+                <div class="mt-2">
+                  <input type="text" name="phone" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
               </div>
 
