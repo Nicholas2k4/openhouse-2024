@@ -88,6 +88,10 @@
             font-family: GeneralSans !important;
         }
 
+        .dropdown>a:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
         /* a {
             font-family: GeneralSansItalic !important;
         } */
@@ -154,7 +158,52 @@
     });
 
     // Search
-    const ukm = ['babi', 'ayam', 'ikan', 'apel', 'botol', 'monitor'];
+    const lists = [
+        'Chinese Art',
+        'ASFS',
+        'Dance',
+        'Dekorasi',
+        'Ilustrasi',
+        'Martografi',
+        'Modeling',
+        'Teater',
+        'Vocal Group',
+        'English Debate Society (EDS)',
+        'Pengembangan Diri',
+        'Esport',
+        'Badminton',
+        'Basket',
+        'Catur',
+        'Futsal',
+        'Renang',
+        'Taekwondo',
+        'Tenis Lapangan',
+        'Tenis Meja',
+        'Voli',
+        'Matrapenza',
+        'EMR',
+        'Menwa',
+        'Matrapala',
+        'Paduan Suara',
+        'Orkestra',
+        'Badan Eksekutif Mahasiswa (BEM)',
+        'Majelis Perwakilan Mahasiswa (MPM)',
+        'Badan Perwakilan Mahasiswa Fakultas (BPMF)',
+        'Pers Mahasiswa (PERSMA)',
+        'Pelayanan Mahasiswa (PELMA)',
+        'Tim Petra Sinergi (TPS)',
+    ];
+
+    $(document).ready(function() {
+        var i = 0;
+        lists.forEach(list => {
+            if (i <= 5) {
+                $('.dropdown').append('<a class="py-1 px-3 rounded-xl" href="" data-te-ripple-init data-te-ripple-color="light">' + list + '</a> <hr>');
+            }
+            i++
+        });
+    });
+
 
     function show() {
         document.querySelector(".dropdown").classList.remove('hidden');
@@ -174,15 +223,24 @@
         input = document.getElementById('search');
         filter = input.value.toUpperCase();
         ul = document.querySelector(".dropdown");
-        li = ul.getElementsByTagName('a');
+        li = lists;
 
-        // Loop through all list items, and hide those who don't match the search query
-        for (i = 0; i < li.length; i++) {
-            txtValue = li[i].textContent || li[i].innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                li[i].style.display = "";
-            } else {
-                li[i].style.display = "none";
+        $('.dropdown').empty();
+
+        if (filter == '' || filter == null) {
+            var i = 1;
+            lists.forEach(list => {
+                if (i <= 5) {
+                    $('.dropdown').append('<a class="py-1" href="" data-te-ripple-init data-te-ripple-color="light">' + list + '</a> <hr>');
+                }
+                i++
+            });
+        } else {
+            for (i = 0; i < li.length; i++) {
+                txtValue = li[i];
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    $('.dropdown').append('<a class="py-1" href="" data-te-ripple-init data-te-ripple-color="light">' + txtValue + '</a> <hr>');
+                }
             }
         }
     }

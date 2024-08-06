@@ -64,23 +64,19 @@
         </div>
 
         {{-- Logo --}}
-        <div class="">
+        <div class="sm:w-[200px] lg:w-[400px] flex justify-end">
             <img src="{{ asset('assets/Logo FLAT.png') }}" alt="">
         </div>
 
         {{-- Search --}}
-        <div class="flex justify-end items-center md:space-x-3 space-x-2 md:me-3 me-1">
-            {{-- <span class=""><i class="fa-solid fa-gamepad fa-2xl"></i></span> --}}
+        <div class="md:me-3 me-1 sm:w-[300px] md:w-[400px] lg:w-[500px]">
             <div class="lg:pe-2">
                 <div
                     class="relative flex flex-col focus-within:ease-in-out duration-300 focus-within:shadow-white focus-within:shadow-2xl">
-                    <input type="search" id="search" autocomplete="off" onclick="show()" onkeyup="search()"
-                        class="!border-2 !rounded-full !border-white z-20 min-w-0 bg-transparent px-3 py-1 !text-black placeholder-[#074173] font-normal transition duration-200 focus:outline-none focus:ring-0"
+                    <input type="text" id="search" autocomplete="off" onclick="show()" onkeyup="search()"
+                        class="!border-2 !rounded-full !border-white z-20 w-full bg-transparent px-3 py-1 !text-black placeholder-[#074173] font-normal transition duration-200 focus:outline-none focus:ring-0"
                         placeholder="Search UKM or LK" />
                     <div class="dropdown bg-white p-3 rounded-xl absolute top-9 hidden flex-col w-full">
-                        <a href="">babi</a>
-                        <a href="">ayam</a>
-                        <a href="">kambing</a>
                     </div>
                 </div>
             </div>
