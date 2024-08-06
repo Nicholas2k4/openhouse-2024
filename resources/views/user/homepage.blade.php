@@ -2,7 +2,6 @@
 
 @section('head')
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bubble.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
 @endsection
 
@@ -22,9 +21,13 @@
         class="maskot absolute lg:right-[-5vw] right-[-25vw] sm:top-[2600px] md:top-[3000px] lg:top-[3550px] xl:top-[4700px] top-[1900px] lg:w-1/3 w-1/2">
     <img src="{{ asset('assets/VERDARA POSE 1.png') }}" alt="Verdara"
         class="maskot absolute lg:left-[-5vw] left-[-18vw] sm:top-[2600px] md:top-[3000px] lg:top-[3550px] xl:top-[4700px] top-[1900px] lg:w-1/3 w-1/2">
+
+    {{-- Video --}}
     <section class="video w-full xl:h-[120vh] z-50">
         <video src="{{ asset('assets/Video OH.mp4') }}" autoplay muted loop preload="auto"></video>
     </section>
+
+    {{-- Timeline --}}
     <div class="flex justify-center mt-10">
         <h1 data-aos="fade-down" data-aos-once="true"
             class="text-7xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
@@ -72,7 +75,7 @@
         <div
             class="content mt-10 p-5 lg:w-1/2 h-[300px] overflow-y-auto overflow-x-hidden w-10/12 rounded-2xl text-center bg-[#3586ff3d] mx-auto text-black shadow-black shadow-lg backdrop-blur-md">
             <div class="content1 hidden">
-                <h1 class="font-bold text-3xl">Performance of the Week</h1>
+                <h1 class="glow font-bold text-3xl">Performance of the Week</h1>
                 <h5 class="font-bold text-xl">16 Agustus 2024</h5>
 
                 <ul class="list-disc text-start ms-3 mt-5">
@@ -100,10 +103,10 @@
                 </ul>
             </div>
             <div class="content2 hidden">
-                <h1 class="font-bold text-3xl">Performance of the Week</h1>
+                <h1 class="glow font-bold text-3xl">Performance of the Week</h1>
                 <h5 class="font-bold text-xl">23 Agustus 2024</h5>
 
-                <ul class="list-disc text-start ms-3">
+                <ul class="list-disc text-start ms-3 mt-5">
                     <li>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, reprehenderit.</p>
                     </li>
@@ -119,10 +122,10 @@
                 </ul>
             </div>
             <div class="content3 hidden">
-                <h1 class="font-bold text-3xl">Performance of the Week</h1>
+                <h1 class="glow font-bold text-3xl">Performance of the Week</h1>
                 <h5 class="font-bold text-xl">30 Agustus 2024</h5>
 
-                <ul class="list-disc text-start ms-3">
+                <ul class="list-disc text-start ms-3 mt-5">
                     <li>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, odit!</p>
                     </li>
@@ -140,10 +143,11 @@
         </div>
     </section>
 
+    {{-- Game & UKM --}}
     <section class="game-ukm flex justify-center space-x-5 mb-10" id="game-ukm">
         <a href="#">
             <div
-                class="border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-white shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-200 hover:shadow-white hover:shadow-xl">
+                class="border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-200 hover:shadow-white hover:shadow-xl">
                 <span class="text-center mx-auto sm:h-[120px] sm:w-[150px] h-[100px] w-[125px]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                         <path fill="#ffffff"
@@ -157,7 +161,7 @@
         </a>
         <a href="#">
             <div
-                class="border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-white shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-200 hover:shadow-white hover:shadow-xl">
+                class="border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-200 hover:shadow-white hover:shadow-xl">
                 <span class="text-center mx-auto sm:h-[120px] sm:w-[135px] h-[100px] w-[125px]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                         <path fill="#ffffff"
@@ -171,86 +175,11 @@
         </a>
     </section>
 
-    <div id="background-wrap">
-        <div id="pop1" class="bubble x1">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div id="pop2" class="bubble x2">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div id="pop3" class="bubble x3">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div id="pop4" class="bubble x4">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div id="pop5" class="bubble x5">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div id="pop6" class="bubble x6">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div id="pop7" class="bubble x7">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div id="pop8" class="bubble x8">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div id="pop9" class="bubble x9">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div id="pop10" class="bubble x10">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div id="pop11" class="bubble x11">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-    </div>
+    <section class="faq mt-10">
+
+    </section>
+
+    @include('user.components.bubbles')
 @endsection
 
 @section('script')
