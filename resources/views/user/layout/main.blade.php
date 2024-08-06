@@ -77,7 +77,8 @@
         h3,
         h4,
         h5,
-        h6 {
+        h6,
+        span {
             font-family: GeneralSansBold !important;
         }
 
@@ -130,6 +131,8 @@
             preflight: false,
         },
     };
+
+    // Navbar scroll hidden
     var lastScrollTop; // This Varibale will store the top position
 
     navbar = document.getElementById('navbar'); // Get The NavBar
@@ -150,6 +153,7 @@
         lastScrollTop = scrollTop; //New Position Stored
     });
 
+    // Search
     const ukm = ['babi', 'ayam', 'ikan', 'apel', 'botol', 'monitor'];
 
     function show() {
@@ -182,6 +186,17 @@
             }
         }
     }
+
+    // Sidebar
+    document.addEventListener("DOMContentLoaded", function() {
+        const hamburger = document.getElementById("hamburger");
+        const sidebar = document.getElementById("sidebar");
+
+        hamburger.addEventListener("click", function() {
+            sidebar.classList.toggle("active");
+            hamburger.classList.toggle("active");
+        });
+    });
 </script>
 
 

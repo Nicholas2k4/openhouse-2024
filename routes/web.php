@@ -24,4 +24,5 @@ Route::group(['as' => 'user.'], function () {
     Route::get('/auth', [AuthController::class, 'googleAuth'])->name('auth');
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::get('/processLogin', [AuthController::class, 'processLogin'])->name('login.process');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });

@@ -3,6 +3,7 @@
 @section('head')
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bubble.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
 @endsection
 
 @section('content')
@@ -24,7 +25,7 @@
     <section class="video w-full xl:h-[120vh] z-50">
         <video src="{{ asset('assets/Video OH.mp4') }}" autoplay muted loop preload="auto"></video>
     </section>
-    <section class="timeline">
+    <section class="timeline" id="timeline">
         <div class="flex justify-center">
             <h1 data-aos="fade-down" data-aos-once="true"
                 class="text-7xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
@@ -75,10 +76,10 @@
         </div>
     </section>
 
-    <section class="game-ukm flex justify-center space-x-5 mb-10">
+    <section class="game-ukm flex justify-center space-x-5 mb-10" id="game-ukm">
         <a href="#">
             <div
-                class="border rounded-xl bg-[#B18AEA5a] backdrop-blur-xl shadow-white shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-200 hover:shadow-white hover:shadow-xl">
+                class="border rounded-xl bg-[#074174b3] backdrop-blur-xl shadow-white shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-200 hover:shadow-white hover:shadow-xl">
                 <span class="text-center mx-auto sm:h-[120px] sm:w-[150px] h-[60px] w-[75px]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                         <path fill="#ffffff"
@@ -92,7 +93,7 @@
         </a>
         <a href="#">
             <div
-                class="border rounded-xl bg-[#B18AEA5a] backdrop-blur-xl shadow-white shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-200 hover:shadow-white hover:shadow-xl">
+                class="border rounded-xl bg-[#074174b3] backdrop-blur-xl shadow-white shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-200 hover:shadow-white hover:shadow-xl">
                 <span class="text-center mx-auto sm:h-[120px] sm:w-[135px] h-[60px] w-[75px]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                         <path fill="#ffffff"

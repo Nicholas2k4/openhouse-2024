@@ -33,4 +33,10 @@ class AuthController extends Controller
             return redirect()->route('user.home');
         }
     }
+
+    public function logout() {
+        session()->flush();
+
+        return redirect()->route('user.login');
+    }
 }
