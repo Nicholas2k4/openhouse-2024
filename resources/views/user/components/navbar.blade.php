@@ -2,6 +2,8 @@
 <nav class="sticky top-0 flex w-full z-10 flex-nowrap items-center justify-between bg-gradient-to-r from-[#4477CE] to-[#F1C1AC] py-2 shadow-dark-mild lg:flex-wrap lg:justify-start duration-500"
     data-twe-navbar-ref id="navbar">
     <div class="flex w-full flex-wrap items-center justify-between md:px-3">
+
+        {{-- Hamburger button --}}
         <div class="hamburger flex items-center" id="hamburger">
             <svg class="ham ham6" viewBox="0 0 100 100" width="49" onclick="this.classList.toggle('active')">
                 <path class="line top"
@@ -12,6 +14,8 @@
                     d="m 69.575405,67.073826 h -40 c -13.100415,0 -14.380204,-31.80258 -6.899646,-33.421777 24.612039,-5.327373 -9.016154,52.337577 12.75751,30.563913 l 28.284272,-28.284272" />
             </svg>
         </div>
+
+        {{-- Sidebar --}}
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <p class="logo-sidebar"><img src="{{ asset('assets/LOGO OPENHOUSE SEMIFINAL.png') }}" alt="">
@@ -58,9 +62,13 @@
                 </ul>
             </div>
         </div>
+
+        {{-- Logo --}}
         <div class="">
             <img src="{{ asset('assets/Logo FLAT.png') }}" alt="">
         </div>
+
+        {{-- Search --}}
         <div class="flex justify-end items-center md:space-x-3 space-x-2 md:me-3 me-1">
             {{-- <span class=""><i class="fa-solid fa-gamepad fa-2xl"></i></span> --}}
             <div class="lg:pe-2">
