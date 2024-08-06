@@ -9,13 +9,13 @@
 @section('content')
     {{-- Elements --}}
     <img src="{{ asset('assets/Coral_2.png') }}" alt="Coral"
-        class="absolute sm:top-[80vh] top-[50vh] md:top-[110vh] xl:top-[120vh] sm:right-[-10vw] right-[-25vw] rotate-[-30deg] sm:w-1/3 w-9/12">
+        class="absolute sm:top-[80vh] top-[50vh] md:top-[110vh] xl:top-[120vh] sm:right-[-10vw] right-[-15vw] rotate-[-30deg] sm:w-1/3 w-1/2">
     <img src="{{ asset('assets/Coral_1.png') }}" alt="Coral"
-        class="absolute top-[200vh] sm:left-[-10vw] left-[-25vw] rotate-[30deg] sm:w-1/3 w-9/12">
+        class="absolute top-[200vh] sm:left-[-10vw] left-[-15vw] rotate-[30deg] sm:w-1/3 w-1/2">
     <img src="{{ asset('assets/Flower_2.png') }}" alt="Flower"
-        class="absolute top-[350vh] sm:right-[-10vw] right-[-25vw] rotate-[-30deg] sm:w-1/3 w-9/12">
+        class="absolute top-[350vh] max-sm:top-[250vh] sm:right-[-10vw] right-[-15vw] rotate-[-30deg] sm:w-1/3 w-1/2">
     <img src="{{ asset('assets/Flower_3.png') }}" alt="Flower"
-        class="absolute hidden lg:block top-[450vh] sm:left-[-10vw] left-[-25vw] rotate-[30deg] sm:w-1/3 w-9/12">
+        class="absolute hidden lg:block top-[450vh] sm:left-[-10vw] left-[-15vw] rotate-[30deg] sm:w-1/3 w-1/2">
 
     {{-- Maskot --}}
     {{-- <img src="{{ asset('assets/CORALIS POSE 1.png') }}" alt="Coralis"
