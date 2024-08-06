@@ -21,8 +21,8 @@ body {
 
 .pin-spacer {
     margin: 0 !important;
-    padding-top: 100px !important;
-    margin-bottom: 200px !important;
+    padding-top: 50px !important;
+    margin-bottom: 100px !important;
 }
 
 .content {
@@ -60,15 +60,3 @@ body {
         opacity: 0;
     }
 }
-
-/* @media screen and (max-width: 1280px ) {
-    .pin-spacer {
-        padding-top: 0 !important;
-    }
-}
-
-@media screen and (max-width: 960px ) {
-    .pin-spacer {
-        padding-top: 50px !important;
-    }
-} */
