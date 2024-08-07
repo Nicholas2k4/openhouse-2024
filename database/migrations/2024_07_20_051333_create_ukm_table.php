@@ -18,6 +18,9 @@ return new class extends Migration
             $table->integer('current_slot');
             $table->integer('max_slot');
             $table->integer('regist_fee');
+            $table->text('description')->nullable();
+            $table->string('logo_url')->nullable();
+            $table->string('poster_url')->nullable();
         });
     }
 
