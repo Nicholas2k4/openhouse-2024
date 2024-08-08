@@ -12,6 +12,9 @@
     <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
+    <!-- SWEET ALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/hamburger.css') }}">
 
@@ -20,6 +23,7 @@
 </head>
 
 <body>
+    @include('admin.includes.alerts')
     @include('admin.includes.navigation')
     <div class="lg:ms-64 h-screen">
         @yield('content')

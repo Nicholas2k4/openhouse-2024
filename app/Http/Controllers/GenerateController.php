@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\detail_games;
+use App\Models\Detail_games;
 
 class GenerateController extends Controller
 {
@@ -23,11 +23,17 @@ class GenerateController extends Controller
                 'nrp' => ['required', 'min:9', 'max:9']
             ]);
         } catch (\Exception $e) {
-            return redirect('admin.generate')->with("error", "NRP format is not valid");
+            return redirect()->route('admin.generate')->with(['error' => 'NRP format is not valid']);
         }
 
         // get NRP maba
-        $nrp = request('nrp');
+        $nrp = $request->nrp;
+
+        // cek apakah admin booth ukm sudah generate untuk maba
+        // contoh : admin booth ukm basket sudah generate untuk maba C14220004 atau belum, jika sudah maka tidak boleh memberikan letter lagi
+        if (Detail_games::whereRaw('LOWER(nrp) = ?', strtolower($nrp))->where('ukm_id', session()->get('ukm_id'))->exists()) {
+            return redirect()->route('admin.generate')->with(['error' => 'This participant already has a letter from this UKM admin']);
+        }
 
         // variable untuk simpan letter, awal null dulu
         $letter = null;
@@ -36,7 +42,7 @@ class GenerateController extends Controller
         $random_index = rand(0, count($letters) - 1);
 
         // loop pencarian apakah maba sudah punya letter nya atau belum, kalau sudah punya akan dirandom lagi
-        while (detail_games::whereRaw('LOWER(nrp) = ?', strtolower($nrp))->where('letter_index', $random_index)->exists()) {
+        while (Detail_games::whereRaw('LOWER(nrp) = ?', strtolower($nrp))->where('letter_index', $random_index)->exists()) {
             $random_index = rand(0, count($letters) - 1);
             $letter = $letters[$random_index];
         }
@@ -46,12 +52,13 @@ class GenerateController extends Controller
             $letter = $letters[$random_index];
         }
 
-        detail_games::create([
+        Detail_games::create([
+            'ukm_id' => session()->get('ukm_id'),
             'nrp' => $nrp,
             'letter' => $letter,
             'letter_index' => $random_index
         ]);
 
-        return redirect('admin.generate')->with("success", "Letter has been generated to " . $nrp);
+        return redirect()->route('admin.generate')->with(['success' => 'Letter has been generated to ' . $nrp]);
     }
 }
