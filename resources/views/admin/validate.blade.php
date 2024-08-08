@@ -36,26 +36,23 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="self-center ms-4" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
         </svg>
-        <input type="search" name="" id="" class="ms-1 border-2 border-gray-200 rounded p-0.5" placeholder="NRP">
+        <input type="search" name="" id="searchReg" class="ms-1 border-2 border-gray-200 rounded p-0.5" placeholder="NRP">
     </div>
-    <div class="overflow-auto rounded-lg bg-white drop-shadow-lg">
+    <div id="regTable" class="overflow-auto rounded-lg bg-white drop-shadow-lg">
         <table class="w-full">
             <thead class="bg-gray-200 border-b-2 border-gray-200">
                 <tr class="text-left text-nowrap">
                     <th class="p-3 text-md font-bold tracking-wide border-e-2 border-gray-200">NRP & Nama</th>
                     <th class="p-3 text-md font-bold tracking-wide border-e-2 border-gray-200">UKM</th>
-                    <th class="p-3 text-md font-bold tracking-wide border-e-2 border-gray-200">File Seleksi</th>
-                    <th class="p-3 text-md font-bold tracking-wide border-e-2 border-gray-200">Status Seleksi</th>
-                    <th class="p-3 text-md font-bold tracking-wide border-e-2 border-gray-200">Bukti Transfer</th>
+                    <th class="p-3 text-md font-bold tracking-wide border-e-2 border-gray-200">File</th>
                     <th class="p-3 text-md font-bold tracking-wide border-e-2 border-gray-200">Code Transfer</th>
-                    <th class="p-3 text-md font-bold tracking-wide border-e-2 border-gray-200">Status Transfer</th>
-                    <th class="p-3 text-md font-bold tracking-wide"></th>
+                    <th class="p-3 text-md font-bold tracking-wide border-e-2 border-gray-200">Status Seleksi</th>
+                    <th class="p-3 text-md font-bold tracking-wide border-e-2 border-gray-200">Status Payment</th>
+                    <th class="p-3 text-md font-bold tracking-wide border-e-2 border-gray-200"></th>
                 </tr>
             </thead>
-            <tbody>
-                @include('admin.includes.dataRow')
-                @include('admin.includes.dataRow')
-                @include('admin.includes.dataRow')
+            <tbody id="result">
+
             </tbody>
         </table>
     </div>

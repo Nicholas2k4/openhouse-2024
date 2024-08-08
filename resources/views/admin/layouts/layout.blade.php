@@ -20,6 +20,7 @@
 
     <!-- JS -->
     <script src="{{ asset('js/toggleNav.js') }}"></script>
+    <script src="{{ asset('js/validateAjax.js') }}"></script>
 </head>
 
 <body>
