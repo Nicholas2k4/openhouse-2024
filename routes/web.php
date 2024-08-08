@@ -22,20 +22,44 @@ Route::group(['as' => 'user.'], function () {
         ]);
     })->name('home');
 
+    // Route::get('/dummy', [PendaftaranController::class, 'dummy'])->name('dummy');
     Route::get('/auth', [AuthController::class, 'googleAuth'])->name('auth');
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::get('/processLogin', [AuthController::class, 'processLogin'])->name('login.process');
+    Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
+    Route::get('/pendaftaran', [PendaftaranController::class, 'redirect'])->name('pendaftaran.redirect');
+    Route::post('/pembayaran', [PendaftaranController::class, 'payment'])->name('pendaftaran.payment');
+    
+    
 });
 
-Route::get('user/pendaftaran', function () {
-    return view('/user/pendaftaran');
+// Route::group(['as' => 'admin.'], function () {
+//     Route::get('/', function () {
+//         return view('admin.login', [
+//             'title' => 'Login'
+//         ]);
+//     })->name('login');
+
+//     Route::get('/auth', [AuthController::class, 'googleAuth'])->name('auth');
+//     Route::get('/login', [AuthController::class, 'login'])->name('login');
+//     Route::get('/processLogin', [AuthController::class, 'processLogin'])->name('login.process');
+// });
+
+Route::get('dummy', function () {
+    return view('/user/dumy');
 });
 
-Route::post('user/pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');;
-
-Route::get('user/pembayaran', function () {
-    return view('/user/pembayaran');
+Route::get('wait', function () {
+    return view('/user/wait');
 });
+
+Route::get('admin/login', function () {
+    return view('/admin/login');
+});
+
+// Route::get('user/pembayaran', function () {
+//     return view('/user/pembayaran');
+// });
 
 //Temporary routes buat liat hasil codingan
 Route::get('/validate', function () {

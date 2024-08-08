@@ -30,6 +30,7 @@ class AuthController extends Controller
             session(['nrp' => $nrp]);
             session(['name' => $name]);
 
+
             return redirect()->route('user.home');
         }
     }

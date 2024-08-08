@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ukm extends Model
 {
+    use HasUuids;
+
     protected $table = 'ukm';
 
     protected $fillable= [
@@ -18,6 +20,6 @@ class Ukm extends Model
         'regist_fee',
     ];
 
-    use HasFactory, HasUuids;
+    public $timestamps = false;
 
 }
