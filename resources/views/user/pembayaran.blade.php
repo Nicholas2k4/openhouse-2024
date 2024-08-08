@@ -70,6 +70,35 @@
       </form>
 
     </div>
+    @if(session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: '{{ session('success') }}',
+            confirmButtonText: 'Tutup'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '{{ route("user.home") }}';
+            }
+        });
+    </script>
+@endif
+
+@if(session('error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal',
+            text: '{{ session('error') }}',
+            confirmButtonText: 'Tutup'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '{{ route("user.home") }}';
+            }
+        });
+    </script>
+@endif
 
     
 </body>

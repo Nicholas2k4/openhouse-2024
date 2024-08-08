@@ -10,10 +10,45 @@ use Illuminate\Support\Str;
 
 class PendaftaranController extends Controller
 {
-    public function payment(){
-        
+    public function payment(Request $request)
+    {
+        // Validate the incoming request
+        $request->validate([
+            'ukm_id' => 'required',
+            'payment' => 'required|file|mimes:jpeg,png,jpg,pdf|max:2048', // Adjust file types and size limit as needed
+        ]);
+
+        $nrp = session('nrp');
+        $ukm_id = $request->ukm_id;
+
+        // Find the user and their registration details
+        $user = User::where('nrp', $nrp)->first();
+        $detail_registration = DetailRegistration::where('user_id', $user->id)
+                                                 ->where('ukm_id', $ukm_id)
+                                                 ->first();
+
+        if ($detail_registration) {
+            // Check if a file was uploaded
+            if ($request->hasFile('payment')) {
+                // Store the file and get its path
+                $file = $request->file('payment');
+                $file_path = $file->store('uploads', 'public'); // Store the file in /storage/app/public/uploads
+
+                // Update the detail_registration record with the file path
+                $detail_registration->update([
+                    'payment' => $file_path,
+                ]);
+
+                return back()->with('success', 'Pembayaran berhasil diunggah');
+            } else {
+                return back()->with('error', 'File pembayaran tidak ditemukan');
+            }
+        } else {
+            return back()->with('error', 'Pendaftaran tidak ditemukan');
+        }
     }
 
+    //dummy cuma buat test
     public function dummy(){
         return view ('user.dummy');
     }
@@ -28,7 +63,11 @@ class PendaftaranController extends Controller
         $ukm = Ukm::where('slug', $ukm_slug)->first();
         $ukm_id = $ukm->id;
         $user = User::where('nrp', $nrp)->first();
-        $detail_registration = DetailRegistration::where('user_id', $user->id)->where('ukm_id', $ukm->id)->first();
+        if ($user){
+            $detail_registration = DetailRegistration::where('user_id', $user->id)->where('ukm_id', $ukm->id)->first();
+        } else {
+            $detail_registration = null;
+        }
 
         if (!$detail_registration){ //kalau belum ada record
             return view('user.pendaftaran', compact('name', 'nrp','email', 'ukm_id')); 
@@ -84,6 +123,11 @@ class PendaftaranController extends Controller
             // update ukm slot
             $ukm->update(['current_slot' => $current_slot]);
 
+            if ($ukm->slug == 'vg' || $ukm->slug == 'ilustrasi'){
+                $file_validated = 0;
+            } else {
+                $file_validated = 1;
+            }
             // Simpan data ke tabel detail_registration
             DetailRegistration::create([
                 'user_id' => $user->id,
@@ -91,20 +135,24 @@ class PendaftaranController extends Controller
                 'payment' => null,
                 'code' => Str::random(4), // Menghasilkan string acak 4 karakter,
                 'drive_url' => $request->drive_url,
-                'file_validated' => 0,
+                'file_validated' => $file_validated,
                 'payment_validated' => 0,
             ]);
 
             return back()->with('success', 'Pendaftaran berhasil');
         } else {
             User::create([
-                'id' => (string)Str::uuid(),
                 'name' => $request->name,
                 'nrp' => $request->nrp,
                 'line_id' => $request->line_id,
                 'phone' => $request->phone,
             ]);
 
+            if ($ukm->slug == 'vg' || $ukm->slug == 'ilustrasi'){
+                $file_validated = 0;
+            } else {
+                $file_validated = 1;
+            }
             $user = User::where('nrp', $request->nrp)->first();
             DetailRegistration::create([
                 'user_id' => $user->id,
@@ -112,7 +160,7 @@ class PendaftaranController extends Controller
                 'payment' => null,
                 'code' => Str::random(4), // Menghasilkan string acak 4 karakter,
                 'drive_url' => $request->drive_url,
-                'file_validated' => 0,
+                'file_validated' => $file_validated,
                 'payment_validated' => 0,
             ]);
 
