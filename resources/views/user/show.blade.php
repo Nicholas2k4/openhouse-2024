@@ -83,7 +83,7 @@
     <nav class=" h-[64px] fixed z-[100] w-full backdrop-blur-sm bg-white/15">
         <div class="px-[30px] md:px-[50px] xl:px-[100px] mx-auto flex justify-between items-center h-[100%]">
             <div class="text-2xl text-white">
-                <i class="cursor-pointer fa-solid fa-chevron-left"></i>
+                <a class="cursor-pointer fa-solid fa-chevron-left" href="{{ url()->previous() }}"></a>
             </div>
 
             <div class="hidden sm:flex justify-between gap-10">

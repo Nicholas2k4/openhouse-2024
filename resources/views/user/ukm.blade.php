@@ -40,7 +40,7 @@
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
 
-    @vite('resources/css/app.css')
+    {{-- @vite('resources/css/app.css') --}}
 
 </head>
 
@@ -141,7 +141,7 @@
                         </div>
                         <!--Button-->
                         <div class = "group button-animate">
-                            <form action="user/ukm/{{$ukm->id}}" method="GET">
+                            <form action="{{ route('user.ukm.id', ['id' => $ukm->id]) }}" method="GET">
                             <button
                                 type = "submit" class = "px-[70px] bg-white rounded-full py-2 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset" value = {{$ukm->id}}>
                                 <span class = "text-black group-hover:text-[#30518A]">Details</span>
