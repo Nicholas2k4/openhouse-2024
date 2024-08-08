@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GenerateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ Route::get('/', function () {
 
 Route::get('/validate', [AdminController::class, 'validatePage'])->name('admin.validate');
 Route::get('/generate', [AdminController::class, 'generatePage'])->name('admin.generate');
+
+Route::post('/giveLetter', [GenerateController::class, 'giveLetter'])->name('admin.giveLetter');
