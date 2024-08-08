@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Ukm;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UKMController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user/ukm');
+});
+
+Route::get('/user/ukm', function () {
+    $ukms = Ukm::all();
+    return view('user/ukm', ['ukms' => $ukms]);
+});
+
+Route::get('/user/lk', function () {
+    $ukms = Ukm::all();
+    return view('user/lk', ['ukms' => $ukms]);
+});
+
+Route::get('user/ukm/{id}', [UKMController::class, 'show']);
+
+Route::get('user/lk/{id}', [UKMController::class, 'show']);
+
+Route::get('/desc', function () {
+    return view('user/desc');
 });
