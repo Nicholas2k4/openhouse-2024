@@ -20,6 +20,10 @@
             @if($ukm->logo_url != null)
                 <img src="{{ asset($ukm->logo_url) }}" alt="" class="w-60">
             @endif
+            <br>
+            @if($ukm->poster_url != null)
+                <img src="{{ asset($ukm->poster_url) }}" alt="" class="w-60">
+            @endif
             <br><br><br>
         @endforeach
     </div>
