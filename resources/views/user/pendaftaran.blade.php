@@ -90,7 +90,7 @@
         </script>
     @endif
 
-    @if(session('success'))
+    @if(session('info'))
         <script>
             Swal.fire({
                 icon: 'success',

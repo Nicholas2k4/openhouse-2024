@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('detail_registrations', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('user_id');
+            $table->string('nrp');
             $table->uuid('ukm_id');
             $table->string('payment')->nullable();
             $table->string('code');
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->timestamps();
 
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('nrp')->references('nrp')->on('users')->onDelete('cascade');
             $table->foreign('ukm_id')->references('id')->on('ukm')->onDelete('cascade');
         });
     }

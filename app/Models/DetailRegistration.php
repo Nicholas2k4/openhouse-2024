@@ -25,7 +25,7 @@ class DetailRegistration extends Model
 
     // Fillable fields
     protected $fillable = [
-        'user_id',
+        'nrp',
         'ukm_id',
         'payment',
         'code',

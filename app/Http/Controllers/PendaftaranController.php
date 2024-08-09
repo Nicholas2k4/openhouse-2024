@@ -23,7 +23,7 @@ class PendaftaranController extends Controller
 
         // Find the user and their registration details
         $user = User::where('nrp', $nrp)->first();
-        $detail_registration = DetailRegistration::where('user_id', $user->id)
+        $detail_registration = DetailRegistration::where('nrp', $user->nrp)
                                                  ->where('ukm_id', $ukm_id)
                                                  ->first();
 
@@ -58,13 +58,30 @@ class PendaftaranController extends Controller
         $nrp = session('nrp');
         $email = session('email');
 
-        // logic redirect audisi / pembayaran & slot
+        if(!$name || !$nrp || !$email){
+            return view ('user.login');
+        }
+
+        $list_lk = ['bem', 'tps', 'mpm', 'bpmf', 'persma', 'pelma'];
+        if(in_array($request->query('ukm'), $list_lk)){
+            return redirect()->route('user.home');
+        }
+
+        // restriction 3 ukm
         $ukm_slug = $request->query('ukm');
+        $count = DetailRegistration::where('nrp', $nrp)->count();
+        $ukm = Ukm::where('slug', $ukm_slug)->first();
+        $detail_registration = DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm->id)->first();
+        if ($count >= 3 && !$detail_registration){
+            return redirect()->route('user.home');
+        }
+
+        // logic redirect audisi / pembayaran & slot
         $ukm = Ukm::where('slug', $ukm_slug)->first();
         $ukm_id = $ukm->id;
         $user = User::where('nrp', $nrp)->first();
         if ($user){
-            $detail_registration = DetailRegistration::where('user_id', $user->id)->where('ukm_id', $ukm->id)->first();
+            $detail_registration = DetailRegistration::where('nrp', $user->nrp)->where('ukm_id', $ukm->id)->first();
         } else {
             $detail_registration = null;
         }
@@ -130,7 +147,7 @@ class PendaftaranController extends Controller
             }
             // Simpan data ke tabel detail_registration
             DetailRegistration::create([
-                'user_id' => $user->id,
+                'nrp' => $user->nrp,
                 'ukm_id' => $ukm->id,
                 'payment' => null,
                 'code' => Str::random(4), // Menghasilkan string acak 4 karakter,
@@ -139,7 +156,7 @@ class PendaftaranController extends Controller
                 'payment_validated' => 0,
             ]);
 
-            return back()->with('success', 'Pendaftaran berhasil');
+            return back()->with('info', 'Pendaftaran berhasil');
         } else {
             User::create([
                 'name' => $request->name,
@@ -155,7 +172,7 @@ class PendaftaranController extends Controller
             }
             $user = User::where('nrp', $request->nrp)->first();
             DetailRegistration::create([
-                'user_id' => $user->id,
+                'nrp' => $user->nrp,
                 'ukm_id' => $ukm->id,
                 'payment' => null,
                 'code' => Str::random(4), // Menghasilkan string acak 4 karakter,
@@ -165,7 +182,7 @@ class PendaftaranController extends Controller
             ]);
 
             $ukm->update(['current_slot' => $current_slot]);
-            return back()->with('success', 'Pendaftaran berhasil');
+            return back()->with('info', 'Pendaftaran berhasil');
         }
     }
 }
