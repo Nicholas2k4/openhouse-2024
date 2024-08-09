@@ -1,9 +1,12 @@
 $(document).ready(function () {
-    function fetch_data(query = '') {
+    function fetch_data(query = '', filter = '') {
         $.ajax({
-            url: "liveSearch",
+            url: "filterSearch",
             method: "GET",
-            data: {query: query},
+            data: {
+                query: query,
+                filter: filter
+            },
             dataType: 'json',
             success: function (data) {
                 $('#result').html(data.registrations);
@@ -14,10 +17,19 @@ $(document).ready(function () {
         })
     }
 
+    // Search
     $(document).on('keyup', '#searchReg', function () {
         var query = $('#searchReg').val();
-        fetch_data(query);
+        var filter = $('#regFilter').val();
+        fetch_data(query, filter);
     })
+
+    // Filter
+    $(document).on('change', '#regFilter', function () {
+        var query = $('#searchReg').val();
+        var filter = $('#regFilter').val();
+        fetch_data(query, filter);
+    });
 
     fetch_data();
 });

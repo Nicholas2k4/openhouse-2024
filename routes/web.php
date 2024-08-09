@@ -23,5 +23,5 @@ Route::get('/', function () {
 Route::get('/validate', [AdminController::class, 'validatePage'])->name('admin.validate');
 Route::get('/generate', [AdminController::class, 'generatePage'])->name('admin.generate');
 
-Route::get('/liveSearch', [ValidateController::class, 'liveSearch'])->name('liveSearch');
+Route::get('/filterSearch', [ValidateController::class, 'filterSearch'])->name('filterSearch');
 Route::post('/giveLetter', [GenerateController::class, 'giveLetter'])->name('admin.giveLetter');

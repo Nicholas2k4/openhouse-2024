@@ -10,14 +10,18 @@ use Illuminate\Foundation\Auth\User;
 
 class ValidateController extends Controller
 {
-    public function liveSearch(Request $request)
+    public function filterSearch(Request $request)
     {
         $output = '';
         if ($request->ajax()) {
             $query = $request->get('query');
+            $filter = $request->get('filter');
 
-            if ($query != '') {
-                $data = Detail_registrations::where('nrp', 'like', '%' . $query . '%')->get();
+            $ukm = Ukms::where('slug', $filter)->first();
+            if ($query != '' && $ukm) {
+                $data = Detail_registrations::where('nrp', 'like', '%' . $query . '%')->where('ukm_id', $ukm->id)->get();
+            } else if ($query == '' && $ukm) {
+                $data = Detail_registrations::where('ukm_id', $ukm->id)->get();
             } else {
                 $data = Detail_registrations::all();
             }
@@ -31,16 +35,12 @@ class ValidateController extends Controller
                         </td>
                         <td class="p-3 border-e-2 border-gray-200">' . Ukms::where('id', $row->ukm_id)->first()->name . '</td>
                         <td class="p-3 border-e-2 border-gray-200 text-center">
-                            <a href="' . $row->drive_url . '">
-                                <button class="p-1.5 text-sm bg-sky-500 hover:bg-sky-600 transition text-white text-nowrap rounded">
-                                    File Seleksi
-                                </button>
-                            </a>
-                            <a href="">
-                                <button class="p-1.5 text-sm bg-sky-500 hover:bg-sky-600 transition text-white text-nowrap rounded">
-                                    File Payment
-                                </button>
-                            </a>
+                            <button class="p-1.5 text-sm bg-sky-500 hover:bg-sky-600 transition text-white text-nowrap rounded" onclick="window.open(\'' . $row->drive_url . '\', \'_blank\')">
+                                File Seleksi
+                            </button>
+                            <button class="p-1.5 text-sm bg-sky-500 hover:bg-sky-600 transition text-white text-nowrap rounded">
+                                File Payment
+                            </button>
                         </td>
                         <td class="p-3 border-e-2 border-gray-200">' . $row->code . '</td>
                         <td class="p-3 border-e-2 border-gray-200 font-bold text-green-500">' . ($row->file_validated == 1 ? 'Yes' : 'No') . '</td>
