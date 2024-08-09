@@ -42,13 +42,15 @@ Route::get('wait', function () {
     return view('/user/wait');
 });
 
+Route::get('/logout', [AuthController::class, 'logout'])->name('admin.logout');
+
 Route::get('/admin/login', function () {
     return view('/admin/login');
 })->name('admin.login');
 
 Route::get('/admin/participant', function () {
     return view('/admin/participant');
-})->name('admin.participant');
+})->name('admin.showParticipants');
 
 //Temporary routes buat liat hasil codingan
 Route::get('/validate', function () {
@@ -59,3 +61,5 @@ Route::get('/validate', function () {
 Route::get('/generate', function () {
     return view('admin.generate');
 })->name('admin.generate');;
+
+Route::get('/admin/get-users-by-activity', [AdminController::class, 'getUsersByActivity'])->name('admin.getUsersByActivity');

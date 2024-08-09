@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
@@ -45,6 +46,10 @@ class AuthController extends Controller
                     $ukm_id = $admin->ukm_id;
                     $field = $admin->field;
                     $division_id = $admin->division_id;
+
+                    $results = DB::table('users as u')->join('detail_registrations as dr', 'u.nrp', '=', 'dr.nrp')
+                            ->join('ukm', 'dr.ukm_id', '=', 'ukm.id' )->where('ukm.slug', '=', 'vg')
+                            ->select('u.name', 'u.nrp', 'u.line_id', 'u.phone')->get();
                     return redirect()->route('admin.showParticipants')
                     ->with([
                         'ukm_id' => $ukm_id,
