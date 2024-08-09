@@ -42,7 +42,10 @@
         <br>
         <h2 class="font-semibold text-xl text-center text-slate-50 leading-7">Silakan cek halaman ini <br>secara berkala untuk melanjutkan <br>ke pembayaran</h2>
         <img src="/assets/VERDARA POSE 1.png" alt="" class="image">
-        
+        @if($ukm_slug == 'vg')
+        <h2 class="font-semibold text-xl text-center text-slate-50 leading-7">Bagi UKM Vocal Group: harap mengisi jadwal wawancara di link berikut</h2>
+        <h2 class="font-semibold text-xl text-center text-slate-50 leading-7">ini link google sheet</h2>
+        @endif
         <a href="{{ route('user.home') }}" class="button">
             <button class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Kembali ke halaman utama</button>
         </a>

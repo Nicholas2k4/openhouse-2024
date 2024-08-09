@@ -6,9 +6,9 @@
 </head>
 <body>
     <form action="{{ route('user.pendaftaran.redirect') }}" method="get">
-        <button type="submit" name="ukm" value="dance">Klik Saya</button>
-        <button type="submit" name="ukm" value="catur">Klik Sayas</button>
-        <button type="submit" name="ukm" value="ilustrasi">Klik Sayass</button>
+        <button type="submit" name="ukm" value="vg">Tes VG</button>
+        <button type="submit" name="ukm" value="catur">TES CATUR</button>
+        <button type="submit" name="ukm" value="ilustrasi">ilustrasi</button>
     </form>
 </body>
 </html>

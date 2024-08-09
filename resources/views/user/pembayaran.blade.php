@@ -33,11 +33,14 @@
 </head>
 <body class="bg-gray-100 flex justify-center items-center min-h-screen px-4 sm:px-6">
     <div class="bg-black bg-opacity-50 rounded-lg p-6 shadow-lg max-w-3xl w-full mt-8 mb-8 backdrop-blur">
+    @if($status_pembayaran == 0 && !$url)
+    {{-- belum bayar & belum disetujui --}}
     <form method="POST" action={{ route('user.pendaftaran.payment') }} enctype="multipart/form-data">
       @csrf
         <div class="space-y-12">
           <div class="border-b border-gray-900/10 pb-12">
             <h2 class="text-base text-slate-50 leading-7 pb-6">Pembayaran UKM</h2>
+            <h2 class="text-base text-slate-50 text-center leading-7 pb-2">Nominal: Rp. {{$price}}</h2>
             <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Kode Unik Anda:</h1>
             <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">{{$code}}</h1>
 
@@ -68,7 +71,25 @@
 
         
       </form>
-
+      @elseif($status_pembayaran == 1)
+      <!-- Pesan pembayaran disetujui -->
+      <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Selamat!</h1>
+      <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Pembayaran disetujui. <br>Anda telah diterima di {{$ukm_name}}.</h1>
+      <div class="flex justify-center mt-6">
+        <a href="{{ route('user.home') }}">
+            <button type="button" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Kembali ke home</button>
+        </a>
+      </div>
+      @elseif($url)
+        <!-- Pesan pembayaran sedang direview -->
+        <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Pembayaran sedang di review</h1>
+      <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Cek halaman ini secara berkala untuk melihat status pembayaran</h1>
+      <div class="flex justify-center mt-6">
+        <a href="{{ route('user.home') }}">
+            <button type="button" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Kembali ke home</button>
+        </a>
+      </div>
+      @endif
     </div>
     @if(session('success'))
     <script>

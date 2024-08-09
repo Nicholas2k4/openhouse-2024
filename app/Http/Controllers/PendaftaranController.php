@@ -87,18 +87,26 @@ class PendaftaranController extends Controller
         }
 
         if (!$detail_registration){ //kalau belum ada record
-            return view('user.pendaftaran', compact('name', 'nrp','email', 'ukm_id')); 
+            return view('user.pendaftaran', compact('name', 'nrp','email', 'ukm_id', 'ukm_slug')); 
         } else { //udah memasukan data diri
             if ($ukm_slug == 'vg' || $ukm_slug == 'ilustrasi'){
                 if ($detail_registration->file_validated == 0){ //vg / ilus & belum diterima
                     return view('user.wait', compact('name', 'nrp','email', 'ukm_slug'));
                 } else { // vg / ilus & sudah diterima
                     $code = $detail_registration->code;
-                    return view('user.pembayaran', compact('name', 'nrp','email','code', 'ukm_id'));
+                    $status_pembayaran = $detail_registration->payment_validated;
+                    $url = $detail_registration->payment;
+                    $ukm_name = $ukm->name;
+                    $price = $ukm->regist_fee;
+                    return view('user.pembayaran', compact('name', 'nrp','email','code', 'ukm_id', 'status_pembayaran', 'url', 'ukm_name', 'price'));
                 }
             } else { //udah memasukan data diri & bukan dari vg / ilus
                 $code = $detail_registration->code;
-                return view('user.pembayaran', compact('name', 'nrp','email','code', 'ukm_id'));
+                $status_pembayaran = $detail_registration->payment_validated;
+                $url = $detail_registration->payment;
+                $ukm_name = $ukm->name;
+                $price = $ukm->regist_fee;
+                return view('user.pembayaran', compact('name', 'nrp','email','code', 'ukm_id','status_pembayaran', 'url', 'ukm_name', 'price'));
             }
         }
 
