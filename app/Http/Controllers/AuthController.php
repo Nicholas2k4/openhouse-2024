@@ -45,7 +45,7 @@ class AuthController extends Controller
                     $ukm_id = $admin->ukm_id;
                     $field = $admin->field;
                     $division_id = $admin->division_id;
-                    return redirect()->route('admin.participant')
+                    return redirect()->route('admin.showParticipants')
                     ->with([
                         'ukm_id' => $ukm_id,
                         'field' => $field,

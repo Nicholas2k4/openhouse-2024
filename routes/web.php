@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PendaftaranController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +49,6 @@ Route::get('/admin/login', function () {
 Route::get('/admin/participant', function () {
     return view('/admin/participant');
 })->name('admin.participant');
-
-Route::get('/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
 //Temporary routes buat liat hasil codingan
 Route::get('/validate', function () {

@@ -114,7 +114,7 @@
                 <div>
                     <p>Admin</p>
                     <div class="flex">
-                        <p class="me-1">C14220004</p>
+                        <p class="me-1">{{session('nrp')}}</p>
                         <span class="relative flex h-2 w-2">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -137,7 +137,7 @@
         <img src="{{ asset('assets/Logo FLAT.png') }}" alt="OpenHouse Flat Logo" class="w-24 ms-6 drop-shadow-lg">
     </div>
     <div class="ms-4 my-auto text-center my-4 w-min flex">
-        <p class="font-bold me-1">C14220004</p>
+        <p class="font-bold me-1">{{session('nrp')}}</p>
         <span class="relative flex h-2 w-2">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
