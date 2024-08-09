@@ -102,7 +102,7 @@
             class="font-bold sm:text-8xl text-6xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
             Open House 2024</h1>
         <div class="login-button flex flex-col justify-center mx-auto">
-            <a href="{{ route('user.auth') }}"><img src="{{ asset('assets/Google.png') }}" class="google-logo"> <span
+            <a href="{{ route('user.auth', ['type' => 'user']) }}"><img src="{{ asset('assets/Google.png') }}" class="google-logo"> <span
                     class="span1">Sign In with PCU Email</span></button>
         </div>
 
