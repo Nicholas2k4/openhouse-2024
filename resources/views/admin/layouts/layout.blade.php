@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OH Admin | {{ $tabTitle }}</title>
 
+    <!-- CSRF TOKEN -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- TAILWIND -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -20,7 +23,7 @@
 
     <!-- JS -->
     <script src="{{ asset('js/toggleNav.js') }}"></script>
-    <script src="{{ asset('js/validateAjax.js') }}"></script>
+    <script src="{{ asset('js/validateScript.js') }}"></script>
 </head>
 
 <body>

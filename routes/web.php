@@ -24,4 +24,6 @@ Route::get('/validate', [AdminController::class, 'validatePage'])->name('admin.v
 Route::get('/generate', [AdminController::class, 'generatePage'])->name('admin.generate');
 
 Route::get('/filterSearch', [ValidateController::class, 'filterSearch'])->name('filterSearch');
+Route::post('/selectionValidate', [ValidateController::class, 'selectionValidate'])->name('selectionValidate');
+Route::post('/paymentValidate', [ValidateController::class, 'paymentValidate'])->name('paymentValidate');
 Route::post('/giveLetter', [GenerateController::class, 'giveLetter'])->name('admin.giveLetter');
