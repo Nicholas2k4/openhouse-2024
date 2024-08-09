@@ -34,7 +34,7 @@
                             let row = `<tr>
                                 <td class="py-2 px-4 border-b border-gray-200 text-sm">${index + 1}</td>
                                 <td class="py-2 px-4 border-b border-gray-200 text-sm">${user.nrp}</td>
-                                <td class="py-2 px-4 border-b border-gray-200 text-sm">${user.nama}</td>
+                                <td class="py-2 px-4 border-b border-gray-200 text-sm">${user.name}</td>
                                 <td class="py-2 px-4 border-b border-gray-200 text-sm">${user.line_id}</td>
                                 <td class="py-2 px-4 border-b border-gray-200 text-sm">${user.phone}</td>
                             </tr>`;
@@ -48,6 +48,13 @@
 </head>
 
 <body>
+    {{-- jangan lupa buat lempar ke login kalau belum login --}}
+    {{-- @if(!session('nrp'))
+    <script>
+        window.location = "{{ route('admin.login') }}";
+    </script>
+@endif --}}
+
     <!-- Navigation Includes -->
     @include('admin.includes.navigation')
 

@@ -55,7 +55,7 @@ Route::get('/admin/participant', function () {
 //Temporary routes buat liat hasil codingan
 Route::get('/validate', function () {
     return view('admin.validate');
-});
+})->name('admin.validate');
 
 //Temporary routes buat liat hasil codingan
 Route::get('/generate', function () {
