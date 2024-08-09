@@ -22,6 +22,8 @@ class ValidateController extends Controller
                 $data = Detail_registrations::where('nrp', 'like', '%' . $query . '%')->where('ukm_id', $ukm->id)->get();
             } else if ($query == '' && $ukm) {
                 $data = Detail_registrations::where('ukm_id', $ukm->id)->get();
+            } else if ($query != '' && !$ukm) {
+                $data = Detail_registrations::where('nrp', 'like', '%' . $query . '%')->get();
             } else {
                 $data = Detail_registrations::all();
             }
