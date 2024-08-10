@@ -11,13 +11,71 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        .button-animate {}
 
-        .slide-in-from-left {}
+@keyframes rotateLeftRight2 {
+    0% {
+      transform: rotate(-58deg);
+    }
+    50% {
+      transform: rotate(-50deg);
+    }
+    100% {
+      transform: rotate(-58deg);
+    }
+  }
 
-        .slide-in-from-right {}
+  @keyframes rotateLeftRight1 {
+    0% {
+      transform: rotate(58deg);
+    }
+    50% {
+      transform: rotate(50deg);
+    }
+    100% {
+      transform: rotate(58deg);
+    }
+  }
 
-        .slide-in-from-bottom {}
+  /* Apply the animation to the images */
+  .rotate-animation-2 {
+    animation: rotateLeftRight2 3s infinite alternate;
+  }
+
+  .rotate-animation-1 {
+    animation: rotateLeftRight1 3s infinite alternate;
+  }
+
+.reveal{
+            position: relative;
+            transform: translateY(50px);
+            opacity:0;
+            transition: all 1s ease;
+        }
+
+        .reveal.active{
+            opacity:1;
+            transform: translateY(0px);
+
+        }
+
+        .glow-text {
+            text-shadow:
+                0 0 5px #57C7D4,
+                0 0 10px #57C7D4;
+
+            animation: glow 5s infinite;
+        }
+
+        @keyframes glow {
+            100% {
+                text-shadow:
+                    0 0 5px #57C7D4,
+                    0 0 10px #57C7D4,
+                    0 0 20px #57C7D4,
+                    0 0 30px #57C7D4
+            }
+        }
+
 
 
         .animation-blob {
@@ -39,14 +97,13 @@
         }
     </style>
 
-    {{-- @vite('resources/css/app.css') --}}
+    @vite('resources/css/app.css')
 
 </head>
 
 <body>
 
-    <div
-        class = "fixed h-screen w-full bg-gradient-to-t from-[#4476CB] to-[#57C7D4] from-20% overflow-hidden">
+    <div class = "fixed h-screen w-full bg-gradient-to-t from-[#4476CB] to-[#57C7D4] from-20% overflow-hidden">
     </div>
     <div
         class="fixed top-[-800px] left-[-500px] w-[1200px] h-[1200px] rounded-full blur-[500px] bg-[#4476CB] animation-blob">
@@ -56,34 +113,28 @@
     </div>
     <!--Header-->
     <nav
-        class="bg-[white]/10 z-20 backdrop-blur-md fixed top-0 left-0 w-[100%] flex justify-between px-10 py-4 items-center h-[64px]">
+        class="relative top-0 left-0 w-[100%] flex justify-between px-10 py-4 items-center h-[64px]">
         <div class="text-2xl text-white">
             <i class="cursor-pointer fa-solid fa-chevron-left"></i>
         </div>
-        <div class = "group z-10 button-animate">
-            <a href=""
-                class="backdrop-blur-sm bg-white/10 border-[1px] border-[#30518A] space-x-1 pl-3 pr-10 sm:pr-[100px] py-1 rounded-full  group-hover:bg-[#30518A]">
-                <i class="text-[#30518A] group-hover:text-white fa-solid fa-magnifying-glass"></i>
-                <span class = "text-[#30518A] group-hover:text-white">Search LK</span>
-            </a>
-
-        </div>
-
     </nav>
 
     <!--First section-->
     <section id="first-section" class = "overflow-hidden relative">
-        <div class = "px-[30px] md:px-[50px] xl:px-[100px] mx-auto text-center flex flex-row h-screen items-center">
-            <img src = "{{ URL('img/Artboard 1_SS_4.png') }}"
-                class = "slide-in-from-left img-shadow-1 absolute bottom-[0px] left-[-70px] w-[300px] md:w-[400px] rotate-[50deg]">
-            <img src = "{{ URL('img/Artboard 1_SS_3.png') }}"
-                class = "slide-in-from-right float img-shadow-2 absolute bottom-[90px] right-[-60px] w-[325px] md:w-[450px] rotate-[-50deg]">
+        
+        <div class = "mt-[-64px] px-[30px] md:px-[50px] xl:px-[100px] mx-auto text-center flex flex-row h-screen items-center">
+            <img src = "{{ URL('asset/Artboard 1_SS_4.png') }}"
+                class = "rotate-animation-1 img-shadow-1 absolute bottom-[0px] left-[-70px] w-[300px] md:w-[400px] rotate-[50deg]">
+            <img src = "{{ URL('asset/Artboard 1_SS_3.png') }}"
+                class = "rotate-animation-2 img-shadow-2 absolute bottom-[90px] right-[-60px] w-[325px] md:w-[450px] rotate-[-50deg]">
             <div class = "mx-auto w-3/4 z-10">
-                <h3 class = "slide-in-from-bottom text-white font-bold text-3xl text-center sm:text-5xl">Lembaga
+                <h3
+                    class = "glow-text text-white font-bold text-3xl text-center sm:text-5xl">
+                    Lembaga
                     Kemahasiswaan
                 </h3>
 
-                <div class = "group mt-7 button-animate slide-in-from-bottom">
+                <div class = "group mt-7 slide-in-from-bottom">
                     <a class = "backdrop-blur-sm bg-white/10 border-[1px] border-[#79FFEF] rounded-full py-3 px-7 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
                         id = "explore-button" href = "#card-section">
                         <span class = "font-bold text-white group-hover:text-[#30518A]">Explore</span>
@@ -97,14 +148,23 @@
 
     <!--Card Section-->
     <section id="card-section" class = "">
-        <!--Grid-->
-        <div
-            class="pt-[200px] px-[30px] md:px-[50px] xl:px-[100px] py-[150px] gap-y-[200px] mx-auto text-center flex flex-wrap">
-            @foreach ($ukms as $ukm)
+        <div class = "px-[30px] md:px-[50px] xl:px-[100px]">
+            <div class = "reveal group z-10 w-full sticky top-[30px] px-[0px] lg:px-[300px]">
+                <a href=""
+                    class="flex justify-center items-center w-full gap-2 backdrop-blur-sm bg-white/10 border-[1px] border-[#30518A] py-2 rounded-full group-hover:bg-[#30518A]">
+                    <i class="text-[#30518A] group-hover:text-white fa-solid fa-magnifying-glass"></i>
+                    <span class = "text-[#30518A] text-[16px] font-bold group-hover:text-white">Search LK</span>
+                </a>
+            </div>
+
+            <!--Card Contain-->
+            <div class="w-full py-[200px] gap-y-[200px] mx-auto text-center flex flex-wrap">
+            
+                @foreach ($ukms as $ukm)
                 @if (in_array($ukm->name, ['LK BEM', 'LK TPS', 'LK MPM', 'LK BPMF', 'LK PERSMA', 'LK PELMA']))
                     <!--Card Start-->
                     <div
-                        class = "slide-in-from-bottom relative backdrop-blur-sm bg-white/30 mx-auto py-10 pb-20 px-10 h-[220px] w-[270px] flex flex-col justify-center items-center gap-[25px] rounded-[25px]">
+                        class = "reveal relative backdrop-blur-sm bg-white/30 mx-auto py-10 pb-20 px-10 h-[220px] w-[270px] flex flex-col justify-center items-center gap-[25px] rounded-[25px]">
 
                         <div class = "absolute w-[150px] h-[150px] top-[-90px] flex justify-center items-center">
 
@@ -113,7 +173,7 @@
                             @else
                             @endif
                         </div>
-                        <div class = "text-white font-bold text-[24px] leading-none text-center pt-[80px]">
+                        <div class = " text-white font-bold text-[24px] leading-none text-center pt-[80px]">
                             {{ $ukm->name }}
                         </div>
                         <!--Slot & Price + Button -->
@@ -130,8 +190,10 @@
                     <!--Card End-->
                 @endif
             @endforeach
-
+    
+            </div>
         </div>
+        
     </section>
 </body>
 <script>
@@ -140,8 +202,22 @@
         document.getElementById('card-section').scrollIntoView({
             behavior: 'smooth'
         });
-    })
+    });
+
+    window.addEventListener("scroll", function(){
+        var reveals = document.querySelectorAll(".reveal");
+        reveals.forEach(function(reveal){
+            var windowHeight = window.innerHeight;
+            var revealTop = reveal.getBoundingClientRect().top;
+            var revealPoint = 0;
+
+            if(revealTop < windowHeight-revealPoint){
+                reveal.classList.add("active");
+            }else{
+                reveal.classList.remove("active");
+            }
+        });
+    });
 </script>
 
 </html>
-
