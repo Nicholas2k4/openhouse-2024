@@ -24,36 +24,36 @@
         class="maskot absolute lg:left-[-5vw] left-[-18vw] sm:top-[3000px] md:top-[3500px] lg:top-[4000px] xl:top-[5000px] lg:w-1/3 w-1/2">
 
     {{-- Video --}}
-    <section class="video w-full xl:h-[120vh] z-50">
-        <video src="{{ asset('assets/Video OH.mp4') }}" autoplay muted loop preload="auto"></video>
+    <section class="video w-full xl:h-[100vh] z-50 overflow-hidden flex items-center">
+        <video src="{{ asset('assets/Video OH.mp4') }}" autoplay muted loop preload="auto" class="w-[100vw]"></video>
     </section>
 
     {{-- Timeline --}}
-    <div class="flex justify-center mt-10">
-        <h1 data-aos="fade-down" data-aos-once="true"
-            class="text-7xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
-            TIMELINE</h1>
-    </div>
     <section class="timeline" id="timeline">
+        <div class="flex justify-center mt-10">
+            <h1 data-aos="fade-down" data-aos-once="true"
+                class="text-7xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
+                TIMELINE</h1>
+        </div>
         <div class="img-container flex items-end w-[300vw] overflow-x-scroll mx-auto no-scrollbar">
             <div class="pulau1 w-[100vw] flex justify-center flex-col space-y-10">
-                <img src="{{ asset('assets/SS.png') }}" class="mx-auto sm:w-[300px] w-[150px]" alt="">
+                <img src="{{ asset('assets/SS.png') }}" class="mx-auto sm:w-[300px] w-[250px]" alt="">
                 <button type="button"
-                    class="16-aug-button inline-block w-1/4 rounded bg-primary px-6 pb-2 pt-2.5 mx-auto font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">
+                    class="16-aug-button inline-block md:w-1/4 rounded bg-primary px-6 pb-2 pt-2.5 mx-auto font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">
                     Performances
                 </button>
             </div>
             <div class="pulau2 w-[100vw] flex justify-center flex-col space-y-10">
-                <img src="{{ asset('assets/Floating Rocks.png') }}" class="mx-auto sm:w-[300px] w-[150px]" alt="">
+                <img src="{{ asset('assets/Floating Rocks.png') }}" class="mx-auto sm:w-[300px] w-[250px]" alt="">
                 <button type="button"
-                    class="23-aug-button inline-block w-1/4 rounded bg-primary px-6 pb-2 pt-2.5 mx-auto font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">
+                    class="23-aug-button inline-block md:w-1/4 rounded bg-primary px-6 pb-2 pt-2.5 mx-auto font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">
                     Performances
                 </button>
             </div>
             <div class="pulau3 w-[100vw] flex justify-center flex-col space-y-10">
-                <img src="{{ asset('assets/EO.png') }}" class="mx-auto sm:w-[300px] w-[150px]" alt="">
+                <img src="{{ asset('assets/EO.png') }}" class="mx-auto sm:w-[300px] w-[250px]" alt="">
                 <button type="button"
-                    class="30-aug-button inline-block w-1/4 rounded bg-primary px-6 pb-2 pt-2.5 mx-auto font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">
+                    class="30-aug-button inline-block md:w-1/4 rounded bg-primary px-6 pb-2 pt-2.5 mx-auto font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">
                     Performances
                 </button>
             </div>
@@ -78,13 +78,13 @@
         </div>
         <div class="text-timeline mt-10 md:space-x-24 font-bold flex justify-around">
             <h1
-                class="text-2xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
+                class="sm:text-2xl text-xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
                 16 Agustus</h1>
             <h1
-                class="text-2xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
+                class="sm:text-2xl text-xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
                 23 Agustus</h1>
             <h1
-                class="text-2xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
+                class="sm:text-2xl text-xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
                 30 Agustus</h1>
         </div>
     </section>
@@ -93,7 +93,7 @@
     <section class="game-ukm flex justify-center space-x-5 mb-10" id="game-ukm">
         <a href="#">
             <div
-                class="border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-200 hover:shadow-white hover:shadow-xl">
+                class="border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-400 hover:shadow-white hover:shadow-xl">
                 <span class="text-center mx-auto sm:h-[120px] sm:w-[150px] h-[100px] w-[125px]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                         <path fill="#ffffff"
@@ -107,7 +107,7 @@
         </a>
         <a href="#">
             <div
-                class="border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-200 hover:shadow-white hover:shadow-xl">
+                class="border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-400 hover:shadow-white hover:shadow-xl">
                 <span class="text-center mx-auto sm:h-[120px] sm:w-[135px] h-[100px] w-[125px]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                         <path fill="#ffffff"
@@ -371,7 +371,7 @@
         $('.16-aug-button').on('click', function() {
             Swal.fire({
                 title: 'Performance of the Week',
-                width: 1200,
+                width: 800,
                 html: `<h5 class="font-bold text-xl text-center">16 Agustus 2024</h5>
                 <ul class="list-disc text-start ms-3 mt-5">
                     <li>
@@ -402,7 +402,7 @@
         $('.23-aug-button').on('click', function() {
             Swal.fire({
                 title: 'Performance of the Week',
-                width: 1200,
+                width: 800,
                 html: `<h5 class="font-bold text-xl text-center">23 Agustus 2024</h5>
                 <ul class="list-disc text-start ms-3 mt-5">
                     <li>
@@ -433,7 +433,7 @@
         $('.30-aug-button').on('click', function() {
             Swal.fire({
                 title: 'Performance of the Week',
-                width: 1200,
+                width: 800,
                 html: `<h5 class="font-bold text-xl text-center">30 Agustus 2024</h5>
                 <ul class="list-disc text-start ms-3 mt-5">
                     <li>

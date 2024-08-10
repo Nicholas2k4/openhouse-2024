@@ -128,9 +128,9 @@
     }
 </style>
 
-<footer class="w-full h-[100px] flex justify-between items-center sm:px-10 px-3 space-x-3">
+<footer class="w-full h-[100px] flex sm:justify-between items-center flex-col sm:flex-row sm:px-10 sm:py-0 py-5 px-3 space-x-3 sm:space-y-0 space-y-5">
     <div class="sosmed flex flex-row items-center">
-        <h5 class="font-bold sm:text-2xl text-lg sm:me-7 me-3 text-nowrap pt-[10px]">Contact Us</h5>
+        <h5 class="font-bold sm:text-2xl text-lg text-white sm:me-7 me-3 text-nowrap pt-[10px]">Contact Us</h5>
         <div class="contacts" id="contacts">
             <div class="contact-button cb1" onclick="window.open('https://line.me/R/ti/p/@001pyqes')">
                 <div class="icon line"><i class="fa-brands fa-line"></i></div>
@@ -143,6 +143,6 @@
         </div>
     </div>
     <div class="it">
-        <p class="sm:text-lg text-xs text-nowrap">&copy; IT x Creative Openhouse 2024</p>
+        <p class="sm:text-lg text-xs text-nowrap text-white">&copy; IT x Creative Openhouse 2024</p>
     </div>
 </footer>

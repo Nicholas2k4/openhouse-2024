@@ -76,7 +76,7 @@ nav.hide-nav .hamburger {
     opacity: 1;
     visibility: visible;
 
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(8px);
 }
@@ -155,11 +155,11 @@ nav.hide-nav .sidebar {
 }
 
 .links>ul>a>li:active {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .links>ul>a>li:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .links>ul>a>li>span {
