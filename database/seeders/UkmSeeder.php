@@ -351,7 +351,7 @@ Eksternal:
                     'max_slot' => 50,
                     'regist_fee' => 150000,
                     'description' => 'UKM Taekwondo terdapat kegiatan latihan rutin, bonding, dan workshop. Latihan rutin bersama memiliki fokus dalam materi dan praktik tendangan, tangkisan, pukulan dasar. Materi tersebut merupakan bagian Poomsae, Kyorugi, dan Kyukpa. Bonding akan dilakukan untuk mempererat hubungan antar 3 universitas yang merupakan bagian dalam club yang sama yaitu Universitas Kristen Petra, Universitas Surabaya, dan Universitas Widya Mandala. Sedangkan workshop akan diadakan untuk mempersiapkan peserta untuk meningkatkan sabuk yang sedang dimiliki.',
-                    'logo_url' => 'logo/24_taekwondo.jpg',
+                    'logo_url' => 'logo/24_taekwondo.png',
                     'poster_url' => 'poster/24_taekwondo.jpg',
                 ],
                 [
@@ -408,7 +408,7 @@ Sebagai puncak dari rangkaian kegiatan, Matrapenza akan menyelenggarakan sebuah 
 
 Pengabdian Masyarakat (Pengmas):
 Selain kegiatan-kegiatan di atas, Matrapenza juga akan aktif melakukan pengabdian masyarakat dengan menyasar berbagai komunitas, sekolah, dan lembaga terkait. Tujuannya adalah untuk menyebarluaskan informasi tentang bahaya NAPZA dan mendorong partisipasi aktif masyarakat dalam upaya pencegahan.',
-                    'logo_url' => 'logo/28_matrapenza.jpg',
+                    'logo_url' => 'logo/28_matrapenza.png',
                     'poster_url' => 'poster/28_mpz.png',
                 ],
                 [
@@ -475,7 +475,7 @@ Menyiapkan mahasiswa sebagai generasi intelektual bangsa dan warga negara yang d
                     'description' => 'PCU Choir merupakan kelompok paduan suara yang aktif dalam berbagai kegiatan musik dan sosial. Salah satu bentuk pengabdian masyarakat yang dilakukan oleh PCU Choir adalah memberikan pelayanan di gereja-gereja di desa. Kegiatan ini tidak hanya bertujuan untuk mempersembahkan lagu-lagu pujian, tetapi juga untuk menjalin hubungan yang lebih erat dengan masyarakat setempat dan memberikan dampak positif melalui musik.
 
 Selain itu, PCU Choir juga aktif berpartisipasi dalam berbagai ajang kompetisi dan festival paduan suara. Salah satu prestasi yang membanggakan adalah kemenangan dalam festival paduan suara di Universitas Surabaya (Ubaya) dan partisipasi lomba paduan suara di Singapura. Melalui kegiatan ini, PCU Choir tidak hanya menunjukkan kemampuan musikalitasnya tetapi juga membawa nama baik institusi dan memperluas jaringan di tingkat nasional maupun internasional.',
-                    'logo_url' => 'logo/32_padus.jpg',
+                    'logo_url' => 'logo/32_padus.png',
                     'poster_url' => 'poster/32_padus.jpg',
                 ],
                 [
