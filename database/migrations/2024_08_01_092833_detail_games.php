@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('detail_games', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('user_id');
             $table->uuid('ukm_id');
+            $table->string('nrp', 9);
             $table->char('letter');
+            $table->integer('letter_index');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('ukm_id')->references('id')->on('ukm')->onDelete('cascade');
-
+            $table->foreign('ukm_id')->references('id')->on('ukms')->onDelete('cascade');
         });
     }
 

@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ValidateController;
+use App\Http\Controllers\GenerateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +20,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function(){
+Route::get('/validate', [AdminController::class, 'validatePage'])->name('admin.validate');
+Route::get('/generate', [AdminController::class, 'generatePage'])->name('admin.generate');
+
+Route::get('/filterSearch', [ValidateController::class, 'filterSearch'])->name('filterSearch');
+Route::post('/selectionValidate', [ValidateController::class, 'selectionValidate'])->name('selectionValidate');
+Route::post('/paymentValidate', [ValidateController::class, 'paymentValidate'])->name('paymentValidate');
+Route::post('/giveLetter', [GenerateController::class, 'giveLetter'])->name('admin.giveLetter');
+
+Route::get('/test', function () {
     $ukms = App\Models\Ukm::all();
     return view('test', [
         'ukms' => $ukms

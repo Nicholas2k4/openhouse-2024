@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\App;
-use App\Models\Ukm;
+use App\Models\Ukms;
 use Illuminate\Support\Str;
 
 class UkmSeeder extends Seeder
@@ -492,7 +492,7 @@ Selain itu, PCU Choir juga aktif berpartisipasi dalam berbagai ajang kompetisi d
             ];
 
         foreach ($ukms as $ukm) {
-            Ukm::insert($ukm);
+            Ukms::insert($ukm);
         }
     }
 }
