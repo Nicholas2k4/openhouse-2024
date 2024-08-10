@@ -4,6 +4,12 @@
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/faq.css') }}">
+    <style>
+        html,body{
+            width: 100vw;
+            overflow-x: hidden;
+        }
+    </style>
 @endsection
 
 @section('content')
