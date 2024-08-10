@@ -224,29 +224,32 @@
     <!-- Video Section -->
     <div class="z-5 min-h-screen" id = "video">
         <div
-            class="pb-[50px] pt-[164px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] mx-auto h-full flex flex-col-reverse flex-wrap justify-center items-center lg:flex lg:flex-row lg:justify-between lg:items-center">
-            <!-- Right Side -->
-            <div class=" reveal from-left active z-[10] mt-10 lg:mt-0 text-center lg:text-left flex flex-col w-full lg:w-2/5">
-                <div class="glow-text font-bold text-[48px] lg:text-[64px] text-white leading-tight">
-                    {{ $ukm->name }}
-                </div>
-            </div>
-
+            class="pb-[50px] pt-[164px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] mx-auto h-full flex flex-col flex-wrap justify-center items-center">
+            
             <!-- Left Side -->
-            <div class="reveal from-right active w-full lg:w-3/5">
+            <div class="reveal from-right active  h-[100%] w-[100%] lg:h-[50%] lg:w-[60%]">
                 <div class="video-container aspect-w-16 aspect-h-9">
                     <iframe class="w-full h-full" src="{{$videoUrl}}" frameborder="0"
                         allow="autoplay"
                         ></iframe>
                 </div>
             </div>
+
+            <!-- Right Side -->
+            <div class=" reveal from-left active z-[10] mt-10 lg:mt-0 text-center flex flex-col w-full">
+                <div class="glow-text font-bold text-[48px] lg:text-[64px] text-white leading-tight">
+                    {{ $ukm->name }}
+                </div>
+            </div>
+
+            
         </div>
     </div>
 
     <!-- About Section -->
     <div class="z-[10] min-h-screen">
         <div id = "about"
-            class="gap-[10px] md:gap-[20px] py-[50px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] mx-auto h-full flex flex-col-reverse justify-center items-center lg:flex lg:flex-row lg:justify-between lg:items-center">
+            class="gap-[10px] md:gap-[20px] py-[50px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] mx-auto h-full flex flex-col-reverse justify-center items-center md:flex-row md:justify-between">
             <!-- Left Side -->
             @if($imageUrls !== [])
             <div class="reveal from-left z-[10] flex flex-col w-full lg:w-2/4 mt-10 swiper">
@@ -275,20 +278,20 @@
                 </div>
             </div>
             @else
-            <div class="reveal from-left z-[10] flex w-full lg:w-3/5 mt-10">
+            <div class="reveal from-left z-[10] justify-center flex w-full lg:w-2/4 mt-10">
                 <img class = "w-[300px] md:w-[450px] h-auto" src = '{{URL('asset/CORALIS POSE 2 FEED.png')}}'/>
             </div>
             @endif
             <!-- Right Side -->
-            <div class="reveal from-right mt-[20px] sm:mt-[0px] z-[10] text-center flex flex-col w-full lg:w-2/4">
+            <div class="reveal from-right mt-[20px] sm:mt-[0px] z-[10] flex flex-col w-full lg:w-2/4">
                 <div id="desc"
                     class="backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-100 bg-gray-600 rounded p-5 flex flex-col justify-between">
                     <div>
-                        <div class="text-[16px] text-white">
-                            {{ \Str::limit($ukm->description, 500) }}
+                        <div class="text-[16px] text-white text-center">
+                            {{ \Str::limit($ukm->description, 600) }}
                         </div>
                     </div>
-                    @if (strlen($ukm->description) > 500)
+                    @if (strlen($ukm->description) > 600)
                         <button
                             class="mt-10 relative w-full text-[16px] text-white flex justify-end items-center gap-1 transition duration-500"
                             onclick="toggleModal()">
@@ -310,7 +313,7 @@
 
     <div id = "overlay" class = "z-[700] w-full h-[100vh] fixed top-0 left-0 bg-black opacity-60 hidden"></div>
     <!--Pop Up-->
-    <div class = "text-[16px] bg-modal hidden p-10 overflow-y-scroll z-[1000] text-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[500px] w-[300px] md:max-h-[500px] md:w-[600px] lg:max-h-[500px] lg:w-[800px]" id = "modal">
+    <div class = "text-[20px] bg-modal hidden p-10 overflow-y-scroll z-[1000] text-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[500px] w-[300px] md:max-h-[500px] md:w-[600px] lg:max-h-[500px] lg:w-[800px]" id = "modal">
         <div class = "absolute w-full text-right top-[20px] right-[20px] ">
                 <button type="button" class="px-4 rounded "
                     onclick="toggleModal()"><i class=" text-white fas fa-times"></i></button>
@@ -480,12 +483,16 @@
         });
     });
 
-        document.getElementById("nav-button-register").addEventListener('click', function(e) {
+    var navButtonRegister = document.getElementById("nav-button-register");
+
+if (navButtonRegister) {
+    navButtonRegister.addEventListener('click', function(e) {
         e.preventDefault();
         document.getElementById('register').scrollIntoView({
             behavior: 'smooth'
         });
     });
+}
 
     window.addEventListener("scroll", function(){
         var reveals = document.querySelectorAll(".reveal");

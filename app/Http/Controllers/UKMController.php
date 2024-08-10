@@ -54,7 +54,8 @@ class UKMController extends Controller
             'mpz' => 'https://drive.google.com/file/d/1VeciEwZ6qyW_KmiPDDcQG5YRu9UyoSDM/preview',
             'emr' => 'https://drive.google.com/file/d/1P6gsb6k4W1DXscXHN5RSnRItmX_ZoU2t/preview',
             'vg' => 'https://drive.google.com/file/d/1aUaMolYAW-iIAwXp_VX5kuR1xB1Jz4PC/preview',
-            'futsal' => 'https://drive.google.com/file/d/1VbrZl637ocLP0u8JvNmg9qHUFMN2QXsu/preview'
+            'futsal' => 'https://drive.google.com/file/d/1VbrZl637ocLP0u8JvNmg9qHUFMN2QXsu/preview',
+            'tps' => 'https://drive.google.com/file/d/1i1Q3ZTO_bV7vQEBllQz-5MSZec3r03KH/preview'
         ];
 
 
