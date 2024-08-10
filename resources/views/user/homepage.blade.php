@@ -24,8 +24,8 @@
         class="maskot absolute lg:left-[-5vw] left-[-18vw] sm:top-[3000px] md:top-[3500px] lg:top-[4000px] xl:top-[5000px] lg:w-1/3 w-1/2">
 
     {{-- Video --}}
-    <section class="video w-full xl:h-[120vh] z-50">
-        <video src="{{ asset('assets/Video OH.mp4') }}" autoplay muted loop preload="auto"></video>
+    <section class="video w-full xl:h-[100vh] z-50 overflow-hidden flex items-center">
+        <video src="{{ asset('assets/Video OH.mp4') }}" autoplay muted loop preload="auto" class="w-[100vw]"></video>
     </section>
 
     {{-- Timeline --}}
