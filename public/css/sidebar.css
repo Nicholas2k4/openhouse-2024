@@ -54,7 +54,7 @@
     stroke-dashoffset: -132px;
 }
 
-.nav.hide-nav .hamburger {
+nav.hide-nav .hamburger {
     opacity: 0;
 }
 
@@ -91,7 +91,7 @@ h1 {
     padding-left: 20px;
 }
 
-.nav.hide-nav .sidebar {
+nav.hide-nav .sidebar {
     visibility: hidden;
 }
 

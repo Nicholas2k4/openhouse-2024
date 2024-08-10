@@ -1,5 +1,5 @@
 <!-- Main navigation container -->
-<nav class="fixed top-0 flex w-full z-10 flex-nowrap items-center justify-between bg-gradient-to-r from-[#4477CE] to-[#F1C1AC] py-2 shadow-dark-mild lg:flex-wrap lg:justify-start duration-500"
+<nav class="fixed top-0 flex w-full z-10 flex-nowrap items-center justify-between bg-gradient-to-r from-[#4477CE] to-[#F1C1AC] py-2 shadow-dark-mild lg:flex-wrap lg:justify-start duration-300"
     data-twe-navbar-ref id="navbar">
     <div class="flex w-full flex-wrap items-center justify-between md:px-3">
 
@@ -24,17 +24,21 @@
             <hr />
             <div class="links">
                 <ul>
-                    <a href="{{ route('user.login') }}">
-                        <li data-te-ripple-init data-te-ripple-color='light'>
-                            @if (session()->has('nrp'))
+                    @if (session()->has('nrp'))
+                        <a href="{{ route('user.logout') }}">
+                            <li data-te-ripple-init data-te-ripple-color='light'>
                                 <i class="fa-solid fa-right-from-bracket"></i>
                                 <span>Logout</span>
-                            @else
+                            </li>
+                        </a>
+                    @else
+                        <a href="{{ route('user.login') }}">
+                            <li data-te-ripple-init data-te-ripple-color='light'>
                                 <i class="fa-solid fa-right-to-bracket"></i>
                                 <span>Login</span>
-                            @endif
-                        </li>
-                    </a>
+                            </li>
+                        </a>
+                    @endif
                     <a href="#">
                         <li data-te-ripple-init data-te-ripple-color='light'>
                             <i class="fa-solid fa-house"></i>

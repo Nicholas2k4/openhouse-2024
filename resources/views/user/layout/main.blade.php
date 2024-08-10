@@ -153,8 +153,10 @@
 
         if (scrollTop > lastScrollTop) {
             navbar.style.top = '-80px';
+            document.querySelector('nav').classList.add('hide-nav');
         } else {
             navbar.style.top = '0';
+            document.querySelector('nav').classList.remove('hide-nav');
         }
 
         lastScrollTop = scrollTop;
