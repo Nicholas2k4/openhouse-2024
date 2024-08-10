@@ -90,7 +90,7 @@
         <div
             class="max-w-[400px] relative bg-white/15 backdrop-blur-xl border-[1px]  border-white rounded p-10 flex flex-col justify-center items-center">
             <button><i id = "tutorial"
-                    class="text-white text-[30px] sm:text-[36px] absolute right-[20px] top-[20px] w-full text-right fas fa-question-circle"></i></button>
+                    class="hover:text-[#5ffff2] transition-500 text-white text-[30px] sm:text-[36px] absolute right-[20px] top-[20px] w-full text-right fas fa-question-circle"></i></button>
             <p class = "text-white text-[18px] sm:text-[20px] leading-tight">You have collected</p>
             <h2 class = "text-white text-[80px] sm:text-[100px] leading-tight">{{ $letters->count() }}/27</h2>
             <p class = "text-white text-[18px] sm:text-[20px]">letters</p>
@@ -168,7 +168,7 @@
             <div class = "mx-auto w-full flex flex-wrap gap-1 md:gap-3 mt-[20px]">
                 @foreach ($letters as $letter)
                     <div
-                        class = "text-[12px] md:text-[24px] w-[25px] h-[25px] md:w-[50px] md:h-[50px] rounded-full bg-white text-black flex justify-center items-center">
+                        class = "text-[12px] md:text-[24px] w-[25px] h-[25px] md:w-[50px] md:h-[50px] rounded-full bg-[#1a3461] text-white font-bold flex justify-center items-center">
                         {{ $letter }}
                     </div>
                 @endforeach
