@@ -36,14 +36,26 @@
     </div>
     <section class="timeline" id="timeline">
         <div class="img-container flex items-end w-[300vw] overflow-x-scroll mx-auto no-scrollbar">
-            <div class="pulau1 w-[100vw] flex justify-center">
-                <img src="{{ asset('assets/SS.png') }}" class="sm:w-[300px] w-[150px]" alt="">
+            <div class="pulau1 w-[100vw] flex justify-center flex-col space-y-10">
+                <img src="{{ asset('assets/SS.png') }}" class="mx-auto sm:w-[300px] w-[150px]" alt="">
+                <button type="button"
+                    class="16-aug-button inline-block w-1/4 rounded bg-primary px-6 pb-2 pt-2.5 mx-auto font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">
+                    Performances
+                </button>
             </div>
-            <div class="pulau2 w-[100vw] flex justify-center">
-                <img src="{{ asset('assets/Floating Rocks.png') }}" class="sm:w-[300px] w-[150px]" alt="">
+            <div class="pulau2 w-[100vw] flex justify-center flex-col space-y-10">
+                <img src="{{ asset('assets/Floating Rocks.png') }}" class="mx-auto sm:w-[300px] w-[150px]" alt="">
+                <button type="button"
+                    class="23-aug-button inline-block w-1/4 rounded bg-primary px-6 pb-2 pt-2.5 mx-auto font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">
+                    Performances
+                </button>
             </div>
-            <div class="pulau3 w-[100vw] flex justify-center">
-                <img src="{{ asset('assets/EO.png') }}" class="sm:w-[300px] w-[150px]" alt="">
+            <div class="pulau3 w-[100vw] flex justify-center flex-col space-y-10">
+                <img src="{{ asset('assets/EO.png') }}" class="mx-auto sm:w-[300px] w-[150px]" alt="">
+                <button type="button"
+                    class="30-aug-button inline-block w-1/4 rounded bg-primary px-6 pb-2 pt-2.5 mx-auto font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">
+                    Performances
+                </button>
             </div>
         </div>
         <div class="timeline mt-10 relative flex justify-center">
@@ -58,10 +70,11 @@
         <div class="active-timeline relative flex justify-center">
             <img src="{{ asset('assets/point_active.png') }}"
                 class="active1 active-timeline absolute md:w-[4%] xl:w-[2%] w-[6%] xl:left-52 left-16" alt="">
-            <img src="{{ asset('assets/point_active.png') }}" class="active2 active-timeline absolute md:w-[4%] xl:w-[2%] w-[6%] opacity-0"
-                alt="">
             <img src="{{ asset('assets/point_active.png') }}"
-                class="active3 active-timeline absolute md:w-[4%] xl:w-[2%] w-[6%] xl:right-52 right-16 opacity-0" alt="">
+                class="active2 active-timeline absolute md:w-[4%] xl:w-[2%] w-[6%] opacity-0" alt="">
+            <img src="{{ asset('assets/point_active.png') }}"
+                class="active3 active-timeline absolute md:w-[4%] xl:w-[2%] w-[6%] xl:right-52 right-16 opacity-0"
+                alt="">
         </div>
         <div class="text-timeline mt-10 md:space-x-24 font-bold flex justify-around">
             <h1
@@ -73,75 +86,6 @@
             <h1
                 class="text-2xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
                 30 Agustus</h1>
-        </div>
-        <div
-            class="content mt-10 p-5 lg:w-1/2 h-[300px] overflow-y-auto overflow-x-hidden w-10/12 rounded-2xl text-center bg-[#3586ff3d] mx-auto text-black shadow-black shadow-lg backdrop-blur-md">
-            <div class="content1 hidden">
-                <h1 class="glow font-bold text-3xl">Performance of the Week</h1>
-                <h5 class="font-bold text-xl">16 Agustus 2024</h5>
-
-                <ul class="list-disc text-start ms-3 mt-5">
-                    <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, error?</p>
-                    </li>
-                    <li>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, molestias.</p>
-                    </li>
-                    <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, delectus.</p>
-                    </li>
-                    <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
-                    </li>
-                    <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
-                    </li>
-                    <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
-                    </li>
-                    <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="content2 hidden">
-                <h1 class="glow font-bold text-3xl">Performance of the Week</h1>
-                <h5 class="font-bold text-xl">23 Agustus 2024</h5>
-
-                <ul class="list-disc text-start ms-3 mt-5">
-                    <li>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, reprehenderit.</p>
-                    </li>
-                    <li>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, suscipit?</p>
-                    </li>
-                    <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, ea.</p>
-                    </li>
-                    <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, unde.</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="content3 hidden">
-                <h1 class="glow font-bold text-3xl">Performance of the Week</h1>
-                <h5 class="font-bold text-xl">30 Agustus 2024</h5>
-
-                <ul class="list-disc text-start ms-3 mt-5">
-                    <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, odit!</p>
-                    </li>
-                    <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, totam.</p>
-                    </li>
-                    <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, sint.</p>
-                    </li>
-                    <li>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, minima.</p>
-                    </li>
-                </ul>
-            </div>
         </div>
     </section>
 
@@ -321,16 +265,7 @@
             var timelineElement2 = document.querySelector('.active2');
             var timelineElement3 = document.querySelector('.active3');
 
-            var content1 = document.querySelector('.content1');
-            var content2 = document.querySelector('.content2');
-            var content3 = document.querySelector('.content3');
-
             var width = (window.innerWidth / pulauElement1.getBoundingClientRect().left) * 100;
-
-            // Clear previous animations
-            content1.classList.remove('slide-in', 'slide-out');
-            content2.classList.remove('slide-in', 'slide-out');
-            content3.classList.remove('slide-in', 'slide-out');
 
             if (width != Infinity) {
                 if (width > -130) {
@@ -339,13 +274,6 @@
                 } else {
                     timelineElement1.classList.remove('opacity-0');
                     timelineElement1.classList.add('opacity-1');
-
-                    if (!content1.classList.contains('slide-in')) {
-                        content1.classList.remove('hidden');
-                        content1.classList.add('slide-in');
-                        content2.classList.add('hidden');
-                        content3.classList.add('hidden');
-                    }
                 }
 
                 if (width < -130 || width > -55) {
@@ -355,13 +283,6 @@
                 } else {
                     timelineElement2.classList.remove('opacity-0');
                     timelineElement2.classList.add('opacity-1');
-
-                    if (!content2.classList.contains('slide-in')) {
-                        content2.classList.remove('hidden');
-                        content2.classList.add('slide-in');
-                        content1.classList.add('hidden');
-                        content3.classList.add('hidden');
-                    }
                 }
 
                 if (width < -55) {
@@ -370,25 +291,14 @@
                 } else {
                     timelineElement3.classList.remove('opacity-0');
                     timelineElement3.classList.add('opacity-1');
-
-                    if (!content3.classList.contains('slide-in')) {
-                        content3.classList.remove('hidden');
-                        content3.classList.add('slide-in');
-                        content2.classList.add('hidden');
-                        content1.classList.add('hidden');
-                    }
                 }
             } else {
                 timelineElement1.classList.remove('opacity-0');
                 timelineElement1.classList.add('opacity-1');
-
-                if (!content1.classList.contains('slide-in')) {
-                    content1.classList.remove('hidden');
-                    content1.classList.add('slide-in');
-                    content2.classList.add('hidden');
-                    content3.classList.add('hidden');
-                }
             }
+
+            console.log(width);
+
         }
 
         window.addEventListener('scroll', timelineScroll);
@@ -456,6 +366,99 @@
 
         document.querySelectorAll('.question').forEach(item => {
             item.addEventListener('click', makeChat);
+        });
+
+        $('.16-aug-button').on('click', function() {
+            Swal.fire({
+                title: 'Performance of the Week',
+                width: 1200,
+                html: `<h5 class="font-bold text-xl text-center">16 Agustus 2024</h5>
+                <ul class="list-disc text-start ms-3 mt-5">
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, error?</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, molestias.</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, delectus.</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                    </li>
+                </ul>`,
+            });
+        });
+
+        $('.23-aug-button').on('click', function() {
+            Swal.fire({
+                title: 'Performance of the Week',
+                width: 1200,
+                html: `<h5 class="font-bold text-xl text-center">23 Agustus 2024</h5>
+                <ul class="list-disc text-start ms-3 mt-5">
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, error?</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, molestias.</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, delectus.</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                    </li>
+                </ul>`,
+            });
+        });
+
+        $('.30-aug-button').on('click', function() {
+            Swal.fire({
+                title: 'Performance of the Week',
+                width: 1200,
+                html: `<h5 class="font-bold text-xl text-center">30 Agustus 2024</h5>
+                <ul class="list-disc text-start ms-3 mt-5">
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, error?</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, molestias.</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, delectus.</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                    </li>
+                </ul>`,
+            });
         });
     </script>
 @endsection

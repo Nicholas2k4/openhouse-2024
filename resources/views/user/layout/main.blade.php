@@ -78,7 +78,8 @@
         h4,
         h5,
         h6,
-        span {
+        span,
+        button {
             font-family: GeneralSansBold !important;
         }
 
@@ -90,6 +91,15 @@
 
         .dropdown>a:hover {
             background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .swal2-confirm {
+            background: rgb(46, 143, 255) !important;
+        }
+
+        .swal2-deny,
+        .swal2-cancel {
+            background: rgb(255, 79, 79) !important;
         }
 
         /* a {
