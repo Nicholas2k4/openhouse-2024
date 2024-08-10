@@ -3,6 +3,7 @@
 @section('head')
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/faq.css') }}">
 @endsection
 
 @section('content')
@@ -18,9 +19,9 @@
 
     {{-- Maskot --}}
     <img src="{{ asset('assets/CORALIS POSE 1.png') }}" alt="Coralis"
-        class="maskot absolute lg:right-[-5vw] right-[-25vw] sm:top-[2600px] md:top-[3000px] lg:top-[3550px] xl:top-[4700px] top-[1900px] lg:w-1/3 w-1/2">
+        class="maskot absolute lg:right-[-5vw] right-[-25vw] sm:top-[3000px] md:top-[3500px] lg:top-[4000px] xl:top-[5000px] lg:w-1/3 w-1/2">
     <img src="{{ asset('assets/VERDARA POSE 1.png') }}" alt="Verdara"
-        class="maskot absolute lg:left-[-5vw] left-[-18vw] sm:top-[2600px] md:top-[3000px] lg:top-[3550px] xl:top-[4700px] top-[1900px] lg:w-1/3 w-1/2">
+        class="maskot absolute lg:left-[-5vw] left-[-18vw] sm:top-[3000px] md:top-[3500px] lg:top-[4000px] xl:top-[5000px] lg:w-1/3 w-1/2">
 
     {{-- Video --}}
     <section class="video w-full xl:h-[120vh] z-50">
@@ -36,40 +37,41 @@
     <section class="timeline" id="timeline">
         <div class="img-container flex items-end w-[300vw] overflow-x-scroll mx-auto no-scrollbar">
             <div class="pulau1 w-[100vw] flex justify-center">
-                <img src="{{ asset('assets/SS.png') }}" class="sm:w-[200px] w-[150px]" alt="">
+                <img src="{{ asset('assets/SS.png') }}" class="sm:w-[300px] w-[150px]" alt="">
             </div>
             <div class="pulau2 w-[100vw] flex justify-center">
-                <img src="{{ asset('assets/Floating Rocks.png') }}" class="sm:w-[200px] w-[150px]" alt="">
+                <img src="{{ asset('assets/Floating Rocks.png') }}" class="sm:w-[300px] w-[150px]" alt="">
             </div>
             <div class="pulau3 w-[100vw] flex justify-center">
-                <img src="{{ asset('assets/EO.png') }}" class="sm:w-[200px] w-[150px]" alt="">
+                <img src="{{ asset('assets/EO.png') }}" class="sm:w-[300px] w-[150px]" alt="">
             </div>
         </div>
         <div class="timeline mt-10 relative flex justify-center">
-            <img src="{{ asset('assets/line.png') }}" class="absolute xl:w-10/12 w-full md:top-1 sm:top-3 xl:top-0 top-2" alt="">
-            <img src="{{ asset('assets/point_passive.png') }}" class="absolute md:w-[4%] xl:w-[2%] w-[6%] xl:left-52 left-16"
+            <img src="{{ asset('assets/line.png') }}" class="absolute xl:w-10/12 w-full md:top-1 sm:top-3 xl:top-0 top-2"
                 alt="">
+            <img src="{{ asset('assets/point_passive.png') }}"
+                class="absolute md:w-[4%] xl:w-[2%] w-[6%] xl:left-52 left-16" alt="">
             <img src="{{ asset('assets/point_passive.png') }}" class="absolute md:w-[4%] xl:w-[2%] w-[6%]" alt="">
-            <img src="{{ asset('assets/point_passive.png') }}" class="absolute md:w-[4%] xl:w-[2%] w-[6%] xl:right-52 right-16"
-                alt="">
+            <img src="{{ asset('assets/point_passive.png') }}"
+                class="absolute md:w-[4%] xl:w-[2%] w-[6%] xl:right-52 right-16" alt="">
         </div>
         <div class="active-timeline relative flex justify-center">
-            <img src="{{ asset('assets/point_active.png') }}" class="active1 absolute md:w-[4%] xl:w-[2%] w-[6%] xl:left-52 left-16"
-                alt="">
-            <img src="{{ asset('assets/point_active.png') }}" class="active2 absolute md:w-[4%] xl:w-[2%] w-[6%] opacity-0"
+            <img src="{{ asset('assets/point_active.png') }}"
+                class="active1 active-timeline absolute md:w-[4%] xl:w-[2%] w-[6%] xl:left-52 left-16" alt="">
+            <img src="{{ asset('assets/point_active.png') }}" class="active2 active-timeline absolute md:w-[4%] xl:w-[2%] w-[6%] opacity-0"
                 alt="">
             <img src="{{ asset('assets/point_active.png') }}"
-                class="active3 absolute md:w-[4%] xl:w-[2%] w-[6%] xl:right-52 right-16 opacity-0" alt="">
+                class="active3 active-timeline absolute md:w-[4%] xl:w-[2%] w-[6%] xl:right-52 right-16 opacity-0" alt="">
         </div>
         <div class="text-timeline mt-10 md:space-x-24 font-bold flex justify-around">
             <h1
-                class="text-xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
+                class="text-2xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
                 16 Agustus</h1>
             <h1
-                class="text-xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
+                class="text-2xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
                 23 Agustus</h1>
             <h1
-                class="text-xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
+                class="text-2xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
                 30 Agustus</h1>
         </div>
         <div
@@ -175,7 +177,108 @@
         </a>
     </section>
 
-    <section class="faq mt-10">
+    <section class="faq w-screen flex justify-center items-center flex-col top-16 mt-[100px] h-fit" id="faq">
+        <div class="flex justify-center items-center h-24 text-3xl font-bold">
+            <h1 class="faq-title text lg:text-5xl md:text-4xl text-center leading-normal w-4/5 max-md:text-3xl"
+                data-text="Frequently Asked Questions">Frequently Asked Questions</h1>
+        </div>
+
+        <div class="chats grid sm:w-[380px] max-sm:w-[310px] h-[550px] bg-gray-200 my-10 rounded-3xl overflow-hidden">
+            <div class="chat-header w-full h-[70px] rounded-t-2xl flex justify-start items-center">
+                <img src="{{ asset('assets/VERDARA POSE 1.png') }}" alt="faq-maskot"
+                    class="rounded-full h-11 bg-yellow-400 mx-4">
+                <p class="text-lg font-bold max-sm:text-base">Bomby</p>
+            </div>
+            <div class="chat-area pt-4 chat-section overflow-y-scroll overflow-x-hidden">
+                <div class="bombyAnswer flex">
+                    <img src="{{ asset('assets/VERDARA POSE 1.png') }}" alt="faq-maskot"
+                        class="rounded-full h-8 bg-yellow-400 ml-4 mr-3">
+                    <p
+                        class="chat overflow-visible text-black sm:text-base max-sm:text-sm sm:w-[250px] max-sm:w-[200px] px-3 py-2
+                        bg-white rounded-tr-2xl rounded-br-2xl rounded-bl-2xl my-5">
+                        Halooo 😁, perkenalkan namaku Bomby. Aku akan menjawab pertanyaan kalian seputar acara Battle of
+                        Minds.
+                    </p>
+                </div>
+            </div>
+
+            <div class="chat-footer w-full h-[58px] rounded-b-2xl flex justify-between place-self-end items-center">
+                <p class="ml-5 font-bold max-sm:text-xs">Choose your question here</p>
+                <div class="flex items-center h-full" data-twe-dropdown-position="dropup">
+                    <i class="fa-regular fa-comment-dots mx-5 text-2xl hover:cursor-pointer" type="button"
+                        id="dropdownMenuButton1" data-twe-dropdown-toggle-ref aria-expanded="false" data-twe-ripple-init
+                        data-twe-ripple-color="light">
+                    </i>
+                    <ul class="absolute z-[1000] float-left m-0 hidden min-w-max h-[180px] overflow-y-scroll list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-base shadow-lg data-[twe-dropdown-show]:block"
+                        aria-labelledby="dropdownMenuButton1" data-twe-dropdown-menu-ref>
+                        <li>
+                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                                href="#" data-twe-dropdown-item-ref question-code="0">Apa itu Battle of Minds
+                                (BoM)?
+                            </p>
+                        </li>
+                        <li>
+                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                                href="#" data-twe-dropdown-item-ref question-code="1">Ada berapa babak dalam
+                                acara
+                                BoM?</p>
+                        </li>
+                        <li>
+                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                                href="#" data-twe-dropdown-item-ref question-code="2">BoM diadakan secara
+                                onsite/online?</p>
+                        </li>
+                        <li>
+                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                                href="#" data-twe-dropdown-item-ref question-code="3">Siapa saja yang boleh
+                                mendaftar
+                                BoM?</p>
+                        </li>
+                        <li>
+                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                                href="#" data-twe-dropdown-item-ref question-code="4">Apakah satu orang bisa
+                                mendaftar
+                                lebih dari satu tim?</p>
+                        </li>
+                        <li>
+                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                                href="#" data-twe-dropdown-item-ref question-code="5">Berapa biaya pendaftaran
+                                BoM?
+                            </p>
+                        </li>
+                        <li>
+                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                                href="#" data-twe-dropdown-item-ref question-code="6">Apakah uang deposit akan
+                                dikembalikan setelah acara berakhir?
+                            </p>
+                        </li>
+                        <li>
+                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                                href="#" data-twe-dropdown-item-ref question-code="7">Bagaimana proses validasi
+                                pembayaran?</p>
+                        </li>
+                        <li>
+                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                                href="#" data-twe-dropdown-item-ref question-code="8">Apabila tim tidak dapat
+                                hadir
+                                pada hari - h acara apa konsekuensinya?</p>
+                        </li>
+                        <li>
+                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                                href="#" data-twe-dropdown-item-ref question-code="9">Apakah peserta akan
+                                mendapatkan
+                                konsumsi?</p>
+                        </li>
+                        <li>
+                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                                href="#" data-twe-dropdown-item-ref question-code="10">Apakah acara ini
+                                menyediakan
+                                transportasi untuk peserta?</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
     </section>
 
@@ -289,5 +392,70 @@
         }
 
         window.addEventListener('scroll', timelineScroll);
+
+        const chatSection = document.querySelector('.chat-section');
+
+        const answerArray = [
+            'Battle of Minds adalah lomba yang memadukan konsep logika matematika dengan permainan yang seru dan menantang di bidang Science🧪, Technology💻, Engineering⚙️, and Math✖️. ',
+            'Lomba ini terdiri dari tiga babak, yakni dua babak eliminasi dan satu babak final. Untuk mendapatkan informasi lebih rinci, akan diadakan TM 1 untuk babak pertama dan TM 2 untuk babak kedua.',
+            'Setiap peserta yang mengikuti kompetisi Battle of Minds diwajibkan hadir secara ONSITE, di Petra Christian University untuk babak 1. Lalu, untuk babak 2 dan babak final akan dilakukan ONSITE di Fairway Nine Mall Surabaya 🔥🔥',
+            'Kamu dapat mengikuti kompetisi Battle Of Minds 2024 jika kamu adalah siswa/i SMA/SMK di Indonesia yaaa 😙🏫',
+            'Tidak, setiap peserta tidak boleh mewakili lebih dari 1 tim 😑😑',
+            'Pendaftaran BoM free 🤩🤩!! Eitssss tapi peserta diwajibkan melakukan deposit sebesar Rp200.000 yang dibayarkan melalui Rekening BCA 2981104724 A.n/ MARCELINUS ANTHONY TEGUH, dan memberikan kode 1 pada akhir nominal seperti: 200.001 dan memberikan keterangan berita acara: BOM24-(namatim) contoh: BOM24-timhore',
+            'Iyaaa tenang aja uang deposit pasti dikembalikan, selama kalian mengikuti acara dengan baik, mematuhi peraturan, dan tidak terdiskualifikasi 😙😙',
+            'Setelah pendaftaran melalui website telah berhasil, panitia akan memberikan email konfirmasi dalam waktu 1 x 24 jam bahwa pendaftaran kalian tervalidasi.',
+            'Sayang sekali jika ada tim yang tidak hadir pada hari-h acara, maka tim tersebut akan didiskualifikasi dan uang deposit tidak akan dikembalikan 🥲🥲',
+            'Tenang aja, setiap peserta akan mendapatkan konsumsi kok 🥰🍴',
+            'Sayang sekali, tetapi pihak Battle of Minds tidak menyediakan fasilitas transportasi untuk peserta 😔😔'
+
+        ]
+
+        var replyUser = function(answer) {
+            const bombyResponse = document.createElement('div');
+            bombyResponse.classList.add('bombyAnswer', 'pt-4', 'flex');
+
+            const bombyProfile = document.createElement('img');
+            bombyProfile.src = 'assets/VERDARA POSE 1.png';
+            bombyProfile.alt = 'faq-maskot';
+            bombyProfile.classList.add('rounded-full', 'h-8', 'bg-yellow-400', 'ml-4', 'mr-3');
+
+            const replyText = document.createElement('p');
+            replyText.classList.add('chat', 'overflow-visible', 'text-black', 'sm:text-base', 'max-sm:text-sm',
+                'sm:w-[250px]', 'max-sm:w-[200px]', 'px-3', 'py-2',
+                'bg-white', 'rounded-tr-2xl', 'rounded-br-2xl', 'rounded-bl-2xl', 'my-5');
+            replyText.textContent = answer;
+
+            bombyResponse.appendChild(bombyProfile);
+            bombyResponse.appendChild(replyText);
+
+            chatSection.appendChild(bombyResponse);
+        }
+
+        function makeChat(e) {
+            var questionText = e.currentTarget.innerHTML;
+            var questionCode = e.currentTarget.getAttribute('question-code');
+
+            const userChat = document.createElement('div');
+            userChat.classList.add('userAnswer', 'pt-5', 'flex', 'justify-end');
+            const textChat = document.createElement('p');
+            textChat.classList.add('chat', 'user-chat', 'overflow-visible', 'text-white', 'sm:text-base', 'max-sm:text-sm',
+                'px-3', 'py-2',
+                'backdrop-opacity-80', 'rounded-tr-2xl', 'rounded-bl-2xl', 'rounded-tl-2xl', 'mr-4', 'sm:w-[250px]',
+                'max-sm:w-[200px]');
+            textChat.textContent = questionText;
+
+            userChat.appendChild(textChat);
+            chatSection.appendChild(userChat);
+            chatSection.scrollTop = chatSection.scrollHeight;
+
+            setTimeout(function() {
+                replyUser(answerArray[questionCode]);
+                chatSection.scrollTop = chatSection.scrollHeight;
+            }, 1000);
+        }
+
+        document.querySelectorAll('.question').forEach(item => {
+            item.addEventListener('click', makeChat);
+        });
     </script>
 @endsection
