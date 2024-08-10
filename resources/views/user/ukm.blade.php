@@ -175,9 +175,9 @@
                             <div class = "text-white font-bold text-[24px] leading-none text-center pt-[80px]">
                                 {{$ukm->name}}
                             </div>
-                            <!--Slot & Price + Button -->
+                            <!--Slot & Regist fee + Button -->
                             <div class = "flex flex-col justify-center items-center gap-[15px]">
-                                <!--Slot & Price-->
+                                <!--Slot & Regist fee-->
                                 <div class = "py-[5px] flex">
                                     <div id = "show-slot"
                                         class = "flex flex-col justify-center pl-[20px] pr-[20px] border-r-[1px]">
@@ -186,7 +186,7 @@
                                         <div class = "text-white text-[12px] m-[-2px] pb-[4px]">Slot left</div>
                                     </div>
     
-                                    <div id = "show-price" class = "flex flex-col justify-center pr-[20px] pl-[20px]">
+                                    <div id = "show-regist-fee" class = "flex flex-col justify-center pr-[20px] pl-[20px]">
                                         <div class = "text-white text-[40px] font-bold leading-tight">
                                             @if ($ukm->regist_fee == 0)
                                                 0K
@@ -194,7 +194,7 @@
                                                 {{ substr($ukm->regist_fee, 0, -3) }}K
                                             @endif
                                         </div>
-                                        <div class = "text-white text-[12px] m-[-2px] pb-[4px]">Price</div>
+                                        <div class = "text-white text-[12px] m-[-2px] pb-[4px]">Regist fee</div>
                                     </div>
                                 </div>
                                 <!--Button-->

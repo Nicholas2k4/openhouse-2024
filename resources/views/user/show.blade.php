@@ -337,10 +337,10 @@
                 @endif
             </div>
 
-            <!-- Left Side (Slot, Price, Buttons) -->
+            <!-- Left Side (Slot, Regist fee, Buttons) -->
             <div class="reveal from-right z-[10] w-full sm:w-3/5">
                 <div class="flex flex-col items-center">
-                    <!--Slot & Price-->
+                    <!--Slot & Regist fee-->
                     <div class="flex flex-row justify-center">
                         <div id = "show-slot"
                             class = "flex flex-col justify-center pl-[20px] pr-[20px] border-r-[1px]">
@@ -350,7 +350,7 @@
                                 Slot left</div>
                         </div>
 
-                        <div id = "show-price" class = "flex flex-col justify-center pr-[20px] pl-[20px]">
+                        <div id = "show-regist-fee" class = "flex flex-col justify-center pr-[20px] pl-[20px]">
                             <div class = "text-white text-[48px] md:text-[100px] font-bold leading-tight">
                                 @if ($ukm->regist_fee == 0)
                                     0K
@@ -359,7 +359,7 @@
                                 @endif
                             </div>
                             <div class = "text-white text-[16px] md:text-[26px] m-[-2px] pb-[4px] w-full text-center">
-                                Price</div>
+                                Regist fee</div>
                         </div>
                     </div>
 

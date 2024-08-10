@@ -176,7 +176,6 @@
                         <div class = " text-white font-bold text-[24px] leading-none text-center pt-[80px]">
                             {{ $ukm->name }}
                         </div>
-                        <!--Slot & Price + Button -->
                         <!--Button-->
                         <div class = "group button-animate">
                             <form action="{{ route('user.lk.id', ['id' => $ukm->id]) }}" class="action">
