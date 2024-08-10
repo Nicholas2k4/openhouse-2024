@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admin', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('ukm_id');
             $table->uuid('division_id');
@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('field')->comment('Panitia/UKM');
             $table->timestamps();
 
-            $table->foreign('ukm_id')->references('id')->on('ukm')->onDelete('cascade');
+            $table->foreign('ukm_id')->references('id')->on('ukms')->onDelete('cascade');
             $table->foreign('division_id')->references('id')->on('divisions')->onDelete('cascade');
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admin');
+        Schema::dropIfExists('admins');
     }
 };

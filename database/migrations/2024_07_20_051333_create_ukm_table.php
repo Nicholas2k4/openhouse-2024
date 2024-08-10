@@ -11,13 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ukm', function (Blueprint $table) {
+        Schema::create('ukms', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
             $table->string('slug');
             $table->integer('current_slot');
             $table->integer('max_slot');
             $table->integer('regist_fee');
+            $table->text('description')->nullable();
+            $table->string('logo_url')->nullable();
+            $table->string('poster_url')->nullable();
         });
     }
 
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ukm');
+        Schema::dropIfExists('ukms');
     }
 };
