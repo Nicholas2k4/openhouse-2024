@@ -27,3 +27,10 @@ Route::get('/filterSearch', [ValidateController::class, 'filterSearch'])->name('
 Route::post('/selectionValidate', [ValidateController::class, 'selectionValidate'])->name('selectionValidate');
 Route::post('/paymentValidate', [ValidateController::class, 'paymentValidate'])->name('paymentValidate');
 Route::post('/giveLetter', [GenerateController::class, 'giveLetter'])->name('admin.giveLetter');
+
+Route::get('/test', function () {
+    $ukms = App\Models\Ukm::all();
+    return view('test', [
+        'ukms' => $ukms
+    ]);
+});
