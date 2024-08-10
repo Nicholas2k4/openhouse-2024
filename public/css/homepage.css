@@ -37,6 +37,11 @@ body {
     animation: slideOut 0.5s forwards;
 }
 
+.active-timeline {
+    filter: drop-shadow(0 0 5px white) drop-shadow(0 0 20px white);
+    transition: all 0.4s ease !important;
+}
+
 @keyframes slideIn {
     from {
         transform: translateX(100%);
@@ -77,5 +82,17 @@ body {
 
     to {
         filter: drop-shadow(0px 0px 1px white);
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .maskot {
+        top: 2500px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .maskot {
+        top: 2200px;
     }
 }
