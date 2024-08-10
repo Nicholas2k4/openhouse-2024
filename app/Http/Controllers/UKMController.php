@@ -57,8 +57,10 @@ class UKMController extends Controller
             'futsal' => 'https://drive.google.com/file/d/1VbrZl637ocLP0u8JvNmg9qHUFMN2QXsu/preview'
         ];
 
-        $videoUrl = $videoUrls[$slug];
-        
+
+
+        $videoUrl = $videoUrls[$slug] ?? "";
+
         return view('user/show', compact('ukm', 'id', 'imageUrls', 'posterUrl', 'videoUrl'));
     }
 }

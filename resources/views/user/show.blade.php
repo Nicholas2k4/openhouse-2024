@@ -249,7 +249,7 @@
             class="gap-[10px] md:gap-[20px] py-[50px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] mx-auto h-full flex flex-col-reverse justify-center items-center lg:flex lg:flex-row lg:justify-between lg:items-center">
             <!-- Left Side -->
             @if($imageUrls !== [])
-            <div class="reveal from-left z-[10] flex flex-col w-full lg:w-3/5 mt-10 swiper">
+            <div class="reveal from-left z-[10] flex flex-col w-full lg:w-2/4 mt-10 swiper">
                 <div class="slider-wrapper">
                     <div class="card-list swiper-wrapper flex items-center ">
                         @foreach($imageUrls as $imageUrl)
@@ -280,15 +280,15 @@
             </div>
             @endif
             <!-- Right Side -->
-            <div class="reveal from-right mt-[20px] sm:mt-[0px] z-[10] text-center flex flex-col w-full lg:w-2/5">
+            <div class="reveal from-right mt-[20px] sm:mt-[0px] z-[10] text-center flex flex-col w-full lg:w-2/4">
                 <div id="desc"
                     class="backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-100 bg-gray-600 rounded p-5 flex flex-col justify-between">
                     <div>
                         <div class="text-[16px] text-white">
-                            {{ \Str::limit($ukm->description, 300) }}
+                            {{ \Str::limit($ukm->description, 500) }}
                         </div>
                     </div>
-                    @if (strlen($ukm->description) > 300)
+                    @if (strlen($ukm->description) > 500)
                         <button
                             class="mt-10 relative w-full text-[16px] text-white flex justify-end items-center gap-1 transition duration-500"
                             onclick="toggleModal()">
@@ -327,10 +327,10 @@
             class="py-[50px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] gap-[20px] mx-auto h-full flex flex-col justify-center items-center md:flex md:flex-row md:justify-between md:items-center">
             <!-- Right Side (Poster Optional) -->
             <div class="reveal from-left z-[10] flex flex-col w-full sm:w-2/5 items-center mt-5">
-                @if($posterUrl != "")
+                @if($posterUrl !== "")
                 <img class = "w-[300px] md:w-[300px] h-auto" src = '{{URL($posterUrl)}}'/>
                 @else
-                <img class = "w-[300px] md:w-[300px] h-auto" src = '{{URL('asset/VERDARA POSE 2 W_ TRAIL')}}'/>
+                <img class = "w-[400px] md:w-[400px] h-auto" src = '{{URL('asset/VERDARA POSE 2 W_ TRAIL.png')}}'/>
                 @endif
             </div>
 
