@@ -19,6 +19,21 @@ class UKMController extends Controller
         return view('user.ukm', $data);
     }
 
+    // Ambil data untuk search-bar di navbar
+    public static function getUkms() {
+        $ukms = Ukm::all();
+        $ukms_temp = [];
+
+        foreach ($ukms as $ukm) {
+            if (substr($ukm->name, 0, 2) == 'LK') {
+                $ukms_temp[$ukm->name] = '/user/lk/' . $ukm->id;
+            } else if (substr($ukm->name, 0, 3) == 'UKM') {
+                $ukms_temp[$ukm->name] = '/user/ukm/' . $ukm->id;
+            }
+        }
+        return $ukms_temp;
+    }
+
     public function show($id)
     {
         $ukm = Ukm::findOrFail($id);

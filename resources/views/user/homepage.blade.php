@@ -101,11 +101,11 @@
         </div>
     </section>
 
-    {{-- Game & UKM --}}
-    <section class="game-ukm flex justify-center space-x-5 mb-10" id="game-ukm">
-        <a href="#">
+    {{-- Game --}}
+    <section class="game flex justify-center space-x-5 mb-10" id="game">
+        <a href="{{ route('user.game') }}">
             <div
-                class="border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-400 hover:shadow-white hover:shadow-xl">
+                class="border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-black shadow-lg md:min-w-[400px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-400 hover:shadow-white hover:shadow-xl">
                 <span class="text-center mx-auto sm:h-[120px] sm:w-[150px] h-[100px] w-[125px]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                         <path fill="#ffffff"
@@ -117,7 +117,11 @@
                     Game</h1>
             </div>
         </a>
-        <a href="#">
+    </section>
+
+    {{-- UKM and LK --}}
+    <section class="ukm-lk flex justify-center space-x-5 mb-10" id="ukm-lk">
+        <a href="{{ route('user.ukm') }}">
             <div
                 class="border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-400 hover:shadow-white hover:shadow-xl">
                 <span class="text-center mx-auto sm:h-[120px] sm:w-[135px] h-[100px] w-[125px]">
@@ -129,6 +133,21 @@
                 <h1
                     class="sm:text-5xl text-2xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
                     UKM</h1>
+            </div>
+        </a>
+        <a href="{{ route('user.lk') }}">
+            <div
+                class="border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-400 hover:shadow-white hover:shadow-xl">
+                <span class="text-center mx-auto sm:h-[120px] sm:w-[135px] h-[100px] w-[125px]">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 576 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path fill="#ffffff"
+                            d="M208 80c0-26.5 21.5-48 48-48l64 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-8 0 0 40 152 0c30.9 0 56 25.1 56 56l0 32 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-32c0-4.4-3.6-8-8-8l-152 0 0 40 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-40-152 0c-4.4 0-8 3.6-8 8l0 32 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-32c0-30.9 25.1-56 56-56l152 0 0-40-8 0c-26.5 0-48-21.5-48-48l0-64z" />
+                    </svg>
+                </span>
+                <h1
+                    class="sm:text-5xl text-2xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
+                    LK</h1>
             </div>
         </a>
     </section>
@@ -311,7 +330,17 @@
                 timelineElement1.classList.remove('opacity-0');
                 timelineElement1.classList.add('opacity-1');
             }
-            // console.log(width);
+
+            // Navbar ganti transparent pas di homepage
+            if (window.pageYOffset <= 60) {
+                document.querySelector('nav').classList.remove('bg-gradient-to-r', 'bg-gradient-to-r', 'from-[#4477CE]',
+                    'to-[#F1C1AC]');
+                document.querySelector('nav').classList.add('bg-transparent');
+            } else {
+                document.querySelector('nav').classList.remove('bg-transparent');
+                document.querySelector('nav').classList.add('bg-gradient-to-r', 'bg-gradient-to-r', 'from-[#4477CE]',
+                    'to-[#F1C1AC]');
+            }
         }
         // });
 

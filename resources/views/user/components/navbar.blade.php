@@ -1,8 +1,7 @@
 <!-- Main navigation container -->
-<nav class="fixed top-0 flex w-full z-10 h-[65px] flex-nowrap items-center justify-between bg-transparent py-2 shadow-dark-mild lg:flex-wrap lg:justify-start duration-500 transition-all ease-in-out"
+<nav class="fixed top-0 flex w-full z-10 h-[65px] flex-nowrap items-center justify-between {{ '/' == request()->path() ? 'bg-transparent' : 'bg-gradient-to-r from-[#4477CE] to-[#F1C1AC]'}} py-2 shadow-dark-mild lg:flex-wrap lg:justify-start duration-500 transition-all ease-in-out"
     data-twe-navbar-ref id="navbar">
     <div class="flex w-full flex-wrap items-center justify-between md:px-3">
-
         {{-- Hamburger button --}}
         <div class="hamburger flex items-center" id="hamburger">
             <svg class="ham ham6" viewBox="0 0 100 100" width="49" onclick="this.classList.toggle('active')">
@@ -51,10 +50,16 @@
                             <span>Timeline</span>
                         </li>
                     </a>
-                    <a href="#game-ukm">
+                    <a href="#game">
                         <li data-te-ripple-init data-te-ripple-color='light'>
                             <i class="fa-solid fa-gamepad"></i>
-                            <span>Game & UKM</span>
+                            <span>Game</span>
+                        </li>
+                    </a>
+                    <a href="#ukm-lk">
+                        <li data-te-ripple-init data-te-ripple-color='light'>
+                            <i class="fa-solid fa-sitemap"></i>
+                            <span>UKM & LK</span>
                         </li>
                     </a>
                     <a href="#faq">
@@ -73,7 +78,7 @@
                 <div
                     class="relative flex flex-col focus-within:ease-in-out duration-300 focus-within:shadow-white focus-within:shadow-2xl">
                     <input type="text" id="search" autocomplete="off" onclick="show()" onkeyup="search()"
-                        class="!border-2 !rounded-full !border-white z-20 w-full bg-transparent px-3 py-1 !text-black placeholder-white font-normal transition duration-200 focus:outline-none focus:ring-0"
+                        class="!border-2 !rounded-full !border-white z-20 w-full bg-transparent px-3 py-1 !text-white placeholder-white font-normal transition duration-200 focus:outline-none focus:ring-0"
                         placeholder="Search UKM or LK" />
                     <div class="dropdown bg-white p-3 rounded-xl absolute top-9 hidden flex-col w-full">
                     </div>
