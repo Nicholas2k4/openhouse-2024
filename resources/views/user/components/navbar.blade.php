@@ -1,5 +1,5 @@
 <!-- Main navigation container -->
-<nav class="fixed top-0 flex w-full z-10 flex-nowrap items-center justify-between bg-gradient-to-r from-[#4477CE] to-[#F1C1AC] py-2 shadow-dark-mild lg:flex-wrap lg:justify-start duration-500"
+<nav class="fixed top-0 flex w-full z-10 h-[65px] flex-nowrap items-center justify-between bg-transparent py-2 shadow-dark-mild lg:flex-wrap lg:justify-start duration-500 transition-all ease-in-out"
     data-twe-navbar-ref id="navbar">
     <div class="flex w-full flex-wrap items-center justify-between md:px-3">
 
@@ -67,18 +67,13 @@
             </div>
         </div>
 
-        {{-- Logo --}}
-        <div class="sm:w-[200px] lg:w-[400px] flex justify-end">
-            <img src="{{ asset('assets/Logo FLAT.png') }}" alt="">
-        </div>
-
         {{-- Search --}}
-        <div class="md:me-3 me-1 sm:w-[300px] md:w-[400px] lg:w-[500px]">
+        <div class="search-bar md:me-3 me-1 sm:w-[300px] md:w-[400px] lg:w-[500px] z-10">
             <div class="lg:pe-2">
                 <div
                     class="relative flex flex-col focus-within:ease-in-out duration-300 focus-within:shadow-white focus-within:shadow-2xl">
                     <input type="text" id="search" autocomplete="off" onclick="show()" onkeyup="search()"
-                        class="!border-2 !rounded-full !border-white z-20 w-full bg-transparent px-3 py-1 !text-black placeholder-[#074173] font-normal transition duration-200 focus:outline-none focus:ring-0"
+                        class="!border-2 !rounded-full !border-white z-20 w-full bg-transparent px-3 py-1 !text-black placeholder-white font-normal transition duration-200 focus:outline-none focus:ring-0"
                         placeholder="Search UKM or LK" />
                     <div class="dropdown bg-white p-3 rounded-xl absolute top-9 hidden flex-col w-full">
                     </div>

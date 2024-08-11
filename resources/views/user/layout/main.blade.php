@@ -68,6 +68,11 @@
         }
 
         @font-face {
+            font-family: GeneralSansSemiBold;
+            src: url('{{ asset('font/GeneralSans-Semibold.otf') }}');
+        }
+
+        @font-face {
             font-family: GeneralSansItalic;
             src: url('{{ asset('font/GeneralSans-Italic.otf') }}');
         }
