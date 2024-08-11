@@ -23,7 +23,8 @@ return new class extends Migration
             $table->timestamps();
 
 
-            $table->foreign('ukm_id')->references('id')->on('ukms')->onDelete('cascade');
+            $table->foreign('nrp')->references('nrp')->on('users')->onDelete('cascade');
+            $table->foreign('ukm_id')->references('id')->on('ukm')->onDelete('cascade');
         });
     }
 

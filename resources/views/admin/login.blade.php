@@ -5,15 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Login Admin</title>
 
     {{-- CDN for tailwind --}}
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 
     {{-- Tailwind --}}
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <link rel="stylesheet" href="{{ asset('css/bubble.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
         @font-face {
@@ -27,7 +26,6 @@
         }
 
         body {
-            background-image: url('{{ asset('assets/SS_Edit.png') }}');
             padding: 0;
             overflow-x: hidden;
             overflow-y: hidden;
@@ -94,6 +92,25 @@
 </head>
 
 <body>
+    @if(session('error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal',
+            text: '{{ session('error') }}',
+        });
+    </script>
+    @endif
+
+    @if(session('info'))
+    <script>
+        Swal.fire({
+            icon: 'info',
+            title: 'Logout',
+            text: '{{ session('info') }}',
+        });
+    </script>
+    @endif
     {{-- sptw dpt video res tinggi :D --}}
     {{-- <video src="{{ asset('assets/SS_Motion.mp4') }}" loop autoplay muted class="absolute w-[100vh] h-[100vh]"></video> --}}
 
@@ -102,7 +119,7 @@
             class="font-bold sm:text-8xl text-6xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
             Open House 2024</h1>
         <div class="login-button flex flex-col justify-center mx-auto">
-            <a href="{{ route('user.auth', ['type' => 'user']) }}"><img src="{{ asset('assets/Google.png') }}" class="google-logo"> <span
+            <a href="{{ route('user.auth', ['type' => 'admin']) }}"><img src="{{ asset('assets/Google.png') }}" class="google-logo"> <span
                     class="span1">Sign In with PCU Email</span></button>
         </div>
 
