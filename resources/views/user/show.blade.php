@@ -11,35 +11,37 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
-        body,html{
-            overflow-x:hidden;
+        body,
+        html {
+            overflow-x: hidden;
         }
 
-        .reveal{
+        .reveal {
             position: relative;
-            opacity:0;
+            opacity: 0;
             transition: all 1s ease;
         }
 
-        .from-left{
+        .from-left {
             transform: translateX(-100vw);
         }
 
-        .from-right{
+        .from-right {
             transform: translateX(100vw);
         }
 
-        .reveal.active{
-            opacity:1;
+        .reveal.active {
+            opacity: 1;
             transform: translateX(0px);
 
         }
 
-        .reveal.active{
-            opacity:1;
+        .reveal.active {
+            opacity: 1;
             transform: translateX(0px);
 
         }
+
         .bg-section {
             background: linear-gradient(-45deg, #00225c, #4476CB, #57C7D4);
             background-size: 400% 400%;
@@ -47,7 +49,7 @@
             height: 100vh;
         }
 
-        .bg-modal{
+        .bg-modal {
             background: linear-gradient(-45deg, #4476CB, #57C7D4);
         }
 
@@ -120,11 +122,11 @@
 
         .hoverable {
             transition: letter-spacing 0.3s ease-in-out;
-            
+
         }
 
         .hoverable:hover {
-            letter-spacing:1px;
+            letter-spacing: 1px;
         }
 
 
@@ -165,7 +167,7 @@
 
 <body>
     <!-- Navigation -->
-    
+
     <!--BG Gambar-->
     {{-- <img src = "{{ URL('img/EO_Edit.jpg') }}" class="bg-cover bg-center fixed h-screen w-full">
     <div class="fixed w-full h-screen bg-[#4a0d1d] bg-opacity-30"></div> --}}
@@ -175,7 +177,7 @@
     <!--BG Solid-->
     {{-- <div class="fixed w-full h-screen bg-[#F6F0D2] "></div> --}}
 
-    <!--BG Gradient-->  
+    <!--BG Gradient-->
     <div class = "z-[0] bg-section fixed w-full h-screen"></div>
 
     <div
@@ -184,21 +186,24 @@
 
     <nav class=" h-[64px] fixed z-[100] w-full backdrop-blur-xl bg-white/15">
         <div class="px-[30px] md:px-[50px] xl:px-[100px] mx-auto flex justify-between items-center h-[100%]">
-            @if(!in_array($ukm->name, ['LK BEM', 'LK TPS', 'LK MPM', 'LK BPMF', 'LK PERSMA', 'LK PELMA']))
-            <a href = "{{route('user.ukm')}}" class="text-2xl text-white">
-                <i class="cursor-pointer fa-solid fa-chevron-left"></i>
-            </a>
+            @if (!in_array($ukm->name, ['LK BEM', 'LK TPS', 'LK MPM', 'LK BPMF', 'LK PERSMA', 'LK PELMA']))
+                <a href = "{{ route('user.ukm') }}" class="text-2xl text-white">
+                    <i class="cursor-pointer fa-solid fa-chevron-left"></i>
+                </a>
             @else
-            <a href = "{{route('user.lk')}}" class="text-2xl text-white">
-                <i class="cursor-pointer fa-solid fa-chevron-left"></i>
-            </a>
+                <a href = "{{ route('user.lk') }}" class="text-2xl text-white">
+                    <i class="cursor-pointer fa-solid fa-chevron-left"></i>
+                </a>
             @endif
 
             <div class="hidden sm:flex justify-between gap-10">
-                <a id = "nav-button-vid" class="hoverable glow-text font-bold text-white text-[20px]" href="#video">Video</a>
-                <a id = "nav-button-about" class="hoverable glow-text font-bold text-white text-[20px]" href="#about">About</a>
-                @if(!in_array($ukm->name, ['LK BEM', 'LK TPS', 'LK MPM', 'LK BPMF', 'LK PERSMA', 'LK PELMA']))
-                <a id = "nav-button-register" class="hoverable glow-text font-bold text-white text-[20px]" href="#register">Register</a>
+                <a id = "nav-button-vid" class="hoverable glow-text font-bold text-white text-[20px]"
+                    href="#video">Video</a>
+                <a id = "nav-button-about" class="hoverable glow-text font-bold text-white text-[20px]"
+                    href="#about">About</a>
+                @if (!in_array($ukm->name, ['LK BEM', 'LK TPS', 'LK MPM', 'LK BPMF', 'LK PERSMA', 'LK PELMA']))
+                    <a id = "nav-button-register" class="hoverable glow-text font-bold text-white text-[20px]"
+                        href="#register">Register</a>
                 @endif
             </div>
 
@@ -206,43 +211,35 @@
                 <i class="fa-solid fa-bars"></i>
             </div>
         </div>
-    
+
     </nav>
 
     <!-- Menu on Small Screen -->
     <div id="menu"
-    class="z-[100] hidden h-screen w-full bg-section backdrop-blur-xl bg-white/15 flex flex-col items-center justify-center gap-5 pb-[64px]">
-    <a class="hoverable glow-text text-white text-[20px] menu-button-sm" href="#video">Video</a>
-    <a class="hoverable glow-text text-white text-[20px] menu-button-sm" href="#about">About</a>
-    @if(!in_array($ukm->name, ['LK BEM', 'LK TPS', 'LK MPM', 'LK BPMF', 'LK PERSMA', 'LK PELMA']))
-    <a class="hoverable glow-text text-white text-[20px] menu-button-sm" href="#register">Register</a>
-    @endif
-</div>
+        class="z-[100] hidden h-screen w-full bg-section backdrop-blur-xl bg-white/15 flex flex-col items-center justify-center gap-5 pb-[64px]">
+        <a class="hoverable glow-text text-white text-[20px] menu-button-sm" href="#video">Video</a>
+        <a class="hoverable glow-text text-white text-[20px] menu-button-sm" href="#about">About</a>
+        @if (!in_array($ukm->name, ['LK BEM', 'LK TPS', 'LK MPM', 'LK BPMF', 'LK PERSMA', 'LK PELMA']))
+            <a class="hoverable glow-text text-white text-[20px] menu-button-sm" href="#register">Register</a>
+        @endif
+    </div>
 
-    
+
 
     <!-- Video Section -->
     <div class="z-5 min-h-screen" id = "video">
         <div
-            class="pb-[50px] pt-[164px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] mx-auto h-full flex flex-col flex-wrap justify-center items-center">
-            
-            <!-- Left Side -->
-            <div class="reveal from-right active  h-[100%] w-[100%] lg:h-[50%] lg:w-[60%]">
-                <div class="video-container aspect-w-16 aspect-h-9">
-                    <iframe class="w-full h-full" src="{{$videoUrl}}" frameborder="0"
-                        allow="autoplay"
-                        ></iframe>
-                </div>
-            </div>
-
-            <!-- Right Side -->
+            class="pb-[40px] pt-[164px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] mx-auto h-full flex flex-col flex-wrap justify-center items-center">
             <div class=" reveal from-left active z-[10] mt-10 lg:mt-0 text-center flex flex-col w-full">
-                <div class="glow-text font-bold text-[48px] lg:text-[64px] text-white leading-tight">
+                <div class="glow-text mb-4 font-bold text-[48px] lg:text-[64px] text-white leading-tight">
                     {{ $ukm->name }}
                 </div>
             </div>
-
-            
+            <div class="reveal from-right active  h-[100%] w-[100%] lg:h-[50%] lg:w-[60%]">
+                <div class="video-container aspect-w-16 aspect-h-9">
+                    <iframe class="w-full h-full" src="{{ $videoUrl }}" frameborder="0" allow="autoplay"></iframe>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -251,36 +248,35 @@
         <div id = "about"
             class="gap-[10px] md:gap-[20px] py-[50px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] mx-auto h-full flex flex-col-reverse justify-center items-center md:flex-row md:justify-between">
             <!-- Left Side -->
-            @if($imageUrls !== [])
-            <div class="reveal from-left z-[10] flex flex-col w-full lg:w-2/4 mt-10 swiper">
-                <div class="slider-wrapper">
-                    <div class="card-list swiper-wrapper flex items-center ">
-                        @foreach($imageUrls as $imageUrl)
-                        @if(stripos($imageUrl, 'mp4'))
-                        
-                        @else
-                        <div class="card-item swiper-slide h-[300px]">
-                        
-                            {{-- <iframe class = "video-slide mx-auto w-full h-full object-contain"
-                            src = "{{URL($imageUrl)}}?autoplay=0"> --}}
-                        {{-- </iframe> --}}
-                            <img class = "mx-auto w-full h-full object-contain"
-                                src = "{{URL($imageUrl)}}">
-                        
-                        </div>
-                        @endif
-                        @endforeach
-                    </div>
+            @if ($imageUrls !== [])
+                <div class="reveal from-left z-[10] flex flex-col w-full lg:w-2/4 mt-10 swiper">
+                    <div class="slider-wrapper">
+                        <div class="card-list swiper-wrapper flex items-center ">
+                            @foreach ($imageUrls as $imageUrl)
+                                @if (stripos($imageUrl, 'mp4'))
+                                @else
+                                    <div class="card-item swiper-slide h-[300px]">
 
-                    <div class="swiper-pagination"></div>
-                    <div class="pb-[100px] text-white swiper-slide-button swiper-button-prev "></div>
-                    <div class="pb-[100px] text-white swiper-slide-button swiper-button-next"></div>
+                                        {{-- <iframe class = "video-slide mx-auto w-full h-full object-contain"
+                            src = "{{URL($imageUrl)}}?autoplay=0"> --}}
+                                        {{-- </iframe> --}}
+                                        <img class = "mx-auto w-full h-full object-contain"
+                                            src = "{{ URL($imageUrl) }}">
+
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+
+                        <div class="swiper-pagination"></div>
+                        <div class="pb-[100px] text-white swiper-slide-button swiper-button-prev "></div>
+                        <div class="pb-[100px] text-white swiper-slide-button swiper-button-next"></div>
+                    </div>
                 </div>
-            </div>
             @else
-            <div class="reveal from-left z-[10] justify-center flex w-full lg:w-2/4 mt-10">
-                <img class = "w-[300px] md:w-[450px] h-auto" src = '{{URL('asset/CORALIS POSE 2 FEED.png')}}'/>
-            </div>
+                <div class="reveal from-left z-[10] justify-center flex w-full lg:w-2/4 mt-10">
+                    <img class = "w-[300px] md:w-[450px] h-auto" src = '{{ URL('asset/CORALIS POSE 2 FEED.png') }}' />
+                </div>
             @endif
             <!-- Right Side -->
             <div class="reveal from-right mt-[20px] sm:mt-[0px] z-[10] flex flex-col w-full lg:w-2/4">
@@ -313,75 +309,79 @@
 
     <div id = "overlay" class = "z-[700] w-full h-[100vh] fixed top-0 left-0 bg-black opacity-60 hidden"></div>
     <!--Pop Up-->
-    <div class = "text-[20px] bg-modal hidden p-10 overflow-y-scroll z-[1000] text-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[500px] w-[300px] md:max-h-[500px] md:w-[600px] lg:max-h-[500px] lg:w-[800px]" id = "modal">
+    <div class = "text-[20px] bg-modal hidden p-10 overflow-y-scroll z-[1000] text-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[500px] w-[300px] md:max-h-[500px] md:w-[600px] lg:max-h-[500px] lg:w-[800px]"
+        id = "modal">
         <div class = "absolute w-full text-right top-[20px] right-[20px] ">
-                <button type="button" class="px-4 rounded "
-                    onclick="toggleModal()"><i class=" text-white fas fa-times"></i></button>
+            <button type="button" class="px-4 rounded " onclick="toggleModal()"><i
+                    class=" text-white fas fa-times"></i></button>
         </div>
-        {{$ukm->description}}
+        {{ $ukm->description }}
     </div>
-    
 
-    @if(!in_array($ukm->name, ['LK BEM', 'LK TPS', 'LK MPM', 'LK BPMF', 'LK PERSMA', 'LK PELMA']))
-    <!-- Register Section -->
 
-    <div class="z-[10] min-h-screen" id = "register">
-        <div
-            class="py-[50px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] gap-[20px] mx-auto h-full flex flex-col justify-center items-center md:flex md:flex-row md:justify-between md:items-center">
-            <!-- Right Side (Poster Optional) -->
-            <div class="reveal from-left z-[10] flex flex-col w-full sm:w-2/5 items-center mt-5">
-                @if($posterUrl !== "")
-                <img class = "w-[300px] md:w-[300px] h-auto" src = '{{URL($posterUrl)}}'/>
-                @else
-                <img class = "w-[400px] md:w-[400px] h-auto" src = '{{URL('asset/VERDARA POSE 2 W_ TRAIL.png')}}'/>
-                @endif
-            </div>
+    @if (!in_array($ukm->name, ['LK BEM', 'LK TPS', 'LK MPM', 'LK BPMF', 'LK PERSMA', 'LK PELMA']))
+        <!-- Register Section -->
 
-            <!-- Left Side (Slot, Regist fee, Buttons) -->
-            <div class="reveal from-right z-[10] w-full sm:w-3/5">
-                <div class="flex flex-col items-center">
-                    <!--Slot & Regist fee-->
-                    <div class="flex flex-row justify-center">
-                        <div id = "show-slot"
-                            class = "flex flex-col justify-center pl-[20px] pr-[20px] border-r-[1px]">
-                            <div class = "text-white text-[48px] md:text-[100px] font-bold leading-tight">
-                                {{ $ukm->current_slot }}</div>
-                            <div class = "text-white text-[16px] md:text-[26px] m-[-2px] pb-[4px] w-full text-center">
-                                Slot left</div>
-                        </div>
+        <div class="z-[10] min-h-screen" id = "register">
+            <div
+                class="py-[50px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] gap-[20px] mx-auto h-full flex flex-col justify-center items-center md:flex md:flex-row md:justify-between md:items-center">
+                <!-- Right Side (Poster Optional) -->
+                <div class="reveal from-left z-[10] flex flex-col w-full sm:w-2/5 items-center mt-5">
+                    @if ($posterUrl !== '')
+                        <img class = "w-[300px] md:w-[300px] h-auto" src = '{{ URL($posterUrl) }}' />
+                    @else
+                        <img class = "w-[400px] md:w-[400px] h-auto"
+                            src = '{{ URL('asset/VERDARA POSE 2 W_ TRAIL.png') }}' />
+                    @endif
+                </div>
 
-                        <div id = "show-regist-fee" class = "flex flex-col justify-center pr-[20px] pl-[20px]">
-                            <div class = "text-white text-[48px] md:text-[100px] font-bold leading-tight">
-                                @if ($ukm->regist_fee == 0)
-                                    0K
-                                @else
-                                    {{ substr($ukm->regist_fee, 0, -3) }}K
-                                @endif
+                <!-- Left Side (Slot, Regist fee, Buttons) -->
+                <div class="reveal from-right z-[10] w-full sm:w-3/5">
+                    <div class="flex flex-col items-center">
+                        <!--Slot & Regist fee-->
+                        <div class="flex flex-row justify-center">
+                            <div id = "show-slot"
+                                class = "flex flex-col justify-center pl-[20px] pr-[20px] border-r-[1px]">
+                                <div class = "text-white text-[48px] md:text-[100px] font-bold leading-tight">
+                                    {{ $ukm->current_slot }}</div>
+                                <div
+                                    class = "text-white text-[16px] md:text-[26px] m-[-2px] pb-[4px] w-full text-center">
+                                    Slot left</div>
                             </div>
-                            <div class = "text-white text-[16px] md:text-[26px] m-[-2px] pb-[4px] w-full text-center">
-                                Regist fee</div>
+
+                            <div id = "show-regist-fee" class = "flex flex-col justify-center pr-[20px] pl-[20px]">
+                                <div class = "text-white text-[48px] md:text-[100px] font-bold leading-tight">
+                                    @if ($ukm->regist_fee == 0)
+                                        0K
+                                    @else
+                                        {{ substr($ukm->regist_fee, 0, -3) }}K
+                                    @endif
+                                </div>
+                                <div
+                                    class = "text-white text-[16px] md:text-[26px] m-[-2px] pb-[4px] w-full text-center">
+                                    Regist fee</div>
+                            </div>
                         </div>
+
+                        <div class = "text-[18px] italic font-light text-white text-center">
+                            Fee is not paid at booking time, it will be paid after you have been accepted.
+                        </div>
+
+                        <!--Button Book-->
+                        <button name = "ukm" value={{ $ukm->slug }}
+                            class="mt-10 rounded-full hoverable glow-text w-full border-[#57C7D4] hover:bg-[#57C7D4]/50 backdrop-blur-sm bg-[#57C7D4]/15 border-[1px] text-white p-[15px] text-[24px] md:text-[28px] font-bold">
+                            Book Your Slot!
+                        </button>
+
+                        <!--Button Payment-->
+                        <button name = "ukm" value={{ $ukm->slug }}
+                            class="mt-5 rounded-full hoverable glow-text w-full border-[#57C7D4] hover:bg-[#57C7D4]/50 backdrop-blur-sm  bg-[#57C7D4]/15 border-[1px] text-white p-[15px] text-[24px] md:text-[28px] font-bold">
+                            Payment
+                        </button>
                     </div>
-
-                    <div class = "text-[18px] italic font-light text-white text-center">
-                        Fee is not paid at booking time, it will be paid after you have been accepted.
-                    </div>
-
-                    <!--Button Book-->
-                    <button name = "ukm" value={{ $ukm->slug }}
-                        class="mt-10 rounded-full hoverable glow-text w-full border-[#57C7D4] hover:bg-[#57C7D4]/50 backdrop-blur-sm bg-[#57C7D4]/15 border-[1px] text-white p-[15px] text-[24px] md:text-[28px] font-bold">
-                        Book Your Slot!
-                    </button>
-
-                    <!--Button Payment-->
-                    <button name = "ukm" value={{ $ukm->slug }}
-                        class="mt-5 rounded-full hoverable glow-text w-full border-[#57C7D4] hover:bg-[#57C7D4]/50 backdrop-blur-sm  bg-[#57C7D4]/15 border-[1px] text-white p-[15px] text-[24px] md:text-[28px] font-bold">
-                        Payment
-                    </button>
                 </div>
             </div>
         </div>
-    </div>
 
     @endif
 
@@ -400,12 +400,12 @@
             }
         });
 
-        document.querySelectorAll(".menu-button-sm").forEach(function(button){
-            button.addEventListener('click', function(){
-            var menu = document.getElementById("menu");
-            menu.classList.add('hidden');
+        document.querySelectorAll(".menu-button-sm").forEach(function(button) {
+            button.addEventListener('click', function() {
+                var menu = document.getElementById("menu");
+                menu.classList.add('hidden');
+            });
         });
-    });
 
         const swiper = new Swiper('.slider-wrapper', {
             // Optional parameters
@@ -470,44 +470,44 @@
 
 
         document.getElementById("nav-button-vid").addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('video').scrollIntoView({
-            behavior: 'smooth'
+            e.preventDefault();
+            document.getElementById('video').scrollIntoView({
+                behavior: 'smooth'
+            });
         });
-    });
 
         document.getElementById("nav-button-about").addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('about').scrollIntoView({
-            behavior: 'smooth'
+            e.preventDefault();
+            document.getElementById('about').scrollIntoView({
+                behavior: 'smooth'
+            });
         });
-    });
 
-    var navButtonRegister = document.getElementById("nav-button-register");
+        var navButtonRegister = document.getElementById("nav-button-register");
 
-if (navButtonRegister) {
-    navButtonRegister.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('register').scrollIntoView({
-            behavior: 'smooth'
+        if (navButtonRegister) {
+            navButtonRegister.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('register').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        window.addEventListener("scroll", function() {
+            var reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(function(reveal) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveal.getBoundingClientRect().top;
+                var revealPoint = 0;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    reveal.classList.add("active");
+                } else {
+                    reveal.classList.remove("active");
+                }
+            });
         });
-    });
-}
-
-    window.addEventListener("scroll", function(){
-        var reveals = document.querySelectorAll(".reveal");
-        reveals.forEach(function(reveal){
-            var windowHeight = window.innerHeight;
-            var revealTop = reveal.getBoundingClientRect().top;
-            var revealPoint = 0;
-
-            if(revealTop < windowHeight-revealPoint){
-                reveal.classList.add("active");
-            }else{
-                reveal.classList.remove("active");
-            }
-        });
-    });
     </script>
 </body>
 

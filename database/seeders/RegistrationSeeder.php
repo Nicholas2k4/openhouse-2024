@@ -5,10 +5,10 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-use App\Models\Detail_registrations;
-use App\Models\Ukms;
+use App\Models\DetailRegistration;
+use App\Models\Ukm;
 
-class RegistrationsSeeder extends Seeder
+class RegistrationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,7 +18,7 @@ class RegistrationsSeeder extends Seeder
         $detail_registrations = [];
 
         for ($i = 0; $i < 50; $i++) {
-            $random_ukm = Ukms::all()->random();
+            $random_ukm = Ukm::all()->random();
             if ($i < 10) {
                 $detail_registrations[] = [
                     'id' => (string)Str::uuid(),
@@ -44,6 +44,6 @@ class RegistrationsSeeder extends Seeder
             }
         }
 
-        Detail_registrations::insert($detail_registrations);
+        DetailRegistration::insert($detail_registrations);
     }
 }

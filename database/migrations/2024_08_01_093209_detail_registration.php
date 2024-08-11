@@ -24,7 +24,7 @@ return new class extends Migration
 
 
             $table->foreign('nrp')->references('nrp')->on('users')->onDelete('cascade');
-            $table->foreign('ukm_id')->references('id')->on('ukm')->onDelete('cascade');
+            $table->foreign('ukm_id')->references('id')->on('ukms')->onDelete('cascade');
         });
     }
 

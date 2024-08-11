@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ukm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -9,31 +10,41 @@ use Illuminate\Support\Facades\Storage;
 
 class UKMController extends Controller
 {
-    public function show($id){
-        $ukm = \App\Models\Ukm::findOrFail($id);
 
-        $slug = DB::table('ukm') ->where('id', $id) ->value('slug');
+    public function index()
+    {
+        $ukms = Ukm::all();
+        $data['ukms'] = $ukms;
+        $data['title'] = "UKM";
+        return view('user.ukm', $data);
+    }
 
-        if(File::exists(public_path('foto/'.$slug))){
-            $imageFiles = File::files(public_path('foto/'.$slug));
-        }else{
+    public function show($id)
+    {
+        $ukm = Ukm::findOrFail($id);
+
+        $slug = Ukm::where('id', $id)->value('slug');
+
+        if (File::exists(public_path('foto/' . $slug))) {
+            $imageFiles = File::files(public_path('foto/' . $slug));
+        } else {
             $imageFiles = [];
         }
 
         $imageUrls = [];
 
-        foreach($imageFiles as $imageFile){
-            $imageUrls[] = asset('foto/'.$slug.'/'.basename($imageFile));
+        foreach ($imageFiles as $imageFile) {
+            $imageUrls[] = asset('foto/' . $slug . '/' . basename($imageFile));
         }
-    
+
         $posterFiles = File::files(public_path('poster'));
 
-        foreach($posterFiles as $posterFile){
+        foreach ($posterFiles as $posterFile) {
             $filename = pathinfo($posterFile->getFilename(), PATHINFO_FILENAME);
             if (strpos($filename, $slug) !== false) {
                 $posterUrl = 'poster/' . $posterFile->getFilename();
                 break;
-            }else{
+            } else {
                 $posterUrl = "";
             }
         }

@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
 
-    public function login() {
+    public function login()
+    {
         return view('user.login');
     }
 
@@ -35,40 +36,41 @@ class AuthController extends Controller
             session(['nrp' => $nrp]);
             session(['name' => $name]);
 
-            if($auth_type == 'user'){
+            if ($auth_type == 'user') {
                 return redirect()->route('user.home');
-
-            } else if ($auth_type == 'admin'){
+            } else if ($auth_type == 'admin') {
                 // cek ada di tabel admin ato ga
                 $admin = Admin::where('nrp', $nrp)->first();
 
-                if ($admin){
+                if ($admin) {
                     $ukm_id = $admin->ukm_id;
                     $field = $admin->field;
                     $division_id = $admin->division_id;
-                    
-                    return redirect()->route('admin.showParticipants')
-                    ->with([
-                        'ukm_id' => $ukm_id,
-                        'field' => $field,
-                        'division_id' => $division_id
-                    ]);
+
+                    session()->put('ukm_id', $ukm_id);
+                    session()->put('field', $field);
+                    session()->put('division_id', $division_id);
+
+                    return redirect()->route('admin.showParticipants');
                 } else {
                     return redirect()->route('admin.login')->with('error', 'Anda bukan admin');
                 }
             }
-
-
             // return redirect()->route('user.home');
         }
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
-        Auth::logout(); // Logout user dari session
-        $request->session()->invalidate(); // Menghapus semua data session
-        $request->session()->regenerateToken(); // Mencegah CSRF setelah logout
+        session()->flush();
 
-        return redirect()->route('admin.login')->with('info', 'Sukses logout');
+        return redirect()->route('user.home')->with('logout', 'Logout Success!');
+    }
+
+    public function adminLogout()
+    {
+        session()->flush();
+
+        return redirect()->route('admin.login');
     }
 }

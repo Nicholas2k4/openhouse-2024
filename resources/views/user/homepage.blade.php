@@ -2,10 +2,10 @@
 
 @section('head')
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/faq.css') }}">
     <style>
-        html,body{
+        html,
+        body {
             width: 100vw;
             overflow-x: hidden;
         }
@@ -13,6 +13,11 @@
 @endsection
 
 @section('content')
+    @if (session()->has('logout'))
+        <script>
+            Swal.fire('Success', '{{ session('logout') }}', 'success');
+        </script>
+    @endif
     {{-- Elements --}}
     <img src="{{ asset('assets/Coral_2.png') }}" alt="Coral"
         class="absolute sm:top-[80vh] top-[50vh] md:top-[110vh] xl:top-[120vh] sm:right-[-10vw] right-[-15vw] rotate-[-30deg] sm:w-1/3 w-1/2">

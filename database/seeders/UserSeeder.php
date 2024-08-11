@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-use App\Models\Users;
+use App\Models\User;
 
 class UserSeeder extends Seeder
 {
@@ -36,6 +36,6 @@ class UserSeeder extends Seeder
             }
         }
 
-        Users::insert($users);
+        User::insert($users);
     }
 }

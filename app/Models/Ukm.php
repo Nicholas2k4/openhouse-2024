@@ -10,7 +10,7 @@ class Ukm extends Model
 {
     use HasUuids, HasFactory;
 
-    protected $table = 'ukm';
+    protected $table = 'ukms';
 
     protected $fillable = [
         'name',

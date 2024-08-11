@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ $title }}</title>
+    <title> OPENHOUSE | {{ $title }}</title>
 
     {{-- CDN for JQUERY --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -31,7 +31,13 @@
     {{-- AOS --}}
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <script src="https://kit.fontawesome.com/fc45e0c6e7.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/arrow-long-right.css' rel='stylesheet'>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         nav img {
             height: 50px;
         }
@@ -115,6 +121,9 @@
             color: white;
         } */
     </style>
+
+    <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
+
     @yield('head')
 </head>
 
@@ -122,146 +131,153 @@
     @include('user.components.navbar')
     @yield('content')
     @include('user.components.footer')
-</body>
 
-{{-- AOS --}}
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-{{-- TW Element --}}
-<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
+    {{-- AOS --}}
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-{{-- Swiper --}}
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    {{-- TW Element --}}
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
 
-{{-- GSAP --}}
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    {{-- Swiper --}}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<script>
-    twe.config = {
-        darkMode: "class",
-        corePlugins: {
-            preflight: false,
-        },
-    };
+    {{-- GSAP --}}
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
-    var lastScrollTop;
-    navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', function() {
-        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    <script>
+        twe.config = {
+            darkMode: "class",
+            corePlugins: {
+                preflight: false,
+            },
+        };
 
-        if (scrollTop > lastScrollTop) {
-            navbar.style.top = '-80px';
-            navbar.classList.add('hide-nav');
-        } else {
-            navbar.style.top = '0';
-            navbar.classList.remove('hide-nav');
-        }
+        var lastScrollTop;
+        navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function() {
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-        lastScrollTop = scrollTop;
-    });
-
-    // Search
-    const lists = [
-        'Chinese Art',
-        'ASFS',
-        'Dance',
-        'Dekorasi',
-        'Ilustrasi',
-        'Martografi',
-        'Modeling',
-        'Teater',
-        'Vocal Group',
-        'English Debate Society (EDS)',
-        'Pengembangan Diri',
-        'Esport',
-        'Badminton',
-        'Basket',
-        'Catur',
-        'Futsal',
-        'Renang',
-        'Taekwondo',
-        'Tenis Lapangan',
-        'Tenis Meja',
-        'Voli',
-        'Matrapenza',
-        'EMR',
-        'Menwa',
-        'Matrapala',
-        'Paduan Suara',
-        'Orkestra',
-        'Badan Eksekutif Mahasiswa (BEM)',
-        'Majelis Perwakilan Mahasiswa (MPM)',
-        'Badan Perwakilan Mahasiswa Fakultas (BPMF)',
-        'Pers Mahasiswa (PERSMA)',
-        'Pelayanan Mahasiswa (PELMA)',
-        'Tim Petra Sinergi (TPS)',
-    ];
-
-    $(document).ready(function() {
-        var i = 0;
-        lists.forEach(list => {
-            if (i <= 5) {
-                $('.dropdown').append('<a class="py-1 px-3 rounded-xl" href="" data-te-ripple-init data-te-ripple-color="light">' + list + '</a> <hr>');
+            if (scrollTop > lastScrollTop) {
+                navbar.style.top = '-80px';
+                navbar.classList.add('hide-nav');
+            } else {
+                navbar.style.top = '0';
+                navbar.classList.remove('hide-nav');
             }
-            i++
+
+            lastScrollTop = scrollTop;
         });
-    });
 
-    document.getElementById('search').addEventListener('blur', function() {
-        setTimeout(function() {
-            document.querySelector(".dropdown").classList.remove('flex');
-            document.querySelector(".dropdown").classList.add('hidden');
-        }, 100);
-    });
+        // Search
+        const lists = [
+            'Chinese Art',
+            'ASFS',
+            'Dance',
+            'Dekorasi',
+            'Ilustrasi',
+            'Martografi',
+            'Modeling',
+            'Teater',
+            'Vocal Group',
+            'English Debate Society (EDS)',
+            'Pengembangan Diri',
+            'Esport',
+            'Badminton',
+            'Basket',
+            'Catur',
+            'Futsal',
+            'Renang',
+            'Taekwondo',
+            'Tenis Lapangan',
+            'Tenis Meja',
+            'Voli',
+            'Matrapenza',
+            'EMR',
+            'Menwa',
+            'Matrapala',
+            'Paduan Suara',
+            'Orkestra',
+            'Badan Eksekutif Mahasiswa (BEM)',
+            'Majelis Perwakilan Mahasiswa (MPM)',
+            'Badan Perwakilan Mahasiswa Fakultas (BPMF)',
+            'Pers Mahasiswa (PERSMA)',
+            'Pelayanan Mahasiswa (PELMA)',
+            'Tim Petra Sinergi (TPS)',
+        ];
 
-    function show() {
-        document.querySelector(".dropdown").classList.remove('hidden');
-        document.querySelector(".dropdown").classList.add('flex');
-    }
-
-    function search() {
-        // Declare variables
-        var input, filter, ul, li, a, i, txtValue;
-        input = document.getElementById('search');
-        filter = input.value.toUpperCase();
-        ul = document.querySelector(".dropdown");
-        li = lists;
-
-        $('.dropdown').empty();
-
-        if (filter == '' || filter == null) {
-            var i = 1;
+        $(document).ready(function() {
+            var i = 0;
             lists.forEach(list => {
                 if (i <= 5) {
-                    $('.dropdown').append('<a class="py-1" href="" data-te-ripple-init data-te-ripple-color="light">' + list + '</a> <hr>');
+                    $('.dropdown').append(
+                        '<a class="py-1 px-3 rounded-xl" href="" data-te-ripple-init data-te-ripple-color="light">' +
+                        list + '</a> <hr>');
                 }
                 i++
             });
-        } else {
-            for (i = 0; i < li.length; i++) {
-                txtValue = li[i];
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    $('.dropdown').append('<a class="py-1" href="" data-te-ripple-init data-te-ripple-color="light">' + txtValue + '</a> <hr>');
+        });
+
+        document.getElementById('search').addEventListener('blur', function() {
+            setTimeout(function() {
+                document.querySelector(".dropdown").classList.remove('flex');
+                document.querySelector(".dropdown").classList.add('hidden');
+            }, 100);
+        });
+
+        function show() {
+            document.querySelector(".dropdown").classList.remove('hidden');
+            document.querySelector(".dropdown").classList.add('flex');
+        }
+
+        function search() {
+            // Declare variables
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById('search');
+            filter = input.value.toUpperCase();
+            ul = document.querySelector(".dropdown");
+            li = lists;
+
+            $('.dropdown').empty();
+
+            if (filter == '' || filter == null) {
+                var i = 1;
+                lists.forEach(list => {
+                    if (i <= 5) {
+                        $('.dropdown').append(
+                            '<a class="py-1" href="" data-te-ripple-init data-te-ripple-color="light">' + list +
+                            '</a> <hr>');
+                    }
+                    i++
+                });
+            } else {
+                for (i = 0; i < li.length; i++) {
+                    txtValue = li[i];
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        $('.dropdown').append('<a class="py-1" href="" data-te-ripple-init data-te-ripple-color="light">' +
+                            txtValue + '</a> <hr>');
+                    }
                 }
             }
         }
-    }
 
-    // Sidebar
-    document.addEventListener("DOMContentLoaded", function() {
-        const hamburger = document.getElementById("hamburger");
-        const sidebar = document.getElementById("sidebar");
+        // Sidebar
+        document.addEventListener("DOMContentLoaded", function() {
+            const hamburger = document.getElementById("hamburger");
+            const sidebar = document.getElementById("sidebar");
 
-        hamburger.addEventListener("click", function() {
-            sidebar.classList.toggle("active");
-            hamburger.classList.toggle("active");
+            hamburger.addEventListener("click", function() {
+                sidebar.classList.toggle("active");
+                hamburger.classList.toggle("active");
+            });
         });
-    });
-</script>
+    </script>
 
 
-@yield('script')
+    @yield('script')
+
+</body>
 
 </html>

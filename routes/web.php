@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ValidateController;
 use App\Http\Controllers\GenerateController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\UKMController;
 
@@ -21,21 +22,17 @@ use App\Http\Controllers\UKMController;
 |
 */
 
-Route::group(['as' => 'user.'], function () {
-    Route::get('/', function () {
-        return view('user.homepage', [
-            'title' => 'Homepage'
-        ]);
-    })->name('home');
+Route::get('/', [MainController::class, 'index'])->name('user.home');
 
-    // Route::get('/dummy', [PendaftaranController::class, 'dummy'])->name('dummy');
-    Route::get('/auth/{type}', [AuthController::class, 'googleAuth'])->name('auth');
-    Route::get('/login', [AuthController::class, 'login'])->name('login');
-    Route::get('/processLogin', [AuthController::class, 'processLogin'])->name('login.process');
-    Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
-    Route::get('/pendaftaran', [PendaftaranController::class, 'redirect'])->name('pendaftaran.redirect');
-    Route::post('/pembayaran', [PendaftaranController::class, 'payment'])->name('pendaftaran.payment');
-});
+// Route::get('/dummy', [PendaftaranController::class, 'dummy'])->name('dummy');
+Route::get('/auth/{type}', [AuthController::class, 'googleAuth'])->name('user.auth');
+Route::get('/login', [AuthController::class, 'login'])->name('user.login');
+Route::get('/processLogin', [AuthController::class, 'processLogin'])->name('login.process');
+Route::post('/storePendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
+Route::get('/pendaftaran', [PendaftaranController::class, 'redirect'])->name('pendaftaran.redirect');
+Route::post('/pembayaran', [PendaftaranController::class, 'payment'])->name('pendaftaran.payment');
+
+Route::get('/logout', [AuthController::class, 'logout'])->name('user.logout');
 
 Route::get('dummy', function () {
     return view('/user/dumy');
@@ -45,7 +42,7 @@ Route::get('wait', function () {
     return view('/user/wait');
 });
 
-Route::get('/logout', [AuthController::class, 'logout'])->name('admin.logout');
+Route::get('/admin/logout', [AuthController::class, 'adminLogout'])->name('admin.logout');
 
 Route::get('/admin/login', function () {
     return view('/admin/login');
@@ -55,21 +52,11 @@ Route::get('/admin/participant', function () {
     return view('/admin/participant');
 })->name('admin.showParticipants');
 
-//Temporary routes buat liat hasil codingan
-Route::get('/validate', function () {
-    return view('admin.validate');
-})->name('admin.validate');
-
-//Temporary routes buat liat hasil codingan
-Route::get('/generate', function () {
-    return view('admin.generate');
-})->name('admin.generate');;
+Route::get('/validate', [AdminController::class, 'validatePage'])->name('admin.validate');
+Route::get('/generate', [AdminController::class, 'generatePage'])->name('admin.generate');
 
 Route::get('/admin/get-users-by-activity', [AdminController::class, 'getUsersByActivity'])->name('admin.getUsersByActivity');
-Route::get('user/ukm', function () {
-    $ukms = Ukm::all();
-    return view('user/ukm', ['ukms' => $ukms]);
-})->name('user.ukm');
+Route::get('/ukm', [UKMController::class, 'index'])->name('user.ukm');
 
 Route::get('/user/lk', function () {
     $ukms = Ukm::all();
@@ -106,8 +93,6 @@ Route::get('user/ukm/{id}', [UKMController::class, 'show'])->name('user.ukm.id')
 
 Route::get('user/lk/{id}', [UKMController::class, 'show'])->name('user.lk.id');
 
-Route::get('/validate', [AdminController::class, 'validatePage'])->name('admin.validate');
-Route::get('/generate', [AdminController::class, 'generatePage'])->name('admin.generate');
 
 Route::get('/filterSearch', [ValidateController::class, 'filterSearch'])->name('filterSearch');
 Route::post('/selectionValidate', [ValidateController::class, 'selectionValidate'])->name('selectionValidate');

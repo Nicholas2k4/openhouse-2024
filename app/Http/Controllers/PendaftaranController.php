@@ -24,8 +24,8 @@ class PendaftaranController extends Controller
         // Find the user and their registration details
         $user = User::where('nrp', $nrp)->first();
         $detail_registration = DetailRegistration::where('nrp', $user->nrp)
-                                                 ->where('ukm_id', $ukm_id)
-                                                 ->first();
+            ->where('ukm_id', $ukm_id)
+            ->first();
 
         if ($detail_registration) {
             // Check if a file was uploaded
@@ -49,21 +49,23 @@ class PendaftaranController extends Controller
     }
 
     //dummy cuma buat test
-    public function dummy(){
-        return view ('user.dummy');
+    public function dummy()
+    {
+        return view('user.dummy');
     }
 
-    public function redirect(Request $request){
+    public function redirect(Request $request)
+    {
         $name = session('name');
         $nrp = session('nrp');
         $email = session('email');
 
-        if(!$name || !$nrp || !$email){
-            return view ('user.login');
+        if (!$name || !$nrp || !$email) {
+            return view('user.login');
         }
 
         $list_lk = ['bem', 'tps', 'mpm', 'bpmf', 'persma', 'pelma'];
-        if(in_array($request->query('ukm'), $list_lk)){
+        if (in_array($request->query('ukm'), $list_lk)) {
             return redirect()->route('user.home');
         }
 
@@ -72,7 +74,7 @@ class PendaftaranController extends Controller
         $count = DetailRegistration::where('nrp', $nrp)->count();
         $ukm = Ukm::where('slug', $ukm_slug)->first();
         $detail_registration = DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm->id)->first();
-        if ($count >= 3 && !$detail_registration){
+        if ($count >= 3 && !$detail_registration) {
             return redirect()->route('user.home');
         }
 
@@ -80,25 +82,25 @@ class PendaftaranController extends Controller
         $ukm = Ukm::where('slug', $ukm_slug)->first();
         $ukm_id = $ukm->id;
         $user = User::where('nrp', $nrp)->first();
-        if ($user){
+        if ($user) {
             $detail_registration = DetailRegistration::where('nrp', $user->nrp)->where('ukm_id', $ukm->id)->first();
         } else {
             $detail_registration = null;
         }
 
-        if (!$detail_registration){ //kalau belum ada record
-            return view('user.pendaftaran', compact('name', 'nrp','email', 'ukm_id', 'ukm_slug')); 
+        if (!$detail_registration) { //kalau belum ada record
+            return view('user.pendaftaran', compact('name', 'nrp', 'email', 'ukm_id', 'ukm_slug'));
         } else { //udah memasukan data diri
-            if ($ukm_slug == 'vg' || $ukm_slug == 'ilustrasi'){
-                if ($detail_registration->file_validated == 0){ //vg / ilus & belum diterima
-                    return view('user.wait', compact('name', 'nrp','email', 'ukm_slug'));
+            if ($ukm_slug == 'vg' || $ukm_slug == 'ilustrasi') {
+                if ($detail_registration->file_validated == 0) { //vg / ilus & belum diterima
+                    return view('user.wait', compact('name', 'nrp', 'email', 'ukm_slug'));
                 } else { // vg / ilus & sudah diterima
                     $code = $detail_registration->code;
                     $status_pembayaran = $detail_registration->payment_validated;
                     $url = $detail_registration->payment;
                     $ukm_name = $ukm->name;
                     $price = $ukm->regist_fee;
-                    return view('user.pembayaran', compact('name', 'nrp','email','code', 'ukm_id', 'status_pembayaran', 'url', 'ukm_name', 'price'));
+                    return view('user.pembayaran', compact('name', 'nrp', 'email', 'code', 'ukm_id', 'status_pembayaran', 'url', 'ukm_name', 'price'));
                 }
             } else { //udah memasukan data diri & bukan dari vg / ilus
                 $code = $detail_registration->code;
@@ -106,11 +108,11 @@ class PendaftaranController extends Controller
                 $url = $detail_registration->payment;
                 $ukm_name = $ukm->name;
                 $price = $ukm->regist_fee;
-                return view('user.pembayaran', compact('name', 'nrp','email','code', 'ukm_id','status_pembayaran', 'url', 'ukm_name', 'price'));
+                return view('user.pembayaran', compact('name', 'nrp', 'email', 'code', 'ukm_id', 'status_pembayaran', 'url', 'ukm_name', 'price'));
             }
         }
 
-        return view('user.pendaftaran', compact('name', 'nrp','email'));
+        return view('user.pendaftaran', compact('name', 'nrp', 'email'));
     }
 
     public function store(Request $request)
@@ -133,10 +135,10 @@ class PendaftaranController extends Controller
         $current_slot = $ukm->current_slot;
 
         // cek current slot apakah masih ada
-        if ($current_slot <= 1){
+        if ($current_slot <= 1) {
             return back()->with('warning', 'slot habis');
-        }else{
-            $current_slot = $current_slot -1;
+        } else {
+            $current_slot = $current_slot - 1;
         }
 
         if ($user) {
@@ -148,7 +150,7 @@ class PendaftaranController extends Controller
             // update ukm slot
             $ukm->update(['current_slot' => $current_slot]);
 
-            if ($ukm->slug == 'vg' || $ukm->slug == 'ilustrasi'){
+            if ($ukm->slug == 'vg' || $ukm->slug == 'ilustrasi') {
                 $file_validated = 0;
             } else {
                 $file_validated = 1;
@@ -173,7 +175,7 @@ class PendaftaranController extends Controller
                 'phone' => $request->phone,
             ]);
 
-            if ($ukm->slug == 'vg' || $ukm->slug == 'ilustrasi'){
+            if ($ukm->slug == 'vg' || $ukm->slug == 'ilustrasi') {
                 $file_validated = 0;
             } else {
                 $file_validated = 1;

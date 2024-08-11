@@ -1,58 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('user.layout.main')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="https://kit.fontawesome.com/fc45e0c6e7.js" crossorigin="anonymous"></script>
-    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/arrow-long-right.css' rel='stylesheet'>
-
-
+@section('head')
     <style>
+        @keyframes rotateLeftRight2 {
+            0% {
+                transform: rotate(-58deg);
+            }
 
-@keyframes rotateLeftRight2 {
-    0% {
-      transform: rotate(-58deg);
-    }
-    50% {
-      transform: rotate(-50deg);
-    }
-    100% {
-      transform: rotate(-58deg);
-    }
-  }
+            50% {
+                transform: rotate(-50deg);
+            }
 
-  @keyframes rotateLeftRight1 {
-    0% {
-      transform: rotate(58deg);
-    }
-    50% {
-      transform: rotate(50deg);
-    }
-    100% {
-      transform: rotate(58deg);
-    }
-  }
+            100% {
+                transform: rotate(-58deg);
+            }
+        }
 
-  /* Apply the animation to the images */
-  .rotate-animation-2 {
-    animation: rotateLeftRight2 3s infinite alternate;
-  }
+        @keyframes rotateLeftRight1 {
+            0% {
+                transform: rotate(58deg);
+            }
 
-  .rotate-animation-1 {
-    animation: rotateLeftRight1 3s infinite alternate;
-  }
-        .reveal{
+            50% {
+                transform: rotate(50deg);
+            }
+
+            100% {
+                transform: rotate(58deg);
+            }
+        }
+
+        /* Apply the animation to the images */
+        .rotate-animation-2 {
+            animation: rotateLeftRight2 3s infinite alternate;
+        }
+
+        .rotate-animation-1 {
+            animation: rotateLeftRight1 3s infinite alternate;
+        }
+
+        .reveal {
             position: relative;
             transform: translateY(50px);
-            opacity:0;
+            opacity: 0;
             transition: all 1s ease;
         }
 
-        .reveal.active{
-            opacity:1;
+        .reveal.active {
+            opacity: 1;
             transform: translateY(0px);
 
         }
@@ -94,14 +89,11 @@
             }
         }
     </style>
-    <script src="https://cdn.tailwindcss.com"></script>
 
-    @vite('resources/css/app.css')
+    {{-- @vite('resources/css/app.css') --}}
+@endsection
 
-</head>
-
-<body>
-
+@section('content')
     <div
         class = "animated-background fixed h-screen w-full bg-gradient-to-t from-[#4476CB] to-[#57C7D4] from-20% overflow-hidden">
     </div>
@@ -112,16 +104,16 @@
         class="fixed bottom-[-800px] right-[-800px] w-[1200px] h-[1200px] rounded-full blur-[500px] bg-[#79FFEF] animation-blob">
     </div>
     <!--Header-->
-    <nav
-        class="z-20 relative top-0 left-0 w-[100%] flex justify-between px-10 py-4 items-center h-[64px]">
+    {{-- <nav class="z-20 relative top-0 left-0 w-[100%] flex justify-between px-10 py-4 items-center h-[64px]">
         <div class="text-2xl text-white">
             <i class="cursor-pointer fa-solid fa-chevron-left"></i>
         </div>
-    </nav>
+    </nav> --}}
 
     <!--First section-->
     <section id="first-section" class = "overflow-hidden relative">
-        <div class = "px-[30px] mt-[-64px] md:px-[50px] xl:px-[100px] mx-auto text-center flex flex-row h-screen items-center">
+        <div
+            class = "px-[30px] mt-[-64px] md:px-[50px] xl:px-[100px] mx-auto text-center flex flex-row h-screen items-center">
             <img src = "{{ URL('asset/Artboard 1_SS_4.png') }}"
                 class = "fixed rotate-animation-1 img-shadow-1  bottom-[0px] left-[-70px] w-[300px] md:w-[400px] rotate-[50deg]">
             <img src = "{{ URL('asset/Artboard 1_SS_3.png') }}"
@@ -157,7 +149,7 @@
 
             <!--Card Contain-->
             <div class="w-full py-[200px] gap-y-[200px] mx-auto text-center flex flex-wrap">
-            
+
                 @foreach ($ukms as $ukm)
                     @if (!in_array($ukm->name, ['LK BEM', 'LK TPS', 'LK MPM', 'LK BPMF', 'LK PERSMA', 'LK PELMA']))
                         <!--Card Start-->
@@ -173,7 +165,7 @@
                                 </div>
                             @endif
                             <div class = "text-white font-bold text-[24px] leading-none text-center pt-[80px]">
-                                {{$ukm->name}}
+                                {{ $ukm->name }}
                             </div>
                             <!--Slot & Regist fee + Button -->
                             <div class = "flex flex-col justify-center items-center gap-[15px]">
@@ -185,7 +177,7 @@
                                             {{ $ukm->current_slot }}</div>
                                         <div class = "text-white text-[12px] m-[-2px] pb-[4px]">Slot left</div>
                                     </div>
-    
+
                                     <div id = "show-regist-fee" class = "flex flex-col justify-center pr-[20px] pl-[20px]">
                                         <div class = "text-white text-[40px] font-bold leading-tight">
                                             @if ($ukm->regist_fee == 0)
@@ -199,10 +191,11 @@
                                 </div>
                                 <!--Button-->
                                 <div class = "group button-animate">
-    
+
                                     <form action="{{ route('user.ukm.id', ['id' => $ukm->id]) }}" method="GET">
-                                        <button
-                                            type = "submit" class = "px-[70px] bg-white rounded-full py-2 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset" value = {{$ukm->id}}>
+                                        <button type = "submit"
+                                            class = "px-[70px] bg-white rounded-full py-2 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
+                                            value={{ $ukm->id }}>
                                             <span class = "text-black group-hover:text-[#30518A]">Details</span>
                                         </button>
                                     </form>
@@ -212,39 +205,40 @@
                         <!--Card End-->
                     @endif
                 @endforeach
-    
+
             </div>
         </div>
 
-        
-        
+
+
 
         <!--Grid-->
-        
+
     </section>
-</body>
-<script>
-    document.getElementById("explore-button").addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('card-section').scrollIntoView({
-            behavior: 'smooth'
+@endsection
+
+@section('script')
+    <script>
+        document.getElementById("explore-button").addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('card-section').scrollIntoView({
+                behavior: 'smooth'
+            });
         });
-    });
 
-    window.addEventListener("scroll", function(){
-        var reveals = document.querySelectorAll(".reveal");
-        reveals.forEach(function(reveal){
-            var windowHeight = window.innerHeight;
-            var revealTop = reveal.getBoundingClientRect().top;
-            var revealPoint = 0;
+        window.addEventListener("scroll", function() {
+            var reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(function(reveal) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveal.getBoundingClientRect().top;
+                var revealPoint = 0;
 
-            if(revealTop < windowHeight-revealPoint){
-                reveal.classList.add("active");
-            }else{
-                reveal.classList.remove("active");
-            }
+                if (revealTop < windowHeight - revealPoint) {
+                    reveal.classList.add("active");
+                } else {
+                    reveal.classList.remove("active");
+                }
+            });
         });
-    });
-</script>
-
-</html>
+    </script>
+@endsection
