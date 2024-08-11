@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ukm extends Model
 {
-    use HasUuids;
+    use HasUuids, HasFactory;
 
     protected $table = 'ukm';
 
-    protected $fillable= [
+    protected $fillable = [
         'name',
         'slug',
         'current_slot',
@@ -21,15 +21,4 @@ class Ukm extends Model
     ];
 
     public $timestamps = false;
-    use HasFactory, HasUuids;
-
-    protected $fillable = [
-        'id',
-        'name',
-        'slug',
-        'current_slot',
-        'max_slot',
-        'regist_fee',
-        'description',
-    ];
 }

@@ -24,15 +24,6 @@ class AdminController extends Controller
         // Mengembalikan hasil dalam format JSON
         return response()->json($results);
     }
-}
-<?php
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-
-class AdminController extends Controller
-{
     public function validatePage()
     {
         $data['tabTitle'] = 'Validate';
