@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="disableScroll">
 
 <head>
     <meta charset="UTF-8">
@@ -113,6 +113,74 @@
             background: rgb(255, 79, 79) !important;
         }
 
+        .loader {
+            background-color: hsla(165, 49%, 41%, 1);
+            background-image:
+                radial-gradient(at 80% 0%, hsla(308, 73%, 44%, 1) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(265, 57%, 52%, 1) 0px, transparent 50%),
+                radial-gradient(at 45% 0%, hsla(45, 97%, 53%, 1) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(343, 99%, 56%, 1) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(165, 49%, 41%, 1) 0px, transparent 50%),
+                radial-gradient(at 87% 97%, hsla(237, 54%, 26%, 1) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343, 99%, 46%, 1) 0px, transparent 50%);
+            opacity: 1;
+            transition: 1s cubic-bezier(.12, .44, 1, -0.39);
+            overflow: hidden !important;
+            left: 0;
+        }
+
+        #loader1 {
+            clip-path: inset(0 0 50% 0);
+        }
+
+        #loader2 {
+            clip-path: inset(50% 0 0 0);
+        }
+
+
+        .loader path {
+            fill: transparent;
+            stroke-width: 10;
+            stroke: white;
+            stroke-dasharray: 6000;
+            stroke-dashoffset: 6000;
+            animation: gacor 2.7s linear infinite;
+        }
+
+        @keyframes gacor {
+            0% {
+                stroke-dashoffset: 0;
+                fill: black;
+            }
+
+            30% {
+                fill: transparent;
+            }
+
+            40% {
+                stroke-dashoffset: 6000;
+                fill: transparent;
+            }
+
+            80% {
+                stroke-dashoffset: 12000;
+                fill: transparent;
+            }
+
+            100% {
+                stroke-dashoffset: 12000;
+                fill: black;
+            }
+        }
+
+        .full-content {
+            opacity: 0;
+        }
+
+        .disableScroll{
+            overflow: hidden;
+        }
+
         /* a {
             font-family: GeneralSansItalic !important;
         } */
@@ -133,10 +201,15 @@
 </head>
 
 <body>
-    @include('user.components.navbar')
-    @yield('content')
-    @include('user.components.footer')
 
+    @include('user.components.loader')
+    <div class="full-content">
+        @include('user.components.navbar')
+        @yield('content')
+        @include('user.components.footer')
+    </div>
+
+    @include('user.components.loader-logic')
 
     {{-- AOS --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

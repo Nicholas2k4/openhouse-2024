@@ -2,6 +2,7 @@
 
 @section('head')
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/faq.css') }}">
     <style>
         html,
@@ -41,9 +42,9 @@
 
     {{-- Timeline --}}
     <section class="timeline" id="timeline">
-        <div class="flex justify-center mt-5">
+        <div class="flex justify-center mt-10">
             <h1 data-aos="fade-down" data-aos-once="true"
-                class="text-7xl bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
+                class="text-7xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
                 TIMELINE</h1>
         </div>
         <div class="img-container flex items-end w-[300vw] overflow-x-scroll mx-auto no-scrollbar">
@@ -242,16 +243,13 @@
 
 @section('script')
     <script>
-        AOS.init();
+        // AOS.init();
+        // $(document).ready(function() {
+        // window.addEventListener("load", function() {
 
         const timelines = document.querySelector('.img-container');
         let timeWidth = timelines.offsetWidth;
         let amountToScroll = timeWidth - window.innerwidth;
-
-        function getScrollAmount() {
-            let timeWidth = timelines.scrollWidth;
-            return -(timeWidth - window.innerWidth);
-        }
 
         const tween = gsap.to(timelines, {
             x: getScrollAmount,
@@ -266,6 +264,12 @@
             animation: tween,
             scrub: 1,
         });
+        window.addEventListener('scroll', timelineScroll);
+
+        function getScrollAmount() {
+            let timeWidth = timelines.scrollWidth;
+            return -(timeWidth - window.innerWidth);
+        }
 
         function timelineScroll() {
             var pulauElement1 = document.querySelector('.pulau1');
@@ -307,18 +311,17 @@
                 timelineElement1.classList.remove('opacity-0');
                 timelineElement1.classList.add('opacity-1');
             }
-
-            if (window.pageYOffset <= 60) {
-                document.querySelector('nav').classList.remove('bg-gradient-to-r', 'bg-gradient-to-r', 'from-[#4477CE]', 'to-[#F1C1AC]');
-                document.querySelector('nav').classList.add('bg-transparent');
-            } else {
-                document.querySelector('nav').classList.remove('bg-transparent');
-                document.querySelector('nav').classList.add('bg-gradient-to-r', 'bg-gradient-to-r', 'from-[#4477CE]', 'to-[#F1C1AC]');
-            }
-
+            // console.log(width);
         }
+        // });
 
-        window.addEventListener('scroll', timelineScroll);
+
+        // });
+
+
+
+
+
 
         const chatSection = document.querySelector('.chat-section');
 
