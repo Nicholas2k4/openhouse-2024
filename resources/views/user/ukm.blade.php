@@ -2,42 +2,7 @@
 
 @section('head')
     <style>
-        @keyframes rotateLeftRight2 {
-            0% {
-                transform: rotate(-58deg);
-            }
-
-            50% {
-                transform: rotate(-50deg);
-            }
-
-            100% {
-                transform: rotate(-58deg);
-            }
-        }
-
-        @keyframes rotateLeftRight1 {
-            0% {
-                transform: rotate(58deg);
-            }
-
-            50% {
-                transform: rotate(50deg);
-            }
-
-            100% {
-                transform: rotate(58deg);
-            }
-        }
-
-        /* Apply the animation to the images */
-        .rotate-animation-2 {
-            animation: rotateLeftRight2 3s infinite alternate;
-        }
-
-        .rotate-animation-1 {
-            animation: rotateLeftRight1 3s infinite alternate;
-        }
+      
 
         .reveal {
             position: relative;

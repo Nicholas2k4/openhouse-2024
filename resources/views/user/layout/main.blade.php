@@ -113,6 +113,43 @@
             background: rgb(255, 79, 79) !important;
         }
 
+        @keyframes rotateLeftRight2 {
+            0% {
+                transform: rotate(-58deg);
+            }
+
+            50% {
+                transform: rotate(-50deg);
+            }
+
+            100% {
+                transform: rotate(-58deg);
+            }
+        }
+
+        @keyframes rotateLeftRight1 {
+            0% {
+                transform: rotate(58deg);
+            }
+
+            50% {
+                transform: rotate(50deg);
+            }
+
+            100% {
+                transform: rotate(58deg);
+            }
+        }
+
+        /* Apply the animation to the images */
+        .rotate-animation-2 {
+            animation: rotateLeftRight2 3s infinite alternate;
+        }
+
+        .rotate-animation-1 {
+            animation: rotateLeftRight1 3s infinite alternate;
+        }
+
         .loader {
             background-color: hsla(165, 49%, 41%, 1);
             background-image:
@@ -177,7 +214,7 @@
             opacity: 0;
         }
 
-        .disableScroll{
+        .disableScroll {
             overflow: hidden;
         }
 
