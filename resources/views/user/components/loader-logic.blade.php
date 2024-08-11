@@ -15,10 +15,8 @@
             }, 1400);
             content.style.opacity = 1;
             document.documentElement.classList.remove('disableScroll');
-            gsap.registerPlugin(ScrollTrigger);
 
             AOS.init();
-        
         });
     });
 </script>

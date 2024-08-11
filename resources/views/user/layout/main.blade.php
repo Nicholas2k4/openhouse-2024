@@ -339,6 +339,7 @@
         ];
 
         $(document).ready(function() {
+
             var i = 0;
             lists.forEach(list => {
                 if (i <= 5) {

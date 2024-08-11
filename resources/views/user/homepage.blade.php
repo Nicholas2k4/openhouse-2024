@@ -244,84 +244,77 @@
 @section('script')
     <script>
         // AOS.init();
-        // $(document).ready(function() {
-        // window.addEventListener("load", function() {
+        $(document).ready(function() {
+            // window.addEventListener("load", function() {
+            gsap.registerPlugin(ScrollTrigger);
+            const timelines = document.querySelector('.img-container');
+            let timeWidth = timelines.offsetWidth;
+            let amountToScroll = timeWidth - window.innerwidth;
 
-        const timelines = document.querySelector('.img-container');
-        let timeWidth = timelines.offsetWidth;
-        let amountToScroll = timeWidth - window.innerwidth;
+            const tween = gsap.to(timelines, {
+                x: getScrollAmount,
+                duration: 3,
+                ease: "none"
+            });
+            ScrollTrigger.create({
+                trigger: ".timeline",
+                // start: 'top 5%',
+                end: () => `+=${getScrollAmount() * -1}`,
+                pin: true,
+                animation: tween,
+                scrub: 1,
+            });
+            window.addEventListener('scroll', timelineScroll);
 
-        const tween = gsap.to(timelines, {
-            x: getScrollAmount,
-            duration: 3,
-            ease: "none"
-        });
-        ScrollTrigger.create({
-            trigger: ".timeline",
-            // start: 'top 5%',
-            end: () => `+=${getScrollAmount() * -1}`,
-            pin: true,
-            animation: tween,
-            scrub: 1,
-        });
-        window.addEventListener('scroll', timelineScroll);
+            function getScrollAmount() {
+                let timeWidth = timelines.scrollWidth;
+                return -(timeWidth - window.innerWidth);
+            }
 
-        function getScrollAmount() {
-            let timeWidth = timelines.scrollWidth;
-            return -(timeWidth - window.innerWidth);
-        }
+            function timelineScroll() {
+                var pulauElement1 = document.querySelector('.pulau1');
+                var pulauElement2 = document.querySelector('.pulau2');
+                var pulauElement3 = document.querySelector('.pulau3');
 
-        function timelineScroll() {
-            var pulauElement1 = document.querySelector('.pulau1');
-            var pulauElement2 = document.querySelector('.pulau2');
-            var pulauElement3 = document.querySelector('.pulau3');
+                var timelineElement1 = document.querySelector('.active1');
+                var timelineElement2 = document.querySelector('.active2');
+                var timelineElement3 = document.querySelector('.active3');
 
-            var timelineElement1 = document.querySelector('.active1');
-            var timelineElement2 = document.querySelector('.active2');
-            var timelineElement3 = document.querySelector('.active3');
+                var width = (window.innerWidth / pulauElement1.getBoundingClientRect().left) * 100;
 
-            var width = (window.innerWidth / pulauElement1.getBoundingClientRect().left) * 100;
+                if (width != Infinity) {
+                    if (width > -130) {
+                        timelineElement1.classList.remove('opacity-1');
+                        timelineElement1.classList.add('opacity-0');
+                    } else {
+                        timelineElement1.classList.remove('opacity-0');
+                        timelineElement1.classList.add('opacity-1');
+                    }
 
-            if (width != Infinity) {
-                if (width > -130) {
-                    timelineElement1.classList.remove('opacity-1');
-                    timelineElement1.classList.add('opacity-0');
+                    if (width < -130 || width > -55) {
+                        timelineElement2.classList.remove('opacity-1');
+                        timelineElement2.classList.add('opacity-0');
+
+                    } else {
+                        timelineElement2.classList.remove('opacity-0');
+                        timelineElement2.classList.add('opacity-1');
+                    }
+
+                    if (width < -55) {
+                        timelineElement3.classList.remove('opacity-1');
+                        timelineElement3.classList.add('opacity-0');
+                    } else {
+                        timelineElement3.classList.remove('opacity-0');
+                        timelineElement3.classList.add('opacity-1');
+                    }
                 } else {
                     timelineElement1.classList.remove('opacity-0');
                     timelineElement1.classList.add('opacity-1');
                 }
-
-                if (width < -130 || width > -55) {
-                    timelineElement2.classList.remove('opacity-1');
-                    timelineElement2.classList.add('opacity-0');
-
-                } else {
-                    timelineElement2.classList.remove('opacity-0');
-                    timelineElement2.classList.add('opacity-1');
-                }
-
-                if (width < -55) {
-                    timelineElement3.classList.remove('opacity-1');
-                    timelineElement3.classList.add('opacity-0');
-                } else {
-                    timelineElement3.classList.remove('opacity-0');
-                    timelineElement3.classList.add('opacity-1');
-                }
-            } else {
-                timelineElement1.classList.remove('opacity-0');
-                timelineElement1.classList.add('opacity-1');
+                // console.log(width);
             }
-            // console.log(width);
-        }
-        // });
-
-
-        // });
-
-
-
-
-
+            // });
+        });
 
         const chatSection = document.querySelector('.chat-section');
 
