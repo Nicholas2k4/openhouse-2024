@@ -20,10 +20,6 @@ use App\Http\Controllers\UKMController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('user/ukm', function () {
     $ukms = Ukm::all();
     return view('user/ukm', ['ukms' => $ukms]);
@@ -34,30 +30,30 @@ Route::get('/user/lk', function () {
     return view('user/lk', ['ukms' => $ukms]);
 })->name('user.lk');
 
-Route::get('/user/game', function(){
-    if(auth()->user()){
+Route::get('/user/game', function () {
+    if (auth()->user()) {
         $nrp = auth()->user()->nrp;
-    }else{
+    } else {
         $nrp = 0;
     }
-    $letters = DB::table('detail_games')->where('nrp', $nrp) -> pluck('letter');
-        
-    return view('user/game', ['letters' =>$letters]);
+    $letters = DB::table('detail_games')->where('nrp', $nrp)->pluck('letter');
+
+    return view('user/game', ['letters' => $letters]);
 });
 
 Route::get('user/ukm/{id}', [UKMController::class, 'show'])->name('user.ukm.id');
 
 Route::get('user/lk/{id}', [UKMController::class, 'show'])->name('user.lk.id');
 
-Route::get('/user/game', function(){
-    if(auth()->user()){
+Route::get('/user/game', function () {
+    if (auth()->user()) {
         $nrp = auth()->user()->nrp;
-    }else{
+    } else {
         $nrp = 0;
     }
-    $letters = DB::table('detail_games')->where('nrp', $nrp) -> pluck('letter');
-        
-    return view('user/game', ['letters' =>$letters]);
+    $letters = DB::table('detail_games')->where('nrp', $nrp)->pluck('letter');
+
+    return view('user/game', ['letters' => $letters]);
 });
 
 Route::get('user/ukm/{id}', [UKMController::class, 'show'])->name('user.ukm.id');
@@ -73,7 +69,7 @@ Route::post('/paymentValidate', [ValidateController::class, 'paymentValidate'])-
 Route::post('/giveLetter', [GenerateController::class, 'giveLetter'])->name('admin.giveLetter');
 
 Route::get('/test', function () {
-    $ukms = App\Models\Ukms::all();
+    $ukms = Ukm::all();
     return view('test', [
         'ukms' => $ukms
     ]);
