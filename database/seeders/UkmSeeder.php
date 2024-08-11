@@ -124,7 +124,7 @@ Motto :
                     'description' => 'Tim Petra Sinergi (TPS) adalah sinergi dari LK (Lembaga Kemahasiswaan), Pelma (Pelayanan Mahasiswa), dan DMU (Departemen Mata Kuliah Umum) yang menjadi keluarga pertama tempat mahasiswa baru berproses dan belajar membangun hidup bersama-sama.
 
 Dalam kelompok kecil Life Enrichment Grace (LEG), teman-teman mahasiswa baru akan belajar membangun hidup. Bersama kakak pendamping yang dikenal sebagai Asisten Tutor (Astor), kita akan bersama-sama melihat apa saja yang perlu dipersiapkan dalam hidup untuk masa depan kita. Persiapan ini sangat penting supaya kita tidak menjalani hidup tanpa tujuan, yang akhirnya menuntun kita ke hidup yang meaningless. ',
-                    'logo_url' => null,
+                    'logo_url' => 'logo/6_tps.png',
                     'poster_url' => null,
                 ],
                 [
@@ -204,7 +204,7 @@ Peserta UKM Dance akan berkontribusi dalam performance dan competition dance unt
                     'max_slot' => 40,
                     'regist_fee' => 250000,
                     'description' => 'UKM Modeling adalah Unit Kegiatan Mahasiswa yang diadakan oleh Petra Christian University yang memberikan wadah bagi mahasiswa mengembangkan potensinya di bidang modelling dan fashion.',
-                    'logo_url' => 'logo/13_modeling.jpg',
+                    'logo_url' => 'logo/13_modeling.png',
                     'poster_url' => 'poster/13_modeling.png',
                 ],
                 [
@@ -238,7 +238,7 @@ Peserta UKM Dance akan berkontribusi dalam performance dan competition dance unt
                     'max_slot' => 60,
                     'regist_fee' => 100000,
                     'description' => 'English Debate Society (EDS) merupakan wadah pertukaran pendapat yang inklusif dan sangat menyambut anggota dari latar belakang apapun. Selama periode UKM, anggota akan diajarkan oleh coach yang handal mengenai tata cara berdebat yang benar. Oleh karena itu, para anggota tidak usah khawatir mengenai kemampuan berdebat mereka karena akan dilatih sampai matang. Bahkan, setiap tahun, UKM EDS juga rutin membawa pulang prestasi bahkan sampai di ajang nasional. Selain pelatihan skill berdebat, EDS juga menitikberatkan kepada rasa kekeluargaan tiap anggota agar dapat menciptakan lingkungan yang suportif dan seru.',
-                    'logo_url' => 'logo/16_debate.jpg',
+                    'logo_url' => 'logo/16_english_debate.png',
                     'poster_url' => 'poster/16_debate.jpg',
                 ],
                 [
@@ -251,7 +251,7 @@ Peserta UKM Dance akan berkontribusi dalam performance dan competition dance unt
                     'description' => 'UKM Pengembangan Diri berfokus pada self development, yaitu sebagai wadah bagi mahasiswa yang berfokus untuk mengenal diri sendiri, bertumbuh, dan mengembangkan potensi diri melalui kegiatan workshop, seminar, dan talkshow dengan berbagai topik menarik. Tentunya akan dibawakan oleh narasumber yang berkompeten, dengan menerapkan Hands-on Workshop sebagai bentuk praktik dari insight yang sudah didapat dari narasumber. Sehingga melalui UKM Pengembangan Diri, mahasiswa dapat mengembangkan soft skill dan hard skill mahasiswa. Tentunya juga menyelenggarakan kegiatan bonding antar peserta melalui group coaching, dan rally games yang seru.
 
 Tak hanya itu, UKM Pengembangan Diri juga menyelenggarakan kegiatan fine dining yang bertujuan untuk memperkenalkan pentingnya table manner sebagai bentuk kepercayaan diri dan profesionalitas. Selain itu, terdapat kegiatan pengabdian masyarakat yang bertujuan agar mahasiswa dapat mengimplementasikan insight yang sudah didapatkan selama mengikuti kegiatan UKM Pengembangan Diri, dan memberikan dampak positif bagi masyarakat.',
-                    'logo_url' => 'logo/17_pd.jpg',
+                    'logo_url' => 'logo/17_pd.png',
                     'poster_url' => null,
                 ],
                 [
@@ -351,7 +351,7 @@ Eksternal:
                     'max_slot' => 50,
                     'regist_fee' => 150000,
                     'description' => 'UKM Taekwondo terdapat kegiatan latihan rutin, bonding, dan workshop. Latihan rutin bersama memiliki fokus dalam materi dan praktik tendangan, tangkisan, pukulan dasar. Materi tersebut merupakan bagian Poomsae, Kyorugi, dan Kyukpa. Bonding akan dilakukan untuk mempererat hubungan antar 3 universitas yang merupakan bagian dalam club yang sama yaitu Universitas Kristen Petra, Universitas Surabaya, dan Universitas Widya Mandala. Sedangkan workshop akan diadakan untuk mempersiapkan peserta untuk meningkatkan sabuk yang sedang dimiliki.',
-                    'logo_url' => 'logo/24_taekwondo.jpg',
+                    'logo_url' => 'logo/24_taekwondo.png',
                     'poster_url' => 'poster/24_taekwondo.jpg',
                 ],
                 [
@@ -408,7 +408,7 @@ Sebagai puncak dari rangkaian kegiatan, Matrapenza akan menyelenggarakan sebuah 
 
 Pengabdian Masyarakat (Pengmas):
 Selain kegiatan-kegiatan di atas, Matrapenza juga akan aktif melakukan pengabdian masyarakat dengan menyasar berbagai komunitas, sekolah, dan lembaga terkait. Tujuannya adalah untuk menyebarluaskan informasi tentang bahaya NAPZA dan mendorong partisipasi aktif masyarakat dalam upaya pencegahan.',
-                    'logo_url' => 'logo/28_matrapenza.jpg',
+                    'logo_url' => 'logo/28_matrapenza.png',
                     'poster_url' => 'poster/28_mpz.png',
                 ],
                 [
@@ -419,7 +419,7 @@ Selain kegiatan-kegiatan di atas, Matrapenza juga akan aktif melakukan pengabdia
                     'max_slot' => 50,
                     'regist_fee' => 180000,
                     'description' => 'UKM EMR merupakan Unit Kegiatan Mahasiswa yang berfokus pada pertolongan pertama dalam keadaan darurat. Nantinya, bersama-sama kita akan belajar materi serta praktik first aid dengan efesien. Kegiatan ini bertujuan untuk membantu kehidupan kita sehari-hari. ',
-                    'logo_url' => 'logo/29_emr.jpg',
+                    'logo_url' => 'logo/29_emr.png',
                     'poster_url' => null,
                 ],
                 [
@@ -475,7 +475,7 @@ Menyiapkan mahasiswa sebagai generasi intelektual bangsa dan warga negara yang d
                     'description' => 'PCU Choir merupakan kelompok paduan suara yang aktif dalam berbagai kegiatan musik dan sosial. Salah satu bentuk pengabdian masyarakat yang dilakukan oleh PCU Choir adalah memberikan pelayanan di gereja-gereja di desa. Kegiatan ini tidak hanya bertujuan untuk mempersembahkan lagu-lagu pujian, tetapi juga untuk menjalin hubungan yang lebih erat dengan masyarakat setempat dan memberikan dampak positif melalui musik.
 
 Selain itu, PCU Choir juga aktif berpartisipasi dalam berbagai ajang kompetisi dan festival paduan suara. Salah satu prestasi yang membanggakan adalah kemenangan dalam festival paduan suara di Universitas Surabaya (Ubaya) dan partisipasi lomba paduan suara di Singapura. Melalui kegiatan ini, PCU Choir tidak hanya menunjukkan kemampuan musikalitasnya tetapi juga membawa nama baik institusi dan memperluas jaringan di tingkat nasional maupun internasional.',
-                    'logo_url' => 'logo/32_padus.jpg',
+                    'logo_url' => 'logo/32_padus.png',
                     'poster_url' => 'poster/32_padus.jpg',
                 ],
                 [

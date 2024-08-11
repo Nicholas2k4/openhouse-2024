@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Models\Ukm;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ValidateController;
 use App\Http\Controllers\GenerateController;
+use App\Http\Controllers\UKMController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,18 +20,49 @@ use App\Http\Controllers\GenerateController;
 |
 */
 
-Route::group(['as' => 'user.'], function () {
-    Route::get('/', function () {
-        return view('user.homepage', [
-            'title' => 'Homepage'
-        ]);
-    })->name('home');
-
-    Route::get('/auth', [AuthController::class, 'googleAuth'])->name('auth');
-    Route::get('/login', [AuthController::class, 'login'])->name('login');
-    Route::get('/processLogin', [AuthController::class, 'processLogin'])->name('login.process');
-    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/', function () {
+    return view('welcome');
 });
+
+Route::get('user/ukm', function () {
+    $ukms = Ukm::all();
+    return view('user/ukm', ['ukms' => $ukms]);
+})->name('user.ukm');
+
+Route::get('/user/lk', function () {
+    $ukms = Ukm::all();
+    return view('user/lk', ['ukms' => $ukms]);
+})->name('user.lk');
+
+Route::get('/user/game', function(){
+    if(auth()->user()){
+        $nrp = auth()->user()->nrp;
+    }else{
+        $nrp = 0;
+    }
+    $letters = DB::table('detail_games')->where('nrp', $nrp) -> pluck('letter');
+        
+    return view('user/game', ['letters' =>$letters]);
+});
+
+Route::get('user/ukm/{id}', [UKMController::class, 'show'])->name('user.ukm.id');
+
+Route::get('user/lk/{id}', [UKMController::class, 'show'])->name('user.lk.id');
+
+Route::get('/user/game', function(){
+    if(auth()->user()){
+        $nrp = auth()->user()->nrp;
+    }else{
+        $nrp = 0;
+    }
+    $letters = DB::table('detail_games')->where('nrp', $nrp) -> pluck('letter');
+        
+    return view('user/game', ['letters' =>$letters]);
+});
+
+Route::get('user/ukm/{id}', [UKMController::class, 'show'])->name('user.ukm.id');
+
+Route::get('user/lk/{id}', [UKMController::class, 'show'])->name('user.lk.id');
 
 Route::get('/validate', [AdminController::class, 'validatePage'])->name('admin.validate');
 Route::get('/generate', [AdminController::class, 'generatePage'])->name('admin.generate');
