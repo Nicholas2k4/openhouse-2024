@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('payment')->nullable();
             $table->string('code');
             $table->string('drive_url')->nullable();
-            $table->tinyInteger('file_validated')->comment("0: No, 1: Yes");
+            $table->tinyInteger('file_validated')->comment("0: No, 1: Yes, 2: Reject");
             $table->tinyInteger('payment_validated')->comment("0: No, 1: Yes");
             $table->timestamps();
 
