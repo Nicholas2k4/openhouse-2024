@@ -53,7 +53,7 @@ Route::get('/processLogin', [AuthController::class, 'processLogin'])->name('logi
 
 // Registration
 Route::post('/storePendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
-Route::get('/pendaftaran', [PendaftaranController::class, 'redirect'])->name('pendaftaran.redirect');
+Route::get('/pendaftaran/{id}', [PendaftaranController::class, 'redirect'])->name('pendaftaran.redirect');
 Route::post('/pembayaran', [PendaftaranController::class, 'payment'])->name('pendaftaran.payment');
 
 // Information

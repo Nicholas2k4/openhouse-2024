@@ -35,7 +35,7 @@
     <div class="bg-black bg-opacity-50 rounded-lg p-6 shadow-lg max-w-3xl w-full mt-8 mb-8 backdrop-blur">
     @if($status_pembayaran == 0 && !$url)
     {{-- belum bayar & belum disetujui --}}
-    <form method="POST" action={{ route('user.pendaftaran.payment') }} enctype="multipart/form-data">
+    <form method="POST" action={{ route('pendaftaran.payment') }} enctype="multipart/form-data">
       @csrf
         <div class="space-y-12">
           <div class="border-b border-gray-900/10 pb-12">
