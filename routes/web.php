@@ -56,7 +56,7 @@ Route::get('/validate', [AdminController::class, 'validatePage'])->name('admin.v
 Route::get('/generate', [AdminController::class, 'generatePage'])->name('admin.generate');
 
 Route::get('/admin/get-users-by-activity', [AdminController::class, 'getUsersByActivity'])->name('admin.getUsersByActivity');
-Route::get('/ukm', [UKMController::class, 'index'])->name('user.ukm');
+Route::get('/user/ukm', [UKMController::class, 'index'])->name('user.ukm');
 
 Route::get('/user/lk', function () {
     $ukms = Ukm::all();
