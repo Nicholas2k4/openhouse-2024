@@ -261,7 +261,7 @@
         @include('user.components.footer')
     </div>
 
-    @include('user.components.loader-logic')
+    {{-- @include('user.components.loader-logic') --}}
 
     {{-- AOS --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -278,6 +278,27 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
     <script>
+        var loaderCont = document.querySelector('.loader-container');
+        var loader = document.getElementById('loader1');
+        var loader2 = document.getElementById('loader2');
+        var content = document.querySelector(".full-content");
+
+        window.addEventListener("load", function() {
+            loader1.style.transform = 'translateY(-100vh)';
+            loader2.style.transform = 'translateY(100vh)';
+
+            setTimeout(function() {
+                loaderCont.style.zIndex = -1;
+                loaderCont.style.display = 'none';
+            }, 1400);
+            content.style.opacity = 1;
+            document.documentElement.classList.remove('disableScroll');
+            gsap.registerPlugin(ScrollTrigger);
+            AOS.init();
+        });
+        var timelines = document.querySelector('.img-container');
+        var timeWidth = timelines.offsetWidth;
+        var amountToScroll = timeWidth - window.innerwidth;
         twe.config = {
             darkMode: "class",
             corePlugins: {
@@ -304,19 +325,20 @@
         // Search
         const lists = @json($ukms);
         console.log(lists);
-       
-        $(document).ready(function() {
 
-            var i = 0;
-            for (var list in lists) {
-                if (i <= 5) {
-                    $('.dropdown').append(
-                        '<a class="py-1 px-3 rounded-xl" href="' + lists[list] + '" data-te-ripple-init data-te-ripple-color="light">' +
-                        list + '</a> <hr>');
-                }
-                i++
+        // $(document).ready(function() {
+
+        var i = 0;
+        for (var list in lists) {
+            if (i <= 5) {
+                $('.dropdown').append(
+                    '<a class="py-1 px-3 rounded-xl" href="' + lists[list] +
+                    '" data-te-ripple-init data-te-ripple-color="light">' +
+                    list + '</a> <hr>');
             }
-        });
+            i++
+        }
+        // });
 
         document.getElementById('search').addEventListener('blur', function() {
             setTimeout(function() {
@@ -345,7 +367,8 @@
                 for (var list in lists) {
                     if (i <= 5) {
                         $('.dropdown').append(
-                            '<a class="py-1" href="' + lists[list] + '" data-te-ripple-init data-te-ripple-color="light">' + list +
+                            '<a class="py-1" href="' + lists[list] +
+                            '" data-te-ripple-init data-te-ripple-color="light">' + list +
                             '</a> <hr>');
                     }
                     i++
@@ -362,15 +385,15 @@
         }
 
         // Sidebar
-        document.addEventListener("DOMContentLoaded", function() {
-            const hamburger = document.getElementById("hamburger");
-            const sidebar = document.getElementById("sidebar");
+        // document.addEventListener("DOMContentLoaded", function() {
+        const hamburger = document.getElementById("hamburger");
+        const sidebar = document.getElementById("sidebar");
 
-            hamburger.addEventListener("click", function() {
-                sidebar.classList.toggle("active");
-                hamburger.classList.toggle("active");
-            });
+        hamburger.addEventListener("click", function() {
+            sidebar.classList.toggle("active");
+            hamburger.classList.toggle("active");
         });
+        // });
     </script>
 
 
