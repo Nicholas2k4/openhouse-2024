@@ -166,7 +166,7 @@
         }
 
         .loader {
-            background-color: hsla(165, 49%, 41%, 1);
+            /* background-color: hsla(165, 49%, 41%, 1);
             background-image:
                 radial-gradient(at 80% 0%, hsla(308, 73%, 44%, 1) 0px, transparent 50%),
                 radial-gradient(at 80% 50%, hsla(265, 57%, 52%, 1) 0px, transparent 50%),
@@ -174,7 +174,17 @@
                 radial-gradient(at 0% 50%, hsla(343, 99%, 56%, 1) 0px, transparent 50%),
                 radial-gradient(at 0% 100%, hsla(165, 49%, 41%, 1) 0px, transparent 50%),
                 radial-gradient(at 87% 97%, hsla(237, 54%, 26%, 1) 0px, transparent 50%),
-                radial-gradient(at 0% 0%, hsla(343, 99%, 46%, 1) 0px, transparent 50%);
+                radial-gradient(at 0% 0%, hsla(343, 99%, 46%, 1) 0px, transparent 50%); */
+                background-color: hsla(203, 100%, 15%, 1);
+    background-image:
+        radial-gradient(at 100% 0%, hsla(199, 77%, 64%, 1) 0px, transparent 50%),
+        radial-gradient(at 52% 93%, hsla(209, 100%, 83%, 1) 0px, transparent 50%),
+        radial-gradient(at 2% 99%, hsla(217, 58%, 53%, 1) 0px, transparent 50%),
+        radial-gradient(at 80% 50%, hsla(217, 57%, 53%, 1) 0px, transparent 50%),
+        radial-gradient(at 1% 41%, hsla(216, 100%, 32%, 1) 0px, transparent 50%),
+        radial-gradient(at 29% 19%, #0f52bd 0px, transparent 50%),
+        radial-gradient(at 18% 15%, hsla(217, 100%, 79%, 1) 0px, transparent 50%),
+        radial-gradient(at 84% 100%, hsla(207, 88%, 23%, 1) 0px, transparent 50%);
             opacity: 1;
             transition: 1s cubic-bezier(.12, .44, 1, -0.39);
             overflow: hidden !important;
@@ -233,7 +243,7 @@
             overflow: hidden;
         }
 
-        
+
 
         /* a {
             font-family: GeneralSansItalic !important;
@@ -280,7 +290,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
     <script>
-   
         twe.config = {
             darkMode: "class",
             corePlugins: {
@@ -305,8 +314,7 @@
         });
 
         // Search
-        const lists = @json($ukms);
-        console.log(lists);
+        // console.log(lists);
 
         // $(document).ready(function() {
 

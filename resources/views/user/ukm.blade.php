@@ -104,13 +104,13 @@
     <!--Card Section-->
     <section id="card-section" class = "">
         <div class = "px-[30px] md:px-[50px] xl:px-[100px]">
-            <div class = "reveal group z-10 w-full sticky top-[30px] px-[0px] md:px-[300px]">
+            {{-- <div class = "reveal group z-10 w-full sticky top-[30px] px-[0px] md:px-[300px]">
                 <a href=""
                     class="flex justify-center items-center w-full gap-2 backdrop-blur-sm bg-white/10 border-[1px] border-[#30518A] py-2 rounded-full group-hover:bg-[#30518A]">
                     <i class="text-[#30518A] group-hover:text-white fa-solid fa-magnifying-glass"></i>
                     <span class = "text-[#30518A] text-[16px] font-bold group-hover:text-white">Search UKM</span>
                 </a>
-            </div>
+            </div> --}}
 
             <!--Card Contain-->
             <div class="w-full py-[200px] gap-y-[200px] mx-auto text-center flex flex-wrap">
