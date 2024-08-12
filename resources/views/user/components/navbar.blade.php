@@ -86,7 +86,7 @@
                     <input type="text" id="search" autocomplete="off" onclick="show()" onkeyup="search()"
                         class="!border-2 !rounded-full !border-white z-20 w-full bg-transparent px-3 py-1 !text-white placeholder-white font-normal transition duration-200 focus:outline-none focus:ring-0"
                         placeholder="Search UKM or LK" />
-                    <div class="dropdown bg-white p-3 rounded-xl absolute top-9 hidden flex-col w-full h-[200px] overflow-y-scroll">
+                    <div class="dropdown bg-white p-3 rounded-xl absolute top-9 hidden flex-col w-full h-fit max-h-[200px] overflow-y-scroll">
                     </div>
                 </div>
             </div>

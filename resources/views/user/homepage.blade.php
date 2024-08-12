@@ -31,9 +31,9 @@
 
     {{-- Maskot --}}
     <img src="{{ asset('assets/CORALIS POSE 1.png') }}" alt="Coralis"
-        class="maskot absolute lg:right-[-5vw] right-[-25vw] sm:top-[3000px] md:top-[3500px] lg:top-[4000px] xl:top-[5000px] lg:w-1/3 w-1/2">
+        class="maskot max-[475px]:hidden absolute lg:right-[-5vw] right-[-25vw] sm:top-[3000px] md:top-[3200px] lg:top-[3900px] xl:top-[5000px] lg:w-1/3 w-1/2">
     <img src="{{ asset('assets/VERDARA POSE 1.png') }}" alt="Verdara"
-        class="maskot absolute lg:left-[-5vw] left-[-18vw] sm:top-[3000px] md:top-[3500px] lg:top-[4000px] xl:top-[5000px] lg:w-1/3 w-1/2">
+        class="maskot max-[475px]:hidden absolute lg:left-[-5vw] left-[-18vw] sm:top-[3000px] md:top-[3200px] lg:top-[3900px] xl:top-[5000px] lg:w-1/3 w-1/2">
 
     {{-- Video --}}
     <section class="video w-full xl:h-[100vh] z-50 overflow-hidden flex items-center">
@@ -166,14 +166,14 @@
             <div class="chat-header w-full h-[70px] rounded-t-2xl flex justify-start items-center">
                 <img src="{{ asset('assets/VERDARA PP.png') }}" alt="faq-maskot"
                     class="rounded-full h-11 bg-yellow-400 mx-4">
-                <p class="text-lg font-bold max-sm:text-base text-white">Verdara</p>
+                <p class="text-lg font-bold max-sm:text-base text-[#1A4D2E]" data-aos="fade-down" data-aos-once="true">Verdara</p>
             </div>
             <div class="chat-area pt-4 chat-section overflow-y-scroll overflow-x-hidden">
                 <div class="chatAnswer flex">
                     <img src="{{ asset('assets/VERDARA PP.png') }}" alt="faq-maskot"
                         class="rounded-full h-8 bg-yellow-400 ml-4 mr-3">
                     <p
-                        class="chat overflow-visible text-black sm:text-base max-sm:text-sm w-fit px-3 py-2
+                        class="chat overflow-visible text-[#789461] sm:text-base max-sm:text-sm w-fit px-3 py-2
                         bg-white rounded-tr-2xl rounded-br-2xl rounded-bl-2xl my-5 md:max-w-[450px] max-sm:max-w-[200px]">
                         Halooo 😁, perkenalkan namaku Verdara. Aku akan menjawab pertanyaan kalian seputar acara Open House
                         2024.
@@ -182,9 +182,9 @@
             </div>
 
             <div class="chat-footer w-full h-[58px] rounded-b-2xl flex justify-between place-self-end items-center">
-                <p class="ml-5 font-bold max-sm:text-xs text-white">Choose your question here</p>
+                <p class="ml-5 font-bold max-sm:text-xs text-[#1A4D2E]">Choose your question here</p>
                 <div class="flex items-center h-full" data-twe-dropdown-position="dropup">
-                    <i class="fa-regular fa-comment-dots mx-5 text-2xl hover:cursor-pointer text-white" type="button"
+                    <i class="fa-regular fa-comment-dots mx-5 text-2xl hover:cursor-pointer text-[#1A4D2E]" type="button"
                         id="dropdownMenuButton1" data-twe-dropdown-toggle-ref aria-expanded="false" data-twe-ripple-init
                         data-twe-ripple-color="light">
                     </i>
@@ -400,7 +400,7 @@
             chatProfile.classList.add('rounded-full', 'h-8', 'bg-yellow-400', 'ml-4', 'mr-3');
 
             const replyText = document.createElement('div');
-            replyText.classList.add('chat', 'overflow-visible', 'text-black', 'sm:text-base', 'max-sm:text-sm',
+            replyText.classList.add('chat', 'overflow-visible', 'text-[#789461]', 'sm:text-base', 'max-sm:text-sm',
                 'w-fit', 'sm:max-w-[250px]', 'md:max-w-[450px]', 'max-sm:max-w-[200px]',
                 'px-3', 'py-2',
                 'bg-white', 'rounded-tr-2xl', 'rounded-br-2xl', 'rounded-bl-2xl', 'my-5');
