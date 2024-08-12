@@ -304,44 +304,7 @@
         // Search
         const lists = @json($ukms);
         console.log(lists);
-        
-        
-        // const lists = [
-        //     'Chinese Art',
-        //     'ASFS',
-        //     'Dance',
-        //     'Dekorasi',
-        //     'Ilustrasi',
-        //     'Martografi',
-        //     'Modeling',
-        //     'Teater',
-        //     'Vocal Group',
-        //     'English Debate Society (EDS)',
-        //     'Pengembangan Diri',
-        //     'Esport',
-        //     'Badminton',
-        //     'Basket',
-        //     'Catur',
-        //     'Futsal',
-        //     'Renang',
-        //     'Taekwondo',
-        //     'Tenis Lapangan',
-        //     'Tenis Meja',
-        //     'Voli',
-        //     'Matrapenza',
-        //     'EMR',
-        //     'Menwa',
-        //     'Matrapala',
-        //     'Paduan Suara',
-        //     'Orkestra',
-        //     'Badan Eksekutif Mahasiswa (BEM)',
-        //     'Majelis Perwakilan Mahasiswa (MPM)',
-        //     'Badan Perwakilan Mahasiswa Fakultas (BPMF)',
-        //     'Pers Mahasiswa (PERSMA)',
-        //     'Pelayanan Mahasiswa (PELMA)',
-        //     'Tim Petra Sinergi (TPS)',
-        // ];
-
+       
         $(document).ready(function() {
 
             var i = 0;
