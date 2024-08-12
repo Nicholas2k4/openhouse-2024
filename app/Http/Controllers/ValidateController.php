@@ -17,7 +17,7 @@ class ValidateController extends Controller
             $filter = $request->get('filter');
             $status = $request->get('status');
 
-            $ukm = Ukms::where('slug', $filter)->first();
+            $ukm = Ukm::where('slug', $filter)->first();
             if ($status == 'rejected') {
                 $status = 2;
             } else if ($status == 'accepted') {
@@ -28,35 +28,35 @@ class ValidateController extends Controller
 
             if ($nrp != '' && $ukm) { // NRP not empty & UKM not empty
                 if ($status == 2) {
-                    $data = Detail_registrations::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', $status)->get();
+                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', $status)->get();
                 } else if ($status == 1) {
-                    $data = Detail_registrations::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', $status)->where('payment_validated', $status)->get();
+                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', $status)->where('payment_validated', $status)->get();
                 } else {
-                    $data = Detail_registrations::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', '!=', 2)->where('payment_validated', '0')->get();
+                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', '!=', 2)->where('payment_validated', '0')->get();
                 }
             } else if ($nrp == '' && $ukm) { // NRP empty & UKM not empty
                 if ($status == 2) {
-                    $data = Detail_registrations::where('ukm_id', $ukm->id)->where('file_validated', $status)->get();
+                    $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', $status)->get();
                 } else if ($status == 1) {
-                    $data = Detail_registrations::where('ukm_id', $ukm->id)->where('file_validated', $status)->where('payment_validated', $status)->get();
+                    $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', $status)->where('payment_validated', $status)->get();
                 } else {
-                    $data = Detail_registrations::where('ukm_id', $ukm->id)->where('file_validated', '!=', 2)->where('payment_validated', '0')->get();
+                    $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', '!=', 2)->where('payment_validated', '0')->get();
                 }
             } else if ($nrp != '' && !$ukm) { // NRP not empty & UKM empty
                 if ($status == 2) {
-                    $data = Detail_registrations::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', $status)->get();
+                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', $status)->get();
                 } else if ($status == 1) {
-                    $data = Detail_registrations::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', $status)->where('payment_validated', $status)->get();
+                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', $status)->where('payment_validated', $status)->get();
                 } else {
-                    $data = Detail_registrations::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', '!=', 2)->where('payment_validated', '0')->get();
+                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', '!=', 2)->where('payment_validated', '0')->get();
                 }
             } else if ($nrp == '' && !$ukm) { // NRP empty & UKM empty
                 if ($status == 2) {
-                    $data = Detail_registrations::where('file_validated', $status)->get();
+                    $data = DetailRegistration::where('file_validated', $status)->get();
                 } else if ($status == 1) {
-                    $data = Detail_registrations::where('file_validated', $status)->where('payment_validated', $status)->get();
+                    $data = DetailRegistration::where('file_validated', $status)->where('payment_validated', $status)->get();
                 } else {
-                    $data = Detail_registrations::where('file_validated', '!=', 2)->where('payment_validated', '0')->get();
+                    $data = DetailRegistration::where('file_validated', '!=', 2)->where('payment_validated', '0')->get();
                 }
             }
 
@@ -126,7 +126,7 @@ class ValidateController extends Controller
     public function viewPayment(Request $request)
     {
         $nrp = $request->get('nrp');
-        $file_path = Detail_registrations::where('nrp', $nrp)->first()->payment;
+        $file_path = DetailRegistration::where('nrp', $nrp)->first()->payment;
 
         return response()->json(['file_path' => $file_path]);
     }
@@ -161,7 +161,7 @@ class ValidateController extends Controller
             } else {
                 return response()->json(['message' => 'false']); // Payment sudah divalidasi
             }
-        } else if (Detail_registrations::where('nrp', $nrp)->first()->file_validated == 2) {
+        } else if (DetailRegistration::where('nrp', $nrp)->first()->file_validated == 2) {
             return response()->json(['message' => 'warning']); // Rejected
         } else {
             return response()->json(['message' => 'not_yet']); // File seleksi belum divalidasi
@@ -172,7 +172,7 @@ class ValidateController extends Controller
         $nrp = $request->get('nrp');
 
         // Ukms::where('nrp', $nrp)->increment('current_slot'); // kalau ditolak, slot nambah 1
-        Detail_registrations::where('nrp', $nrp)->update([
+        DetailRegistration::where('nrp', $nrp)->update([
             'file_validated' => 2
         ]);
 
