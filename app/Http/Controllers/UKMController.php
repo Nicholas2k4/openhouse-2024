@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class UKMController extends Controller
 {
 
-    public function index()
+    public function ukm()
     {
         $ukms = Ukm::all();
         $data['title'] = "UKM";
