@@ -24,8 +24,11 @@ use App\Http\Controllers\UKMController;
 */
 
 /**
- * Admin routes goes here
+ * Admin Routes
+ * Group prefix('admin') = /admin/ untuk isi groupnya.
+ * Jadi udh gk perlu ngasih /admin lagi di dpn get route.
  */
+
 Route::prefix('admin')->group(function () {
     Route::get('logout', [AuthController::class, 'adminLogout'])->name('admin.logout');
     Route::get('login', [AdminController::class, 'login'])->name('admin.login');
@@ -36,8 +39,12 @@ Route::prefix('admin')->group(function () {
 });
 
 /**
- * User routes goes here
+ * User Routes
+ * 
+ * User routes ga perlu dikasi /user, cukup lgsg /page aja biar gk merusak estetika URL.
+ * Kalo page admin baru perlu dikasi /admin biar jelas.
  */
+
 // Login
 Route::get('/', [MainController::class, 'index'])->name('user.home');
 Route::get('/auth/{type}', [AuthController::class, 'googleAuth'])->name('user.auth');
@@ -68,7 +75,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('user.logout');
 
 
 /**
- * Dummy routes goes here
+ * Dummy Routes
  */
 
 // Route::get('/test', function () {
