@@ -1,61 +1,62 @@
 @extends('user.layout.main')
 
 @section('head')
-<style>
-    html,
-    body {
-        position: relative;
-        height: 100%;
-    }
-
-    body {
-        background: #eee;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color: #000;
-        margin: 0;
-        padding: 0;
-    }
-
-    .swiper {
-        width: 100%;
-        height: 100%;
-    }
-
-    .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .animation-blob {
-        animation: blob 3s infinite;
-    }
-
-    @keyframes blob {
-        0% {
-            transform: translate(0px, 0px) scale(1);
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
         }
 
-        50% {
-            transform: translate(50px, -20px) scale(0.5);
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
         }
 
-        100% {
-            transform: translate(0px, 0px) scale(1);
+        .swiper {
+            width: 100%;
+            height: 100%;
         }
-    }
-</style>
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .animation-blob {
+            animation: blob 3s infinite;
+        }
+
+        @keyframes blob {
+            0% {
+                transform: translate(0px, 0px) scale(1);
+            }
+
+            50% {
+                transform: translate(50px, -20px) scale(0.5);
+            }
+
+            100% {
+                transform: translate(0px, 0px) scale(1);
+            }
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -79,10 +80,10 @@
     <div
         class="h-screen relative w-full py-[100px] px-[50px] md:px-[50px] xl:px-[100px] flex flex-col justify-center gap-[100px] items-center">
         <div
-            class="max-w-[400px] relative bg-white/15 backdrop-blur-xl border-[1px]  border-white rounded p-10 flex flex-col justify-center items-center">
+            class="max-w-[400px] relative bg-white/15 backdrop-blur-xl border-[1px] border-white rounded p-10 flex flex-col justify-center items-center">
             <button><i id = "tutorial"
                     class="hover:text-[#5ffff2] transition-500 text-white text-[30px] sm:text-[36px] absolute right-[20px] top-[20px] w-full text-right fas fa-question-circle"></i></button>
-            <p class = "text-white text-[18px] sm:text-[20px] leading-tight">You have collected</p>
+            <p class = "text-white text-[18px] sm:text-[20px] leading-tight font-semibold">You have collected</p>
             <h2 class = "text-white text-[80px] sm:text-[100px] leading-tight">{{ $letters->count() }}/27</h2>
             <p class = "text-white text-[18px] sm:text-[20px]">letters</p>
             <!-- Progress -->
@@ -105,8 +106,8 @@
             <div class="swiper mySwiper">
                 <div class="absolute h-[64px] z-10 w-full text-right text-[36px] py-[10px] px-[50px]">
                     <button class = " close-tutorial"> <svg class=" text-white inline-block w-[32px] h-[32px]"
-                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
+                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" />
                             <line x1="18" y1="6" x2="6" y2="18" />
                             <line x1="6" y1="6" x2="18" y2="18" />
@@ -169,48 +170,50 @@
 
     <!-- Initialize Swiper -->
     <script>
-        var swiper = new Swiper(".mySwiper", {
-            pagination: {
-                el: ".swiper-pagination",
-                type: "progressbar",
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
+        $(document).ready(function() {
 
-        document.getElementById("tutorial").addEventListener("click", function() {
-            document.getElementById("tutorial-card").classList.remove("hidden");
-            var overlay = document.getElementById("overlay");
-            overlay.classList.remove("hidden");
-        });
+            var swiper = new Swiper(".mySwiper", {
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "progressbar",
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
 
-        document.querySelectorAll(".close-tutorial").forEach(function(button) {
-            button.addEventListener("click", function() {
-                document.getElementById("tutorial-card").classList.add("hidden");
-                document.getElementById("overlay").classList.add("hidden");
+            document.getElementById("tutorial").addEventListener("click", function() {
+                document.getElementById("tutorial-card").classList.remove("hidden");
+                var overlay = document.getElementById("overlay");
+                overlay.classList.remove("hidden");
+            });
+
+            document.querySelectorAll(".close-tutorial").forEach(function(button) {
+                button.addEventListener("click", function() {
+                    document.getElementById("tutorial-card").classList.add("hidden");
+                    document.getElementById("overlay").classList.add("hidden");
+
+                });
+            });
+
+            document.getElementById("see-list").addEventListener("click", function() {
+                document.getElementById("letter-card").classList.remove("hidden");
+                document.getElementById("overlay").classList.remove("hidden");
 
             });
+
+            document.getElementById("overlay").addEventListener("click", function() {
+                if (document.getElementById("tutorial-card").classList.contains("hidden")) {
+                    document.getElementById("letter-card").classList.add("hidden");
+                    document.getElementById("overlay").classList.add("hidden");
+                }
+            });
+
+            let percentage = ({{ $letters->count() }} / 27) * 100;
+            percentage = `${percentage}%`;
+
+            document.getElementById("progress-bar").style.width = percentage;
         });
-
-        document.getElementById("see-list").addEventListener("click", function() {
-            document.getElementById("letter-card").classList.remove("hidden");
-            document.getElementById("overlay").classList.remove("hidden");
-
-        });
-
-        document.getElementById("overlay").addEventListener("click", function() {
-            if (document.getElementById("tutorial-card").classList.contains("hidden")) {
-                document.getElementById("letter-card").classList.add("hidden");
-                document.getElementById("overlay").classList.add("hidden");
-            }
-        });
-
-        let percentage = ({{ $letters->count() }} / 27) * 100;
-        percentage = `${percentage}%`;
-
-        document.getElementById("progress-bar").style.width = percentage;
     </script>
 @endsection
-

@@ -36,6 +36,12 @@ Route::prefix('admin')->group(function () {
     Route::get('get-users-by-activity', [AdminController::class, 'getUsersByActivity'])->name('admin.getUsersByActivity');
     Route::get('validate', [AdminController::class, 'validatePage'])->name('admin.validate');
     Route::get('generate', [AdminController::class, 'generatePage'])->name('admin.generate');
+    Route::get('filterSearch', [ValidateController::class, 'filterSearch'])->name('admin.filterSearch');
+    Route::post('selectionValidate', [ValidateController::class, 'selectionValidate'])->name('admin.selectionValidate');
+    Route::post('paymentValidate', [ValidateController::class, 'paymentValidate'])->name('admin.paymentValidate');
+    Route::post('viewPayment', [ValidateController::class, 'viewPayment'])->name('admin.viewPayment');
+    Route::post('rejectParticipant', [ValidateController::class, 'rejectParticipant'])->name('admin.rejectParticipant');
+    Route::post('/giveLetter', [GenerateController::class, 'giveLetter'])->name('admin.giveLetter');
 });
 
 /**
