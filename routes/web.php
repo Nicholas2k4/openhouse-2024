@@ -70,6 +70,14 @@ Route::get('/lk', [UKMController::class, 'lk'])->name('user.lk');
 Route::get('/game', [GameController::class, 'index'])->name('user.game');
 Route::get('/ukm/{id}', [UKMController::class, 'show'])->name('user.ukm.id');
 Route::get('/lk/{id}', [UKMController::class, 'show'])->name('user.lk.id');
+
+Route::get('/getUkm', [UKMController::class, 'getUkms'])->name('user.ukm.get');
+
+Route::get('/filterSearch', [ValidateController::class, 'filterSearch'])->name('filterSearch');
+Route::post('/selectionValidate', [ValidateController::class, 'selectionValidate'])->name('selectionValidate');
+Route::post('/paymentValidate', [ValidateController::class, 'paymentValidate'])->name('paymentValidate');
+Route::post('/giveLetter', [GenerateController::class, 'giveLetter'])->name('admin.giveLetter');
+
 Route::get('/logout', [AuthController::class, 'logout'])->name('user.logout');
 
 

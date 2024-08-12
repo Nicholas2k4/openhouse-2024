@@ -40,7 +40,7 @@ class UKMController extends Controller
                 $ukms_temp[$ukm->name] = '/user/ukm/' . $ukm->id;
             }
         }
-        return $ukms_temp;
+        return json_encode($ukms_temp);
     }
 
     public function show($id)
