@@ -12,9 +12,9 @@
         }
 
         /*
-                .video {
-                    box-shadow: 0 0 10px white, 0 0 30px white, 0 0 60px white;
-                } */
+                    .video {
+                        box-shadow: 0 0 10px white, 0 0 30px white, 0 0 60px white;
+                    } */
     </style>
 @endsection
 
@@ -162,7 +162,7 @@
         <div class="flex justify-center items-center h-24 text-3xl font-bold">
             <h1 data-aos="fade-down" data-aos-once="true"
                 class="sm:text-7xl text-5xl font-bold text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mb-5">
-                Frequently Asked Questions</h1>
+                Ask Verdara</h1>
         </div>
 
         <div class="chats grid sm:w-[380px] max-sm:w-[310px] h-[550px] bg-gray-200 my-10 rounded-3xl overflow-hidden">
@@ -353,13 +353,20 @@
             }
         });
 
+        function adjustOverlayHeight() {
+            const videoElement = document.querySelector('.video');
+            const overlayElement = document.querySelector('.overlay');
 
-        // });
+            if (videoElement && overlayElement) {
+                overlayElement.style.height = `${videoElement.clientHeight}px`;
+            }
+        }
 
+        // Adjust height initially
+        adjustOverlayHeight();
 
-
-
-
+        // Adjust height on window resize
+        window.addEventListener('resize', adjustOverlayHeight);
 
         const chatSection = document.querySelector('.chat-section');
 
