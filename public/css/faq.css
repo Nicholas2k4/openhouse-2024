@@ -215,7 +215,7 @@
 
 .chat-header,
 .chat-footer {
-    background-color: rgba(34, 61, 197, 0.7);
+    background-image: linear-gradient(to right, #B18AEA, #5DEBD7);
 
 }
 
