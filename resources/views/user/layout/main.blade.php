@@ -302,53 +302,57 @@
         });
 
         // Search
-        const lists = [
-            'Chinese Art',
-            'ASFS',
-            'Dance',
-            'Dekorasi',
-            'Ilustrasi',
-            'Martografi',
-            'Modeling',
-            'Teater',
-            'Vocal Group',
-            'English Debate Society (EDS)',
-            'Pengembangan Diri',
-            'Esport',
-            'Badminton',
-            'Basket',
-            'Catur',
-            'Futsal',
-            'Renang',
-            'Taekwondo',
-            'Tenis Lapangan',
-            'Tenis Meja',
-            'Voli',
-            'Matrapenza',
-            'EMR',
-            'Menwa',
-            'Matrapala',
-            'Paduan Suara',
-            'Orkestra',
-            'Badan Eksekutif Mahasiswa (BEM)',
-            'Majelis Perwakilan Mahasiswa (MPM)',
-            'Badan Perwakilan Mahasiswa Fakultas (BPMF)',
-            'Pers Mahasiswa (PERSMA)',
-            'Pelayanan Mahasiswa (PELMA)',
-            'Tim Petra Sinergi (TPS)',
-        ];
+        const lists = @json($ukms);
+        console.log(lists);
+        
+        
+        // const lists = [
+        //     'Chinese Art',
+        //     'ASFS',
+        //     'Dance',
+        //     'Dekorasi',
+        //     'Ilustrasi',
+        //     'Martografi',
+        //     'Modeling',
+        //     'Teater',
+        //     'Vocal Group',
+        //     'English Debate Society (EDS)',
+        //     'Pengembangan Diri',
+        //     'Esport',
+        //     'Badminton',
+        //     'Basket',
+        //     'Catur',
+        //     'Futsal',
+        //     'Renang',
+        //     'Taekwondo',
+        //     'Tenis Lapangan',
+        //     'Tenis Meja',
+        //     'Voli',
+        //     'Matrapenza',
+        //     'EMR',
+        //     'Menwa',
+        //     'Matrapala',
+        //     'Paduan Suara',
+        //     'Orkestra',
+        //     'Badan Eksekutif Mahasiswa (BEM)',
+        //     'Majelis Perwakilan Mahasiswa (MPM)',
+        //     'Badan Perwakilan Mahasiswa Fakultas (BPMF)',
+        //     'Pers Mahasiswa (PERSMA)',
+        //     'Pelayanan Mahasiswa (PELMA)',
+        //     'Tim Petra Sinergi (TPS)',
+        // ];
 
         $(document).ready(function() {
 
             var i = 0;
-            lists.forEach(list => {
+            for (var list in lists) {
                 if (i <= 5) {
                     $('.dropdown').append(
-                        '<a class="py-1 px-3 rounded-xl" href="" data-te-ripple-init data-te-ripple-color="light">' +
+                        '<a class="py-1 px-3 rounded-xl" href="' + lists[list] + '" data-te-ripple-init data-te-ripple-color="light">' +
                         list + '</a> <hr>');
                 }
                 i++
-            });
+            }
         });
 
         document.getElementById('search').addEventListener('blur', function() {
@@ -369,20 +373,20 @@
             input = document.getElementById('search');
             filter = input.value.toUpperCase();
             ul = document.querySelector(".dropdown");
-            li = lists;
+            li = Object.keys(lists);
 
             $('.dropdown').empty();
 
             if (filter == '' || filter == null) {
                 var i = 1;
-                lists.forEach(list => {
+                for (var list in lists) {
                     if (i <= 5) {
                         $('.dropdown').append(
-                            '<a class="py-1" href="" data-te-ripple-init data-te-ripple-color="light">' + list +
+                            '<a class="py-1" href="' + lists[list] + '" data-te-ripple-init data-te-ripple-color="light">' + list +
                             '</a> <hr>');
                     }
                     i++
-                });
+                }
             } else {
                 for (i = 0; i < li.length; i++) {
                     txtValue = li[i];
