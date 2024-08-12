@@ -75,24 +75,7 @@ Route::get('/user/game', function () {
 });
 
 Route::get('user/ukm/{id}', [UKMController::class, 'show'])->name('user.ukm.id');
-
 Route::get('user/lk/{id}', [UKMController::class, 'show'])->name('user.lk.id');
-
-Route::get('/user/game', function () {
-    if (auth()->user()) {
-        $nrp = auth()->user()->nrp;
-    } else {
-        $nrp = 0;
-    }
-    $letters = DB::table('detail_games')->where('nrp', $nrp)->pluck('letter');
-
-    return view('user/game', ['letters' => $letters]);
-});
-
-Route::get('user/ukm/{id}', [UKMController::class, 'show'])->name('user.ukm.id');
-
-Route::get('user/lk/{id}', [UKMController::class, 'show'])->name('user.lk.id');
-
 
 Route::get('/filterSearch', [ValidateController::class, 'filterSearch'])->name('filterSearch');
 Route::post('/selectionValidate', [ValidateController::class, 'selectionValidate'])->name('selectionValidate');
