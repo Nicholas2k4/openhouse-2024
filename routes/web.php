@@ -59,8 +59,7 @@ Route::post('/pembayaran', [PendaftaranController::class, 'payment'])->name('pen
 // Information
 Route::get('wait', [MainController::class, 'wait'])->name('user.wait');
 Route::get('/ukm', [UKMController::class, 'ukm'])->name('user.ukm');
-
-Route::get('/user/lk', [UKMController::class, 'lk'])->name('user.lk');
+Route::get('/lk', [UKMController::class, 'lk'])->name('user.lk');
 
 Route::get('/game', [GameController::class, 'index'])->name('user.game');
 Route::get('/ukm/{id}', [UKMController::class, 'show'])->name('user.ukm.id');
