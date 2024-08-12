@@ -1,5 +1,5 @@
 <script>
-    $(document).ready(function() {
+    // $(document).ready(function() {
         const loaderCont = document.querySelector('.loader-container');
         const loader = document.querySelector('#loader1');
         const loader2 = document.querySelector('#loader2');
@@ -18,5 +18,5 @@
 
             AOS.init();
         });
-    });
+    // });
 </script>

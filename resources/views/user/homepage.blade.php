@@ -12,9 +12,9 @@
         }
 
         /*
-                                                .video {
-                                                    box-shadow: 0 0 10px white, 0 0 30px white, 0 0 60px white;
-                                                } */
+                                                    .video {
+                                                        box-shadow: 0 0 10px white, 0 0 30px white, 0 0 60px white;
+                                                    } */
     </style>
 @endsection
 
@@ -290,6 +290,10 @@
     </script>
 
     <script>
+        var timelines = document.querySelector('.img-container');
+        var timeWidth = timelines.offsetWidth;
+        var amountToScroll = timeWidth - window.innerwidth;
+
         function getScrollAmount() {
             var timeWidth = timelines.scrollWidth;
             return -(timeWidth - window.innerWidth);
