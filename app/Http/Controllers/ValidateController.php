@@ -171,7 +171,7 @@ class ValidateController extends Controller
     public function rejectParticipant(Request $request) {
         $nrp = $request->get('nrp');
 
-        // Ukm::where('nrp', $nrp)->increment('current_slot'); // kalau ditolak, slot nambah 1
+        Ukm::where('nrp', $nrp)->increment('current_slot'); // kalau ditolak, slot nambah 1
         DetailRegistration::where('nrp', $nrp)->update([
             'file_validated' => 2
         ]);
