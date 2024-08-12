@@ -174,8 +174,7 @@
                     <p
                         class="chat overflow-visible text-black sm:text-base max-sm:text-sm w-fit px-3 py-2
                         bg-white rounded-tr-2xl rounded-br-2xl rounded-bl-2xl my-5 md:max-w-[450px] max-sm:max-w-[200px]">
-                        Halooo 😁, perkenalkan namaku Verdara. Aku akan menjawab pertanyaan kalian seputar acara Battle of
-                        Minds.
+                        Halooo 😁, perkenalkan namaku Verdara. Aku akan menjawab pertanyaan kalian seputar acara Open House 2024.
                     </p>
                 </div>
             </div>
@@ -191,67 +190,58 @@
                         aria-labelledby="dropdownMenuButton1" data-twe-dropdown-menu-ref>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="0">Apa itu Battle of Minds
-                                (BoM)?
+                                href="#" data-twe-dropdown-item-ref question-code="0">Apa Mahasiswa Baru 2024 memiliki kewajiban untuk mengikuti UKM / LK ?
                             </p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="1">Ada berapa babak dalam
-                                acara
-                                BoM?</p>
+                                href="#" data-twe-dropdown-item-ref question-code="1">Bagaimana prosedur untuk mendaftar ke UKM yang diinginkan ?</p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="2">BoM diadakan secara
-                                onsite/online?</p>
+                                href="#" data-twe-dropdown-item-ref question-code="2">Apakah Mahasiswa Baru 2024 diperbolehkan untuk mendaftar lebih dari 1 UKM ?</p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="3">Siapa saja yang boleh
-                                mendaftar
-                                BoM?</p>
+                                href="#" data-twe-dropdown-item-ref question-code="3">Apakah Mahasiswa Baru 2024 boleh membatalkan registrasi setelah membayar uang pendaftaran UKM ?</p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="4">Apakah satu orang bisa
-                                mendaftar
-                                lebih dari satu tim?</p>
+                                href="#" data-twe-dropdown-item-ref question-code="4">Apakah semua UKM pasti akan menerima Mahasiswa Baru 2024 sebagai calon peserta mereka?</p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="5">Berapa biaya pendaftaran
-                                BoM?
+                                href="#" data-twe-dropdown-item-ref question-code="5">Bagaimana prosedur untuk membayar uang pendaftaran ke UKM yang diinginkan?
                             </p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="6">Apakah uang deposit akan
-                                dikembalikan setelah acara berakhir?
+                                href="#" data-twe-dropdown-item-ref question-code="6">Apakah Mahasiswa Baru 2024 diperbolehkan untuk membayar uang pendaftaran melalui rekening teman sesama Mahasiswa Baru 2024?
                             </p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="7">Bagaimana proses validasi
-                                pembayaran?</p>
+                                href="#" data-twe-dropdown-item-ref question-code="7">Mengapa Mahasiswa Baru 2024 belum dapat mendaftar menjadi anggota LK?</p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="8">Apabila tim tidak dapat
-                                hadir
-                                pada hari - h acara apa konsekuensinya?</p>
+                                href="#" data-twe-dropdown-item-ref question-code="8">Apa itu “Collectible Quest”?</p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="9">Apakah peserta akan
-                                mendapatkan
-                                konsumsi?</p>
+                                href="#" data-twe-dropdown-item-ref question-code="9">Kapan Mahasiswa Baru 2024 dapat mengumpulkan “Collectible Quest”?</p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="10">Apakah acara ini
-                                menyediakan
-                                transportasi untuk peserta?</p>
+                                href="#" data-twe-dropdown-item-ref question-code="10">Apakah Mahasiswa Baru 2024 wajib mengumpulkan “Collectible Quest”?</p>
+                        </li>
+                        <li>
+                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                                href="#" data-twe-dropdown-item-ref question-code="11">Bagaimana cara mengumpulkan “Collectible Quest”? </p>
+                        </li>
+                        <li>
+                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                                href="#" data-twe-dropdown-item-ref question-code="12">Bagaimana cara mengetahui pemenang dari “Collectible Quest”?</p>
                         </li>
                     </ul>
                 </div>
@@ -369,18 +359,19 @@
         const chatSection = document.querySelector('.chat-section');
 
         const answerArray = [
-            'Battle of Minds adalah lomba yang memadukan konsep logika matematika dengan permainan yang seru dan menantang di bidang Science🧪, Technology💻, Engineering⚙️, and Math✖️. ',
-            'Lomba ini terdiri dari tiga babak, yakni dua babak eliminasi dan satu babak final. Untuk mendapatkan informasi lebih rinci, akan diadakan TM 1 untuk babak pertama dan TM 2 untuk babak kedua.',
-            'Setiap peserta yang mengikuti kompetisi Battle of Minds diwajibkan hadir secara ONSITE, di Petra Christian University untuk babak 1. Lalu, untuk babak 2 dan babak final akan dilakukan ONSITE di Fairway Nine Mall Surabaya 🔥🔥',
-            'Kamu dapat mengikuti kompetisi Battle Of Minds 2024 jika kamu adalah siswa/i SMA/SMK di Indonesia yaaa 😙🏫',
-            'Tidak, setiap peserta tidak boleh mewakili lebih dari 1 tim 😑😑',
-            'Pendaftaran BoM free 🤩🤩!! Eitssss tapi peserta diwajibkan melakukan deposit sebesar Rp200.000 yang dibayarkan melalui Rekening BCA 2981104724 A.n/ MARCELINUS ANTHONY TEGUH, dan memberikan kode 1 pada akhir nominal seperti: 200.001 dan memberikan keterangan berita acara: BOM24-(namatim) contoh: BOM24-timhore',
-            'Iyaaa tenang aja uang deposit pasti dikembalikan, selama kalian mengikuti acara dengan baik, mematuhi peraturan, dan tidak terdiskualifikasi 😙😙',
-            'Setelah pendaftaran melalui website telah berhasil, panitia akan memberikan email konfirmasi dalam waktu 1 x 24 jam bahwa pendaftaran kalian tervalidasi.',
-            'Sayang sekali jika ada tim yang tidak hadir pada hari-h acara, maka tim tersebut akan didiskualifikasi dan uang deposit tidak akan dikembalikan 🥲🥲',
-            'Tenang aja, setiap peserta akan mendapatkan konsumsi kok 🥰🍴',
-            'Sayang sekali, tetapi pihak Battle of Minds tidak menyediakan fasilitas transportasi untuk peserta 😔😔'
-
+            'Mahasiswa Baru tidak diwajibkan untuk mengikuti UKM, tetapi UKM dapat menjadi salah satu wadah bagi Mahasiswa Baru 2024 untuk mengekspresikan diri dan mengembangkan dalam bidang non-akademik, khususnya bakat dan minat.',
+            'GTW WOKWOK',
+            'Mahasiswa Baru 2024 diperbolehkan untuk mendaftar lebih dari 1 (satu) UKM dengan batas maksimal 3 (tiga) UKM. Namun, Mahasiswa Baru juga perlu memperhatikan jadwal perkuliahan dan jadwal pelaksanaan setiap UKMnya agar tidak saling bertabrakan.',
+            'Tidak boleh! Mahasiswa Baru yang telah melakukan pembayaran kepada suatu UKM dianggap sebagai peserta resmi dari UKM tersebut dan memiliki kewajiban untuk mengikuti seluruh rangkaian kegiatan dari UKM yang bersangkutan. ',
+            'Tidak! Ada beberapa UKM yang mewajibkan calon pesertanya untuk mengikuti proses seleksi sebelum menjadi peserta resmi. Namun, perlu diketahui bahwa Mahasiswa Baru akan langsung diterima apabila mendaftar ke UKM yang tidak memiliki prosedur seleksi. ',
+            'MBO PIKIREN DEWE HEHE',
+            'Mahasiswa Baru tidak diperbolehkan untuk melakukan pembayaran menggunakan rekening sesama Mahasiswa Baru untuk menjaga transparansi pembayaran.',
+            'Hal ini dikarenakan PCU menerapkan program Pola Pengembangan Mahasiswa (POLBANGMAWA) yang bertujuan untuk mempersiapkan Mahasiswa Baru untuk mempersiapkan diri untuk menjadi Fungsionaris LK dengan mengikuti Servant Leadership Training (SLT) sebagai persyaratan sebelum Mahasiswa Baru bergabung ke dalam LK.',
+            'Collectible Quest adalah sebuah misi yang dapat diselesaikan tiap minggunya. Apabila misi ini telah terselesaikan, maka Mahasiswa Baru bisa mendapatkan sebuah hadiah dengan mengumpulkan beberapa huruf hingga membentuk kata-kata yang tersembunyi. Kata-kata yang akan dikumpulkan berbeda untuk setiap minggunya, sehingga kata yang telah dikumpulkan di minggu pertama tidak berlaku untuk minggu berikutnya.',
+            'Setiap minggunya pada jam buka Open House 2024.',
+            'Tidak, tetapi bagi Mahasiswa Baru yang mengumpulkan “Collectible Quest” akan mendapatkan subsidi potongan harga uang pendaftaran sejumlah Rp50.000,00/orangnya. Panitia Open House 2024 akan mengumumkan pemenang melalui akun Instagram resmi @openhouse.pcu',
+            'Mahasiswa Baru harus memainkan dan memenangkan activity yang diadakan pada setiap booth UKM. Nantinya, para penjaga booth akan memberikan collectibles kepada Mahasiswa Baru melalui website Open House: openhouse.petra.ac.id',
+            'Setiap minggunya akan terdapat 5 orang pemenang dari Collectible Quest. Pemenang ini akan ditentukan oleh panitia berdasarkan 5 orang pertama yang berhasil mengumpulkan collectibles secara lengkap.'
         ]
 
         var replyUser = function(answer) {
@@ -388,7 +379,7 @@
             chatResponse.classList.add('chatAnswer', 'pt-4', 'flex');
 
             const chatProfile = document.createElement('img');
-            chatProfile.src = 'assets/VERDARA POSE 1.png';
+            chatProfile.src = 'assets/VERDARA PP.png';
             chatProfile.alt = 'faq-maskot';
             chatProfile.classList.add('rounded-full', 'h-8', 'bg-yellow-400', 'ml-4', 'mr-3');
 
