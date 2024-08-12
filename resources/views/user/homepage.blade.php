@@ -10,10 +10,11 @@
             width: 100vw;
             overflow-x: hidden;
         }
-/* 
-        .video {
-            box-shadow: 0 0 10px white, 0 0 30px white, 0 0 60px white;
-        } */
+
+        /*
+            .video {
+                box-shadow: 0 0 10px white, 0 0 30px white, 0 0 60px white;
+            } */
     </style>
 @endsection
 
@@ -324,30 +325,32 @@
                         timelineElement2.classList.add('opacity-1');
                     }
 
-                if (width < -55) {
-                    timelineElement3.classList.remove('opacity-1');
-                    timelineElement3.classList.add('opacity-0');
+                    if (width < -55) {
+                        timelineElement3.classList.remove('opacity-1');
+                        timelineElement3.classList.add('opacity-0');
+                    } else {
+                        timelineElement3.classList.remove('opacity-0');
+                        timelineElement3.classList.add('opacity-1');
+                    }
                 } else {
-                    timelineElement3.classList.remove('opacity-0');
-                    timelineElement3.classList.add('opacity-1');
+                    timelineElement1.classList.remove('opacity-0');
+                    timelineElement1.classList.add('opacity-1');
                 }
-            } else {
-                timelineElement1.classList.remove('opacity-0');
-                timelineElement1.classList.add('opacity-1');
-            }
 
-            // Navbar ganti transparent pas di homepage
-            if (window.pageYOffset <= 60) {
-                document.querySelector('nav').classList.remove('bg-gradient-to-r', 'bg-gradient-to-r', 'from-[#4477CE]',
-                    'to-[#F1C1AC]');
-                document.querySelector('nav').classList.add('bg-transparent');
-            } else {
-                document.querySelector('nav').classList.remove('bg-transparent');
-                document.querySelector('nav').classList.add('bg-gradient-to-r', 'bg-gradient-to-r', 'from-[#4477CE]',
-                    'to-[#F1C1AC]');
+                // Navbar ganti transparent pas di homepage
+                if (window.pageYOffset <= 60) {
+                    document.querySelector('nav').classList.remove('bg-gradient-to-r', 'bg-gradient-to-r',
+                        'from-[#4477CE]',
+                        'to-[#F1C1AC]');
+                    document.querySelector('nav').classList.add('bg-transparent');
+                } else {
+                    document.querySelector('nav').classList.remove('bg-transparent');
+                    document.querySelector('nav').classList.add('bg-gradient-to-r', 'bg-gradient-to-r',
+                        'from-[#4477CE]',
+                        'to-[#F1C1AC]');
+                }
             }
-        }
-        // });
+        });
 
 
         // });
