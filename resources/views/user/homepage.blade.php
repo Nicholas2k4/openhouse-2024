@@ -50,7 +50,7 @@
     <section class="timeline" id="timeline">
         <div class="flex justify-center mt-10">
             <h1 data-aos="fade-down" data-aos-once="true"
-                class="text-7xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
+                class="sm:text-7xl text-5xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
                 TIMELINE</h1>
         </div>
         <div class="img-container flex items-end w-[300vw] overflow-x-scroll mx-auto no-scrollbar">
@@ -167,13 +167,13 @@
 
         <div class="chats grid sm:w-[380px] max-sm:w-[310px] h-[550px] bg-gray-200 my-10 rounded-3xl overflow-hidden">
             <div class="chat-header w-full h-[70px] rounded-t-2xl flex justify-start items-center">
-                <img src="{{ asset('assets/VERDARA POSE 1.png') }}" alt="faq-maskot"
+                <img src="{{ asset('assets/VERDARA PP.png') }}" alt="faq-maskot"
                     class="rounded-full h-11 bg-yellow-400 mx-4">
                 <p class="text-lg font-bold max-sm:text-base">Bomby</p>
             </div>
             <div class="chat-area pt-4 chat-section overflow-y-scroll overflow-x-hidden">
                 <div class="bombyAnswer flex">
-                    <img src="{{ asset('assets/VERDARA POSE 1.png') }}" alt="faq-maskot"
+                    <img src="{{ asset('assets/VERDARA PP.png') }}" alt="faq-maskot"
                         class="rounded-full h-8 bg-yellow-400 ml-4 mr-3">
                     <p
                         class="chat overflow-visible text-black sm:text-base max-sm:text-sm sm:w-[250px] max-sm:w-[200px] px-3 py-2

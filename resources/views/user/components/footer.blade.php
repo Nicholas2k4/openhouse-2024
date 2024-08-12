@@ -128,7 +128,7 @@
     }
 </style>
 
-<footer class="w-full h-[100px] flex sm:justify-between items-center flex-col sm:flex-row sm:px-10 sm:py-0 py-5 px-3 space-x-3 sm:space-y-0 space-y-5">
+<footer class="w-full h-[100px] flex sm:justify-between items-center flex-col sm:flex-row sm:px-10 sm:py-0 max-[425px]:py-3 py-1 px-3 space-x-3 sm:space-y-0 space-y-5">
     <div class="sosmed flex flex-row items-center">
         <h5 class="font-bold sm:text-2xl text-lg text-white sm:me-7 me-3 text-nowrap pt-[10px]">Contact Us</h5>
         <div class="contacts" id="contacts">
