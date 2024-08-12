@@ -29,3 +29,10 @@ Route::post('/paymentValidate', [ValidateController::class, 'paymentValidate'])-
 Route::post('/viewPayment', [ValidateController::class, 'viewPayment'])->name('viewPayment');
 Route::post('/rejectParticipant', [ValidateController::class, 'rejectParticipant'])->name('rejectParticipant');
 Route::post('/giveLetter', [GenerateController::class, 'giveLetter'])->name('admin.giveLetter');
+
+Route::get('/test', function () {
+    $ukms = App\Models\Ukm::all();
+    return view('test', [
+        'ukms' => $ukms
+    ]);
+});
