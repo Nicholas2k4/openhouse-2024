@@ -16,10 +16,11 @@ class AdminController extends Controller
         // Query untuk mendapatkan data pengguna berdasarkan slug
         $results = DB::table('users as u')
             ->join('detail_registrations as dr', 'u.nrp', '=', 'dr.nrp')
-            ->join('ukm', 'dr.ukm_id', '=', 'ukm.id')
+            ->join('ukms as ukm', 'dr.ukm_id', '=', 'ukm.id')
             ->where('ukm.slug', '=', $slug)
             ->select('u.name', 'u.nrp', 'u.line_id', 'u.phone')
             ->get();
+        
 
         // Mengembalikan hasil dalam format JSON
         return response()->json($results);
