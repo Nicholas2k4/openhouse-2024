@@ -233,7 +233,7 @@
             overflow: hidden;
         }
 
-        
+
 
         /* a {
             font-family: GeneralSansItalic !important;
@@ -280,7 +280,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
     <script>
-   
         twe.config = {
             darkMode: "class",
             corePlugins: {
@@ -289,6 +288,7 @@
         };
 
         var lastScrollTop;
+        var lists;
         navbar = document.getElementById('navbar');
         window.addEventListener('scroll', function() {
             var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -305,9 +305,29 @@
         });
 
         // Search
-        const lists = @json($ukms);
-        console.log(lists);
+        var getUkms = function() {
+            var ukms;
+            $.ajax({
+                url: '{{ route('user.ukm.get') }}',
+                type: 'GET',
+                async: false,
+                success: function(res) {
+                    ukms = JSON.parse(res);
+                },
+                error: function(error, xhr) {
+                    Swal.fire({
+                        title: 'Error !',
+                        text: error,
+                        icon: 'error'
+                    });
+                }
+            });
+            
+            return ukms;
+        }
 
+
+        lists = getUkms();
         // $(document).ready(function() {
 
         var i = 0;
