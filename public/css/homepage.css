@@ -121,10 +121,20 @@ h1 {
     .maskot {
         top: 2500px;
     }
+
+    .pin-spacer {
+        padding-top: 100px !important;
+    }
 }
 
 @media screen and (max-width: 500px) {
     .maskot {
-        top: 2200px;
+        top: 2400px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .maskot {
+        top: 2250px;
     }
 }

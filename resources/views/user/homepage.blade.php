@@ -12,9 +12,9 @@
         }
 
         /*
-            .video {
-                box-shadow: 0 0 10px white, 0 0 30px white, 0 0 60px white;
-            } */
+                .video {
+                    box-shadow: 0 0 10px white, 0 0 30px white, 0 0 60px white;
+                } */
     </style>
 @endsection
 
@@ -160,8 +160,9 @@
 
     <section class="faq w-screen flex justify-center items-center flex-col top-16 mt-[100px] h-fit" id="faq">
         <div class="flex justify-center items-center h-24 text-3xl font-bold">
-            <h1 class="faq-title text lg:text-5xl md:text-4xl text-center leading-normal w-4/5 max-md:text-3xl"
-                data-text="Frequently Asked Questions">Frequently Asked Questions</h1>
+            <h1 data-aos="fade-down" data-aos-once="true"
+                class="sm:text-7xl text-5xl font-bold text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mb-5">
+                Frequently Asked Questions</h1>
         </div>
 
         <div class="chats grid sm:w-[380px] max-sm:w-[310px] h-[550px] bg-gray-200 my-10 rounded-3xl overflow-hidden">
