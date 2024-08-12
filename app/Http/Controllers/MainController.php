@@ -15,4 +15,9 @@ class MainController extends Controller
 
         return view('user.homepage', $data);
     }
+
+    public function wait()
+    {
+        return view('user.wait');
+    }
 }

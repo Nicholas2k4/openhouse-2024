@@ -35,4 +35,14 @@ class AdminController extends Controller
         $data['tabTitle'] = 'Generate';
         return view('admin.generate', $data);
     }
+
+    public function participant()
+    {
+        return view('/admin/participant');
+    }
+
+    public function login()
+    {
+        return view('/admin/login');
+    }
 }

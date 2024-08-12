@@ -14,13 +14,22 @@ class UKMController extends Controller
     public function index()
     {
         $ukms = Ukm::all();
-        $data['ukms'] = $ukms;
         $data['title'] = "UKM";
+        $data['ukms'] = $ukms;
         return view('user.ukm', $data);
     }
 
+    public function lk()
+    {
+        $ukms = Ukm::all();
+        $data['title'] = "Lembaga Kemahasiswaan";
+        $data['ukms'] = $ukms;
+        return view('user.lk', $data);
+    }
+
     // Ambil data untuk search-bar di navbar
-    public static function getUkms() {
+    public static function getUkms()
+    {
         $ukms = Ukm::all();
         $ukms_temp = [];
 
