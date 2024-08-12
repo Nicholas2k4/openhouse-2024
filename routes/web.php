@@ -29,7 +29,7 @@ Route::get('/auth/{type}', [AuthController::class, 'googleAuth'])->name('user.au
 Route::get('/login', [AuthController::class, 'login'])->name('user.login');
 Route::get('/processLogin', [AuthController::class, 'processLogin'])->name('login.process');
 Route::post('/storePendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
-Route::get('/pendaftaran', [PendaftaranController::class, 'redirect'])->name('pendaftaran.redirect');
+Route::get('/pendaftaran/{id}', [PendaftaranController::class, 'redirect'])->name('pendaftaran.redirect');
 Route::post('/pembayaran', [PendaftaranController::class, 'payment'])->name('pendaftaran.payment');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('user.logout');

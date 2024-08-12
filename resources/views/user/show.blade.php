@@ -368,16 +368,16 @@
                         </div>
 
                         <!--Button Book-->
-                        <button name = "ukm" value={{ $ukm->slug }}
-                            class="mt-10 rounded-full hoverable glow-text w-full border-[#57C7D4] hover:bg-[#57C7D4]/50 backdrop-blur-sm bg-[#57C7D4]/15 border-[1px] text-white p-[15px] text-[24px] md:text-[28px] font-bold">
+                        <a name = "ukm" value={{ $ukm->slug }} href="{{ route('pendaftaran.redirect', ['id' => $ukm->slug]) }}"
+                            class="mt-10 rounded-full hoverable glow-text w-full border-[#57C7D4] hover:bg-[#57C7D4]/50 backdrop-blur-sm bg-[#57C7D4]/15 border-[1px] text-white p-[15px] text-[24px] md:text-[28px] font-bold text-center">
                             Book Your Slot!
-                        </button>
+                        </a>
 
                         <!--Button Payment-->
-                        <button name = "ukm" value={{ $ukm->slug }}
-                            class="mt-5 rounded-full hoverable glow-text w-full border-[#57C7D4] hover:bg-[#57C7D4]/50 backdrop-blur-sm  bg-[#57C7D4]/15 border-[1px] text-white p-[15px] text-[24px] md:text-[28px] font-bold">
+                        <a name = "ukm" value={{ $ukm->slug }} href="{{ route('pendaftaran.redirect', ['id' => $ukm->slug]) }}"
+                            class="mt-5 rounded-full hoverable glow-text w-full border-[#57C7D4] hover:bg-[#57C7D4]/50 backdrop-blur-sm  bg-[#57C7D4]/15 border-[1px] text-white p-[15px] text-[24px] md:text-[28px] font-bold text-center">
                             Payment
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -54,7 +54,7 @@ class PendaftaranController extends Controller
         return view('user.dummy');
     }
 
-    public function redirect(Request $request)
+    public function redirect($slug)
     {
         $name = session('name');
         $nrp = session('nrp');
@@ -65,12 +65,12 @@ class PendaftaranController extends Controller
         }
 
         $list_lk = ['bem', 'tps', 'mpm', 'bpmf', 'persma', 'pelma'];
-        if (in_array($request->query('ukm'), $list_lk)) {
+        if (in_array($slug, $list_lk)) {
             return redirect()->route('user.home');
         }
 
         // restriction 3 ukm
-        $ukm_slug = $request->query('ukm');
+        $ukm_slug = $slug;
         $count = DetailRegistration::where('nrp', $nrp)->count();
         $ukm = Ukm::where('slug', $ukm_slug)->first();
         $detail_registration = DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm->id)->first();
