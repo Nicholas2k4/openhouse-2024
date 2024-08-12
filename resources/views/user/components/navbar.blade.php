@@ -38,31 +38,37 @@
                             </li>
                         </a>
                     @endif
-                    <a href="#">
+                    <a href="/#">
                         <li data-te-ripple-init data-te-ripple-color='light'>
                             <i class="fa-solid fa-house"></i>
                             <span>Dashboard</span>
                         </li>
                     </a>
-                    <a href="#timeline">
+                    <a href="{{ '/' == request()->path() ? '#timeline' : route('user.home') }}">
                         <li data-te-ripple-init data-te-ripple-color='light'>
                             <i class="fa-solid fa-hourglass ms-1"></i>
                             <span>Timeline</span>
                         </li>
                     </a>
-                    <a href="#game">
+                    <a href="{{ '/' == request()->path() ? '#game' : route('user.game') }}">
                         <li data-te-ripple-init data-te-ripple-color='light'>
                             <i class="fa-solid fa-gamepad"></i>
                             <span>Game</span>
                         </li>
                     </a>
-                    <a href="#ukm-lk">
+                    <a href="{{ '/' == request()->path() ? '#ukm' : route('user.ukm') }}">
                         <li data-te-ripple-init data-te-ripple-color='light'>
-                            <i class="fa-solid fa-sitemap"></i>
-                            <span>UKM & LK</span>
+                            <i class="fa-solid fa-scroll"></i>
+                            <span>UKM</span>
                         </li>
                     </a>
-                    <a href="#faq">
+                    <a href="{{ '/' == request()->path() ? '#lk' : route('user.lk') }}">
+                        <li data-te-ripple-init data-te-ripple-color='light'>
+                            <i class="fa-solid fa-sitemap"></i>
+                            <span>LK</span>
+                        </li>
+                    </a>
+                    <a href="{{ '/' == request()->path() ? '#faq' : route('user.home') }}">
                         <li data-te-ripple-init data-te-ripple-color='light'>
                             <i class="fa-solid fa-circle-question ms-1"></i>
                             <span>FAQ</span>
