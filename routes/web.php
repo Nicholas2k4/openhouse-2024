@@ -36,6 +36,12 @@ Route::prefix('admin')->group(function () {
     Route::get('get-users-by-activity', [AdminController::class, 'getUsersByActivity'])->name('admin.getUsersByActivity');
     Route::get('validate', [AdminController::class, 'validatePage'])->name('admin.validate');
     Route::get('generate', [AdminController::class, 'generatePage'])->name('admin.generate');
+    Route::get('filterSearch', [ValidateController::class, 'filterSearch'])->name('admin.filterSearch');
+    Route::post('selectionValidate', [ValidateController::class, 'selectionValidate'])->name('admin.selectionValidate');
+    Route::post('paymentValidate', [ValidateController::class, 'paymentValidate'])->name('admin.paymentValidate');
+    Route::post('viewPayment', [ValidateController::class, 'viewPayment'])->name('admin.viewPayment');
+    Route::post('rejectParticipant', [ValidateController::class, 'rejectParticipant'])->name('admin.rejectParticipant');
+    Route::post('/giveLetter', [GenerateController::class, 'giveLetter'])->name('admin.giveLetter');
 });
 
 /**
@@ -64,14 +70,6 @@ Route::get('/lk', [UKMController::class, 'lk'])->name('user.lk');
 Route::get('/game', [GameController::class, 'index'])->name('user.game');
 Route::get('/ukm/{id}', [UKMController::class, 'show'])->name('user.ukm.id');
 Route::get('/lk/{id}', [UKMController::class, 'show'])->name('user.lk.id');
-
-Route::get('/filterSearch', [ValidateController::class, 'filterSearch'])->name('filterSearch');
-Route::post('/selectionValidate', [ValidateController::class, 'selectionValidate'])->name('selectionValidate');
-Route::post('/paymentValidate', [ValidateController::class, 'paymentValidate'])->name('paymentValidate');
-Route::post('/viewPayment', [ValidateController::class, 'viewPayment'])->name('viewPayment');
-Route::post('/rejectParticipant', [ValidateController::class, 'rejectParticipant'])->name('rejectParticipant');
-Route::post('/giveLetter', [GenerateController::class, 'giveLetter'])->name('admin.giveLetter');
-
 Route::get('/logout', [AuthController::class, 'logout'])->name('user.logout');
 
 

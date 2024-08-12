@@ -168,7 +168,8 @@ class ValidateController extends Controller
         }
     }
 
-    public function rejectParticipant(Request $request) {
+    public function rejectParticipant(Request $request)
+    {
         $nrp = $request->get('nrp');
 
         Ukm::where('nrp', $nrp)->increment('current_slot'); // kalau ditolak, slot nambah 1

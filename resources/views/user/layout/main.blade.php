@@ -313,8 +313,7 @@
             lastScrollTop = scrollTop;
         });
 
-        // Search
-        // console.log(lists);
+
 
         // $(document).ready(function() {
 
