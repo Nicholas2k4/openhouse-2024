@@ -10,6 +10,10 @@
             width: 100vw;
             overflow-x: hidden;
         }
+/* 
+        .video {
+            box-shadow: 0 0 10px white, 0 0 30px white, 0 0 60px white;
+        } */
     </style>
 @endsection
 
@@ -38,6 +42,7 @@
     {{-- Video --}}
     <section class="video w-full xl:h-[100vh] z-50 overflow-hidden flex items-center">
         <video src="{{ asset('assets/Video OH.mp4') }}" autoplay muted loop preload="auto" class="w-[100vw]"></video>
+        <div class="overlay"></div>
     </section>
 
     {{-- Timeline --}}
@@ -105,7 +110,7 @@
     <section class="game-ukm flex justify-center space-x-5 mb-10" id="game-ukm">
         <a href="#">
             <div
-                class="border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-400 hover:shadow-white hover:shadow-xl">
+                class="ease-in-out duration-500 border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-400 hover:shadow-white hover:shadow-xl">
                 <span class="text-center mx-auto sm:h-[120px] sm:w-[150px] h-[100px] w-[125px]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                         <path fill="#ffffff"
@@ -119,7 +124,7 @@
         </a>
         <a href="#">
             <div
-                class="border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-400 hover:shadow-white hover:shadow-xl">
+                class="ease-in-out duration-500 border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-400 hover:shadow-white hover:shadow-xl">
                 <span class="text-center mx-auto sm:h-[120px] sm:w-[135px] h-[100px] w-[125px]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                         <path fill="#ffffff"
