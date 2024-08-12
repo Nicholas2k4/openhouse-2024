@@ -14,6 +14,7 @@ body {
     overflow-x: hidden;
     margin-top: 100px;
     scrollbar-width: none;
+    scroll-behavior: smooth;
 }
 
 .overlay {
@@ -72,6 +73,12 @@ h1 {
     color: white;
     backdrop-filter: blur(12px);
     box-shadow: 0 0 5px white, 0 0 10px white;
+}
+
+.swal2-success-circular-line-right,
+.swal2-success-circular-line-left,
+.swal2-success-fix {
+    display: none;
 }
 
 @keyframes slideIn {

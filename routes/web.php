@@ -87,7 +87,7 @@ Route::get('/user/game', function () {
     $letters = DB::table('detail_games')->where('nrp', $nrp)->pluck('letter');
 
     return view('user/game', ['letters' => $letters]);
-});
+})->name('user.game');
 
 Route::get('user/ukm/{id}', [UKMController::class, 'show'])->name('user.ukm.id');
 
