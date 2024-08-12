@@ -68,6 +68,8 @@ Route::get('/lk/{id}', [UKMController::class, 'show'])->name('user.lk.id');
 Route::get('/filterSearch', [ValidateController::class, 'filterSearch'])->name('filterSearch');
 Route::post('/selectionValidate', [ValidateController::class, 'selectionValidate'])->name('selectionValidate');
 Route::post('/paymentValidate', [ValidateController::class, 'paymentValidate'])->name('paymentValidate');
+Route::post('/viewPayment', [ValidateController::class, 'viewPayment'])->name('viewPayment');
+Route::post('/rejectParticipant', [ValidateController::class, 'rejectParticipant'])->name('rejectParticipant');
 Route::post('/giveLetter', [GenerateController::class, 'giveLetter'])->name('admin.giveLetter');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('user.logout');

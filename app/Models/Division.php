@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Admin extends Model
+class Division extends Model
 {
-    protected $table = 'admins';
     use HasFactory, HasUuids;
 }

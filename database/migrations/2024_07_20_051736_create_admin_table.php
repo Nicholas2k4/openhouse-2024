@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('ukm_id');
-            $table->uuid('division_id');
+            $table->uuid('ukm_id')->nullable();
+            $table->uuid('division_id')->nullable();
+            $table->string('name');
             $table->string('nrp', 9)->unique();
             $table->string('field')->comment('Panitia/UKM');
             $table->timestamps();

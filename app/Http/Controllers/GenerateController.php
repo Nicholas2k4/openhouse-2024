@@ -32,7 +32,7 @@ class GenerateController extends Controller
         // cek apakah admin booth ukm sudah generate untuk maba
         // contoh : admin booth ukm basket sudah generate untuk maba C14220004, jika sudah maka tidak boleh memberikan letter lagi
         if (DetailGame::whereRaw('LOWER(nrp) = ?', strtolower($nrp))->where('ukm_id', session()->get('ukm_id'))->exists()) {
-            return redirect()->route('admin.generate')->with(['error' => 'This participant already has a letter from this UKM admin']);
+            return redirect()->route('admin.generate')->with(['error' => 'You have generated a letter for this person']);
         }
 
         // variable untuk simpan letter, awal null dulu

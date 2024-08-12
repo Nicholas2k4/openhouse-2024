@@ -27,7 +27,7 @@ class RegistrationSeeder extends Seeder
                     'payment' => $random_ukm->payment,
                     'code' => 'ABC123',
                     'drive_url' => 'https://drive.google.com/drive/folders/1A6cQZlPTy5Xtc8IrlKcnwelcyuyhroiS?usp=sharing',
-                    'file_validated' => rand(0, 1),
+                    'file_validated' => rand(0, 2),
                     'payment_validated' => 0,
                 ];
             } else {
@@ -38,7 +38,7 @@ class RegistrationSeeder extends Seeder
                     'payment' => $random_ukm->payment,
                     'code' => 'ABC123',
                     'drive_url' => 'https://drive.google.com/drive/folders/1A6cQZlPTy5Xtc8IrlKcnwelcyuyhroiS?usp=sharing',
-                    'file_validated' => rand(0, 1),
+                    'file_validated' => rand(0, 2),
                     'payment_validated' => 0,
                 ];
             }
