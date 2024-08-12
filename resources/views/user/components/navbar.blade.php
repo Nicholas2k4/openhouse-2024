@@ -56,13 +56,13 @@
                             <span>Game</span>
                         </li>
                     </a>
-                    <a href="{{ '/' == request()->path() ? '#ukm' : route('user.ukm') }}">
+                    <a href="{{ '/' == request()->path() ? '#ukm-lk' : route('user.ukm') }}">
                         <li data-te-ripple-init data-te-ripple-color='light'>
                             <i class="fa-solid fa-scroll"></i>
                             <span>UKM</span>
                         </li>
                     </a>
-                    <a href="{{ '/' == request()->path() ? '#lk' : route('user.lk') }}">
+                    <a href="{{ '/' == request()->path() ? '#ukm-lk' : route('user.lk') }}">
                         <li data-te-ripple-init data-te-ripple-color='light'>
                             <i class="fa-solid fa-sitemap"></i>
                             <span>LK</span>
@@ -79,14 +79,14 @@
         </div>
 
         {{-- Search --}}
-        <div class="search-bar md:me-3 me-1 sm:w-[300px] md:w-[400px] lg:w-[500px] z-10">
-            <div class="lg:pe-2">
+        <div class="search-bar md:me-3 me-1 sm:w-[300px] md:w-[400px] lg:w-[500px] z-[100]">
+            <div class="lg:pe-2 z-[100]">
                 <div
-                    class="relative flex flex-col focus-within:ease-in-out duration-300 focus-within:shadow-white focus-within:shadow-2xl">
+                    class="relative flex flex-col focus-within:ease-in-out duration-300 focus-within:shadow-white focus-within:shadow-2xl z-[100]">
                     <input type="text" id="search" autocomplete="off" onclick="show()" onkeyup="search()"
                         class="!border-2 !rounded-full !border-white z-20 w-full bg-transparent px-3 py-1 !text-white placeholder-white font-normal transition duration-200 focus:outline-none focus:ring-0"
                         placeholder="Search UKM or LK" />
-                    <div class="dropdown bg-white p-3 rounded-xl absolute top-9 hidden flex-col w-full">
+                    <div class="dropdown bg-white p-3 rounded-xl absolute top-9 hidden flex-col w-full h-[200px] overflow-y-scroll">
                     </div>
                 </div>
             </div>

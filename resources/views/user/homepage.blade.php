@@ -123,7 +123,7 @@
                 class="ease-in-out border rounded-xl backdrop-blur-sm bg-gradient-to-bl from-[#074173] via-[#4477CE] to-transparent shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-500 hover:shadow-white hover:shadow-xl">
                 <span class="text-center mx-auto sm:h-[120px] sm:w-[135px] h-[100px] w-[125px]">
                     <svg xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 576 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        viewBox="0 0 576 512">
                         <path fill="#ffffff"
                             d="M208 80c0-26.5 21.5-48 48-48l64 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-8 0 0 40 152 0c30.9 0 56 25.1 56 56l0 32 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-32c0-4.4-3.6-8-8-8l-152 0 0 40 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-40-152 0c-4.4 0-8 3.6-8 8l0 32 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-32c0-30.9 25.1-56 56-56l152 0 0-40-8 0c-26.5 0-48-21.5-48-48l0-64z" />
                     </svg>
