@@ -10,11 +10,6 @@
             width: 100vw;
             overflow-x: hidden;
         }
-
-        /*
-                                                    .video {
-                                                        box-shadow: 0 0 10px white, 0 0 30px white, 0 0 60px white;
-                                                    } */
     </style>
 @endsection
 
@@ -158,36 +153,37 @@
         </a>
     </section>
 
-    <section class="faq w-screen flex justify-center items-center flex-col top-16 mt-[100px] h-fit" id="faq">
+    <section class="faq w-screen flex justify-center items-center flex-col top-16 mt-[100px] h-fit z-50" id="faq">
         <div class="flex justify-center items-center h-24 text-3xl font-bold">
             <h1 data-aos="fade-down" data-aos-once="true"
                 class="sm:text-7xl text-5xl font-bold text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mb-5">
                 Ask Verdara</h1>
         </div>
 
-        <div class="chats grid sm:w-[380px] max-sm:w-[310px] h-[550px] bg-gray-200 my-10 rounded-3xl overflow-hidden">
+        <div
+            class="chats grid md:w-[700px] sm:w-[380px] max-sm:w-[310px] h-[550px] bg-gray-200 my-10 rounded-3xl overflow-hidden">
             <div class="chat-header w-full h-[70px] rounded-t-2xl flex justify-start items-center">
                 <img src="{{ asset('assets/VERDARA PP.png') }}" alt="faq-maskot"
                     class="rounded-full h-11 bg-yellow-400 mx-4">
-                <p class="text-lg font-bold max-sm:text-base">Bomby</p>
+                <p class="text-lg font-bold max-sm:text-base text-white">Verdara</p>
             </div>
             <div class="chat-area pt-4 chat-section overflow-y-scroll overflow-x-hidden">
-                <div class="bombyAnswer flex">
+                <div class="chatAnswer flex">
                     <img src="{{ asset('assets/VERDARA PP.png') }}" alt="faq-maskot"
                         class="rounded-full h-8 bg-yellow-400 ml-4 mr-3">
                     <p
-                        class="chat overflow-visible text-black sm:text-base max-sm:text-sm sm:w-[250px] max-sm:w-[200px] px-3 py-2
-                        bg-white rounded-tr-2xl rounded-br-2xl rounded-bl-2xl my-5">
-                        Halooo 😁, perkenalkan namaku Bomby. Aku akan menjawab pertanyaan kalian seputar acara Battle of
+                        class="chat overflow-visible text-black sm:text-base max-sm:text-sm w-fit px-3 py-2
+                        bg-white rounded-tr-2xl rounded-br-2xl rounded-bl-2xl my-5 md:max-w-[450px] max-sm:max-w-[200px]">
+                        Halooo 😁, perkenalkan namaku Verdara. Aku akan menjawab pertanyaan kalian seputar acara Battle of
                         Minds.
                     </p>
                 </div>
             </div>
 
             <div class="chat-footer w-full h-[58px] rounded-b-2xl flex justify-between place-self-end items-center">
-                <p class="ml-5 font-bold max-sm:text-xs">Choose your question here</p>
+                <p class="ml-5 font-bold max-sm:text-xs text-white">Choose your question here</p>
                 <div class="flex items-center h-full" data-twe-dropdown-position="dropup">
-                    <i class="fa-regular fa-comment-dots mx-5 text-2xl hover:cursor-pointer" type="button"
+                    <i class="fa-regular fa-comment-dots mx-5 text-2xl hover:cursor-pointer text-white" type="button"
                         id="dropdownMenuButton1" data-twe-dropdown-toggle-ref aria-expanded="false" data-twe-ripple-init
                         data-twe-ripple-color="light">
                     </i>
@@ -388,24 +384,44 @@
         ]
 
         var replyUser = function(answer) {
-            const bombyResponse = document.createElement('div');
-            bombyResponse.classList.add('bombyAnswer', 'pt-4', 'flex');
+            const chatResponse = document.createElement('div');
+            chatResponse.classList.add('chatAnswer', 'pt-4', 'flex');
 
-            const bombyProfile = document.createElement('img');
-            bombyProfile.src = 'assets/VERDARA POSE 1.png';
-            bombyProfile.alt = 'faq-maskot';
-            bombyProfile.classList.add('rounded-full', 'h-8', 'bg-yellow-400', 'ml-4', 'mr-3');
+            const chatProfile = document.createElement('img');
+            chatProfile.src = 'assets/VERDARA POSE 1.png';
+            chatProfile.alt = 'faq-maskot';
+            chatProfile.classList.add('rounded-full', 'h-8', 'bg-yellow-400', 'ml-4', 'mr-3');
 
-            const replyText = document.createElement('p');
+            const replyText = document.createElement('div');
             replyText.classList.add('chat', 'overflow-visible', 'text-black', 'sm:text-base', 'max-sm:text-sm',
-                'sm:w-[250px]', 'max-sm:w-[200px]', 'px-3', 'py-2',
+                'w-fit', 'sm:max-w-[250px]', 'md:max-w-[450px]', 'max-sm:max-w-[200px]',
+                'px-3', 'py-2',
                 'bg-white', 'rounded-tr-2xl', 'rounded-br-2xl', 'rounded-bl-2xl', 'my-5');
-            replyText.textContent = answer;
+            replyText.innerHTML = `
+    <div class="chat-istyping-container">
+        <div class="chat-istyping-circle-1"></div>
+        <div class="chat-istyping-circle-2"></div>
+        <div class="chat-istyping-circle-3"></div>
+    </div>
+`;
+            setTimeout(function() {
+                // const chatElements = document.querySelectorAll('.chat');
+                // const lastChatElement = chatElements[chatElements.length - 1];
 
-            bombyResponse.appendChild(bombyProfile);
-            bombyResponse.appendChild(replyText);
+                replyText.style.width = '0px';
+                replyText.style.height = '0px';
+            }, 1700);
 
-            chatSection.appendChild(bombyResponse);
+            setTimeout(function() {
+                replyText.style.width = '900px';
+                replyText.style.height = 'auto';
+                replyText.innerHTML = answer;
+                chatSection.scrollTop = chatSection.scrollHeight;
+            }, 2000);
+            chatResponse.appendChild(chatProfile);
+            chatResponse.appendChild(replyText);
+
+            chatSection.appendChild(chatResponse);
         }
 
         function makeChat(e) {
@@ -416,19 +432,18 @@
             userChat.classList.add('userAnswer', 'pt-5', 'flex', 'justify-end');
             const textChat = document.createElement('p');
             textChat.classList.add('chat', 'user-chat', 'overflow-visible', 'text-white', 'sm:text-base', 'max-sm:text-sm',
-                'px-3', 'py-2',
-                'backdrop-opacity-80', 'rounded-tr-2xl', 'rounded-bl-2xl', 'rounded-tl-2xl', 'mr-4', 'sm:w-[250px]',
-                'max-sm:w-[200px]');
+                'px-3', 'py-2', 'backdrop-opacity-80', 'rounded-tr-2xl', 'rounded-bl-2xl', 'rounded-tl-2xl', 'mr-4',
+                'w-fit', 'sm:max-w-[250px]', 'md:max-w-[450px]', 'max-sm:w-[200px]');
+
             textChat.textContent = questionText;
 
             userChat.appendChild(textChat);
             chatSection.appendChild(userChat);
             chatSection.scrollTop = chatSection.scrollHeight;
-
             setTimeout(function() {
                 replyUser(answerArray[questionCode]);
                 chatSection.scrollTop = chatSection.scrollHeight;
-            }, 1000);
+            }, 400);
         }
 
         document.querySelectorAll('.question').forEach(item => {

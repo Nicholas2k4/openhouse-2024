@@ -209,6 +209,8 @@
 .chat {
     font-family: 'Geologica', sans-serif;
     letter-spacing: 0;
+    transition: width 0.26s linear, height 0.4s linear;
+    overflow: hidden !important;
 }
 
 .chat-header,
@@ -245,4 +247,71 @@
 
 .question:active {
     background-color: rgb(95, 115, 254, 0.8);
+}
+
+.chat-istyping-container {
+    opacity: 1;
+    width: 60px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: width 0.26s linear, height 0.4s linear;
+}
+
+.chat-istyping-circle-1,
+.chat-istyping-circle-2,
+.chat-istyping-circle-3 {
+    position: relative;
+    width: 11px;
+    height: 11px;
+    background-color: rgb(61, 137, 251);
+    float: left;
+    margin-right: 4px;
+    border-radius: 100%;
+    animation: typing-bounce-ball 1.5s linear 0s infinite forwards;
+}
+
+.chat-istyping-circle-2 {
+    animation-delay: 0.2s;
+}
+
+.chat-istyping-circle-3 {
+    animation-delay: 0.4s;
+    margin-right: 0;
+}
+
+@keyframes typing-bounce-ball {
+    0% {
+        transform: scaleX(1) scaleY(1) translateY(0);
+    }
+
+    20% {
+        transform: scaleX(1) scaleY(1) translateY(0);
+    }
+
+    30% {
+        transform: scaleX(1.35) scaleY(0.35) translateY(100%);
+    }
+
+    49% {
+        transform: scaleX(0.7) scaleY(1.2) translateY(-50%);
+    }
+
+    51% {
+        transform: scaleX(0.7) scaleY(1.2) translateY(-50%);
+    }
+
+    70% {
+        transform: scaleX(1.35) scaleY(0.35) translateY(100%);
+    }
+
+    80% {
+        transform: scaleX(1) scaleY(1) translateY(0);
+    }
+
+    100% {
+        transform: scaleX(1) scaleY(1) translateY(0);
+    }
 }
