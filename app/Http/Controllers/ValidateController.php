@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Detail_registrations;
-use App\Models\Users;
-use App\Models\Ukms;
-use Illuminate\Foundation\Auth\User;
+use App\Models\DetailRegistration;
+use App\Models\User;
+use App\Models\Ukm;
 
 class ValidateController extends Controller
 {
@@ -17,15 +16,15 @@ class ValidateController extends Controller
             $query = $request->get('query');
             $filter = $request->get('filter');
 
-            $ukm = Ukms::where('slug', $filter)->first();
+            $ukm = Ukm::where('slug', $filter)->first();
             if ($query != '' && $ukm) {
-                $data = Detail_registrations::where('nrp', 'like', '%' . $query . '%')->where('ukm_id', $ukm->id)->get();
+                $data = DetailRegistration::where('nrp', 'like', '%' . $query . '%')->where('ukm_id', $ukm->id)->get();
             } else if ($query == '' && $ukm) {
-                $data = Detail_registrations::where('ukm_id', $ukm->id)->get();
+                $data = DetailRegistration::where('ukm_id', $ukm->id)->get();
             } else if ($query != '' && !$ukm) {
-                $data = Detail_registrations::where('nrp', 'like', '%' . $query . '%')->get();
+                $data = DetailRegistration::where('nrp', 'like', '%' . $query . '%')->get();
             } else {
-                $data = Detail_registrations::all();
+                $data = DetailRegistration::all();
             }
 
             foreach ($data as $row) {
@@ -33,9 +32,9 @@ class ValidateController extends Controller
                     <tr class="text-nowrap text-md hover:bg-amber-100 transition">
                         <td class="p-3 border-e-2 border-gray-200 flex flex-col">
                             <span id="thisRowNrp" class="font-semibold">' . $row->nrp . '</span>
-                            <span>' . Users::where('nrp', $row->nrp)->first()->name  . '</span>
+                            <span>' . User::where('nrp', $row->nrp)->first()->name  . '</span>
                         </td>
-                        <td class="p-3 border-e-2 border-gray-200">' . Ukms::where('id', $row->ukm_id)->first()->name . '</td>
+                        <td class="p-3 border-e-2 border-gray-200">' . Ukm::where('id', $row->ukm_id)->first()->name . '</td>
                         <td class="p-3 border-e-2 border-gray-200 text-center">
                             <button class="p-1.5 text-sm bg-sky-500 hover:bg-sky-600 transition text-white text-nowrap rounded" onclick="window.open(\'' . $row->drive_url . '\', \'_blank\')">
                                 File Seleksi
@@ -74,9 +73,9 @@ class ValidateController extends Controller
     public function selectionValidate(Request $request)
     {
         $nrp = $request->get('nrp');
-        $selectionFile = Detail_registrations::where('nrp', $nrp)->first()->file_validated;
+        $selectionFile = DetailRegistration::where('nrp', $nrp)->first()->file_validated;
         if ($selectionFile == 0) {
-            Detail_registrations::where('nrp', $nrp)->update([
+            DetailRegistration::where('nrp', $nrp)->update([
                 'file_validated' => 1
             ]);
             return response()->json(['message' => 'true']);
@@ -89,10 +88,10 @@ class ValidateController extends Controller
     {
         $nrp = $request->get('nrp');
 
-        if (Detail_registrations::where('nrp', $nrp)->first()->file_validated == 1) {
-            $selectionFile = Detail_registrations::where('nrp', $nrp)->first()->payment_validated;
+        if (DetailRegistration::where('nrp', $nrp)->first()->file_validated == 1) {
+            $selectionFile = DetailRegistration::where('nrp', $nrp)->first()->payment_validated;
             if ($selectionFile == 0) {
-                Detail_registrations::where('nrp', $nrp)->update([
+                DetailRegistration::where('nrp', $nrp)->update([
                     'payment_validated' => 1
                 ]);
                 return response()->json(['message' => 'true']);

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Detail_games;
+use App\Models\DetailGame;
 
 class GenerateController extends Controller
 {
@@ -31,7 +31,7 @@ class GenerateController extends Controller
 
         // cek apakah admin booth ukm sudah generate untuk maba
         // contoh : admin booth ukm basket sudah generate untuk maba C14220004, jika sudah maka tidak boleh memberikan letter lagi
-        if (Detail_games::whereRaw('LOWER(nrp) = ?', strtolower($nrp))->where('ukm_id', session()->get('ukm_id'))->exists()) {
+        if (DetailGame::whereRaw('LOWER(nrp) = ?', strtolower($nrp))->where('ukm_id', session()->get('ukm_id'))->exists()) {
             return redirect()->route('admin.generate')->with(['error' => 'This participant already has a letter from this UKM admin']);
         }
 
@@ -42,7 +42,7 @@ class GenerateController extends Controller
         $random_index = rand(0, count($letters) - 1);
 
         // loop pencarian apakah maba sudah punya letter nya atau belum, kalau sudah punya akan dirandom lagi
-        while (Detail_games::whereRaw('LOWER(nrp) = ?', strtolower($nrp))->where('letter_index', $random_index)->exists()) {
+        while (DetailGame::whereRaw('LOWER(nrp) = ?', strtolower($nrp))->where('letter_index', $random_index)->exists()) {
             $random_index = rand(0, count($letters) - 1);
             $letter = $letters[$random_index];
         }
@@ -52,7 +52,7 @@ class GenerateController extends Controller
             $letter = $letters[$random_index];
         }
 
-        Detail_games::create([
+        DetailGame::create([
             'ukm_id' => session()->get('ukm_id'),
             'nrp' => $nrp,
             'letter' => $letter,
