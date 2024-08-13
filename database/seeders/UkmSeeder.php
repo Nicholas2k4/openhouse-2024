@@ -315,7 +315,7 @@ Tak hanya itu, UKM Pengembangan Diri juga menyelenggarakan kegiatan fine dining 
 
 <h2 class = "mt-3 text-3xl">Latihan Rutin</h2>  
 
- <ol class = "list-inside list-disc">
+<ol class = "list-inside list-disc">
 <li>Jadwal: Latihan diadakan setiap Jumat.</li> 
 <li>Fokus: Teknik dasar, strategi, dan fisik.</li> 
 <li>Teknik Dasar: Dribbling, passing, shooting, penjagaan gawang.</li> 
