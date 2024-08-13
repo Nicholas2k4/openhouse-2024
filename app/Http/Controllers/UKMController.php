@@ -103,6 +103,10 @@ class UKMController extends Controller
             'ilustrasi' => 'https://drive.google.com/file/d/1KhNwm1Q_3q6_beKyRynZSC25j49-rkrw/preview',
             'padus' => 'https://drive.google.com/file/d/13WPnsdDZ_dhT4AV6B70Tf85yCDXbHsvA/preview',
             'tenis-lapangan' => 'https://drive.google.com/file/d/18SNk1v5L2UZTEmoTMDcO5epxVR8cPILZ/preview',
+            'mpm' => 'https://drive.google.com/file/d/13dX5TojVL-i5AOykvpxQALSwbmm4FgOe/preview',
+            'pelma' => 'https://drive.google.com/file/d/1_wlwKcaDtaOXK7poxg9uqC0EiHRdkDN3/preview',
+            'persma' => 'https://drive.google.com/file/d/1oJylHMIO7-IWw716e1A9CaJALXFWSU7z/preview',
+            'renang' => 'https://drive.google.com/file/d/1XNwUUBv56DZg4y6xQgVy3u7GrHVo5DuK/preview',
         ];
 
 
