@@ -15,7 +15,8 @@ class UKMController extends Controller
     {
         $ukms = Ukm::all();
         $data['title'] = "UKM";
-        $data['ukms'] = $ukms;
+        $data['list_ukms'] = $ukms;
+        $data['ukms'] = UKMController::getUkms();
         return view('user.ukm', $data);
     }
 
@@ -23,7 +24,8 @@ class UKMController extends Controller
     {
         $ukms = Ukm::all();
         $data['title'] = "Lembaga Kemahasiswaan";
-        $data['ukms'] = $ukms;
+        $data['list_ukms'] = $ukms;
+        $data['ukms'] = UKMController::getUkms();
         return view('user.lk', $data);
     }
 
@@ -40,7 +42,7 @@ class UKMController extends Controller
                 $ukms_temp[$ukm->name] = '/ukm/' . $ukm->id;
             }
         }
-        return json_encode($ukms_temp);
+        return $ukms_temp;
     }
 
     public function show($id)

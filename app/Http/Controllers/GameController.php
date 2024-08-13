@@ -18,6 +18,7 @@ class GameController extends Controller
 
         $data['letters'] = $letters;
         $data['title'] = 'Game';
+        $data['ukms'] = UKMController::getUkms();
 
         return view('user.game', $data);
     }

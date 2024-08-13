@@ -299,7 +299,7 @@
         };
 
         var lastScrollTop;
-        var lists;
+        // var lists;
         navbar = document.getElementById('navbar');
         window.addEventListener('scroll', function() {
             var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -316,29 +316,8 @@
         });
 
         // Search
-        var getUkms = function() {
-            var ukms;
-            $.ajax({
-                url: '{{ route('user.ukm.get') }}',
-                type: 'GET',
-                async: false,
-                success: function(res) {
-                    ukms = JSON.parse(res);
-                },
-                error: function(error, xhr) {
-                    Swal.fire({
-                        title: 'Error !',
-                        text: error,
-                        icon: 'error'
-                    });
-                }
-            });
-
-            return ukms;
-        }
-
-
-        lists = getUkms();
+        const lists = @json($ukms);
+        console.log(lists);
         // $(document).ready(function() {
 
         for (var list in lists) {
