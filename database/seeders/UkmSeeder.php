@@ -70,7 +70,7 @@ Menjadi organisasi inspiratif yang membangkitkan semangat kemahasiswaan berlanda
                     'description' => '
    <h1 class = "text-5xl">BPMF 1</h1>  
     <h2 class = "mt-3 text-3xl">Visi</h2>
-Menjadi lembaga legislatif yang membangun komunikasi yang harmonis dan kolaboratif, terbuka terhadap aspiras mahasiswa, serta mendorong inovasi dan kreativitas yang berlandaskan kasih. 
+Menjadi lembaga legislatif yang membangun komunikasi yang harmonis dan kolaboratif, terbuka terhadap aspirasi mahasiswa, serta mendorong inovasi dan kreativitas yang berlandaskan kasih. 
 
 <h2 class = "mt-3 text-3xl">Misi</h2>
 <ol class = "list-inside list-decimal">
@@ -113,7 +113,7 @@ Menjadi BPMF 2 yang inklusif dalam membangun kerja sama antara Lembaga Kemahasis
 BPMF (Badan Perwakilan Mahasiswa Fakultas) merupakan Lembaga Legislatif Kemahasiswaan Universitas Kristen yang memiliki tujuan mengawasi pelaksanaan kegiatan dan pembuatan peraturan Lembaga Kemahasiswaan Fakultas di Petra Christian University.
 
 <h2 class = "mt-3 text-3xl">Visi</h2>
-Menjadi perwakilan mahasiswa School od Business dan Management yang RESPONSIF dan mewujudkan tata kelola yang EFEKTIF dan EFISIEN bagi mahasiswa serta terebntuk wadah yang KONDUSIF untuk para mahasiswa mengekspresikan dirinya.
+Menjadi perwakilan mahasiswa School of Business dan Management yang RESPONSIF dan mewujudkan tata kelola yang EFEKTIF dan EFISIEN bagi mahasiswa serta terebntuk wadah yang KONDUSIF untuk para mahasiswa mengekspresikan dirinya.
 
 
 <h2 class = "mt-3 text-3xl">Misi</h2>
