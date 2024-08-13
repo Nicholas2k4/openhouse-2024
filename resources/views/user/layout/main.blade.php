@@ -56,12 +56,12 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #DF826C;
+            background: linear-gradient(-180deg, transparent 35%, white);
             border-radius: 30px;
         }
 
         ::-webkit-scrollbar-track {
-            background: #1A4D2E;
+            background: #003563;
         }
 
         @font-face {
@@ -175,16 +175,16 @@
                 radial-gradient(at 0% 100%, hsla(165, 49%, 41%, 1) 0px, transparent 50%),
                 radial-gradient(at 87% 97%, hsla(237, 54%, 26%, 1) 0px, transparent 50%),
                 radial-gradient(at 0% 0%, hsla(343, 99%, 46%, 1) 0px, transparent 50%); */
-                background-color: hsla(203, 100%, 15%, 1);
-    background-image:
-        radial-gradient(at 100% 0%, hsla(199, 77%, 64%, 1) 0px, transparent 50%),
-        radial-gradient(at 52% 93%, hsla(209, 100%, 83%, 1) 0px, transparent 50%),
-        radial-gradient(at 2% 99%, hsla(217, 58%, 53%, 1) 0px, transparent 50%),
-        radial-gradient(at 80% 50%, hsla(217, 57%, 53%, 1) 0px, transparent 50%),
-        radial-gradient(at 1% 41%, hsla(216, 100%, 32%, 1) 0px, transparent 50%),
-        radial-gradient(at 29% 19%, #0f52bd 0px, transparent 50%),
-        radial-gradient(at 18% 15%, hsla(217, 100%, 79%, 1) 0px, transparent 50%),
-        radial-gradient(at 84% 100%, hsla(207, 88%, 23%, 1) 0px, transparent 50%);
+            background-color: hsla(203, 100%, 15%, 1);
+            background-image:
+                radial-gradient(at 100% 0%, hsla(199, 77%, 64%, 1) 0px, transparent 50%),
+                radial-gradient(at 52% 93%, hsla(209, 100%, 83%, 1) 0px, transparent 50%),
+                radial-gradient(at 2% 99%, hsla(217, 58%, 53%, 1) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(217, 57%, 53%, 1) 0px, transparent 50%),
+                radial-gradient(at 1% 41%, hsla(216, 100%, 32%, 1) 0px, transparent 50%),
+                radial-gradient(at 29% 19%, #0f52bd 0px, transparent 50%),
+                radial-gradient(at 18% 15%, hsla(217, 100%, 79%, 1) 0px, transparent 50%),
+                radial-gradient(at 84% 100%, hsla(207, 88%, 23%, 1) 0px, transparent 50%);
             opacity: 1;
             transition: 1s cubic-bezier(.12, .44, 1, -0.39);
             overflow: hidden !important;
@@ -298,6 +298,7 @@
         };
 
         var lastScrollTop;
+        var lists;
         navbar = document.getElementById('navbar');
         window.addEventListener('scroll', function() {
             var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -314,19 +315,36 @@
         });
 
         // Search
-        // console.log(lists);
+        var getUkms = function() {
+            var ukms;
+            $.ajax({
+                url: '{{ route('user.ukm.get') }}',
+                type: 'GET',
+                async: false,
+                success: function(res) {
+                    ukms = JSON.parse(res);
+                },
+                error: function(error, xhr) {
+                    Swal.fire({
+                        title: 'Error !',
+                        text: error,
+                        icon: 'error'
+                    });
+                }
+            });
 
+            return ukms;
+        }
+
+
+        lists = getUkms();
         // $(document).ready(function() {
 
-        var i = 0;
         for (var list in lists) {
-            if (i <= 5) {
-                $('.dropdown').append(
-                    '<a class="py-1 px-3 rounded-xl" href="' + lists[list] +
-                    '" data-te-ripple-init data-te-ripple-color="light">' +
-                    list + '</a> <hr>');
-            }
-            i++
+            $('.dropdown').append(
+                '<a class="py-1 ps-2 rounded-xl" href="' + lists[list] +
+                '" data-te-ripple-init data-te-ripple-color="light">' +
+                list + '</a> <hr>');
         }
         // });
 
@@ -353,21 +371,17 @@
             $('.dropdown').empty();
 
             if (filter == '' || filter == null) {
-                var i = 1;
                 for (var list in lists) {
-                    if (i <= 5) {
-                        $('.dropdown').append(
-                            '<a class="py-1" href="' + lists[list] +
-                            '" data-te-ripple-init data-te-ripple-color="light">' + list +
-                            '</a> <hr>');
-                    }
-                    i++
+                    $('.dropdown').append(
+                        '<a class="py-1 ps-2 rounded-xl" href="' + lists[list] +
+                        '" data-te-ripple-init data-te-ripple-color="light">' + list +
+                        '</a> <hr>');
                 }
             } else {
                 for (i = 0; i < li.length; i++) {
                     txtValue = li[i];
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        $('.dropdown').append('<a class="py-1" href="" data-te-ripple-init data-te-ripple-color="light">' +
+                        $('.dropdown').append('<a class="py-1 ps-2 rounded-xl" href="" data-te-ripple-init data-te-ripple-color="light">' +
                             txtValue + '</a> <hr>');
                     }
                 }

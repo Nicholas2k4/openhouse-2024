@@ -39,11 +39,11 @@ class AdminController extends Controller
 
     public function participant()
     {
-        return view('/admin/participant');
+        return view('.admin.participant');
     }
 
     public function login()
     {
-        return view('/admin/login');
+        return view('admin.login');
     }
 }

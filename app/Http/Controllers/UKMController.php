@@ -35,12 +35,12 @@ class UKMController extends Controller
 
         foreach ($ukms as $ukm) {
             if (substr($ukm->name, 0, 2) == 'LK') {
-                $ukms_temp[$ukm->name] = '/user/lk/' . $ukm->id;
+                $ukms_temp[$ukm->name] = '/lk/' . $ukm->id;
             } else if (substr($ukm->name, 0, 3) == 'UKM') {
-                $ukms_temp[$ukm->name] = '/user/ukm/' . $ukm->id;
+                $ukms_temp[$ukm->name] = '/ukm/' . $ukm->id;
             }
         }
-        return $ukms_temp;
+        return json_encode($ukms_temp);
     }
 
     public function show($id)

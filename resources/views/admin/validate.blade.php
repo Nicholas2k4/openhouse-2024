@@ -37,6 +37,7 @@
         <label for="statusFilter" class="self-center ms-4 me-2">Status</label>
         <select name="" id="statusFilter" class="border-2 border-gray-200 rounded">
             <option value="">All</option>
+            <option value="pending">Pending</option>
             <option value="accepted">Accepted</option>
             <option value="rejected">Rejected</option>
         </select>

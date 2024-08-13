@@ -31,9 +31,9 @@
 
     {{-- Maskot --}}
     <img src="{{ asset('assets/CORALIS POSE 1.png') }}" alt="Coralis"
-        class="maskot absolute lg:right-[-5vw] right-[-25vw] sm:top-[3000px] md:top-[3500px] lg:top-[4000px] xl:top-[5000px] lg:w-1/3 w-1/2">
+        class="maskot max-[475px]:hidden absolute lg:right-[-5vw] right-[-25vw] sm:top-[3000px] md:top-[3200px] lg:top-[3900px] xl:top-[5000px] lg:w-1/3 w-1/2">
     <img src="{{ asset('assets/VERDARA POSE 1.png') }}" alt="Verdara"
-        class="maskot absolute lg:left-[-5vw] left-[-18vw] sm:top-[3000px] md:top-[3500px] lg:top-[4000px] xl:top-[5000px] lg:w-1/3 w-1/2">
+        class="maskot max-[475px]:hidden absolute lg:left-[-5vw] left-[-18vw] sm:top-[3000px] md:top-[3200px] lg:top-[3900px] xl:top-[5000px] lg:w-1/3 w-1/2">
 
     {{-- Video --}}
     <section class="video w-full xl:h-[100vh] z-50 overflow-hidden flex items-center">
@@ -102,29 +102,11 @@
         </div>
     </section>
 
-    {{-- Game --}}
-    <section class="game flex justify-center space-x-5 mb-10" id="game">
-        <a href="{{ route('user.game') }}">
-            <div
-                class="ease-in-out duration-500 border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-400 hover:shadow-white hover:shadow-xl">
-                <span class="text-center mx-auto sm:h-[120px] sm:w-[150px] h-[100px] w-[125px]">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-                        <path fill="#ffffff"
-                            d="M274.9 34.3c-28.1-28.1-73.7-28.1-101.8 0L34.3 173.1c-28.1 28.1-28.1 73.7 0 101.8L173.1 413.7c28.1 28.1 73.7 28.1 101.8 0L413.7 274.9c28.1-28.1 28.1-73.7 0-101.8L274.9 34.3zM200 224a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM96 200a24 24 0 1 1 0 48 24 24 0 1 1 0-48zM224 376a24 24 0 1 1 0-48 24 24 0 1 1 0 48zM352 200a24 24 0 1 1 0 48 24 24 0 1 1 0-48zM224 120a24 24 0 1 1 0-48 24 24 0 1 1 0 48zm96 328c0 35.3 28.7 64 64 64l192 0c35.3 0 64-28.7 64-64l0-192c0-35.3-28.7-64-64-64l-114.3 0c11.6 36 3.1 77-25.4 105.5L320 413.8l0 34.2zM480 328a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
-                    </svg>
-                </span>
-                <h1
-                    class="sm:text-5xl text-2xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
-                    Game</h1>
-            </div>
-        </a>
-    </section>
-
     {{-- UKM and LK --}}
     <section class="ukm-lk flex justify-center space-x-5 mb-10" id="ukm-lk">
         <a href="{{ route('user.ukm') }}">
             <div
-                class="ease-in-out duration-500 border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-400 hover:shadow-white hover:shadow-xl">
+                class="ease-in-out border rounded-xl bg-gradient-to-br from-[#F7EECF] via-[#DF826C] to-transparent  backdrop-blur-sm shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-500 hover:shadow-white hover:shadow-xl">
                 <span class="text-center mx-auto sm:h-[120px] sm:w-[135px] h-[100px] w-[125px]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                         <path fill="#ffffff"
@@ -138,10 +120,10 @@
         </a>
         <a href="{{ route('user.lk') }}">
             <div
-                class="border rounded-xl bg-[#074174b3] backdrop-blur-sm shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-400 hover:shadow-white hover:shadow-xl">
+                class="ease-in-out border rounded-xl backdrop-blur-sm bg-gradient-to-bl from-[#074173] via-[#4477CE] to-transparent shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-500 hover:shadow-white hover:shadow-xl">
                 <span class="text-center mx-auto sm:h-[120px] sm:w-[135px] h-[100px] w-[125px]">
                     <svg xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 576 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        viewBox="0 0 576 512">
                         <path fill="#ffffff"
                             d="M208 80c0-26.5 21.5-48 48-48l64 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-8 0 0 40 152 0c30.9 0 56 25.1 56 56l0 32 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-32c0-4.4-3.6-8-8-8l-152 0 0 40 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-40-152 0c-4.4 0-8 3.6-8 8l0 32 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-32c0-30.9 25.1-56 56-56l152 0 0-40-8 0c-26.5 0-48-21.5-48-48l0-64z" />
                     </svg>
@@ -152,6 +134,25 @@
             </div>
         </a>
     </section>
+
+    {{-- Game --}}
+    <section class="game flex justify-center space-x-5 mb-10" id="game">
+        <a href="{{ route('user.game') }}">
+            <div
+                class="ease-in-out border rounded-xl bg-gradient-to-br from-[#074173] to-[#B18AEA] shadow-black shadow-lg md:min-w-[420px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-500 hover:shadow-white hover:shadow-xl">
+                <span class="text-center mx-auto sm:h-[120px] sm:w-[150px] h-[100px] w-[125px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                        <path fill="#ffffff"
+                            d="M274.9 34.3c-28.1-28.1-73.7-28.1-101.8 0L34.3 173.1c-28.1 28.1-28.1 73.7 0 101.8L173.1 413.7c28.1 28.1 73.7 28.1 101.8 0L413.7 274.9c28.1-28.1 28.1-73.7 0-101.8L274.9 34.3zM200 224a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM96 200a24 24 0 1 1 0 48 24 24 0 1 1 0-48zM224 376a24 24 0 1 1 0-48 24 24 0 1 1 0 48zM352 200a24 24 0 1 1 0 48 24 24 0 1 1 0-48zM224 120a24 24 0 1 1 0-48 24 24 0 1 1 0 48zm96 328c0 35.3 28.7 64 64 64l192 0c35.3 0 64-28.7 64-64l0-192c0-35.3-28.7-64-64-64l-114.3 0c11.6 36 3.1 77-25.4 105.5L320 413.8l0 34.2zM480 328a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
+                    </svg>
+                </span>
+                <h1
+                    class="sm:text-5xl text-2xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
+                    Game</h1>
+            </div>
+        </a>
+    </section>
+
 
     <section class="faq w-screen flex justify-center items-center flex-col top-16 mt-[100px] h-fit z-50" id="faq">
         <div class="flex justify-center items-center h-24 text-3xl font-bold">
@@ -165,25 +166,25 @@
             <div class="chat-header w-full h-[70px] rounded-t-2xl flex justify-start items-center">
                 <img src="{{ asset('assets/VERDARA PP.png') }}" alt="faq-maskot"
                     class="rounded-full h-11 bg-yellow-400 mx-4">
-                <p class="text-lg font-bold max-sm:text-base text-white">Verdara</p>
+                <p class="text-lg font-bold max-sm:text-base text-[#1A4D2E]" data-aos="fade-down" data-aos-once="true">Verdara</p>
             </div>
             <div class="chat-area pt-4 chat-section overflow-y-scroll overflow-x-hidden">
                 <div class="chatAnswer flex">
                     <img src="{{ asset('assets/VERDARA PP.png') }}" alt="faq-maskot"
                         class="rounded-full h-8 bg-yellow-400 ml-4 mr-3">
                     <p
-                        class="chat overflow-visible text-black sm:text-base max-sm:text-sm w-fit px-3 py-2
+                        class="chat overflow-visible text-[#789461] sm:text-base max-sm:text-sm w-fit px-3 py-2
                         bg-white rounded-tr-2xl rounded-br-2xl rounded-bl-2xl my-5 md:max-w-[450px] max-sm:max-w-[200px]">
-                        Halooo 😁, perkenalkan namaku Verdara. Aku akan menjawab pertanyaan kalian seputar acara Battle of
-                        Minds.
+                        Halooo 😁, perkenalkan namaku Verdara. Aku akan menjawab pertanyaan kalian seputar acara Open House
+                        2024.
                     </p>
                 </div>
             </div>
 
             <div class="chat-footer w-full h-[58px] rounded-b-2xl flex justify-between place-self-end items-center">
-                <p class="ml-5 font-bold max-sm:text-xs text-white">Choose your question here</p>
+                <p class="ml-5 font-bold max-sm:text-xs text-[#1A4D2E]">Choose your question here</p>
                 <div class="flex items-center h-full" data-twe-dropdown-position="dropup">
-                    <i class="fa-regular fa-comment-dots mx-5 text-2xl hover:cursor-pointer text-white" type="button"
+                    <i class="fa-regular fa-comment-dots mx-5 text-2xl hover:cursor-pointer text-[#1A4D2E]" type="button"
                         id="dropdownMenuButton1" data-twe-dropdown-toggle-ref aria-expanded="false" data-twe-ripple-init
                         data-twe-ripple-color="light">
                     </i>
@@ -191,67 +192,72 @@
                         aria-labelledby="dropdownMenuButton1" data-twe-dropdown-menu-ref>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="0">Apa itu Battle of Minds
-                                (BoM)?
+                                href="#" data-twe-dropdown-item-ref question-code="0">Apa Mahasiswa Baru 2024
+                                memiliki kewajiban untuk mengikuti UKM / LK ?
                             </p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="1">Ada berapa babak dalam
-                                acara
-                                BoM?</p>
+                                href="#" data-twe-dropdown-item-ref question-code="1">Bagaimana prosedur untuk
+                                mendaftar ke UKM yang diinginkan ?</p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="2">BoM diadakan secara
-                                onsite/online?</p>
+                                href="#" data-twe-dropdown-item-ref question-code="2">Apakah Mahasiswa Baru 2024
+                                diperbolehkan untuk mendaftar lebih dari 1 UKM ?</p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="3">Siapa saja yang boleh
-                                mendaftar
-                                BoM?</p>
+                                href="#" data-twe-dropdown-item-ref question-code="3">Apakah Mahasiswa Baru 2024
+                                boleh membatalkan registrasi setelah membayar uang pendaftaran UKM ?</p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="4">Apakah satu orang bisa
-                                mendaftar
-                                lebih dari satu tim?</p>
+                                href="#" data-twe-dropdown-item-ref question-code="4">Apakah semua UKM pasti akan
+                                menerima Mahasiswa Baru 2024 sebagai calon peserta mereka?</p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="5">Berapa biaya pendaftaran
-                                BoM?
+                                href="#" data-twe-dropdown-item-ref question-code="5">Bagaimana prosedur untuk
+                                membayar uang pendaftaran ke UKM yang diinginkan?
                             </p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="6">Apakah uang deposit akan
-                                dikembalikan setelah acara berakhir?
+                                href="#" data-twe-dropdown-item-ref question-code="6">Apakah Mahasiswa Baru 2024
+                                diperbolehkan untuk membayar uang pendaftaran melalui rekening teman sesama Mahasiswa Baru
+                                2024?
                             </p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="7">Bagaimana proses validasi
-                                pembayaran?</p>
+                                href="#" data-twe-dropdown-item-ref question-code="7">Mengapa Mahasiswa Baru 2024
+                                belum dapat mendaftar menjadi anggota LK?</p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="8">Apabila tim tidak dapat
-                                hadir
-                                pada hari - h acara apa konsekuensinya?</p>
+                                href="#" data-twe-dropdown-item-ref question-code="8">Apa itu “Collectible Quest”?
+                            </p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="9">Apakah peserta akan
-                                mendapatkan
-                                konsumsi?</p>
+                                href="#" data-twe-dropdown-item-ref question-code="9">Kapan Mahasiswa Baru 2024
+                                dapat mengumpulkan “Collectible Quest”?</p>
                         </li>
                         <li>
                             <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
-                                href="#" data-twe-dropdown-item-ref question-code="10">Apakah acara ini
-                                menyediakan
-                                transportasi untuk peserta?</p>
+                                href="#" data-twe-dropdown-item-ref question-code="10">Apakah Mahasiswa Baru 2024
+                                wajib mengumpulkan “Collectible Quest”?</p>
+                        </li>
+                        <li>
+                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                                href="#" data-twe-dropdown-item-ref question-code="11">Bagaimana cara mengumpulkan
+                                “Collectible Quest”? </p>
+                        </li>
+                        <li>
+                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                                href="#" data-twe-dropdown-item-ref question-code="12">Bagaimana cara mengetahui
+                                pemenang dari “Collectible Quest”?</p>
                         </li>
                     </ul>
                 </div>
@@ -369,18 +375,19 @@
         const chatSection = document.querySelector('.chat-section');
 
         const answerArray = [
-            'Battle of Minds adalah lomba yang memadukan konsep logika matematika dengan permainan yang seru dan menantang di bidang Science🧪, Technology💻, Engineering⚙️, and Math✖️. ',
-            'Lomba ini terdiri dari tiga babak, yakni dua babak eliminasi dan satu babak final. Untuk mendapatkan informasi lebih rinci, akan diadakan TM 1 untuk babak pertama dan TM 2 untuk babak kedua.',
-            'Setiap peserta yang mengikuti kompetisi Battle of Minds diwajibkan hadir secara ONSITE, di Petra Christian University untuk babak 1. Lalu, untuk babak 2 dan babak final akan dilakukan ONSITE di Fairway Nine Mall Surabaya 🔥🔥',
-            'Kamu dapat mengikuti kompetisi Battle Of Minds 2024 jika kamu adalah siswa/i SMA/SMK di Indonesia yaaa 😙🏫',
-            'Tidak, setiap peserta tidak boleh mewakili lebih dari 1 tim 😑😑',
-            'Pendaftaran BoM free 🤩🤩!! Eitssss tapi peserta diwajibkan melakukan deposit sebesar Rp200.000 yang dibayarkan melalui Rekening BCA 2981104724 A.n/ MARCELINUS ANTHONY TEGUH, dan memberikan kode 1 pada akhir nominal seperti: 200.001 dan memberikan keterangan berita acara: BOM24-(namatim) contoh: BOM24-timhore',
-            'Iyaaa tenang aja uang deposit pasti dikembalikan, selama kalian mengikuti acara dengan baik, mematuhi peraturan, dan tidak terdiskualifikasi 😙😙',
-            'Setelah pendaftaran melalui website telah berhasil, panitia akan memberikan email konfirmasi dalam waktu 1 x 24 jam bahwa pendaftaran kalian tervalidasi.',
-            'Sayang sekali jika ada tim yang tidak hadir pada hari-h acara, maka tim tersebut akan didiskualifikasi dan uang deposit tidak akan dikembalikan 🥲🥲',
-            'Tenang aja, setiap peserta akan mendapatkan konsumsi kok 🥰🍴',
-            'Sayang sekali, tetapi pihak Battle of Minds tidak menyediakan fasilitas transportasi untuk peserta 😔😔'
-
+            'Mahasiswa Baru tidak diwajibkan untuk mengikuti UKM, tetapi UKM dapat menjadi salah satu wadah bagi Mahasiswa Baru 2024 untuk mengekspresikan diri dan mengembangkan dalam bidang non-akademik, khususnya bakat dan minat.',
+            'GTW WOKWOK',
+            'Mahasiswa Baru 2024 diperbolehkan untuk mendaftar lebih dari 1 (satu) UKM dengan batas maksimal 3 (tiga) UKM. Namun, Mahasiswa Baru juga perlu memperhatikan jadwal perkuliahan dan jadwal pelaksanaan setiap UKMnya agar tidak saling bertabrakan.',
+            'Tidak boleh! Mahasiswa Baru yang telah melakukan pembayaran kepada suatu UKM dianggap sebagai peserta resmi dari UKM tersebut dan memiliki kewajiban untuk mengikuti seluruh rangkaian kegiatan dari UKM yang bersangkutan. ',
+            'Tidak! Ada beberapa UKM yang mewajibkan calon pesertanya untuk mengikuti proses seleksi sebelum menjadi peserta resmi. Namun, perlu diketahui bahwa Mahasiswa Baru akan langsung diterima apabila mendaftar ke UKM yang tidak memiliki prosedur seleksi. ',
+            'MBO PIKIREN DEWE HEHE',
+            'Mahasiswa Baru tidak diperbolehkan untuk melakukan pembayaran menggunakan rekening sesama Mahasiswa Baru untuk menjaga transparansi pembayaran.',
+            'Hal ini dikarenakan PCU menerapkan program Pola Pengembangan Mahasiswa (POLBANGMAWA) yang bertujuan untuk mempersiapkan Mahasiswa Baru untuk mempersiapkan diri untuk menjadi Fungsionaris LK dengan mengikuti Servant Leadership Training (SLT) sebagai persyaratan sebelum Mahasiswa Baru bergabung ke dalam LK.',
+            'Collectible Quest adalah sebuah misi yang dapat diselesaikan tiap minggunya. Apabila misi ini telah terselesaikan, maka Mahasiswa Baru bisa mendapatkan sebuah hadiah dengan mengumpulkan beberapa huruf hingga membentuk kata-kata yang tersembunyi. Kata-kata yang akan dikumpulkan berbeda untuk setiap minggunya, sehingga kata yang telah dikumpulkan di minggu pertama tidak berlaku untuk minggu berikutnya.',
+            'Setiap minggunya pada jam buka Open House 2024.',
+            'Tidak, tetapi bagi Mahasiswa Baru yang mengumpulkan “Collectible Quest” akan mendapatkan subsidi potongan harga uang pendaftaran sejumlah Rp50.000,00/orangnya. Panitia Open House 2024 akan mengumumkan pemenang melalui akun Instagram resmi @openhouse.pcu',
+            'Mahasiswa Baru harus memainkan dan memenangkan activity yang diadakan pada setiap booth UKM. Nantinya, para penjaga booth akan memberikan collectibles kepada Mahasiswa Baru melalui website Open House: openhouse.petra.ac.id',
+            'Setiap minggunya akan terdapat 5 orang pemenang dari Collectible Quest. Pemenang ini akan ditentukan oleh panitia berdasarkan 5 orang pertama yang berhasil mengumpulkan collectibles secara lengkap.'
         ]
 
         var replyUser = function(answer) {
@@ -388,12 +395,12 @@
             chatResponse.classList.add('chatAnswer', 'pt-4', 'flex');
 
             const chatProfile = document.createElement('img');
-            chatProfile.src = 'assets/VERDARA POSE 1.png';
+            chatProfile.src = 'assets/VERDARA PP.png';
             chatProfile.alt = 'faq-maskot';
             chatProfile.classList.add('rounded-full', 'h-8', 'bg-yellow-400', 'ml-4', 'mr-3');
 
             const replyText = document.createElement('div');
-            replyText.classList.add('chat', 'overflow-visible', 'text-black', 'sm:text-base', 'max-sm:text-sm',
+            replyText.classList.add('chat', 'overflow-visible', 'text-[#789461]', 'sm:text-base', 'max-sm:text-sm',
                 'w-fit', 'sm:max-w-[250px]', 'md:max-w-[450px]', 'max-sm:max-w-[200px]',
                 'px-3', 'py-2',
                 'bg-white', 'rounded-tr-2xl', 'rounded-br-2xl', 'rounded-bl-2xl', 'my-5');

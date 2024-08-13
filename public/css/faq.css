@@ -207,46 +207,39 @@
 }
 
 .chat {
-    font-family: 'Geologica', sans-serif;
     letter-spacing: 0;
     transition: width 0.26s linear, height 0.4s linear;
     overflow: hidden !important;
 }
 
-.chat-header,
+.chat-header {
+    background-image: linear-gradient(to bottom right, #DF826C, #F7EECF);
+}
 .chat-footer {
-    background-color: rgba(34, 61, 197, 0.7);
-
+    background-image: linear-gradient(to top left, #DF826C, #F7EECF);
 }
 
 .user-chat {
-    background-color: rgb(95, 115, 184);
-}
-
-.chat-area::-webkit-scrollbar {
-    width: 13.5px;
-}
-
-.chat-area::-webkit-scrollbar-thumb {
-    border-radius: 25px;
-    background-color: rgb(41, 70, 215, 0.6) !important;
+    background-color: #789461;
 }
 
 .chat-area::-webkit-scrollbar-track {
-    background-color: rgb(85, 104, 180, 0.75) !important;
+    background-color: #1A4D2E !important;
 }
 
 .question {
-    background-color: rgb(95, 115, 184);
-    border-color: rgba(34, 61, 197, 0.7);
+    background-color: #789461;
+    border-color: #1A4D2E;
+    transition: all .3s ease;
 }
 
 .question:hover {
-    background-color: rgb(95, 115, 254);
+    background-color: #789461;
+    color: white;
 }
 
 .question:active {
-    background-color: rgb(95, 115, 254, 0.8);
+    background-color: #789461;
 }
 
 .chat-istyping-container {
