@@ -269,7 +269,7 @@
             class="pb-[40px] pt-[164px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] mx-auto h-full flex flex-col flex-wrap justify-center items-center">
             <div class=" reveal from-left active z-[10] mt-10 lg:mt-0 text-center flex flex-col w-full">
                 <h1
-                    class="glow-text font-bold text-[48px] md:text-[80px] lg:text-[100px] leading-none text-white leading-tight">
+                    class="glow-text font-bold text-[48px] md:text-[80px] lg:text-[100px] leading-none text-white">
                     {{ $ukm->name }}
                 </h1>
             </div>
@@ -291,12 +291,30 @@
         <div class="z-5 min-h-screen" id = "video">
             <div
                 class="pb-[40px] pt-[164px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] mx-auto h-full flex flex-col flex-wrap justify-center items-center">
+                @if($ukm->slug !== "bpmf")
                 <div class="reveal from-right active h-[100%] w-[100%] lg:h-[80%] lg:w-[80%]">
                     <div class="video-container aspect-w-16 aspect-h-9">
                         <iframe class="w-full h-full" src="{{ $videoUrl }}" frameborder="0"
                             allow="autoplay"></iframe>
                     </div>
                 </div>
+                @else
+                <div class="reveal from-right active h-[100%] w-[100%] lg:h-[80%] lg:w-[80%] flex flex-col">
+                    <div class="video-container aspect-w-16 aspect-h-9">
+                        <iframe class="w-full h-full" src="{{ $videoUrl[0] }}" frameborder="0"
+                            allow="autoplay"></iframe>
+                    </div>
+                    <div class="video-container aspect-w-16 aspect-h-9">
+                        <iframe class="w-full h-full" src="{{ $videoUrl[1] }}" frameborder="0"
+                            allow="autoplay"></iframe>
+                    </div>
+                    <div class="video-container aspect-w-16 aspect-h-9">
+                        <iframe class="w-full h-full" src="{{ $videoUrl[2] }}" frameborder="0"
+                            allow="autoplay"></iframe>
+                    </div>
+                </div>
+
+                @endif
             </div>
         </div>
     @endif

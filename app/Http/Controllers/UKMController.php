@@ -91,7 +91,7 @@ class UKMController extends Controller
             'vg' => 'https://drive.google.com/file/d/1aUaMolYAW-iIAwXp_VX5kuR1xB1Jz4PC/preview',
             'futsal' => 'https://drive.google.com/file/d/1VbrZl637ocLP0u8JvNmg9qHUFMN2QXsu/preview',
             'tps' => 'https://drive.google.com/file/d/1i1Q3ZTO_bV7vQEBllQz-5MSZec3r03KH/preview',
-            'bpmf' => 'https://drive.google.com/file/d/10GkLBX0xQXST3D3GOqJzMua69-YOGpU8/preview',
+            'bpmf' => ['https://drive.google.com/file/d/1W3xfo4Ewynaf0Qu5qLZ0lgUn5m8uSjQv/preview', 'https://drive.google.com/file/d/1zWE5AUTN9_L_TTCXsy-1BLEvZFuX-IIw/preview', 'https://drive.google.com/file/d/1an4PJBojggTW-85k8JIGHwd1bWUudOHQ/preview'],
             'basket' => 'https://drive.google.com/file/d/1a2-JpT0_4vSfX-gawP5bmNcZYtGGYvy2/preview',
             'asfs' => 'https://drive.google.com/file/d/1WhHXY0eibJykn4Bd9nqliSbHLqxZYCOP/preview',
             'taekwondo' => 'https://drive.google.com/file/d/1NChFXQboEAJ1b98tG_mIqKz9DjczPRCn/preview',
@@ -108,8 +108,6 @@ class UKMController extends Controller
             'persma' => 'https://drive.google.com/file/d/1oJylHMIO7-IWw716e1A9CaJALXFWSU7z/preview',
             'renang' => 'https://drive.google.com/file/d/1XNwUUBv56DZg4y6xQgVy3u7GrHVo5DuK/preview',
         ];
-
-
 
         $videoUrl = $videoUrls[$slug] ?? "";
 
