@@ -41,7 +41,8 @@ Route::prefix('admin')->middleware('isLogin')->group(function () {
     Route::post('selectionValidate', [ValidateController::class, 'selectionValidate'])->name('admin.selectionValidate');
     Route::post('paymentValidate', [ValidateController::class, 'paymentValidate'])->name('admin.paymentValidate');
     Route::post('viewPayment', [ValidateController::class, 'viewPayment'])->name('admin.viewPayment');
-    Route::post('rejectParticipant', [ValidateController::class, 'rejectParticipant'])->name('admin.rejectParticipant');
+    Route::post('rejectPayment', [ValidateController::class, 'rejectPayment'])->name('admin.rejectPayment');
+    Route::post('rejectFile', [ValidateController::class, 'rejectFile'])->name('admin.rejectFile');
     Route::post('giveLetter', [GenerateController::class, 'giveLetter'])->name('admin.giveLetter');
 });
 

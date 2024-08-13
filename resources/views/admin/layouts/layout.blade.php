@@ -209,7 +209,8 @@
                 var nrp = $(this).data("nrp");
                 var ukm = $(this).data("ukm");
                 Swal.fire({
-                    title: "Which one do you want to validate?",
+                    title: "Which to VALIDATE",
+                    icon: "warning",
                     text: "NRP : " + nrp,
                     showDenyButton: true,
                     // showCancelButton: true,x
@@ -226,9 +227,33 @@
                 });
             });
 
-            function rejectParticipant(nrp = "", ukm = "") {
+            function rejectPayment(nrp = "", ukm = "") {
                 $.ajax({
-                    url: "{{ route('admin.rejectParticipant') }}",
+                    url: "{{ route('admin.rejectPayment') }}",
+                    method: "POST",
+                    data: {
+                        nrp: nrp,
+                        ukm: ukm,
+                    },
+                    success: function() {
+                        Swal.fire({
+                            title: "Participant Rejected Successfully",
+                            text: "NRP : " + nrp,
+                            icon: "success",
+                            confirmButtonColor: "#3085d6",
+                            confirmButtonText: "Okay!",
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.reload();
+                            }
+                        });
+                    },
+                });
+            }
+
+            function rejectFile(nrp = "", ukm = "") {
+                $.ajax({
+                    url: "{{ route('admin.rejectFile') }}",
                     method: "POST",
                     data: {
                         nrp: nrp,
@@ -254,16 +279,19 @@
                 var nrp = $(this).data("nrp");
                 var ukm = $(this).data("ukm");
                 Swal.fire({
-                    title: "Are you sure?",
+                    title: "Which to REJECT",
                     text: "NRP : " + nrp,
                     icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#d33",
-                    cancelButtonColor: "#0b6623",
-                    confirmButtonText: "Yes",
+                    showDenyButton: true,
+                    confirmButtonColor: "#3085d6",
+                    denyButtonColor: "#FF6600",
+                    confirmButtonText: "Selection File",
+                    denyButtonText: "Payment",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        rejectParticipant(nrp, ukm);
+                        rejectFile(nrp, ukm);
+                    } else if (result.isDenied) {
+                        rejectPayment(nrp, ukm);
                     }
                 });
             });

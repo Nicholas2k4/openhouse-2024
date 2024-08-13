@@ -109,7 +109,7 @@ class ValidateController extends Controller
                 }
 
 
-                if ($row->file_validated == 2) {
+                if ($row->file_validated == 2 || $row->payment_validated== 2) {
                     $output .= '
                         <td class="p-3 border-y-2 border-gray-200 font-bold text-yellow-500 text-center" colspan="3">Rejected</td>';
                 } else if ($row->file_validated == 1 && $row->payment_validated == 1) {
@@ -167,7 +167,8 @@ class ValidateController extends Controller
         $selectionFile = DetailRegistration::where('nrp', $nrp)->first()->file_validated;
         if ($selectionFile == 0) {
             DetailRegistration::where('nrp', $nrp)->update([
-                'file_validated' => 1
+                'file_validated' => 1,
+                'updated_by' => session('nrp')
             ]);
             return response()->json(['message' => 'true']); // Berhasil validasi
         } else if ($selectionFile == 1) {
@@ -185,7 +186,8 @@ class ValidateController extends Controller
             $selectionFile = DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->first()->payment_validated;
             if ($selectionFile == 0) {
                 DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
-                    'payment_validated' => 1
+                    'payment_validated' => 1,
+                    'updated_by' => session('nrp')
                 ]);
                 return response()->json(['message' => 'true']); // Berhasil validasi
             } else {
@@ -198,14 +200,29 @@ class ValidateController extends Controller
         }
     }
 
-    public function rejectParticipant(Request $request)
+    public function rejectPayment(Request $request)
     {
         $nrp = $request->get('nrp');
         $ukm = $request->get('ukm');
 
-        // Ukms::where('nrp', $nrp)->increment('current_slot'); // kalau ditolak, slot nambah 1
+        Ukm::where('id', $ukm)->increment('current_slot'); // kalau ditolak, slot nambah 1
         DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
-            'file_validated' => 2
+            'payment_validated' => 2,
+            'updated_by' => session('nrp')
+        ]);
+
+        return response()->json(['message' => 'true']);
+    }
+
+    public function rejectFile(Request $request)
+    {
+        $nrp = $request->get('nrp');
+        $ukm = $request->get('ukm');
+
+        Ukm::where('id', $ukm)->increment('current_slot'); // kalau ditolak, slot nambah 1
+        DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
+            'file_validated' => 2,
+            'updated_by' => session('nrp')
         ]);
 
         return response()->json(['message' => 'true']);
