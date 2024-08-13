@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/fc45e0c6e7.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="icon" href="{{ asset('assets/LOGO OPENHOUSE SEMIFINAL.png') }}">
 
     <style>
         body,
@@ -396,11 +397,11 @@
 
     <div id = "overlay" class = "z-[700] w-full h-[100vh] fixed top-0 left-0 bg-black opacity-60 hidden"></div>
     <!--Pop Up-->
-    <div class = "text-[20px] bg-modal hidden p-10 overflow-y-scroll z-[1000] text-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[500px] w-[300px] md:max-h-[500px] md:w-[600px] lg:max-h-[500px] lg:w-[800px]"
+    <div class = "text-[20px] bg-modal hidden p-10 pt-16 overflow-y-scroll z-[1000] text-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[500px] w-[300px] md:max-h-[500px] md:w-[600px] lg:max-h-[500px] lg:w-[800px]"
         id = "modal">
         <div class = "absolute w-full text-right top-[20px] right-[20px] ">
-            <button type="button" class="px-4 rounded " onclick="toggleModal()"><i
-                    class=" text-white fas fa-times"></i></button>
+            <button type="button" class="px-4 rounded text-xl" onclick="toggleModal()"><i
+                    class="text-white fas fa-times text-xl"></i></button>
         </div>
         {!! $ukm->description !!}
     </div>
@@ -428,18 +429,18 @@
                         <!--Slot & Regist fee-->
                         <div class="flex flex-row justify-center">
                             <div id = "show-slot"
-                                class = "flex flex-col justify-center pl-[20px] pr-[20px] border-r-[1px]">
+                                class = "flex flex-col justify-center pl-[20px] pr-[30px] border-r-[3px]">
                                 <div
-                                    class = "text-white text-[56px] md:text-[90px] lg:text-[120px] font-bold leading-tight">
+                                    class = "text-white text-center text-[56px] md:text-[90px] lg:text-[120px] font-bold leading-tight">
                                     {{ $ukm->current_slot }}</div>
                                 <div
-                                    class = "text-white text-[26px] lg:text-[36px] m-[-2px] pb-[4px] w-full text-center">
+                                    class = "text-white text-[26px] lg:text-[36px] m-[-2px] pb-[4px] w-fit text-center">
                                     Slot left</div>
                             </div>
 
-                            <div id = "show-regist-fee" class = "flex flex-col justify-center pr-[20px] pl-[20px]">
+                            <div id = "show-regist-fee" class = "flex flex-col justify-center pr-[20px] pl-[30px]">
                                 <div
-                                    class = "text-white text-[56px] md:text-[90px] lg:text-[120px] font-bold leading-tight">
+                                    class = "text-white text-center text-[56px] md:text-[90px] lg:text-[120px] font-bold leading-tight">
                                     @if ($ukm->regist_fee == 0)
                                         0K
                                     @else
@@ -447,7 +448,7 @@
                                     @endif
                                 </div>
                                 <div
-                                    class = "text-white text-[26px] lg:text-[36px] m-[-2px] pb-[4px] w-full text-center">
+                                    class = "text-white text-[26px] lg:text-[36px] m-[-2px] pb-[4px] w-full max-md:w-fit text-center">
                                     Regist fee</div>
                             </div>
                         </div>

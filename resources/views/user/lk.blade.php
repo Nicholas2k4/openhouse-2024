@@ -104,11 +104,11 @@
         class="fixed bottom-[-800px] right-[-800px] w-[1200px] h-[1200px] rounded-full blur-[500px] bg-[#79FFEF] animation-blob">
     </div>
     <!--Header-->
-    <nav class="relative top-0 left-0 w-[100%] flex justify-between px-10 py-4 items-center h-[64px]">
+    {{-- <nav class="relative top-0 left-0 w-[100%] flex justify-between px-10 py-4 items-center h-[64px]">
         <div class="text-2xl text-white">
             <i class="cursor-pointer fa-solid fa-chevron-left"></i>
         </div>
-    </nav>
+    </nav> --}}
 
     <!--First section-->
     <section id="first-section" class = "overflow-hidden relative">

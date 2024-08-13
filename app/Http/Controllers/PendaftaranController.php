@@ -110,7 +110,9 @@ class PendaftaranController extends Controller
         }
 
         if (!$detail_registration) { //kalau belum ada record
-            return view('user.pendaftaran', compact('name', 'nrp', 'email', 'ukm_id', 'ukm_slug'));
+            return view('user.pendaftaran', array_merge(compact('name', 'nrp', 'email', 'ukm_id', 'ukm_slug'), [
+                'title' => 'Pendaftaran'
+            ]));
         } else { //udah memasukan data diri
             if ($ukm_slug == 'vg' || $ukm_slug == 'ilustrasi') {
                 if ($detail_registration->file_validated == 0 || $detail_registration->file_validated == 2) { //vg / ilus & belum diterima
@@ -179,9 +181,9 @@ class PendaftaranController extends Controller
             }
 
             // untuk ukm yang free
-            if($ukm->slug == 'esport' || $ukm->slug == 'orkestra' || $ukm->slug == 'menwa'){
+            if ($ukm->slug == 'esport' || $ukm->slug == 'orkestra' || $ukm->slug == 'menwa') {
                 $payment_validated = 1;
-            }else{
+            } else {
                 $payment_validated = 0;
             }
             // Simpan data ke tabel detail_registration
@@ -211,9 +213,9 @@ class PendaftaranController extends Controller
             }
 
             // untuk ukm yang free
-            if($ukm->slug == 'esport' || $ukm->slug == 'orkestra' || $ukm->slug == 'menwa'){
+            if ($ukm->slug == 'esport' || $ukm->slug == 'orkestra' || $ukm->slug == 'menwa') {
                 $payment_validated = 1;
-            }else{
+            } else {
                 $payment_validated = 0;
             }
             $user = User::where('nrp', $request->nrp)->first();

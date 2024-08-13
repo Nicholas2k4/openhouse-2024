@@ -50,7 +50,7 @@ class AuthController extends Controller
                     session()->put('ukm_id', $ukm_id);
                     session()->put('field', $field);
                     session()->put('division_id', $division_id);
-                    return redirect()->route('admin.showParticipants');
+                    return redirect()->route('admin.validate');
                 } else {
                     return redirect()->route('admin.login')->with('error', 'Anda bukan admin');
                 }

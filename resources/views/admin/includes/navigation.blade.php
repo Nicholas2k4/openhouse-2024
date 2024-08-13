@@ -79,21 +79,12 @@
         <!-- List Navigation -->
         <div class="mt-6">
             <ul>
-                <a href="{{ route('admin.showParticipants') }}" class="text-md">
+                <a href="{{ route('admin.validate') }}" class="text-md">
                     <li class="flex flex-row items-center p-3 my-2 hover:bg-gray-200 rounded-lg transition">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
                             <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
                         </svg>
                         Participant
-                    </li>
-                </a>
-                <a href="{{ route('admin.validate') }}" class="text-md">
-                    <li class="flex flex-row items-center p-3 my-2 hover:bg-gray-200 rounded-lg transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                            <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
-                        </svg>
-                        Validate
                     </li>
                 </a>
                 <a href="{{ route('admin.generate') }}" class="text-md">
@@ -156,14 +147,14 @@
 <div id="smallNav" class="bg-white border-b-2 absolute w-full hidden z-[999]">
     <ul class="mx-2">
         <li class="p-4 my-2 hover:bg-gray-200 rounded-lg transition">
-            <a href={{route('admin.showParticipants')}} class="flex flex-row text-md items-center justify-center">
+            <a href={{route('admin.validate')}} class="flex flex-row text-md items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
                     <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
                 </svg>
                 Participant
             </a>
         </li>
-        <li class="p-4 my-2 hover:bg-gray-200 rounded-lg transition">
+        {{-- <li class="p-4 my-2 hover:bg-gray-200 rounded-lg transition">
             <a href="{{ route('admin.validate') }}" class="flex flex-row text-md items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
@@ -171,7 +162,7 @@
                 </svg>
                 Validate
             </a>
-        </li>
+        </li> --}}
         <li class="p-4 my-2 hover:bg-gray-200 rounded-lg transition">
             <a href="{{ route('admin.generate') }}" class="flex flex-row text-md items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">

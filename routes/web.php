@@ -28,20 +28,21 @@ use App\Http\Controllers\UKMController;
  * Group prefix('admin') = /admin/ untuk isi groupnya.
  * Jadi udh gk perlu ngasih /admin lagi di dpn get route.
  */
+Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('isLogin')->group(function () {
+    Route::get('/', [AdminController::class, 'validatePage'])->name('admin.home');
     Route::get('logout', [AuthController::class, 'adminLogout'])->name('admin.logout');
-    Route::get('login', [AdminController::class, 'login'])->name('admin.login');
-    Route::get('participant', [AdminController::class, 'participant'])->name('admin.showParticipants')->middleware('isLogin');
+    // Route::get('participant', [AdminController::class, 'participant'])->name('admin.showParticipants');
     Route::get('get-users-by-activity', [AdminController::class, 'getUsersByActivity'])->name('admin.getUsersByActivity');
-    Route::get('validate', [AdminController::class, 'validatePage'])->name('admin.validate');
+    Route::get('participant', [AdminController::class, 'validatePage'])->name('admin.validate');
     Route::get('generate', [AdminController::class, 'generatePage'])->name('admin.generate');
     Route::get('filterSearch', [ValidateController::class, 'filterSearch'])->name('admin.filterSearch');
     Route::post('selectionValidate', [ValidateController::class, 'selectionValidate'])->name('admin.selectionValidate');
     Route::post('paymentValidate', [ValidateController::class, 'paymentValidate'])->name('admin.paymentValidate');
     Route::post('viewPayment', [ValidateController::class, 'viewPayment'])->name('admin.viewPayment');
     Route::post('rejectParticipant', [ValidateController::class, 'rejectParticipant'])->name('admin.rejectParticipant');
-    Route::post('/giveLetter', [GenerateController::class, 'giveLetter'])->name('admin.giveLetter');
+    Route::post('giveLetter', [GenerateController::class, 'giveLetter'])->name('admin.giveLetter');
 });
 
 /**

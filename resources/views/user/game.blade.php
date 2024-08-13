@@ -144,7 +144,7 @@
                     <div class="swiper-slide bg-gradient-to-t from-[#4476CB] to-[#57C7D4] text-white">
                         <h2 class = "text-xl sm:text-3xl mb-3">Tujuan Games</h2>
                         <p class ="text-[12px] sm:text-[18px] text-center">
-                            Tujuan utama kalian adalah mengumpulkan semua huruf yang tersembunyi di 27 booth dan menyusunnya menjadi kalimat yang telah ditentukan. Kalian akan dinyatakan sebagai pemenang jika berhasil menyusun kalimat tersebut dengan benar. 
+                            Tujuan utama kalian adalah mengumpulkan semua huruf yang tersembunyi di 27 booth dan huruf-huruf tersebut akan tersusun menjadi kalimat yang telah ditentukan. Kalian akan dinyatakan sebagai pemenang jika berhasil mendapatkan semua huruf hingga kalimat terbentuk dengan lengkap. 
                         </p>
                     </div>
                     <div class="swiper-slide bg-gradient-to-t from-[#4476CB] to-[#57C7D4] text-white">
@@ -152,17 +152,17 @@
                         <ol class = "text-[12px] sm:text-[18px] ml-5 text-left">
                             <li>
                                 <h3>1. Menjelajahi Booth</h3>
-                                <ul class = "m-3 list-disc list-inside">
-                                    <li>Setiap booth akan memiliki aktivitas yang berbeda. Aktivitas ini bisa berupa mini games casual atau competitive.</li>
-                                    <li>Kalian bebas memilih booth mana yang ingin dikunjungi terlebih dahulu.</li>
+                                <ul class = "m-3 list-disc list-outside pl-5">
+                                    <li class="pl-1">Setiap booth akan memiliki aktivitas yang berbeda. Aktivitas ini bisa berupa mini games casual atau competitive.</li>
+                                    <li class="pl-1">Kalian bebas memilih booth mana yang ingin dikunjungi terlebih dahulu.</li>
                                 </ul>
                             </li>
 
                             <li>
                                 <h3>2. Jenis Mini Games</h3>
-                                <ul class = "m-3 list-disc list-inside">
-                                    <li>Casual Games: Tantangan yang lebih ringan dan menghibur, cocok untuk semua pemain.</li>
-                                    <li>Competitive Games: Tantangan dengan tingkat kesulitan lebih tinggi, di mana hasilnya bisa berupa kemenangan atau kekalahan.</li>
+                                <ul class = "m-3 list-disc list-outside pl-5">
+                                    <li class="pl-1">Casual Games: Tantangan yang lebih ringan dan menghibur, cocok untuk semua pemain.</li>
+                                    <li class="pl-1">Competitive Games: Tantangan dengan tingkat kesulitan lebih tinggi, di mana hasilnya bisa berupa kemenangan atau kekalahan.</li>
                                 </ul>
                             </li>
                         </ol>
@@ -172,17 +172,17 @@
                         <ol class = "text-[12px] sm:text-[18px] ml-5 text-left">
                             <li>
                                 <h3>3. Mendapatkan Huruf</h3>
-                                <ul class = "m-3 list-disc list-inside">
-                                    <li>Jika kalian berhasil menyelesaikan atau memenangkan mini game di sebuah booth, kalian akan mendapatkan sebuah "collectible" berupa huruf.</li>
-                                    <li>Huruf tersebut akan menjadi bagian dari kalimat rahasia yang harus kalian susun.</li>
+                                <ul class = "m-3 list-disc list-outside pl-5">
+                                    <li class="pl-1">Jika kalian berhasil menyelesaikan atau memenangkan mini game di sebuah booth, kalian akan mendapatkan sebuah "collectible" berupa huruf.</li>
+                                    <li class="pl-1">Huruf tersebut akan menjadi bagian dari kalimat rahasia yang harus kalian susun.</li>
                                 </ul>
                             </li>
 
                             <li>
                                 <h3>4. Kesempatan Ulang</h3>
-                                <ul class = "m-3 list-disc list-inside">
-                                    <li>Jika kalian belum berhasil memenangkan mini game, kalian dapat mencoba kembali sampai berhasil.</li>
-                                    <li>Tidak ada batasan jumlah kesempatan untuk mengulang game di sebuah booth.</li>
+                                <ul class = "m-3 list-disc list-outside pl-5">
+                                    <li class="pl-1">Jika kalian belum berhasil memenangkan mini game, kalian dapat mencoba kembali sampai berhasil.</li>
+                                    <li class="pl-1">Tidak ada batasan jumlah kesempatan untuk mengulang game di sebuah booth.</li>
                                 </ul>
                             </li>
                         </ol>
@@ -192,16 +192,16 @@
                         <ol class = "text-[12px] sm:text-[18px] ml-5 text-left">
                             <li>
                                 <h3>5. Menyusun Kalimat</h3>
-                                <ul class = "m-3 list-disc list-inside">
-                                    <li>Setelah kalian mengumpulkan semua huruf dari 27 booth, kalian akan mendapatkan sebuah kalimat lengkal yang telah kami tentutkan.</li>
+                                <ul class = "m-3 list-disc list-outside pl-5">
+                                    <li class="pl-1">Setelah kalian mengumpulkan semua huruf dari 27 booth, kalian akan mendapatkan sebuah kalimat lengkal yang telah kami tentutkan.</li>
                                 </ul>
                             </li>
 
                             <li>
                                 <h3>6. Penyelesaian dan Kemenangan</h3>
-                                <ul class = "m-3 list-disc list-inside">
-                                    <li>Permainan "Realms Seekers" dianggap selesai jika kalian berhasil mensubmit kalimat yang telah lengkap.</li>
-                                    <li>Top 5 maba dari setiap minggunya menyusun kalimat dengan benar akan mendapatkan hadiah khusus.</li>
+                                <ul class = "m-3 list-disc list-outside pl-5">
+                                    <li class="pl-1">Permainan "Realms Seekers" dianggap selesai jika kalian berhasil mensubmit kalimat yang telah lengkap.</li>
+                                    <li class="pl-1">Top 5 maba dari setiap minggunya menyusun kalimat dengan benar akan mendapatkan hadiah khusus.</li>
                                 </ul>
                             </li>
                         </ol>
@@ -220,7 +220,7 @@
                     </div>
                     <div class="relative swiper-slide bg-gradient-to-t from-[#4476CB] to-[#57C7D4] text-white">
                         <p class = "text-[12px] sm:text-[18px] text-center">
-                            Ingat, ini bukan cuma soal siapa yang paling cepet, tapi gimana kalian bisa menikmati tiap momen di perjalanan ini. Selamat bermain, semoga kalian jadi salah satu yang berhasil nyelesain game ini dengan keren!
+                            Ingat, ini bukan cuma soal siapa yang paling cepat, tapi bagaimana kalian bisa menikmati setiap momen di perjalanan ini. Selamat bermain, semoga kalian menjadi salah satu yang berhasil memenangkan game ini!
                         </p>
                         <div class = "group">
                             <a
@@ -270,7 +270,7 @@
                                 </div>
                             @else
                                 <div
-                                    class = "text-[12px] md:text-[24px] w-[25px] h-[25px] md:w-[50px] md:h-[50px] text-white font-bold">__</div>
+                                    class = "text-[12px] text-center md:text-[24px] w-[25px] h-[25px] md:w-[50px] md:h-[50px] text-white font-bold">__</div>
                             @endif
                             @php
                             $i += 1;

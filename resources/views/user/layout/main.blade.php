@@ -317,7 +317,7 @@
 
         // Search
         const lists = @json($ukms);
-        console.log(lists);
+        // console.log(lists);
         // $(document).ready(function() {
 
         for (var list in lists) {
