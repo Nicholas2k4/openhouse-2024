@@ -116,11 +116,11 @@
         <div
             class = "mt-[-64px] px-[30px] md:px-[50px] xl:px-[100px] mx-auto text-center flex flex-row h-screen items-center">
             <img src = "{{ URL('asset/Artboard 1_SS_4.png') }}"
-                class = "rotate-animation-1 img-shadow-1 absolute bottom-[0px] left-[-70px] w-[300px] md:w-[400px] rotate-[50deg]">
+                class = "z-0 rotate-animation-1 img-shadow-1 fixed bottom-[0px] left-[-70px] w-[300px] md:w-[400px] rotate-[50deg]">
             <img src = "{{ URL('asset/Artboard 1_SS_3.png') }}"
-                class = "rotate-animation-2 img-shadow-2 absolute bottom-[90px] right-[-60px] w-[325px] md:w-[450px] rotate-[-50deg]">
-            <div class = "mx-auto w-3/4">
-                <h3 class = "glow-text text-white font-bold text-[48px] md:text-[80px] lg:text-[100px] leading-none text-center">
+                class = "z-0 rotate-animation-2 img-shadow-2 fixed bottom-[90px] right-[-60px] w-[325px] md:w-[450px] rotate-[-50deg]">
+            <div class = "z-[2] mx-auto">
+                <h3 class = "glow-text text-white font-bold text-[40px] md:text-[80px] lg:text-[100px] leading-none text-center">
                     Lembaga
                     Kemahasiswaan
                 </h3>

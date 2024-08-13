@@ -435,10 +435,9 @@
     <script>
         document.getElementById("explore-button").addEventListener('click', function(e) {
             e.preventDefault();
-            const lk = <?php echo json_encode(['LK BEM', 'LK TPS', 'LK MPM', 'LK BPMF', 'LK PERSMA', 'LK PELMA']); ?>;
-            const name = "<?php echo $ukm->name; ?>";
+            let videoUrl = <?php echo json_encode($videoUrl)?>;
 
-            if (!lk.includes(name)) {
+            if (videoUrl !=="") {
                 document.getElementById('video').scrollIntoView({
                     behavior: 'smooth'
                 });
