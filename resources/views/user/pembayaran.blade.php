@@ -34,6 +34,7 @@
             src: url('{{ asset('font/GeneralSans-Italic.otf') }}');
         }
 
+        
         h1,
         h2,
         h3,
