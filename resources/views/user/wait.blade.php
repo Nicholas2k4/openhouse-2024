@@ -72,6 +72,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="bg-gray-100 flex justify-center items-center min-h-screen px-4 sm:px-6">
+  @if($status_file == 0)
     <div class="bg-black bg-opacity-50 rounded-lg p-6 shadow-lg max-w-3xl w-full mt-8 mb-8 backdrop-blur container">
         <h1 class="sm:text-2xl text-2xl font-bold text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mb-5">Pendaftaran berhasil</h1>
         <br>
@@ -87,5 +88,15 @@
             <button class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Kembali ke halaman utama</button>
         </a>
     </div>
+    @elseif($status_file == 2)
+      <div class="bg-black bg-opacity-50 rounded-lg p-6 shadow-lg max-w-3xl w-full mt-8 mb-8 backdrop-blur container">
+        <h1 class="sm:text-2xl text-2xl font-bold text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mb-5">Pemberitahuan</h1>
+        <br>
+        <h2 class="font-semibold text-xl text-center text-slate-50 leading-7">Mohon maaf, anda belum lolos UKM {{$ukm_slug}}.</h2>
+        <img src="/assets/VERDARA POSE 1.png" alt="" class="image">
+        <a href="{{ route('user.home') }}" class="button">
+            <button class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Kembali ke halaman utama</button>
+        </a>
+    @endif
 </body>
 </html>

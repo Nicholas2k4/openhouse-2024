@@ -118,7 +118,15 @@
             <button type="button" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Kembali ke home</button>
         </a>
       </div>
-      @elseif($url)
+      @elseif($status_pembayaran == 2)
+      {{-- ditolak --}}
+      <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Pembayaran ditolak</h1>
+      <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Silakan hubungi admin untuk memproses hal ini.</h1>
+      <div class="flex justify-center mt-6">
+        <a href="{{ route('user.home') }}">
+            <button type="button" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Kembali ke home</button>
+        </a>
+        @elseif($url)
         <!-- Pesan pembayaran sedang direview -->
         <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Pembayaran sedang di review</h1>
       <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Cek halaman ini secara berkala untuk melihat status pembayaran</h1>
@@ -136,10 +144,6 @@
             title: 'Berhasil',
             text: '{{ session('success') }}',
             confirmButtonText: 'Tutup'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = '{{ route("user.home") }}';
-            }
         });
     </script>
 @endif

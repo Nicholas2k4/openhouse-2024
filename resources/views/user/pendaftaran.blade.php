@@ -129,6 +129,20 @@
         </script>
     @endif
 
+    @if(session('limit'))
+    <script>
+        Swal.fire({
+            icon: 'warning',
+            title: 'Anda telah mencapai limit',
+            text: '{{ session('limit') }}',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '{{ route("user.home") }}';
+            }
+        });
+    </script>
+@endif
+
     @if(session('info'))
         <script>
             Swal.fire({

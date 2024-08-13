@@ -96,7 +96,7 @@ class PendaftaranController extends Controller
         $ukm = Ukm::where('slug', $ukm_slug)->first();
         $detail_registration = DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm->id)->first();
         if ($count >= 3 && !$detail_registration) {
-            return redirect()->route('user.home');
+            back()->with('limit', 'Maksimal mendaftar 3 UKM');
         }
 
         // logic redirect audisi / pembayaran & slot
@@ -113,8 +113,9 @@ class PendaftaranController extends Controller
             return view('user.pendaftaran', compact('name', 'nrp', 'email', 'ukm_id', 'ukm_slug'));
         } else { //udah memasukan data diri
             if ($ukm_slug == 'vg' || $ukm_slug == 'ilustrasi') {
-                if ($detail_registration->file_validated == 0) { //vg / ilus & belum diterima
-                    return view('user.wait', compact('name', 'nrp', 'email', 'ukm_slug'));
+                if ($detail_registration->file_validated == 0 || $detail_registration->file_validated == 2) { //vg / ilus & belum diterima
+                    $status_file = $detail_registration->file_validated;
+                    return view('user.wait', compact('name', 'nrp', 'email', 'ukm_slug', 'status_file'));
                 } else { // vg / ilus & sudah diterima
                     $code = $detail_registration->code;
                     $status_pembayaran = $detail_registration->payment_validated;
@@ -156,7 +157,7 @@ class PendaftaranController extends Controller
         $current_slot = $ukm->current_slot;
 
         // cek current slot apakah masih ada
-        if ($current_slot <= 1) {
+        if ($current_slot < 1) {
             return back()->with('warning', 'slot habis');
         } else {
             $current_slot = $current_slot - 1;
