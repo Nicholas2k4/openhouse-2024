@@ -71,14 +71,13 @@ h1 {
     --color: #F1C1AC;
     padding: 0.8em 1.7em;
     background-color: transparent;
-    border-radius: .3em;
     position: relative;
     overflow: hidden;
     cursor: pointer;
     transition: .5s;
     font-weight: 400;
     font-size: 17px;
-    border: 1px solid;
+    box-shadow: 0 0 5px #F1C1AC, 0 0 10px #F1C1AC;
     font-family: inherit;
     text-transform: uppercase;
     color: var(--color);
@@ -116,7 +115,7 @@ h1 {
 }
 
 .animated-button:hover {
-    color: rgb(10, 25, 30);
+    color: #004b8e;
 }
 
 .animated-button:active {

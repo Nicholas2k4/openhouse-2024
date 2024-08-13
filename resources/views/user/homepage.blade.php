@@ -10,6 +10,10 @@
             width: 100vw;
             overflow-x: hidden;
         }
+
+        .coral-2{
+            animation: rotateLeftRight2 2.6s infinite linear;
+        }
     </style>
 @endsection
 
@@ -21,12 +25,12 @@
     @endif
     {{-- Elements --}}
     <img src="{{ asset('assets/Coral_2.png') }}" alt="Coral"
-        class="absolute sm:top-[80vh] top-[50vh] md:top-[110vh] xl:top-[120vh] sm:right-[-10vw] right-[-15vw] rotate-[-30deg] sm:w-1/3 w-1/2">
+        class="coral-2 absolute sm:top-[80vh] top-[50vh] md:top-[110vh] xl:top-[120vh] sm:right-[-10vw] right-[-15vw] rotate-[-30deg] sm:w-1/3 w-1/2">
     <img src="{{ asset('assets/Coral_1.png') }}" alt="Coral"
         class="absolute top-[200vh] sm:left-[-10vw] left-[-15vw] rotate-[30deg] sm:w-1/3 w-1/2">
     <img src="{{ asset('assets/Flower_2.png') }}" alt="Flower"
         class="absolute top-[350vh] max-sm:top-[250vh] sm:right-[-10vw] right-[-15vw] rotate-[-30deg] sm:w-1/3 w-1/2">
-    <img src="{{ asset('assets/Flower_3.png') }}" alt="Flower"
+    <img src="{{ asset('assets/Shell.png') }}" alt="Shell"
         class="absolute hidden lg:block top-[450vh] sm:left-[-10vw] left-[-15vw] rotate-[30deg] sm:w-1/3 w-1/2">
 
     {{-- Maskot --}}
@@ -49,24 +53,24 @@
                 TIMELINE</h1>
         </div>
         <div class="img-container flex items-end w-[300vw] overflow-x-scroll mx-auto no-scrollbar">
-            <div class="pulau1 w-[100vw] flex justify-center flex-col space-y-10">
+            <div class="pulau1 w-[100vw] flex justify-center mb-3 flex-col space-y-10">
                 <img src="{{ asset('assets/SS.png') }}" class="mx-auto sm:w-[300px] w-[250px]" alt="">
                 <button type="button" data-twe-ripple-init data-twe-ripple-color="dark"
-                    class="16-aug-button mx-auto animated-button">
+                    class="16-aug-button rounded-2xl mx-auto animated-button">
                     Performances
                 </button>
             </div>
-            <div class="pulau2 w-[100vw] flex justify-center flex-col space-y-10">
+            <div class="pulau2 w-[100vw] flex justify-center mb-3 flex-col space-y-10">
                 <img src="{{ asset('assets/Floating Rocks.png') }}" class="mx-auto sm:w-[300px] w-[250px]" alt="">
                 <button type="button" data-twe-ripple-init data-twe-ripple-color="dark"
-                    class="23-aug-button mx-auto animated-button">
+                    class="23-aug-button rounded-2xl mx-auto animated-button">
                     Performances
                 </button>
             </div>
-            <div class="pulau3 w-[100vw] flex justify-center flex-col space-y-10">
+            <div class="pulau3 w-[100vw] flex justify-center mb-3 flex-col space-y-10">
                 <img src="{{ asset('assets/EO.png') }}" class="mx-auto sm:w-[300px] w-[250px]" alt="">
                 <button type="button" data-twe-ripple-init data-twe-ripple-color="dark"
-                    class="30-aug-button mx-auto animated-button">
+                    class="30-aug-button rounded-2xl mx-auto animated-button">
                     Performances
                 </button>
             </div>
@@ -191,71 +195,71 @@
                     <ul class="absolute z-[1000] float-left m-0 hidden min-w-max h-[180px] overflow-y-scroll list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-base shadow-lg data-[twe-dropdown-show]:block"
                         aria-labelledby="dropdownMenuButton1" data-twe-dropdown-menu-ref>
                         <li>
-                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            <p class="question w-[400px] text-[#789461] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                                 href="#" data-twe-dropdown-item-ref question-code="0">Apa Mahasiswa Baru 2024
                                 memiliki kewajiban untuk mengikuti UKM / LK ?
                             </p>
                         </li>
                         <li>
-                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            <p class="question w-[400px] text-[#789461] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                                 href="#" data-twe-dropdown-item-ref question-code="1">Bagaimana prosedur untuk
                                 mendaftar ke UKM yang diinginkan ?</p>
                         </li>
                         <li>
-                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            <p class="question w-[400px] text-[#789461] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                                 href="#" data-twe-dropdown-item-ref question-code="2">Apakah Mahasiswa Baru 2024
                                 diperbolehkan untuk mendaftar lebih dari 1 UKM ?</p>
                         </li>
                         <li>
-                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            <p class="question w-[400px] text-[#789461] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                                 href="#" data-twe-dropdown-item-ref question-code="3">Apakah Mahasiswa Baru 2024
                                 boleh membatalkan registrasi setelah membayar uang pendaftaran UKM ?</p>
                         </li>
                         <li>
-                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            <p class="question w-[400px] text-[#789461] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                                 href="#" data-twe-dropdown-item-ref question-code="4">Apakah semua UKM pasti akan
                                 menerima Mahasiswa Baru 2024 sebagai calon peserta mereka?</p>
                         </li>
                         <li>
-                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            <p class="question w-[400px] text-[#789461] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                                 href="#" data-twe-dropdown-item-ref question-code="5">Bagaimana prosedur untuk
                                 membayar uang pendaftaran ke UKM yang diinginkan?
                             </p>
                         </li>
                         <li>
-                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            <p class="question w-[400px] text-[#789461] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                                 href="#" data-twe-dropdown-item-ref question-code="6">Apakah Mahasiswa Baru 2024
                                 diperbolehkan untuk membayar uang pendaftaran melalui rekening teman sesama Mahasiswa Baru
                                 2024?
                             </p>
                         </li>
                         <li>
-                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            <p class="question w-[400px] text-[#789461] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                                 href="#" data-twe-dropdown-item-ref question-code="7">Mengapa Mahasiswa Baru 2024
                                 belum dapat mendaftar menjadi anggota LK?</p>
                         </li>
                         <li>
-                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            <p class="question w-[400px] text-[#789461] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                                 href="#" data-twe-dropdown-item-ref question-code="8">Apa itu “Collectible Quest”?
                             </p>
                         </li>
                         <li>
-                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            <p class="question w-[400px] text-[#789461] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                                 href="#" data-twe-dropdown-item-ref question-code="9">Kapan Mahasiswa Baru 2024
                                 dapat mengumpulkan “Collectible Quest”?</p>
                         </li>
                         <li>
-                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            <p class="question w-[400px] text-[#789461] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                                 href="#" data-twe-dropdown-item-ref question-code="10">Apakah Mahasiswa Baru 2024
                                 wajib mengumpulkan “Collectible Quest”?</p>
                         </li>
                         <li>
-                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            <p class="question w-[400px] text-[#789461] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                                 href="#" data-twe-dropdown-item-ref question-code="11">Bagaimana cara mengumpulkan
                                 “Collectible Quest”? </p>
                         </li>
                         <li>
-                            <p class="question w-[400px] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
+                            <p class="question w-[400px] text-[#789461] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                                 href="#" data-twe-dropdown-item-ref question-code="12">Bagaimana cara mengetahui
                                 pemenang dari “Collectible Quest”?</p>
                         </li>
