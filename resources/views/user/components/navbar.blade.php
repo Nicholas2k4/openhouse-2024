@@ -50,7 +50,7 @@
                             <span>Timeline</span>
                         </li>
                     </a>
-                    <a href="{{ '/' == request()->path() ? '#game' : route('user.game') }}">
+                    <a href="{{ '/' == request()->path() ? '#ukm-lk' : route('user.game') }}">
                         <li>
                             <i class="fa-solid fa-gamepad"></i>
                             <span>Game</span>

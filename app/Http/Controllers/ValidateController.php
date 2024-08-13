@@ -167,7 +167,7 @@ class ValidateController extends Controller
         $ukm = $request->get('ukm');
         $selectionFile = DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->first()->file_validated;
         if ($selectionFile == 0) {
-            DetailRegistration::where('nrp', $nrp)->update([
+            DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
                 'file_validated' => 1,
                 'updated_by' => session('nrp')
             ]);
@@ -194,7 +194,7 @@ class ValidateController extends Controller
             } else {
                 return response()->json(['message' => 'false']); // Payment sudah divalidasi
             }
-        } else if (DetailRegistration::where('nrp', $nrp)->first()->file_validated == 2) {
+        } else if (DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->first()->file_validated == 2) {
             return response()->json(['message' => 'warning']); // Rejected
         } else {
             return response()->json(['message' => 'not_yet']); // File seleksi belum divalidasi
