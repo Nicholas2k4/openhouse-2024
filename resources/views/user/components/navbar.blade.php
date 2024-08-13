@@ -25,51 +25,51 @@
                 <ul>
                     @if (session()->has('nrp'))
                         <a href="{{ route('user.logout') }}">
-                            <li data-te-ripple-init data-te-ripple-color='light'>
+                            <li>
                                 <i class="fa-solid fa-right-from-bracket"></i>
                                 <span>Logout</span>
                             </li>
                         </a>
                     @else
                         <a href="{{ route('user.login') }}">
-                            <li data-te-ripple-init data-te-ripple-color='light'>
+                            <li>
                                 <i class="fa-solid fa-right-to-bracket"></i>
                                 <span>Login</span>
                             </li>
                         </a>
                     @endif
                     <a href="/#">
-                        <li data-te-ripple-init data-te-ripple-color='light'>
+                        <li>
                             <i class="fa-solid fa-house"></i>
                             <span>Dashboard</span>
                         </li>
                     </a>
                     <a href="{{ '/' == request()->path() ? '#timeline' : route('user.home') }}">
-                        <li data-te-ripple-init data-te-ripple-color='light'>
+                        <li>
                             <i class="fa-solid fa-hourglass ms-1"></i>
                             <span>Timeline</span>
                         </li>
                     </a>
                     <a href="{{ '/' == request()->path() ? '#game' : route('user.game') }}">
-                        <li data-te-ripple-init data-te-ripple-color='light'>
+                        <li>
                             <i class="fa-solid fa-gamepad"></i>
                             <span>Game</span>
                         </li>
                     </a>
                     <a href="{{ '/' == request()->path() ? '#ukm-lk' : route('user.ukm') }}">
-                        <li data-te-ripple-init data-te-ripple-color='light'>
+                        <li>
                             <i class="fa-solid fa-scroll"></i>
                             <span>UKM</span>
                         </li>
                     </a>
                     <a href="{{ '/' == request()->path() ? '#ukm-lk' : route('user.lk') }}">
-                        <li data-te-ripple-init data-te-ripple-color='light'>
+                        <li>
                             <i class="fa-solid fa-sitemap"></i>
                             <span>LK</span>
                         </li>
                     </a>
                     <a href="{{ '/' == request()->path() ? '#faq' : route('user.home') }}">
-                        <li data-te-ripple-init data-te-ripple-color='light'>
+                        <li>
                             <i class="fa-solid fa-circle-question ms-1"></i>
                             <span>FAQ</span>
                         </li>
