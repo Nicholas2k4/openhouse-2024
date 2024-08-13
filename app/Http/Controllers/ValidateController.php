@@ -22,41 +22,51 @@ class ValidateController extends Controller
                 $status = 2;
             } else if ($status == 'accepted') {
                 $status = 1;
-            } else {
+            } else if ($status == 'pending') {
                 $status = 0;
+            } else {
+                $status = 3;
             }
 
             if ($nrp != '' && $ukm) { // NRP not empty & UKM not empty
-                if ($status == 2) {
+                if ($status == 2) { // Rejected
                     $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', $status)->get();
-                } else if ($status == 1) {
+                } else if ($status == 1) { // Accepted
                     $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', $status)->where('payment_validated', $status)->get();
-                } else {
-                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', '!=', 2)->where('payment_validated', '0')->get();
+                } else if ($status == 0) {  //Pending
+                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', 0)->where('file_validated', 1)->get();
+                } else { // All
+                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->get();
                 }
             } else if ($nrp == '' && $ukm) { // NRP empty & UKM not empty
-                if ($status == 2) {
+                if ($status == 2) { // Rejected
                     $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', $status)->get();
-                } else if ($status == 1) {
+                } else if ($status == 1) { // Accepted
                     $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', $status)->where('payment_validated', $status)->get();
-                } else {
-                    $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', '!=', 2)->where('payment_validated', '0')->get();
+                } else if ($status == 0) { // Pending
+                    $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', 0)->where('file_validated', 1)->get();
+                } else { // All
+                    $data = DetailRegistration::where('ukm_id', $ukm->id)->get();
                 }
             } else if ($nrp != '' && !$ukm) { // NRP not empty & UKM empty
-                if ($status == 2) {
+                if ($status == 2) { // Rejected
                     $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', $status)->get();
-                } else if ($status == 1) {
+                } else if ($status == 1) { // Accepted
                     $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', $status)->where('payment_validated', $status)->get();
-                } else {
-                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', '!=', 2)->where('payment_validated', '0')->get();
+                } else if ($status == 0) { // Pending
+                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', 0)->where('file_validated', 1)->get();
+                } else { // All
+                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->get();
                 }
             } else if ($nrp == '' && !$ukm) { // NRP empty & UKM empty
-                if ($status == 2) {
+                if ($status == 2) { // Rejected
                     $data = DetailRegistration::where('file_validated', $status)->get();
-                } else if ($status == 1) {
+                } else if ($status == 1) { // Accepted
                     $data = DetailRegistration::where('file_validated', $status)->where('payment_validated', $status)->get();
-                } else {
-                    $data = DetailRegistration::where('file_validated', '!=', 2)->where('payment_validated', '0')->get();
+                } else if ($status == 0) { // Pending
+                    $data = DetailRegistration::where('file_validated', 0)->where('file_validated', 1)->get();
+                } else { // All
+                    $data = DetailRegistration::all();
                 }
             }
 
@@ -80,7 +90,7 @@ class ValidateController extends Controller
 
                 if ($row->file_validated == 2) {
                     $output .= '
-                        <td class="p-3 border-gray-200 font-bold text-yellow-500 text-center" colspan="3">Rejected</td>';
+                        <td class="p-3 border-y-2 border-gray-200 font-bold text-yellow-500 text-center" colspan="3">Rejected</td>';
                 } else if ($row->file_validated == 1 && $row->payment_validated == 1) {
                     $output .= '
                         <td class="p-3 border-gray-200 font-bold text-green-500 text-center" colspan="3">Accepted</td>
@@ -92,9 +102,7 @@ class ValidateController extends Controller
                         <td class="p-3 border-s-2 text-center text-nowrap">';
                 }
 
-                if ($row->file_validated == 2) {
-                    $output .= '<p class="p-3 border-gray-200 font-bold text-yellow-500">Rejected</p>';
-                } else {
+                if ($row->file_validated != 2) {
                     $output .= '
                             <button class="validateBtn p-1.5 text-sm bg-green-500 hover:bg-green-600 transition text-white text-nowrap rounded" data-nrp="' . $row->nrp . '">
                                 Validate
@@ -172,7 +180,7 @@ class ValidateController extends Controller
     {
         $nrp = $request->get('nrp');
 
-        Ukm::where('nrp', $nrp)->increment('current_slot'); // kalau ditolak, slot nambah 1
+        // Ukms::where('nrp', $nrp)->increment('current_slot'); // kalau ditolak, slot nambah 1
         DetailRegistration::where('nrp', $nrp)->update([
             'file_validated' => 2
         ]);

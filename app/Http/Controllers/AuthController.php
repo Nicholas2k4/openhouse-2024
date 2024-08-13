@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-
+    // protected $stateless = false;
     public function login()
     {
         return view('user.login');
