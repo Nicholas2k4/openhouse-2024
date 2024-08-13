@@ -90,7 +90,19 @@ class UKMController extends Controller
             'emr' => 'https://drive.google.com/file/d/1P6gsb6k4W1DXscXHN5RSnRItmX_ZoU2t/preview',
             'vg' => 'https://drive.google.com/file/d/1aUaMolYAW-iIAwXp_VX5kuR1xB1Jz4PC/preview',
             'futsal' => 'https://drive.google.com/file/d/1VbrZl637ocLP0u8JvNmg9qHUFMN2QXsu/preview',
-            'tps' => 'https://drive.google.com/file/d/1i1Q3ZTO_bV7vQEBllQz-5MSZec3r03KH/preview'
+            'tps' => 'https://drive.google.com/file/d/1i1Q3ZTO_bV7vQEBllQz-5MSZec3r03KH/preview',
+            'bpmf' => 'https://drive.google.com/file/d/10GkLBX0xQXST3D3GOqJzMua69-YOGpU8/preview',
+            'basket' => 'https://drive.google.com/file/d/1a2-JpT0_4vSfX-gawP5bmNcZYtGGYvy2/preview',
+            'asfs' => 'https://drive.google.com/file/d/1WhHXY0eibJykn4Bd9nqliSbHLqxZYCOP/preview',
+            'taekwondo' => 'https://drive.google.com/file/d/1NChFXQboEAJ1b98tG_mIqKz9DjczPRCn/preview',
+            'orkestra' => 'https://drive.google.com/file/d/1V1hO89znFrbiHHVyyDT074kwUfWLYAy0/preview',
+            'catur' => 'https://drive.google.com/file/d/1IcI8fN6VcJCsWMGd8tOW6xYOannCdzp0/preview',
+            'dance' => 'https://drive.google.com/file/d/1WOacT3Am_rpJzqxJPxRHPV3IycVADomH/preview',
+            'voli' => 'https://drive.google.com/file/d/1DYVVZ5URuYJ6s9d7kpaUe3VldOQxG8vq/preview',
+            'debate' => 'https://drive.google.com/file/d/15Qgd09SPkRyan1j6IfcPm6-bm4ZOSV0j/preview',
+            'ilustrasi' => 'https://drive.google.com/file/d/1KhNwm1Q_3q6_beKyRynZSC25j49-rkrw/preview',
+            'padus' => 'https://drive.google.com/file/d/13WPnsdDZ_dhT4AV6B70Tf85yCDXbHsvA/preview',
+            'tenis-lapangan' => 'https://drive.google.com/file/d/18SNk1v5L2UZTEmoTMDcO5epxVR8cPILZ/preview',
         ];
 
 
