@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>OPENHOUSE</title>
     <script src="https://kit.fontawesome.com/fc45e0c6e7.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -14,6 +14,19 @@
         body,
         html {
             overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 9.5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(-180deg, transparent 35%, white);
+            border-radius: 30px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #003563;
         }
 
         @font-face {
@@ -34,6 +47,10 @@
         @font-face {
             font-family: GeneralSansItalic;
             src: url('{{ asset('font/GeneralSans-Italic.otf') }}');
+        }
+
+        * {
+            font-family: GeneralSans;
         }
 
         h1,
@@ -267,9 +284,8 @@
     <div class="z-5 min-h-screen flex items-center">
         <div
             class="pb-[40px] pt-[164px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] mx-auto h-full flex flex-col flex-wrap justify-center items-center">
-            <div class=" reveal from-left active z-[10] mt-10 lg:mt-0 text-center flex flex-col w-full">
-                <h1
-                    class="glow-text font-bold text-[48px] md:text-[80px] lg:text-[100px] leading-none text-white">
+            <div class="reveal from-left active z-[10] mt-10 lg:mt-0 text-center flex flex-col w-full mb-2">
+                <h1 class="glow-text font-bold text-[48px] md:text-[80px] lg:text-[100px] leading-none text-white">
                     {{ $ukm->name }}
                 </h1>
             </div>
@@ -291,29 +307,28 @@
         <div class="z-5 min-h-screen" id = "video">
             <div
                 class="pb-[40px] pt-[164px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] mx-auto h-full flex flex-col flex-wrap justify-center items-center">
-                @if($ukm->slug !== "bpmf")
-                <div class="reveal from-right active h-[100%] w-[100%] lg:h-[80%] lg:w-[80%]">
-                    <div class="video-container aspect-w-16 aspect-h-9">
-                        <iframe class="w-full h-full" src="{{ $videoUrl }}" frameborder="0"
-                            allow="autoplay"></iframe>
+                @if ($ukm->slug !== 'bpmf')
+                    <div class="reveal from-right active h-[100%] w-[100%] lg:h-[80%] lg:w-[80%]">
+                        <div class="video-container aspect-w-16 aspect-h-9">
+                            <iframe class="w-full h-full" src="{{ $videoUrl }}" frameborder="0"
+                                allow="autoplay"></iframe>
+                        </div>
                     </div>
-                </div>
                 @else
-                <div class="reveal from-right active h-[100%] w-[100%] lg:h-[80%] lg:w-[80%] flex flex-col">
-                    <div class="video-container aspect-w-16 aspect-h-9">
-                        <iframe class="w-full h-full" src="{{ $videoUrl[0] }}" frameborder="0"
-                            allow="autoplay"></iframe>
+                    <div class="reveal from-right active h-[100%] w-[100%] lg:h-[80%] lg:w-[80%] flex flex-col">
+                        <div class="video-container aspect-w-16 aspect-h-9">
+                            <iframe class="w-full h-full" src="{{ $videoUrl[0] }}" frameborder="0"
+                                allow="autoplay"></iframe>
+                        </div>
+                        <div class="video-container aspect-w-16 aspect-h-9">
+                            <iframe class="w-full h-full" src="{{ $videoUrl[1] }}" frameborder="0"
+                                allow="autoplay"></iframe>
+                        </div>
+                        <div class="video-container aspect-w-16 aspect-h-9">
+                            <iframe class="w-full h-full" src="{{ $videoUrl[2] }}" frameborder="0"
+                                allow="autoplay"></iframe>
+                        </div>
                     </div>
-                    <div class="video-container aspect-w-16 aspect-h-9">
-                        <iframe class="w-full h-full" src="{{ $videoUrl[1] }}" frameborder="0"
-                            allow="autoplay"></iframe>
-                    </div>
-                    <div class="video-container aspect-w-16 aspect-h-9">
-                        <iframe class="w-full h-full" src="{{ $videoUrl[2] }}" frameborder="0"
-                            allow="autoplay"></iframe>
-                    </div>
-                </div>
-
                 @endif
             </div>
         </div>
@@ -414,7 +429,8 @@
                         <div class="flex flex-row justify-center">
                             <div id = "show-slot"
                                 class = "flex flex-col justify-center pl-[20px] pr-[20px] border-r-[1px]">
-                                <div class = "text-white text-[56px] md:text-[90px] lg:text-[120px] font-bold leading-tight">
+                                <div
+                                    class = "text-white text-[56px] md:text-[90px] lg:text-[120px] font-bold leading-tight">
                                     {{ $ukm->current_slot }}</div>
                                 <div
                                     class = "text-white text-[26px] lg:text-[36px] m-[-2px] pb-[4px] w-full text-center">
@@ -422,7 +438,8 @@
                             </div>
 
                             <div id = "show-regist-fee" class = "flex flex-col justify-center pr-[20px] pl-[20px]">
-                                <div class = "text-white text-[56px] md:text-[90px] lg:text-[120px] font-bold leading-tight">
+                                <div
+                                    class = "text-white text-[56px] md:text-[90px] lg:text-[120px] font-bold leading-tight">
                                     @if ($ukm->regist_fee == 0)
                                         0K
                                     @else
@@ -453,9 +470,9 @@
     <script>
         document.getElementById("explore-button").addEventListener('click', function(e) {
             e.preventDefault();
-            let videoUrl = <?php echo json_encode($videoUrl)?>;
+            let videoUrl = <?php echo json_encode($videoUrl); ?>;
 
-            if (videoUrl !=="") {
+            if (videoUrl !== "") {
                 document.getElementById('video').scrollIntoView({
                     behavior: 'smooth'
                 });

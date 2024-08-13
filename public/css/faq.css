@@ -227,6 +227,12 @@
     background-color: #1A4D2E !important;
 }
 
+.question-container::-webkit-scrollbar-track {
+    background-color: #116432 !important;
+}
+.question-container{
+    transition: none !important;
+}
 .question {
     background-color: #789461;
     border-color: #1A4D2E;
@@ -259,7 +265,7 @@
     position: relative;
     width: 11px;
     height: 11px;
-    background-color: rgb(61, 137, 251);
+    background-color: #789461;
     float: left;
     margin-right: 4px;
     border-radius: 100%;

@@ -113,6 +113,6 @@ class UKMController extends Controller
 
         $videoUrl = $videoUrls[$slug] ?? "";
 
-        return view('user/show', compact('ukm', 'id', 'imageUrls', 'posterUrl', 'videoUrl'));
+        return view('user.show', compact('ukm', 'id', 'imageUrls', 'posterUrl', 'videoUrl'));
     }
 }

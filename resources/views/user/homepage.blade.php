@@ -11,7 +11,7 @@
             overflow-x: hidden;
         }
 
-        .coral-2{
+        .coral-2 {
             animation: rotateLeftRight2 2.6s infinite linear;
         }
     </style>
@@ -126,8 +126,7 @@
             <div
                 class="ease-in-out border rounded-xl backdrop-blur-sm bg-gradient-to-bl from-[#074173] via-[#4477CE] to-transparent shadow-black shadow-lg md:min-w-[200px] p-5 space-y-5 flex flex-col justify-center text-center transition-shadow hover:ease-in-out duration-500 hover:shadow-white hover:shadow-xl">
                 <span class="text-center mx-auto sm:h-[120px] sm:w-[135px] h-[100px] w-[125px]">
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 576 512">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                         <path fill="#ffffff"
                             d="M208 80c0-26.5 21.5-48 48-48l64 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-8 0 0 40 152 0c30.9 0 56 25.1 56 56l0 32 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-32c0-4.4-3.6-8-8-8l-152 0 0 40 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-40-152 0c-4.4 0-8 3.6-8 8l0 32 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-32c0-30.9 25.1-56 56-56l152 0 0-40-8 0c-26.5 0-48-21.5-48-48l0-64z" />
                     </svg>
@@ -170,7 +169,8 @@
             <div class="chat-header w-full h-[70px] rounded-t-2xl flex justify-start items-center">
                 <img src="{{ asset('assets/VERDARA PP.png') }}" alt="faq-maskot"
                     class="rounded-full h-11 bg-yellow-400 mx-4">
-                <p class="text-lg font-bold max-sm:text-base text-[#1A4D2E]" data-aos="fade-down" data-aos-once="true">Verdara</p>
+                <p class="text-lg font-bold max-sm:text-base text-[#1A4D2E]" data-aos="fade-down" data-aos-once="true">
+                    Verdara</p>
             </div>
             <div class="chat-area pt-4 chat-section overflow-y-scroll overflow-x-hidden">
                 <div class="chatAnswer flex">
@@ -188,12 +188,12 @@
             <div class="chat-footer w-full h-[58px] rounded-b-2xl flex justify-between place-self-end items-center">
                 <p class="ml-5 font-bold max-sm:text-xs text-[#1A4D2E]">Choose your question here</p>
                 <div class="flex items-center h-full" data-twe-dropdown-position="dropup">
-                    <i class="fa-regular fa-comment-dots mx-5 text-2xl hover:cursor-pointer text-[#1A4D2E]" type="button"
-                        id="dropdownMenuButton1" data-twe-dropdown-toggle-ref aria-expanded="false" data-twe-ripple-init
+                    <i class="!transition-none fa-regular fa-comment-dots mx-5 text-2xl hover:cursor-pointer text-[#1A4D2E]" type="button"
+                        id="question-menu" data-twe-dropdown-toggle-ref aria-expanded="false" data-twe-ripple-init
                         data-twe-ripple-color="light">
                     </i>
-                    <ul class="absolute z-[1000] float-left m-0 hidden min-w-max h-[180px] overflow-y-scroll list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-base shadow-lg data-[twe-dropdown-show]:block"
-                        aria-labelledby="dropdownMenuButton1" data-twe-dropdown-menu-ref>
+                    <ul class="!transition-none question-container absolute z-[1000] float-left m-0 hidden min-w-max h-[180px] overflow-y-scroll list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-base shadow-lg data-[twe-dropdown-show]:block"
+                        aria-labelledby="question-menu" data-twe-dropdown-menu-ref>
                         <li>
                             <p class="question w-[400px] text-[#789461] max-sm:w-[300px] block border-b-2 bg-white px-4 py-2 text-sm max-sm:text-xs font-bold hover:cursor-pointer"
                                 href="#" data-twe-dropdown-item-ref question-code="0">Apa Mahasiswa Baru 2024
@@ -395,6 +395,7 @@
         ]
 
         var replyUser = function(answer) {
+            const questionButton = document.getElementById('question-menu');
             const chatResponse = document.createElement('div');
             chatResponse.classList.add('chatAnswer', 'pt-4', 'flex');
 
@@ -415,6 +416,8 @@
         <div class="chat-istyping-circle-3"></div>
     </div>
 `;
+
+            questionButton.disabled = true;
             setTimeout(function() {
                 // const chatElements = document.querySelectorAll('.chat');
                 // const lastChatElement = chatElements[chatElements.length - 1];
@@ -428,6 +431,7 @@
                 replyText.style.height = 'auto';
                 replyText.innerHTML = answer;
                 chatSection.scrollTop = chatSection.scrollHeight;
+                questionButton.disabled = false;
             }, 2000);
             chatResponse.appendChild(chatProfile);
             chatResponse.appendChild(replyText);
