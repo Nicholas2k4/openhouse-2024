@@ -32,6 +32,7 @@
                                 <td class="py-2 px-4 border-b border-gray-200 text-sm">${user.line_id}</td>
                                 <td class="py-2 px-4 border-b border-gray-200 text-sm">${user.phone}</td>
                             </tr>`;
+                            console.log(row);
                             tableBody.append(row);
                         });
                     }

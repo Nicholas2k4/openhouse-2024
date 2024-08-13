@@ -15,7 +15,12 @@ class PendaftaranController extends Controller
         // Validate the incoming request
         $request->validate([
             'ukm_id' => 'required',
-            'payment' => 'required|file|mimes:jpeg,png,jpg,pdf|max:2048', // Adjust file types and size limit as needed
+            'payment' => 'required|file|mimes:jpeg,png,jpg,heic|max:5120',
+        ], [
+            'ukm_id.required' => 'UKM ID is required.',
+            'payment.required' => 'Payment file is required.',
+            'payment.mimes' => 'The payment file must be a file of type: jpeg, png, jpg, heic.',
+            'payment.max' => 'The payment file may not be greater than 4 MB.',
         ]);
 
         $nrp = session('nrp');
@@ -26,13 +31,29 @@ class PendaftaranController extends Controller
         $detail_registration = DetailRegistration::where('nrp', $user->nrp)
             ->where('ukm_id', $ukm_id)
             ->first();
+        $ukm = Ukm::where('id', $ukm_id)->first();
+        $ukm_name = $ukm->name;
 
         if ($detail_registration) {
             // Check if a file was uploaded
             if ($request->hasFile('payment')) {
-                // Store the file and get its path
+                // Get the uploaded file
                 $file = $request->file('payment');
-                $file_path = $file->store('uploads', 'public'); // Store the file in /storage/app/public/uploads
+
+                // Get the UKM name based on the UKM ID
+                $ukm_name = Ukm::where('id', $ukm_id)->value('name');
+
+                // Format the current date and time
+                $current_date_time = now()->setTimezone('Asia/Jakarta')->format('d-m-y_H-i-s');
+
+                // Create a new file name
+                $filename = $nrp . '_' . $current_date_time . '.' . $file->getClientOriginalExtension();
+
+                // Define the file path
+                $file_path = 'uploads/' . $ukm_name . '/' . $filename;
+
+                // Store the file with the new path and name
+                $file->storeAs('uploads/' . $ukm_name, $filename, 'public');
 
                 // Update the detail_registration record with the file path
                 $detail_registration->update([
@@ -75,7 +96,7 @@ class PendaftaranController extends Controller
         $ukm = Ukm::where('slug', $ukm_slug)->first();
         $detail_registration = DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm->id)->first();
         if ($count >= 3 && !$detail_registration) {
-            return redirect()->route('user.home');
+            back()->with('limit', 'Maksimal mendaftar 3 UKM');
         }
 
         // logic redirect audisi / pembayaran & slot
@@ -92,8 +113,9 @@ class PendaftaranController extends Controller
             return view('user.pendaftaran', compact('name', 'nrp', 'email', 'ukm_id', 'ukm_slug'));
         } else { //udah memasukan data diri
             if ($ukm_slug == 'vg' || $ukm_slug == 'ilustrasi') {
-                if ($detail_registration->file_validated == 0) { //vg / ilus & belum diterima
-                    return view('user.wait', compact('name', 'nrp', 'email', 'ukm_slug'));
+                if ($detail_registration->file_validated == 0 || $detail_registration->file_validated == 2) { //vg / ilus & belum diterima
+                    $status_file = $detail_registration->file_validated;
+                    return view('user.wait', compact('name', 'nrp', 'email', 'ukm_slug', 'status_file'));
                 } else { // vg / ilus & sudah diterima
                     $code = $detail_registration->code;
                     $status_pembayaran = $detail_registration->payment_validated;
@@ -135,7 +157,7 @@ class PendaftaranController extends Controller
         $current_slot = $ukm->current_slot;
 
         // cek current slot apakah masih ada
-        if ($current_slot <= 1) {
+        if ($current_slot < 1) {
             return back()->with('warning', 'slot habis');
         } else {
             $current_slot = $current_slot - 1;

@@ -32,7 +32,7 @@ use App\Http\Controllers\UKMController;
 Route::prefix('admin')->group(function () {
     Route::get('logout', [AuthController::class, 'adminLogout'])->name('admin.logout');
     Route::get('login', [AdminController::class, 'login'])->name('admin.login');
-    Route::get('participant', [AdminController::class, 'participant'])->name('admin.showParticipants');
+    Route::get('participant', [AdminController::class, 'participant'])->name('admin.showParticipants')->middleware('isLogin');
     Route::get('get-users-by-activity', [AdminController::class, 'getUsersByActivity'])->name('admin.getUsersByActivity');
     Route::get('validate', [AdminController::class, 'validatePage'])->name('admin.validate');
     Route::get('generate', [AdminController::class, 'generatePage'])->name('admin.generate');

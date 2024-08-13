@@ -14,6 +14,41 @@
         background-position: center;
       }
 
+      @font-face {
+            font-family: GeneralSans;
+            src: url('{{ asset('font/GeneralSans-Regular.otf') }}');
+        }
+
+        @font-face {
+            font-family: GeneralSansBold;
+            src: url('{{ asset('font/GeneralSans-Bold.otf') }}');
+        }
+
+        @font-face {
+            font-family: GeneralSansSemiBold;
+            src: url('{{ asset('font/GeneralSans-Semibold.otf') }}');
+        }
+
+        @font-face {
+            font-family: GeneralSansItalic;
+            src: url('{{ asset('font/GeneralSans-Italic.otf') }}');
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        span,
+        button {
+            font-family: GeneralSansBold !important;
+        }
+
+        p{
+          font-family: GeneralSans !important;
+        }
+
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -39,10 +74,10 @@
       @csrf
         <div class="space-y-12">
           <div class="border-b border-gray-900/10 pb-12">
-            <h2 class="text-base text-slate-50 leading-7 pb-6">Pembayaran UKM</h2>
-            <h2 class="text-base text-slate-50 text-center leading-7 pb-2">Nominal: Rp. {{$price}}</h2>
+            <h2 class="sm:text-2xl text-2xl font-bold text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mb-5">Pembayaran UKM</h2>
+            <h2 class="text-base text-slate-50 text-center leading-7 pb-2">Nominal: Rp. {{ number_format($price, 0, ',', '.') }}</h2>
             <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Kode Unik Anda:</h1>
-            <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">{{$code}}</h1>
+            <h1 class="sm:text-2xl text-2xl font-bold text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mb-5">{{$code}}</h1>
 
           <div class="flex items-center justify-center mt-6">
             <button type="button" id="myButton" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Lihat Panduan Pembayaran</button>
@@ -58,6 +93,9 @@
                 class="w-full text-gray-500 font-medium text-sm bg-gray-100 file:cursor-pointer cursor-pointer file:border-0 file:py-2 file:px-4 file:mr-4 file:bg-indigo-600 file:hover:bg-indigo-500 file:text-white rounded" name="payment" />
               {{-- <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p> --}}
               <input type="hidden" name="ukm_id" value={{ $ukm_id }}>
+              @error('payment')
+            <div class="text-red-500">{{ $message }}</div>
+        @enderror
 
           
 
@@ -80,7 +118,15 @@
             <button type="button" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Kembali ke home</button>
         </a>
       </div>
-      @elseif($url)
+      @elseif($status_pembayaran == 2)
+      {{-- ditolak --}}
+      <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Pembayaran ditolak</h1>
+      <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Silakan hubungi admin untuk memproses hal ini.</h1>
+      <div class="flex justify-center mt-6">
+        <a href="{{ route('user.home') }}">
+            <button type="button" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Kembali ke home</button>
+        </a>
+        @elseif($url)
         <!-- Pesan pembayaran sedang direview -->
         <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Pembayaran sedang di review</h1>
       <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Cek halaman ini secara berkala untuk melihat status pembayaran</h1>
@@ -98,10 +144,6 @@
             title: 'Berhasil',
             text: '{{ session('success') }}',
             confirmButtonText: 'Tutup'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = '{{ route("user.home") }}';
-            }
         });
     </script>
 @endif
