@@ -462,29 +462,58 @@
                 title: 'Performance of the Week',
                 width: 800,
                 html: `<h5 class="font-bold text-xl text-center">16 Agustus 2024</h5>
-                <ul class="list-disc text-start ms-3 mt-5">
+                <h3 class="font-bold text-3xl text-center mt-5"> Gedung W </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, error?</p>
+                        <p>UKM Paduan Suara</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, molestias.</p>
+                        <p>UKM Taekwondo</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, delectus.</p>
+                        <p>UKM Teater</p>
+                    </li>
+                </ul>
+                <h3 class="font-bold text-3xl text-center mt-5"> Gedung Q </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
+                    <li>
+                        <p>UKM Chinese Art</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Dance</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM ASFS</p>
+                    </li>
+                </ul>
+                <h3 class="font-bold text-3xl text-center mt-5"> PCR Featuring Openhouse 2024 </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
+                    <li>
+                        <p>UKM Voli</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Catur</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Futsal</p>
                     </li>
-                </ul>`,
+                    <li>
+                        <p>UKM Badminton</p>
+                    </li>
+                    <li>
+                        <p>UKM Tenis Meja</p>
+                    </li>
+                    <li>
+                        <p>UKM Renang</p>
+                    </li>
+                    <li>
+                        <p>UKM Tenis Lapangan</p>
+                    </li>
+                    <li>
+                        <p>UKM Basket</p>
+                    </li>
+                </ul>
+                `,
             });
         });
 
@@ -493,29 +522,49 @@
                 title: 'Performance of the Week',
                 width: 800,
                 html: `<h5 class="font-bold text-xl text-center">23 Agustus 2024</h5>
-                <ul class="list-disc text-start ms-3 mt-5">
+                <h3 class="font-bold text-3xl text-center mt-5"> Gedung W </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, error?</p>
+                        <p>UKM Resimen Mahasiswa & EMR</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, molestias.</p>
+                        <p>UKM Dance</p>
+                    </li>
+                </ul>
+                <h3 class="font-bold text-3xl text-center mt-5"> Gedung Q </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
+                    <li>
+                        <p>UKM Teater</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, delectus.</p>
+                        <p>UKM Taekwondo</p>
+                    </li>
+                </ul>
+                <h3 class="font-bold text-3xl text-center mt-5"> PCR Featuring Openhouse 2024 </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
+                    <li>
+                        <p>UKM English Debate Society</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Pengembangan Diri</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Esport</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Matrapenza</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>LK BEM</p>
                     </li>
-                </ul>`,
+                    <li>
+                        <p>LK PELMA</p>
+                    </li>
+                    <li>
+                        <p>LK PERSMA</p>
+                    </li>
+                </ul>
+                `,
             });
         });
 
@@ -524,27 +573,43 @@
                 title: 'Performance of the Week',
                 width: 800,
                 html: `<h5 class="font-bold text-xl text-center">30 Agustus 2024</h5>
-                <ul class="list-disc text-start ms-3 mt-5">
+                <h3 class="font-bold text-3xl text-center mt-5"> Gedung W </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, error?</p>
+                        <p>UKM Vocal Group & Modeling</p>
+                    </li>
+                </ul>
+                <h3 class="font-bold text-3xl text-center mt-5"> Gedung Q </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
+                    <li>
+                        <p>UKM Chinese Art</p>
+                    </li>
+                </ul>
+                <h3 class="font-bold text-3xl text-center mt-5"> PCR Featuring Openhouse 2024 </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
+                    <li>
+                        <p>UKM ASFS</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, molestias.</p>
+                        <p>UKM Dekorasi</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, delectus.</p>
+                        <p>UKM Ilustrasi</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Martografi</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM EMR - Menwa</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Vocal Group - Modelling</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Tenis Paduan Suara - Orchestra</p>
+                    </li>
+                    <li>
+                        <p>UKM Matrapala</p>
                     </li>
                 </ul>`,
             });
