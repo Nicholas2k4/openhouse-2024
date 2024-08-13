@@ -226,12 +226,13 @@
                 });
             });
 
-            function rejectParticipant(nrp = "") {
+            function rejectParticipant(nrp = "", ukm = "") {
                 $.ajax({
                     url: "{{ route('admin.rejectParticipant') }}",
                     method: "POST",
                     data: {
                         nrp: nrp,
+                        ukm: ukm,
                     },
                     success: function() {
                         Swal.fire({
@@ -251,6 +252,7 @@
 
             $(document).on("click", ".rejectBtn", function() {
                 var nrp = $(this).data("nrp");
+                var ukm = $(this).data("ukm");
                 Swal.fire({
                     title: "Are you sure?",
                     text: "NRP : " + nrp,
@@ -261,7 +263,7 @@
                     confirmButtonText: "Yes",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        rejectParticipant(nrp);
+                        rejectParticipant(nrp, ukm);
                     }
                 });
             });

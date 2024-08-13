@@ -34,7 +34,7 @@ class ValidateController extends Controller
                 } else if ($status == 1) { // Accepted
                     $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', $status)->where('payment_validated', $status)->get();
                 } else if ($status == 0) {  //Pending
-                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', 0)->where('file_validated', 1)->get();
+                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', 0)->orWhere('payment_validated', 0)->get();
                 } else { // All
                     $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->get();
                 }
@@ -44,7 +44,7 @@ class ValidateController extends Controller
                 } else if ($status == 1) { // Accepted
                     $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', $status)->where('payment_validated', $status)->get();
                 } else if ($status == 0) { // Pending
-                    $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', 0)->where('file_validated', 1)->get();
+                    $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', 0)->orWhere('payment_validated', 0)->get();
                 } else { // All
                     $data = DetailRegistration::where('ukm_id', $ukm->id)->get();
                 }
@@ -54,7 +54,7 @@ class ValidateController extends Controller
                 } else if ($status == 1) { // Accepted
                     $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', $status)->where('payment_validated', $status)->get();
                 } else if ($status == 0) { // Pending
-                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', 0)->where('file_validated', 1)->get();
+                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', 0)->orWhere('payment_validated', 0)->get();
                 } else { // All
                     $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->get();
                 }
@@ -64,7 +64,7 @@ class ValidateController extends Controller
                 } else if ($status == 1) { // Accepted
                     $data = DetailRegistration::where('file_validated', $status)->where('payment_validated', $status)->get();
                 } else if ($status == 0) { // Pending
-                    $data = DetailRegistration::where('file_validated', 0)->where('file_validated', 1)->get();
+                    $data = DetailRegistration::where('file_validated', 0)->orWhere('payment_validated', 0)->where('file_validated', 1)->get();
                 } else { // All
                     $data = DetailRegistration::all();
                 }
