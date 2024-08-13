@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+      
       body{
         
         background-image: url('/img/EO_Edit.jpg');
@@ -18,6 +19,10 @@
         background-position: center;
       }
 
+      input, textarea {
+    font-family: GeneralSans !important;
+    font-size: 14px; /* Optional: Adjust the font size as needed */
+}
       @font-face {
             font-family: GeneralSans;
             src: url('{{ asset('font/GeneralSans-Regular.otf') }}');
@@ -49,10 +54,6 @@
             font-family: GeneralSansBold !important;
         }
 
-        p{
-          font-family: GeneralSans !important;
-        }
-
     </style>
 </head>
 <body class="bg-gray-100 flex justify-center items-center min-h-screen px-4 sm:px-6">
@@ -62,7 +63,7 @@
         <div class="space-y-12">
           <div class="border-b border-gray-900/10 pb-2">
             <h2 class="sm:text-2xl text-2xl font-bold text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mb-5">Pendaftaran UKM</h2>
-            <p class="mt-1 text-sm leading-6 text-slate-50 text-center">Silakan mengisi form ini dengan benar.</p>
+            <p class=" text-base leading-6 text-slate-50 text-center">Silakan mengisi form ini dengan benar.</p>
 
            
           <div class="border-b border-gray-900/10 pb-6">

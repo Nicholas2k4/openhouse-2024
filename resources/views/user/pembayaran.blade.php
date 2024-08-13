@@ -34,6 +34,7 @@
             src: url('{{ asset('font/GeneralSans-Italic.otf') }}');
         }
 
+        
         h1,
         h2,
         h3,
@@ -84,7 +85,7 @@
           </div>
 
           <div class="flex items-center justify-center mt-6 pb-6">
-            <img src="\img\image.png"  style="width:60%; height:60%" alt="">
+            <img src="{{ asset('/assets/QR code.png') }}"  style="width:60%; height:60%" alt="QR CODE">
           </div>
 
           
