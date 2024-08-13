@@ -67,12 +67,27 @@ Menjadi organisasi inspiratif yang membangkitkan semangat kemahasiswaan berlanda
                     'current_slot' => 10000,
                     'max_slot' => 10000,
                     'regist_fee' => 0,
-                    'description' => 'BPMF 2 (Badan Perwakilan Mahasiswa Fakultas) merupakan Lembaga Legislatif Kemahasiswaan Universitas Kristen yang memiliki tujuan mengawasi pelaksanaan kegiatan dan pembuatan peraturan Lembaga Kemahasiswaan FTI dan FTSP. Berikut merupakan visi, misi, value, dan motto BPMF 2 Periode 2024/2025.
+                    'description' => '
+   <h1 class = "text-5xl">BPMF 1</h1>  
+    <h2 class = "mt-3 text-3xl">Visi</h2>
+Menjadi lembaga legislatif yang membangun komunikasi yang harmonis dan kolaboratif, terbuka terhadap aspirasi mahasiswa, serta mendorong inovasi dan kreativitas yang berlandaskan kasih. 
 
-<h2 class = "mt-3 text-3xl">Visi:</h2>
+<h2 class = "mt-3 text-3xl">Misi</h2>
+<ol class = "list-inside list-decimal">
+<li>Leading with humility and empathy: Memimpin dengan rendah hati dan empati, mendengarkan dengan teliti dan memahami kebutuhan serta aspirasi mahasiswa dengan penuh kasih.
+</li> 
+<li>Orchestrating unity through diversity: Mengatur kesatuan melalui keberagaman, mendorong kerjasama antara mahasiswa dari berbagai prodi.</li> 
+<li>Visionary Support: Memberikan dukungan untuk mewujudkan ide-ide kreatif yang dituangkan melalui program kerja yang berdampak positif untuk mahasiswa tingkat fakultas.
+</li> 
+<li>Ensuring Smooth Operations: Memastikan bahwa semua kegiatan berjalan dengan lancar melalui forum dan pengawasan.</li>
+</ol>
+
+<h1 class = "text-5xl mt-3">BPMF 2</h1>
+BPMF 2 (Badan Perwakilan Mahasiswa Fakultas) merupakan Lembaga Legislatif Kemahasiswaan Universitas Kristen yang memiliki tujuan mengawasi pelaksanaan kegiatan dan pembuatan peraturan Lembaga Kemahasiswaan FTI dan FTSP. Berikut merupakan visi, misi, value, dan motto BPMF 2 Periode 2024/2025.
+<h2 class = "mt-3 text-3xl">Visi</h2>
 Menjadi BPMF 2 yang inklusif dalam membangun kerja sama antara Lembaga Kemahasiswaan FTI-FTSP, serta melayani mahasiswa hingga tercapai kesejahteraan yang menjunjung tinggi nilai-nilai Kristiani.
 
-<h2 class = "mt-3 text-3xl">Misi:</h2>
+<h2 class = "mt-3 text-3xl">Misi</h2>
 <ol class = "list-inside list-decimal">
 <li>Membangun kerja sama dan sinergi untuk kepentingan bersama Lembaga Kemahasiswaan FTI-FTSP UK Petra.</li> 
 <li>Menjadi wadah untuk menampung, menyalurkan, dan memperjuangkan aspirasi mahasiswa FTI-FTSP UK Petra.</li> 
@@ -81,7 +96,7 @@ Menjadi BPMF 2 yang inklusif dalam membangun kerja sama antara Lembaga Kemahasis
 <li>Memastikan terdapat regenerasi dan kaderisasi dalam Lembaga Kemahasiswaan FTI-FTSP UK Petra.</li>
 </ol>
 
-<h2 class = "mt-3 text-3xl">Value:</h2>
+<h2 class = "mt-3 text-3xl">Value</h2>
 <h2 class = "text-3xl">(CARE)</h2>
 
 <ol class = "list-inside list-disc">
@@ -91,8 +106,33 @@ Menjadi BPMF 2 yang inklusif dalam membangun kerja sama antara Lembaga Kemahasis
 <li>Evaluate<br>Memberikan evaluasi dan saran yang membangun dalam pelaksanaan kegiatan oleh Lembaga Kemahasiswaan FTI-FTSP UK Petra.</li>
 </ol>
 
-<h2 class = "mt-3 text-3xl">Motto:</h2>
-“Working in Unity, Building Generations, Serving with #CARE”',
+<h2 class = "mt-3 text-3xl">Motto</h2>
+“Working in Unity, Building Generations, Serving with #CARE”
+
+<h1 class = "text-5xl mt-3">BPMF 3</h1>
+BPMF (Badan Perwakilan Mahasiswa Fakultas) merupakan Lembaga Legislatif Kemahasiswaan Universitas Kristen yang memiliki tujuan mengawasi pelaksanaan kegiatan dan pembuatan peraturan Lembaga Kemahasiswaan Fakultas di Petra Christian University.
+
+<h2 class = "mt-3 text-3xl">Visi</h2>
+Menjadi perwakilan mahasiswa School of Business dan Management yang RESPONSIF dan mewujudkan tata kelola yang EFEKTIF dan EFISIEN bagi mahasiswa serta terebntuk wadah yang KONDUSIF untuk para mahasiswa mengekspresikan dirinya.
+
+
+<h2 class = "mt-3 text-3xl">Misi</h2>
+<ol class = "list-inside list-decimal">
+<li>Menampung dan mewujudkan ASPIRASI mahasiswa fakultas SBM.</li> 
+<li>Menyokong KOLABORASI antar lembaga-lembaga universitas serta lembaga kemahasiswaan, baik antar lingkup internal
+ maupun eksternal.</li> 
+<li>Mendorong INOVASI dan kreativitas mahasiswa untuk mengeksplorasikan diri dengan memastikan dengan baik dan bertanggung jawab berjalannya sebuah program kerja khususnya di fakultas SBM.</li> 
+<li>RESPONSIF terhadap kebutuhan mahasiswa dan meningkatkan komunikasi yang membangun serta berparitisipasi membantu mahasiswa merencanakan kegiatan yang sesuai dengan target dan tujuan lembaga kemahasiswaan.</li>
+</ol>
+
+<h2 class = "mt-3 text-3xl">Value</h2>
+
+<ol class = "list-inside list-disc">
+<li>Refine</li> 
+<li>Aspiration</li> 
+<li>Collaboration</li> 
+<li>Excellence</li>
+</ol>',
                     'logo_url' => 'logo/3_bpmf.png',
                     'poster_url' => null,
                 ],
