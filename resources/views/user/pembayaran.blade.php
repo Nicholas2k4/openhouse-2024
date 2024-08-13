@@ -55,17 +55,26 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function() {
+      $(document).ready(function() {
           $('#myButton').on('click', function() {
-            Swal.fire({
-              title: 'Panduan pembayaran UKM',
-              html: '1.ABC <br> 2.CDE <br> 3.EFG',
-              confirmButtonText: 'Tutup',
-              showCloseButton: true
-            });
+              Swal.fire({
+                  title: 'Panduan pembayaran UKM',
+                  html: '<div style="text-align: justify; text-justify: left;">' +
+                        '<p><b>1.</b> Scan QRIS yang tertera di layar</p>' +
+                        '<p><b>2.</b> Masukan nominal pembayaran sesuai yang tertera di layar</p>' +
+                        '<p><b>3.</b> Berita acara ditulis: (NRP) (UKM) (Kode unik). Kode unik berupa 4 karakter sesuai yang tertera di layar. Contoh: C14229999 Basket XyZa</p>' +
+                        '<p><b>4.</b> Screenshot dan upload bukti pembayaran di tempat yang sudah disediakan dengan format (.PNG/.JPG/.JPEG/.HEIC) dengan ukuran maksimal 5 MB</p>' +
+                        '<p><b>5.</b> Tekan tombol submit</p>' +
+                        '<p><b>6.</b> Cek halaman ini secara berkala untuk melihat status pembayaran Anda</p>' +
+                        '</div>',
+                  confirmButtonText: 'Tutup',
+                  showCloseButton: true
+              });
           });
-        });
-      </script>  
+      });
+  </script>
+  
+  
 </head>
 <body class="bg-gray-100 flex justify-center items-center min-h-screen px-4 sm:px-6">
     <div class="bg-black bg-opacity-50 rounded-lg p-6 shadow-lg max-w-3xl w-full mt-8 mb-8 backdrop-blur">
@@ -113,7 +122,11 @@
       @elseif($status_pembayaran == 1)
       <!-- Pesan pembayaran disetujui -->
       <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Selamat!</h1>
+      @if($ukm_name == 'UKM Esport' || $ukm_name == 'UKM Menwa' || $ukm_name == 'UKM Orkestra')
+      <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Anda telah diterima di {{$ukm_name}}.</h1>
+      @else
       <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Pembayaran disetujui. <br>Anda telah diterima di {{$ukm_name}}.</h1>
+      @endif
       <div class="flex justify-center mt-6">
         <a href="{{ route('user.home') }}">
             <button type="button" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Kembali ke home</button>
