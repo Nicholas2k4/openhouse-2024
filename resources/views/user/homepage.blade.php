@@ -51,22 +51,22 @@
         <div class="img-container flex items-end w-[300vw] overflow-x-scroll mx-auto no-scrollbar">
             <div class="pulau1 w-[100vw] flex justify-center flex-col space-y-10">
                 <img src="{{ asset('assets/SS.png') }}" class="mx-auto sm:w-[300px] w-[250px]" alt="">
-                <button type="button"
-                    class="16-aug-button inline-block md:w-1/4 rounded bg-primary px-6 pb-2 pt-2.5 mx-auto font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">
+                <button type="button" data-twe-ripple-init data-twe-ripple-color="dark"
+                    class="16-aug-button mx-auto animated-button">
                     Performances
                 </button>
             </div>
             <div class="pulau2 w-[100vw] flex justify-center flex-col space-y-10">
                 <img src="{{ asset('assets/Floating Rocks.png') }}" class="mx-auto sm:w-[300px] w-[250px]" alt="">
-                <button type="button"
-                    class="23-aug-button inline-block md:w-1/4 rounded bg-primary px-6 pb-2 pt-2.5 mx-auto font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">
+                <button type="button" data-twe-ripple-init data-twe-ripple-color="dark"
+                    class="23-aug-button mx-auto animated-button">
                     Performances
                 </button>
             </div>
             <div class="pulau3 w-[100vw] flex justify-center flex-col space-y-10">
                 <img src="{{ asset('assets/EO.png') }}" class="mx-auto sm:w-[300px] w-[250px]" alt="">
-                <button type="button"
-                    class="30-aug-button inline-block md:w-1/4 rounded bg-primary px-6 pb-2 pt-2.5 mx-auto font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none">
+                <button type="button" data-twe-ripple-init data-twe-ripple-color="dark"
+                    class="30-aug-button mx-auto animated-button">
                     Performances
                 </button>
             </div>
@@ -376,11 +376,11 @@
 
         const answerArray = [
             'Mahasiswa Baru tidak diwajibkan untuk mengikuti UKM, tetapi UKM dapat menjadi salah satu wadah bagi Mahasiswa Baru 2024 untuk mengekspresikan diri dan mengembangkan dalam bidang non-akademik, khususnya bakat dan minat.',
-            'GTW WOKWOK',
+            'Silahkan Contact OA Line untuk informasi selengkapnya !',
             'Mahasiswa Baru 2024 diperbolehkan untuk mendaftar lebih dari 1 (satu) UKM dengan batas maksimal 3 (tiga) UKM. Namun, Mahasiswa Baru juga perlu memperhatikan jadwal perkuliahan dan jadwal pelaksanaan setiap UKMnya agar tidak saling bertabrakan.',
             'Tidak boleh! Mahasiswa Baru yang telah melakukan pembayaran kepada suatu UKM dianggap sebagai peserta resmi dari UKM tersebut dan memiliki kewajiban untuk mengikuti seluruh rangkaian kegiatan dari UKM yang bersangkutan. ',
             'Tidak! Ada beberapa UKM yang mewajibkan calon pesertanya untuk mengikuti proses seleksi sebelum menjadi peserta resmi. Namun, perlu diketahui bahwa Mahasiswa Baru akan langsung diterima apabila mendaftar ke UKM yang tidak memiliki prosedur seleksi. ',
-            'MBO PIKIREN DEWE HEHE',
+            'Silahkan Contact OA Line untuk informasi selengkapnya !',
             'Mahasiswa Baru tidak diperbolehkan untuk melakukan pembayaran menggunakan rekening sesama Mahasiswa Baru untuk menjaga transparansi pembayaran.',
             'Hal ini dikarenakan PCU menerapkan program Pola Pengembangan Mahasiswa (POLBANGMAWA) yang bertujuan untuk mempersiapkan Mahasiswa Baru untuk mempersiapkan diri untuk menjadi Fungsionaris LK dengan mengikuti Servant Leadership Training (SLT) sebagai persyaratan sebelum Mahasiswa Baru bergabung ke dalam LK.',
             'Collectible Quest adalah sebuah misi yang dapat diselesaikan tiap minggunya. Apabila misi ini telah terselesaikan, maka Mahasiswa Baru bisa mendapatkan sebuah hadiah dengan mengumpulkan beberapa huruf hingga membentuk kata-kata yang tersembunyi. Kata-kata yang akan dikumpulkan berbeda untuk setiap minggunya, sehingga kata yang telah dikumpulkan di minggu pertama tidak berlaku untuk minggu berikutnya.',

@@ -151,7 +151,7 @@
             <!--Card Contain-->
             <div class="w-full py-[200px] gap-y-[200px] mx-auto text-center flex flex-wrap">
 
-                @foreach ($ukms as $ukm)
+                @foreach ($list_ukms as $ukm)
                     @if (in_array($ukm->name, ['LK BEM', 'LK TPS', 'LK MPM', 'LK BPMF', 'LK PERSMA', 'LK PELMA']))
                         <!--Card Start-->
                         <div
