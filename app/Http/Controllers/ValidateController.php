@@ -109,7 +109,7 @@ class ValidateController extends Controller
                 }
 
 
-                if ($row->file_validated == 2 || $row->payment_validated== 2) {
+                if ($row->file_validated == 2 || $row->payment_validated == 2) {
                     $output .= '
                         <td class="p-3 border-y-2 border-gray-200 font-bold text-yellow-500 text-center" colspan="3">Rejected</td>';
                 } else if ($row->file_validated == 1 && $row->payment_validated == 1) {
@@ -164,7 +164,8 @@ class ValidateController extends Controller
     public function selectionValidate(Request $request)
     {
         $nrp = $request->get('nrp');
-        $selectionFile = DetailRegistration::where('nrp', $nrp)->first()->file_validated;
+        $ukm = $request->get('ukm');
+        $selectionFile = DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->first()->file_validated;
         if ($selectionFile == 0) {
             DetailRegistration::where('nrp', $nrp)->update([
                 'file_validated' => 1,

@@ -118,12 +118,13 @@
             });
 
             // Ajax Validasi Seleksi & Pembayaran
-            function selectionValidate(nrp = "") {
+            function selectionValidate(nrp = "", ukm = "") {
                 $.ajax({
                     url: "{{ route('admin.selectionValidate') }}",
                     method: "POST",
                     data: {
                         nrp: nrp,
+                        ukm: ukm,
                     },
                     success: function(data) {
                         if (data.message == "true") {
@@ -220,7 +221,7 @@
                     denyButtonText: `Payment`,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        selectionValidate(nrp);
+                        selectionValidate(nrp, ukm);
                     } else if (result.isDenied) {
                         paymentValidate(nrp, ukm);
                     }
