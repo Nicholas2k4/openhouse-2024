@@ -299,7 +299,7 @@
                     </div>
                 </div>
                 @else
-                <div class="reveal from-right active h-[100%] w-[100%] lg:h-[80%] lg:w-[80%] flex flex-col">
+                <div class="reveal from-right active h-[100%] w-[100%] lg:h-[80%] lg:w-[80%] flex flex-col gap-3">
                     <div class="video-container aspect-w-16 aspect-h-9">
                         <iframe class="w-full h-full" src="{{ $videoUrl[0] }}" frameborder="0"
                             allow="autoplay"></iframe>
@@ -415,7 +415,12 @@
                             <div id = "show-slot"
                                 class = "flex flex-col justify-center pl-[20px] pr-[20px] border-r-[1px]">
                                 <div class = "text-white text-[56px] md:text-[90px] lg:text-[120px] font-bold leading-tight">
-                                    {{ $ukm->current_slot }}</div>
+                                    @if($ukm->current_slot !== 10000 )
+                                        {{ $ukm->current_slot }}
+                                    @else
+                                        <i class="fa-solid fa-infinity"></i>
+                                    @endif
+                                </div>
                                 <div
                                     class = "text-white text-[26px] lg:text-[36px] m-[-2px] pb-[4px] w-full text-center">
                                     Slot left</div>
@@ -424,7 +429,7 @@
                             <div id = "show-regist-fee" class = "flex flex-col justify-center pr-[20px] pl-[20px]">
                                 <div class = "text-white text-[56px] md:text-[90px] lg:text-[120px] font-bold leading-tight">
                                     @if ($ukm->regist_fee == 0)
-                                        0K
+                                        FREE
                                     @else
                                         {{ substr($ukm->regist_fee, 0, -3) }}K
                                     @endif

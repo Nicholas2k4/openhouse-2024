@@ -137,14 +137,19 @@
                                     <div id = "show-slot"
                                         class = "flex flex-col justify-center pl-[20px] pr-[20px] border-r-[1px]">
                                         <div class = "text-white text-[40px] font-bold leading-tight">
-                                            {{ $ukm->current_slot }}</div>
+                                            @if($ukm->current_slot !== 10000 )
+                                            {{ $ukm->current_slot }}
+                                            @else
+                                            <i class="fa-solid fa-infinity"></i>
+                                            @endif
+                                        </div>
                                         <div class = "text-white text-[12px] m-[-2px] pb-[4px]">Slot left</div>
                                     </div>
 
                                     <div id = "show-regist-fee" class = "flex flex-col justify-center pr-[20px] pl-[20px]">
                                         <div class = "text-white text-[40px] font-bold leading-tight">
                                             @if ($ukm->regist_fee == 0)
-                                                0K
+                                                FREE
                                             @else
                                                 {{ substr($ukm->regist_fee, 0, -3) }}K
                                             @endif
