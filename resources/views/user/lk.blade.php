@@ -116,17 +116,17 @@
         <div
             class = "mt-[-64px] px-[30px] md:px-[50px] xl:px-[100px] mx-auto text-center flex flex-row h-screen items-center">
             <img src = "{{ URL('asset/Artboard 1_SS_4.png') }}"
-                class = "rotate-animation-1 img-shadow-1 absolute bottom-[0px] left-[-70px] w-[300px] md:w-[400px] rotate-[50deg]">
+                class = "z-0 rotate-animation-1 img-shadow-1 fixed bottom-[0px] left-[-70px] w-[300px] md:w-[400px] rotate-[50deg]">
             <img src = "{{ URL('asset/Artboard 1_SS_3.png') }}"
-                class = "rotate-animation-2 img-shadow-2 absolute bottom-[90px] right-[-60px] w-[325px] md:w-[450px] rotate-[-50deg]">
-            <div class = "mx-auto w-3/4 z-10">
-                <h3 class = "glow-text text-white font-bold text-3xl text-center sm:text-5xl">
+                class = "z-0 rotate-animation-2 img-shadow-2 fixed bottom-[90px] right-[-60px] w-[325px] md:w-[450px] rotate-[-50deg]">
+            <div class = "z-[2] mx-auto">
+                <h3 class = "glow-text text-white font-bold text-[40px] md:text-[80px] lg:text-[100px] leading-none text-center">
                     Lembaga
                     Kemahasiswaan
                 </h3>
 
                 <div class = "group mt-7 slide-in-from-bottom">
-                    <a class = "backdrop-blur-sm bg-white/10 border-[1px] border-[#79FFEF] rounded-full py-3 px-7 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
+                    <a class = "text-[16px] md:text-[20px] lg:text-[24px] backdrop-blur-sm bg-white/10 border-[1px] border-[#79FFEF] rounded-full py-3 px-7 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
                         id = "explore-button" href = "#card-section">
                         <span class = "font-bold text-white group-hover:text-[#30518A]">Explore</span>
                         <i class="text-white fa-solid fa-chevron-down group-hover:text-[#30518A]"></i>
@@ -149,7 +149,7 @@
             </div> --}}
 
             <!--Card Contain-->
-            <div class="w-full py-[200px] gap-y-[200px] mx-auto text-center flex flex-wrap">
+            <div class="max-w-[1000px] py-[200px] gap-y-[200px] mx-auto text-center flex flex-wrap">
 
                 @foreach ($list_ukms as $ukm)
                     @if (in_array($ukm->name, ['LK BEM', 'LK TPS', 'LK MPM', 'LK BPMF', 'LK PERSMA', 'LK PELMA']))
