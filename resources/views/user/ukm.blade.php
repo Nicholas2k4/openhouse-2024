@@ -2,8 +2,6 @@
 
 @section('head')
     <style>
-      
-
         .reveal {
             position: relative;
             transform: translateY(50px);
@@ -78,19 +76,19 @@
     <!--First section-->
     <section id="first-section" class = "overflow-hidden relative">
         <div
-            class = "px-[30px] mt-[-64px] md:px-[50px] xl:px-[100px] mx-auto text-center flex flex-row h-screen items-center">
+            class = "px-[30px] md:px-[50px] xl:px-[100px] mx-auto text-center flex flex-row h-screen items-center">
             <img src = "{{ URL('asset/Artboard 1_SS_4.png') }}"
                 class = "fixed rotate-animation-1 img-shadow-1  bottom-[0px] left-[-70px] w-[300px] md:w-[400px] rotate-[50deg]">
             <img src = "{{ URL('asset/Artboard 1_SS_3.png') }}"
                 class = "fixed rotate-animation-2 img-shadow-2  bottom-[90px] right-[-60px] w-[325px] md:w-[450px] rotate-[-50deg]">
-            <div class = "mx-auto w-3/4 z-10">
-                <h3 class = "glow-text  text-white font-bold text-3xl text-center sm:text-5xl">Unit
+            <div class = "mx-auto w-3/4">
+                <h3 class = "glow-text  text-white font-bold text-center text-[48px] md:text-[80px] lg:text-[100px] leading-none">Unit
                     Kegiatan
                     Mahasiswa
                 </h3>
 
                 <div class = "group mt-7 button-animate">
-                    <a class = "backdrop-blur-sm bg-white/10 border-[1px] border-[#79FFEF] rounded-full py-3 px-7 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
+                    <a class = "text-[16px] md:text-[20px] lg:text-[24px] backdrop-blur-sm bg-white/10 border-[1px] border-[#79FFEF] rounded-full py-3 px-7 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
                         id = "explore-button" href = "#card-section">
                         <span class = "font-bold text-white group-hover:text-[#30518A]">Explore</span>
                         <i class="text-white fa-solid fa-chevron-down group-hover:text-[#30518A]"></i>
@@ -155,7 +153,7 @@
                                     </div>
                                 </div>
                                 <!--Button-->
-                                <div class = "group button-animate">
+                                <div class = "group">
 
                                     <form action="{{ route('user.ukm.id', ['id' => $ukm->id]) }}" method="GET">
                                         <button type = "submit"

@@ -26,22 +26,26 @@ class UkmSeeder extends Seeder
                     'regist_fee' => 0,
                     'description' => 'Badan Eksekutif Mahasiswa (BEM) merupakan Lembaga Kemahasiswaan yang bergerak sebagai badan eksekutif dalam tingkat universitas. BEM Petra memiliki peran penting dalam menjalankan program-program yang bertujuan untuk meningkatkan kualitas kehidupan kampus dan mengakomodasi kepentingan serta aspirasi mahasiswa. Dimulai dari bidang yang menjadi penggerak administratif, menaungi perkembangan bakat dan minat mahasiswa, pengembangan internal BEM, hingga bekerja sama dengan pihak eksternal. 
 
-Periode 2024/2025, kabinet #RISE siap meluncur dengan visi misi yang baru untuk perubahan dan kebangkitan mahasiswa!🚨⚡️
+Periode 2024/2025, kabinet #RISE siap meluncur dengan visi misi yang baru untuk perubahan dan kebangkitan mahasiswa!🚨⚡️ <br>
 
-𝙍𝙄𝙎𝙀 (𝙍𝙞𝙜𝙝𝙩𝙚𝙤𝙪𝙨, 𝙄𝙜𝙣𝙞𝙩𝙚, 𝙎𝙥𝙞𝙧𝙞𝙩, 𝙀𝙣𝙩𝙧𝙪𝙨𝙩)
-Righteous: menjadi teladan yang benar ✅ 
-Ignite: membawa sebuah kebangkitan atau perubahan baru 🔥
-Spirit: menghidupkan esensi kemahasiswaan ✊🏻
-Entrust: Melandaskan pelayanan pada Firman Tuhan ✝️ 
+<h2 class = "mt-3 text-3xl">𝙍𝙄𝙎𝙀 (𝙍𝙞𝙜𝙝𝙩𝙚𝙤𝙪𝙨, 𝙄𝙜𝙣𝙞𝙩𝙚, 𝙎𝙥𝙞𝙧𝙞𝙩, 𝙀𝙣𝙩𝙧𝙪𝙨𝙩)</h2>
+<ol class = "list-inside list-disc">
+<li>Righteous: menjadi teladan yang benar ✅</li>
+<li>Ignite: membawa sebuah kebangkitan atau perubahan baru 🔥</li>
+<li>Spirit: menghidupkan esensi kemahasiswaan ✊🏻</li>
+<li>Entrust: Melandaskan pelayanan pada Firman Tuhan ✝️ </li>
+</ol>
 
-𝐕𝐢𝐬𝐢:
+<h2 class = "mt-3 text-3xl">𝐕𝐢𝐬𝐢:</h2>
 Menjadi organisasi inspiratif yang membangkitkan semangat kemahasiswaan berlandaskan Firman Tuhan.
 
-𝐌𝐢𝐬𝐢:
-- Menciptakan lingkungan yang inspiratif dengan menjalin integritas dan kredibilitas. 
-- Mengobarkan esensi kemahasiswaan melalui sinergi bersama keluarga besar LK-KBM dan Biro Universitas. 
-- Membangkitkan semangat mahasiswa dalam meraih potensi dan prestasi melalui kegiatan kemahasiswaan dan UKM. 
-- Meningkatkan pelayanan dan aktif berdampak pada mahasiswa, serta masyarakat berlandaskan Firman Tuhan.',
+<h2 class = "mt-3 text-3xl">𝐌𝐢𝐬𝐢:</h2>
+<ol class = "list-inside list-disc">
+<li>Menciptakan lingkungan yang inspiratif dengan menjalin integritas dan kredibilitas.</li> 
+<li>Mengobarkan esensi kemahasiswaan melalui sinergi bersama keluarga besar LK-KBM dan Biro Universitas.</li> 
+<li>Membangkitkan semangat mahasiswa dalam meraih potensi dan prestasi melalui kegiatan kemahasiswaan dan UKM.</li> 
+<li>Meningkatkan pelayanan dan aktif berdampak pada mahasiswa, serta masyarakat berlandaskan Firman Tuhan.</li>
+</ol>',
                     'logo_url' => 'logo/1_bem_color.png',
                     'poster_url' => null,
                 ],
@@ -65,28 +69,29 @@ Menjadi organisasi inspiratif yang membangkitkan semangat kemahasiswaan berlanda
                     'regist_fee' => 0,
                     'description' => 'BPMF 2 (Badan Perwakilan Mahasiswa Fakultas) merupakan Lembaga Legislatif Kemahasiswaan Universitas Kristen yang memiliki tujuan mengawasi pelaksanaan kegiatan dan pembuatan peraturan Lembaga Kemahasiswaan FTI dan FTSP. Berikut merupakan visi, misi, value, dan motto BPMF 2 Periode 2024/2025.
 
-Visi :
+<h2 class = "mt-3 text-3xl">Visi:</h2>
 Menjadi BPMF 2 yang inklusif dalam membangun kerja sama antara Lembaga Kemahasiswaan FTI-FTSP, serta melayani mahasiswa hingga tercapai kesejahteraan yang menjunjung tinggi nilai-nilai Kristiani.
 
-Misi :
-1. Membangun kerja sama dan sinergi untuk kepentingan bersama Lembaga Kemahasiswaan FTI-FTSP UK Petra.
-2. Menjadi wadah untuk menampung, menyalurkan, dan memperjuangkan aspirasi mahasiswa FTI-FTSP UK Petra.
-3. Meningkatkan kinerja dan melakukan proses secara bijak, adil, dan transparan untuk memperluas dampak dan meningkatkan eksistensi BPMF 2 bagi mahasiswa FTI-FTSP UK Petra.
-4. Melakukan pengawasan bersifat adil terhadap pelaksanaan kegiatan Lembaga Kemahasiswaan FTI-FTSP UK Petra.
-5. Memastikan terdapat regenerasi dan kaderisasi dalam Lembaga Kemahasiswaan FTI-FTSP UK Petra.
+<h2 class = "mt-3 text-3xl">Misi:</h2>
+<ol class = "list-inside list-decimal">
+<li>Membangun kerja sama dan sinergi untuk kepentingan bersama Lembaga Kemahasiswaan FTI-FTSP UK Petra.</li> 
+<li>Menjadi wadah untuk menampung, menyalurkan, dan memperjuangkan aspirasi mahasiswa FTI-FTSP UK Petra.</li> 
+<li>Meningkatkan kinerja dan melakukan proses secara bijak, adil, dan transparan untuk memperluas dampak dan meningkatkan eksistensi BPMF 2 bagi mahasiswa FTI-FTSP UK Petra.</li> 
+<li>Melakukan pengawasan bersifat adil terhadap pelaksanaan kegiatan Lembaga Kemahasiswaan FTI-FTSP UK Petra.</li>
+<li>Memastikan terdapat regenerasi dan kaderisasi dalam Lembaga Kemahasiswaan FTI-FTSP UK Petra.</li>
+</ol>
 
-Value :
-(CARE)
-- Collaborative
-Berkolaborasi dengan semua Lembaga Kemahasiswaan FTI-FTSP UK Petra.
-- Aspire
-Mementingkan dan memperjuangkan aspirasi mahasiswa FTI-FTSP UK Petra.
-- Raise
-Meningkatkan kinerja BPMF 2 yang dapat memperluas dampak bagi mahasiswa FTI-FTSP UK Petra.
-- Evaluate
-Memberikan evaluasi dan saran yang membangun dalam pelaksanaan kegiatan oleh Lembaga Kemahasiswaan FTI-FTSP UK Petra.
+<h2 class = "mt-3 text-3xl">Value:</h2>
+<h2 class = "text-3xl">(CARE)</h2>
 
-Motto :
+<ol class = "list-inside list-disc">
+<li>Collaborative <br> Berkolaborasi dengan semua Lembaga Kemahasiswaan FTI-FTSP UK Petra.</li> 
+<li>Aspire<br>Mementingkan dan memperjuangkan aspirasi mahasiswa FTI-FTSP UK Petra.</li> 
+<li>Raise<br>Meningkatkan kinerja BPMF 2 yang dapat memperluas dampak bagi mahasiswa FTI-FTSP UK Petra.</li> 
+<li>Evaluate<br>Memberikan evaluasi dan saran yang membangun dalam pelaksanaan kegiatan oleh Lembaga Kemahasiswaan FTI-FTSP UK Petra.</li>
+</ol>
+
+<h2 class = "mt-3 text-3xl">Motto:</h2>
 “Working in Unity, Building Generations, Serving with #CARE”',
                     'logo_url' => 'logo/3_bpmf.png',
                     'poster_url' => null,
@@ -306,29 +311,37 @@ Tak hanya itu, UKM Pengembangan Diri juga menyelenggarakan kegiatan fine dining 
                     'current_slot' => 35,
                     'max_slot' => 35,
                     'regist_fee' => 310000,
-                    'description' => '1. Latihan Rutin
+                    'description' => '
 
-- Jadwal: Latihan diadakan setiap Jumat.
-Fokus: Teknik dasar, strategi, dan fisik.
-- Teknik Dasar: Dribbling, passing, shooting, penjagaan gawang.
-- Strategi: Formasi, taktik permainan, koordinasi tim.
-- Fisik: Latihan kekuatan, stamina, dan agility.
-- Pelatih: Pelatih profesional serta kating yang berpengalaman.
+<h2 class = "mt-3 text-3xl">Latihan Rutin</h2>  
 
-2. Sparing dan Pertandingan Persahabatan
+ <ol class = "list-inside list-disc">
+<li>Jadwal: Latihan diadakan setiap Jumat.</li> 
+<li>Fokus: Teknik dasar, strategi, dan fisik.</li> 
+<li>Teknik Dasar: Dribbling, passing, shooting, penjagaan gawang.</li> 
+<li>Strategi: Formasi, taktik permainan, koordinasi tim.</li>
+<li>Fisik: Latihan kekuatan, stamina, dan agility.</li>
+<li>Pelatih: Pelatih profesional serta kating yang berpengalaman.</li>
+</ol>
 
-- Frekuensi: Setiap bulan diadakan minimal satu kali sparing.
-- Tujuan: Mengasah kemampuan bermain di bawah tekanan, evaluasi performa.
-- Lawan: Tim futsal dari universitas lain atau klub futsal lokal.
+<h2 class = "mt-3 text-3xl">Sparing dan Pertandingan Persahabatan</h2>  
+<ol class = "list-inside list-disc">
+<li>Frekuensi: Setiap bulan diadakan minimal satu kali sparing.</li> 
+<li>Tujuan: Mengasah kemampuan bermain di bawah tekanan, evaluasi performa.</li> 
+<li>Lawan: Tim futsal dari universitas lain atau klub futsal lokal.</li> 
+</ol>
 
-3. Turnamen
-
-Internal:
-- Turnamen Antar Fakultas: Diadakan setiap semester, melibatkan semua fakultas di UK Petra.
-
-Eksternal:
-- Turnamen Regional: Berpartisipasi dalam turnamen futsal tingkat regional Jawa Timur.
-- Turnamen Nasional: Mengikuti kompetisi futsal antar universitas di tingkat nasional.',
+<h2 class = "mt-3 text-3xl">Turnamen</h2>
+<h2 class = "text-xl">Internal</h2>
+<ol class = "list-inside list-disc">
+<li>Turnamen Antar Fakultas: Diadakan setiap semester, melibatkan semua fakultas di UK Petra.</li> 
+</ol>
+<h2 class = "text-xl">Eksternal</h2>
+<ol class = "list-inside list-disc">
+<li>Turnamen Regional: Berpartisipasi dalam turnamen futsal tingkat regional Jawa Timur.</li> 
+<li>Turnamen Nasional: Mengikuti kompetisi futsal antar universitas di tingkat nasional.</li> 
+</ol>
+',
                     'logo_url' => 'logo/22_futsal.png',
                     'poster_url' => 'poster/22_futsal.jpg',
                 ],
@@ -397,16 +410,18 @@ Eksternal:
                     'regist_fee' => 200000,
                     'description' => 'Berikut adalah ringkasan dalam satu periode tentang Matrapenza yang mencakup empat diklat, seminar nasional (SEMNAS), dan pengabdian masyarakat (pengmas):
 
-Empat Diklat Utama:
-1. Pengenalan NAPZA dan Faktor Penyebab: Diklat pertama ini akan memberikan pemahaman mendalam tentang apa itu NAPZA (Narkotika, Psikotropika, dan Zat adiktif lainnya), jenis-jenisnya, serta faktor-faktor yang mendorong seseorang untuk menyalahgunakannya. Peserta akan diajak untuk mengenali tanda-tanda awal penyalahgunaan NAPZA dan memahami dampaknya terhadap individu, keluarga, dan masyarakat.
-2. Dampak Penyalahgunaan NAPZA dan Pencegahan: Diklat kedua akan membahas secara detail mengenai dampak negatif penyalahgunaan NAPZA terhadap kesehatan fisik dan mental, sosial, serta produktivitas. Selain itu, peserta akan diberikan pengetahuan tentang berbagai strategi pencegahan yang efektif, mulai dari tingkat individu hingga tingkat komunitas.
-3. How to be a Helping Hand Person: Diklat ini akan membekali peserta dengan keterampilan untuk menjadi seorang pemberi dukungan bagi mereka yang sedang berjuang dengan masalah penyalahgunaan NAPZA. Peserta akan belajar bagaimana berkomunikasi secara efektif, memberikan empati, dan mengarahkan mereka ke sumber-sumber bantuan yang tepat.
-4. Pengobatan dan Sharing Pengalaman: Diklat terakhir ini akan membahas berbagai metode pengobatan yang tersedia untuk mengatasi penyalahgunaan NAPZA, serta memberikan kesempatan bagi para mantan pengguna untuk berbagi pengalaman mereka dalam proses pemulihan.
+<h2 class = "mt-3 text-3xl">Empat Diklat Utama</h2>  
+<ol class = "list-inside list-decimal">
+<li>Pengenalan NAPZA dan Faktor Penyebab: Diklat pertama ini akan memberikan pemahaman mendalam tentang apa itu NAPZA (Narkotika, Psikotropika, dan Zat adiktif lainnya), jenis-jenisnya, serta faktor-faktor yang mendorong seseorang untuk menyalahgunakannya. Peserta akan diajak untuk mengenali tanda-tanda awal penyalahgunaan NAPZA dan memahami dampaknya terhadap individu, keluarga, dan masyarakat.</li> 
+<li>Dampak Penyalahgunaan NAPZA dan Pencegahan: Diklat kedua akan membahas secara detail mengenai dampak negatif penyalahgunaan NAPZA terhadap kesehatan fisik dan mental, sosial, serta produktivitas. Selain itu, peserta akan diberikan pengetahuan tentang berbagai strategi pencegahan yang efektif, mulai dari tingkat individu hingga tingkat komunitas.</li> 
+<li>How to be a Helping Hand Person: Diklat ini akan membekali peserta dengan keterampilan untuk menjadi seorang pemberi dukungan bagi mereka yang sedang berjuang dengan masalah penyalahgunaan NAPZA. Peserta akan belajar bagaimana berkomunikasi secara efektif, memberikan empati, dan mengarahkan mereka ke sumber-sumber bantuan yang tepat.</li> 
+<li>Pengobatan dan Sharing Pengalaman: Diklat terakhir ini akan membahas berbagai metode pengobatan yang tersedia untuk mengatasi penyalahgunaan NAPZA, serta memberikan kesempatan bagi para mantan pengguna untuk berbagi pengalaman mereka dalam proses pemulihan.</li>
+</ol>
 
-Seminar Nasional (SEMNAS):
+<h2 class = "mt-3 text-3xl">Seminar Nasional (SEMNAS)</h2>  
 Sebagai puncak dari rangkaian kegiatan, Matrapenza akan menyelenggarakan sebuah seminar nasional yang mengundang para ahli, praktisi, dan pemangku kepentingan untuk membahas isu-isu terkini terkait penyalahgunaan NAPZA. SEMNAS ini diharapkan dapat menjadi wadah untuk berbagi pengetahuan, pengalaman, dan menginspirasi kolaborasi dalam upaya memerangi penyalahgunaan NAPZA.
 
-Pengabdian Masyarakat (Pengmas):
+<h2 class = "mt-3 text-3xl">Pengabdian Masyarakat (Pengmas)</h2>
 Selain kegiatan-kegiatan di atas, Matrapenza juga akan aktif melakukan pengabdian masyarakat dengan menyasar berbagai komunitas, sekolah, dan lembaga terkait. Tujuannya adalah untuk menyebarluaskan informasi tentang bahaya NAPZA dan mendorong partisipasi aktif masyarakat dalam upaya pencegahan.',
                     'logo_url' => 'logo/28_matrapenza.png',
                     'poster_url' => 'poster/28_mpz.png',
@@ -430,25 +445,28 @@ Selain kegiatan-kegiatan di atas, Matrapenza juga akan aktif melakukan pengabdia
                     'max_slot' => 15,
                     'regist_fee' => 0,
                     'description' => 'Ringkasan Kegiatan UKM Resimen Mahasiswa 843 Universitas Kristen Petra (Selama 1 Periode)
-Tugas Pokok:
+<h2 class = "mt-3 text-4xl">Tugas Pokok</h2>  
 
-Upacara:
+<h2 class = "mt-3 text-2xl">Upacara</h2> 
 
 17 Agustus: Mengadakan upacara bendera untuk memperingati Hari Kemerdekaan Indonesia. Seluruh anggota UKM Resimen Mahasiswa terlibat dalam persiapan dan pelaksanaan upacara, termasuk pengibaran bendera dan pembacaan teks proklamasi.
+<br>
 28 Oktober: Mengadakan upacara untuk memperingati Hari Sumpah Pemuda. Kegiatan ini bertujuan untuk meningkatkan semangat persatuan dan kesatuan di kalangan mahasiswa.
+<br>
 10 November: Mengadakan upacara untuk memperingati Hari Pahlawan, mengenang jasa-jasa para pahlawan bangsa yang telah gugur.
+<br>
 2 Mei: Mengadakan upacara Hari Pendidikan Nasional, dengan tujuan meningkatkan kesadaran akan pentingnya pendidikan di kalangan mahasiswa.
 
-Pam Wisuda Universitas Kristen Petra:
+<h2 class = "mt-3 text-2xl">Pam Wisuda Universitas Kristen Petra</h2> 
 Menyediakan keamanan dan ketertiban selama acara wisuda Universitas Kristen Petra. Anggota UKM Resimen Mahasiswa bertugas mengawal jalannya acara, membantu tamu undangan, dan memastikan kegiatan berjalan lancar.
-Pembawa Pataka Bendera Welcome Grateful Generation:
 
+<h2 class = "mt-3 text-2xl">Pembawa Pataka Bendera Welcome Grateful Generation</h2> 
 Bertugas sebagai pembawa pataka bendera dalam acara Welcome Grateful Generation, sebuah acara penyambutan mahasiswa baru. Tugas ini melibatkan pengibaran bendera dan penampilan atraksi keprajuritan.
 
-Pam Kegiatan dan Acara Penting Universitas Kristen Petra:
+<h2 class = "mt-3 text-2xl">Pam Kegiatan dan Acara Penting Universitas Kristen Petra</h2> 
 Menyediakan keamanan dan ketertiban selama acara penting di universitas, seperti seminar, workshop, dan acara lainnya. Anggota UKM Resimen Mahasiswa memastikan bahwa setiap kegiatan berjalan dengan aman dan tertib.
 
-Visi:
+<h2 class = "mt-3 text-4xl">Visi</h2>  
 Menyiapkan mahasiswa sebagai generasi intelektual bangsa dan warga negara yang dibekali dengan kemampuan dan pengetahuan dalam olah keprajuritan untuk pembelaan negara. Selain itu, anggota UKM Resimen Mahasiswa juga dibekali dengan keterampilan lain yang bermanfaat bagi masyarakat luas, dengan tujuan pengembangan bakat dan kepribadian secara penuh dan utuh.',
                     'logo_url' => 'logo/30_menwa.png',
                     'poster_url' => 'poster/30_menwa.png',
