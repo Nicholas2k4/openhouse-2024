@@ -88,12 +88,13 @@
             fetch_data();
 
             // Ajax lihat file pembayaran
-            function viewPayment(nrp = "") {
+            function viewPayment(nrp = "", ukm = "") {
                 $.ajax({
                     url: "{{ route('admin.viewPayment') }}",
                     method: "POST",
                     data: {
                         nrp: nrp,
+                        ukm: ukm,
                     },
                     success: function(data) {
                         console.log("{{ asset('') }}" + data.file_path);
@@ -112,7 +113,8 @@
 
             $(document).on("click", ".viewPayment", function() {
                 var nrp = $(this).data("nrp");
-                viewPayment(nrp);
+                var ukm = $(this).data("ukm");
+                viewPayment(nrp, ukm);
             });
 
             // Ajax Validasi Seleksi & Pembayaran
@@ -156,12 +158,13 @@
                 });
             }
 
-            function paymentValidate(nrp = "") {
+            function paymentValidate(nrp = "", ukm = "") {
                 $.ajax({
                     url: "{{ route('admin.paymentValidate') }}",
                     method: "POST",
                     data: {
                         nrp: nrp,
+                        ukm: ukm,
                     },
                     success: function(data) {
                         if (data.message == "true") {
@@ -204,6 +207,7 @@
 
             $(document).on("click", ".validateBtn", function() {
                 var nrp = $(this).data("nrp");
+                var ukm = $(this).data("ukm");
                 Swal.fire({
                     title: "Which one do you want to validate?",
                     text: "NRP : " + nrp,
@@ -217,7 +221,7 @@
                     if (result.isConfirmed) {
                         selectionValidate(nrp);
                     } else if (result.isDenied) {
-                        paymentValidate(nrp);
+                        paymentValidate(nrp, ukm);
                     }
                 });
             });

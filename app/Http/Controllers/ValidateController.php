@@ -71,7 +71,26 @@ class ValidateController extends Controller
             }
 
             foreach ($data as $row) {
-                $output .= '
+                if (!$row->drive_url) {
+
+                    $output .= '
+                    <tr class="text-nowrap text-md hover:bg-amber-100 transition">
+                        <td class="p-3 border-e-2 border-gray-200 flex flex-col">
+                            <span id="thisRowNrp" class="font-semibold">' . $row->nrp . '</span>
+                            <span>' . User::where('nrp', $row->nrp)->first()->name  . '</span>
+                        </td>
+                        <td class="p-3 border-e-2 border-gray-200">' . Ukm::where('id', $row->ukm_id)->first()->name . '</td>
+                        <td class="p-3 border-e-2 border-gray-200 text-center">
+                            <button class="hidden p-1.5 text-sm bg-sky-500 hover:bg-sky-600 transition text-white text-nowrap rounded" onclick="window.open(\'' . $row->drive_url . '\', \'_blank\')">
+                                File Seleksi
+                            </button>
+                            <button class="viewPayment p-1.5 text-sm bg-sky-500 hover:bg-sky-600 transition text-white text-nowrap rounded" data-nrp="' . $row->nrp . '" data-ukm="' . $row->ukm_id . '">
+                                File Payment
+                            </button>
+                        </td>
+                        <td class="p-3 border-e-2 border-gray-200">' . $row->code . '</td>';
+                } else {
+                    $output .= '
                     <tr class="text-nowrap text-md hover:bg-amber-100 transition">
                         <td class="p-3 border-e-2 border-gray-200 flex flex-col">
                             <span id="thisRowNrp" class="font-semibold">' . $row->nrp . '</span>
@@ -82,11 +101,13 @@ class ValidateController extends Controller
                             <button class="p-1.5 text-sm bg-sky-500 hover:bg-sky-600 transition text-white text-nowrap rounded" onclick="window.open(\'' . $row->drive_url . '\', \'_blank\')">
                                 File Seleksi
                             </button>
-                            <button class="viewPayment p-1.5 text-sm bg-sky-500 hover:bg-sky-600 transition text-white text-nowrap rounded" data-nrp="' . $row->nrp . '">
+                            <button class="viewPayment p-1.5 text-sm bg-sky-500 hover:bg-sky-600 transition text-white text-nowrap rounded" data-nrp="' . $row->nrp . '" data-ukm="' . $row->ukm_id . '">
                                 File Payment
                             </button>
                         </td>
                         <td class="p-3 border-e-2 border-gray-200">' . $row->code . '</td>';
+                }
+
 
                 if ($row->file_validated == 2) {
                     $output .= '
@@ -104,10 +125,10 @@ class ValidateController extends Controller
 
                 if ($row->file_validated != 2) {
                     $output .= '
-                            <button class="validateBtn p-1.5 text-sm bg-green-500 hover:bg-green-600 transition text-white text-nowrap rounded" data-nrp="' . $row->nrp . '">
+                            <button class="validateBtn p-1.5 text-sm bg-green-500 hover:bg-green-600 transition text-white text-nowrap rounded" data-nrp="' . $row->nrp . '" data-ukm="' . $row->ukm_id . '">
                                 Validate
                             </button>
-                            <button class="rejectBtn p-1.5 text-sm bg-red-500 hover:bg-red-600 transition text-white text-nowrap rounded" data-nrp="' . $row->nrp . '">
+                            <button class="rejectBtn p-1.5 text-sm bg-red-500 hover:bg-red-600 transition text-white text-nowrap rounded" data-nrp="' . $row->nrp . '" data-ukm="' . $row->ukm_id . '">
                                 Reject
                             </button>
                             ';
@@ -134,7 +155,8 @@ class ValidateController extends Controller
     public function viewPayment(Request $request)
     {
         $nrp = $request->get('nrp');
-        $file_path = DetailRegistration::where('nrp', $nrp)->first()->payment;
+        $ukm = $request->get('ukm');
+        $file_path = DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->first()->payment;
 
         return response()->json(['file_path' => $file_path]);
     }
@@ -158,11 +180,11 @@ class ValidateController extends Controller
     public function paymentValidate(Request $request)
     {
         $nrp = $request->get('nrp');
-
-        if (DetailRegistration::where('nrp', $nrp)->first()->file_validated == 1) {
-            $selectionFile = DetailRegistration::where('nrp', $nrp)->first()->payment_validated;
+        $ukm = $request->get('ukm');
+        if (DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->first()->file_validated == 1) {
+            $selectionFile = DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->first()->payment_validated;
             if ($selectionFile == 0) {
-                DetailRegistration::where('nrp', $nrp)->update([
+                DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
                     'payment_validated' => 1
                 ]);
                 return response()->json(['message' => 'true']); // Berhasil validasi
@@ -179,9 +201,10 @@ class ValidateController extends Controller
     public function rejectParticipant(Request $request)
     {
         $nrp = $request->get('nrp');
+        $ukm = $request->get('ukm');
 
         // Ukms::where('nrp', $nrp)->increment('current_slot'); // kalau ditolak, slot nambah 1
-        DetailRegistration::where('nrp', $nrp)->update([
+        DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
             'file_validated' => 2
         ]);
 
