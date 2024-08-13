@@ -177,6 +177,13 @@ class PendaftaranController extends Controller
             } else {
                 $file_validated = 1;
             }
+
+            // untuk ukm yang free
+            if($ukm->slug == 'esport' || $ukm->slug == 'orkestra' || $ukm->slug == 'menwa'){
+                $payment_validated = 1;
+            }else{
+                $payment_validated = 0;
+            }
             // Simpan data ke tabel detail_registration
             DetailRegistration::create([
                 'nrp' => $user->nrp,
@@ -185,7 +192,7 @@ class PendaftaranController extends Controller
                 'code' => Str::random(4), // Menghasilkan string acak 4 karakter,
                 'drive_url' => $request->drive_url,
                 'file_validated' => $file_validated,
-                'payment_validated' => 0,
+                'payment_validated' => $payment_validated,
             ]);
 
             return back()->with('info', 'Pendaftaran berhasil');
@@ -202,6 +209,13 @@ class PendaftaranController extends Controller
             } else {
                 $file_validated = 1;
             }
+
+            // untuk ukm yang free
+            if($ukm->slug == 'esport' || $ukm->slug == 'orkestra' || $ukm->slug == 'menwa'){
+                $payment_validated = 1;
+            }else{
+                $payment_validated = 0;
+            }
             $user = User::where('nrp', $request->nrp)->first();
             DetailRegistration::create([
                 'nrp' => $user->nrp,
@@ -210,7 +224,7 @@ class PendaftaranController extends Controller
                 'code' => Str::random(4), // Menghasilkan string acak 4 karakter,
                 'drive_url' => $request->drive_url,
                 'file_validated' => $file_validated,
-                'payment_validated' => 0,
+                'payment_validated' => $payment_validated,
             ]);
 
             $ukm->update(['current_slot' => $current_slot]);
