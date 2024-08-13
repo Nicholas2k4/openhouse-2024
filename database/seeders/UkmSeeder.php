@@ -313,30 +313,6 @@ Tak hanya itu, UKM Pengembangan Diri juga menyelenggarakan kegiatan fine dining 
                     'regist_fee' => 310013,
                     'description' => '1. Latihan Rutin
 
-- Jadwal: Latihan diadakan setiap Jumat.
-Fokus: Teknik dasar, strategi, dan fisik.
-- Teknik Dasar: Dribbling, passing, shooting, penjagaan gawang.
-- Strategi: Formasi, taktik permainan, koordinasi tim.
-- Fisik: Latihan kekuatan, stamina, dan agility.
-- Pelatih: Pelatih profesional serta kating yang berpengalaman.
-
-2. Sparing dan Pertandingan Persahabatan
-
-- Frekuensi: Setiap bulan diadakan minimal satu kali sparing.
-- Tujuan: Mengasah kemampuan bermain di bawah tekanan, evaluasi performa.
-- Lawan: Tim futsal dari universitas lain atau klub futsal lokal.
-
-3. Turnamen
-
-Internal:
-- Turnamen Antar Fakultas: Diadakan setiap semester, melibatkan semua fakultas di UK Petra.
-
-Eksternal:
-- Turnamen Regional: Berpartisipasi dalam turnamen futsal tingkat regional Jawa Timur.
-- Turnamen Nasional: Mengikuti kompetisi futsal antar universitas di tingkat nasional.',
-                    'regist_fee' => 310000,
-                    'description' => '
-
 <h2 class = "mt-3 text-3xl">Latihan Rutin</h2>  
 
  <ol class = "list-inside list-disc">
