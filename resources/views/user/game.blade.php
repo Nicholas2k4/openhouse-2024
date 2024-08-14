@@ -270,7 +270,7 @@
                                 </div>
                             @else
                                 <div
-                                    class = "text-[12px] md:text-[24px] w-[25px] h-[25px] md:w-[50px] md:h-[50px] text-white font-bold">__</div>
+                                    class = "text-center text-[12px] md:text-[24px] w-[25px] h-[25px] md:w-[50px] md:h-[50px] text-white font-bold">__</div>
                             @endif
                             @php
                             $i += 1;
