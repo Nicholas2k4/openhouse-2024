@@ -460,9 +460,9 @@
         $('.16-aug-button').on('click', function() {
             Swal.fire({
                 title: 'Performance of the Week',
-                width: 800,
-                html: `<h5 class="font-bold text-xl text-center">16 Agustus 2024</h5>
-                <h3 class="font-bold text-3xl text-center mt-5"> Gedung W </h3>
+                width: 600,
+                html: `<h5 class="font-bold text-xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text">16 Agustus 2024</h5>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> Gedung W </h3>
                 <ul class="list-disc text-start ms-3 mt-3">
                     <li>
                         <p>UKM Paduan Suara</p>
@@ -474,7 +474,7 @@
                         <p>UKM Teater</p>
                     </li>
                 </ul>
-                <h3 class="font-bold text-3xl text-center mt-5"> Gedung Q </h3>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> Gedung Q </h3>
                 <ul class="list-disc text-start ms-3 mt-3">
                     <li>
                         <p>UKM Chinese Art</p>
@@ -486,7 +486,7 @@
                         <p>UKM ASFS</p>
                     </li>
                 </ul>
-                <h3 class="font-bold text-3xl text-center mt-5"> PCR Featuring Openhouse 2024 </h3>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> PCR Featuring Openhouse 2024 </h3>
                 <ul class="list-disc text-start ms-3 mt-3">
                     <li>
                         <p>UKM Voli</p>
@@ -520,9 +520,9 @@
         $('.23-aug-button').on('click', function() {
             Swal.fire({
                 title: 'Performance of the Week',
-                width: 800,
-                html: `<h5 class="font-bold text-xl text-center">23 Agustus 2024</h5>
-                <h3 class="font-bold text-3xl text-center mt-5"> Gedung W </h3>
+                width: 600,
+                html: `<h5 class="font-bold text-xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text">23 Agustus 2024</h5>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> Gedung W </h3>
                 <ul class="list-disc text-start ms-3 mt-3">
                     <li>
                         <p>UKM Resimen Mahasiswa & EMR</p>
@@ -531,7 +531,7 @@
                         <p>UKM Dance</p>
                     </li>
                 </ul>
-                <h3 class="font-bold text-3xl text-center mt-5"> Gedung Q </h3>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> Gedung Q </h3>
                 <ul class="list-disc text-start ms-3 mt-3">
                     <li>
                         <p>UKM Teater</p>
@@ -540,7 +540,7 @@
                         <p>UKM Taekwondo</p>
                     </li>
                 </ul>
-                <h3 class="font-bold text-3xl text-center mt-5"> PCR Featuring Openhouse 2024 </h3>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> PCR Featuring Openhouse 2024 </h3>
                 <ul class="list-disc text-start ms-3 mt-3">
                     <li>
                         <p>UKM English Debate Society</p>
@@ -571,21 +571,21 @@
         $('.30-aug-button').on('click', function() {
             Swal.fire({
                 title: 'Performance of the Week',
-                width: 800,
-                html: `<h5 class="font-bold text-xl text-center">30 Agustus 2024</h5>
-                <h3 class="font-bold text-3xl text-center mt-5"> Gedung W </h3>
+                width: 600,
+                html: `<h5 class="font-bold text-xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text">30 Agustus 2024</h5>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> Gedung W </h3>
                 <ul class="list-disc text-start ms-3 mt-3">
                     <li>
                         <p>UKM Vocal Group & Modeling</p>
                     </li>
                 </ul>
-                <h3 class="font-bold text-3xl text-center mt-5"> Gedung Q </h3>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> Gedung Q </h3>
                 <ul class="list-disc text-start ms-3 mt-3">
                     <li>
                         <p>UKM Chinese Art</p>
                     </li>
                 </ul>
-                <h3 class="font-bold text-3xl text-center mt-5"> PCR Featuring Openhouse 2024 </h3>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> PCR Featuring Openhouse 2024 </h3>
                 <ul class="list-disc text-start ms-3 mt-3">
                     <li>
                         <p>UKM ASFS</p>
