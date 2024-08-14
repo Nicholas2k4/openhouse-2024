@@ -216,7 +216,7 @@ Peserta UKM Dance akan berkontribusi dalam performance dan competition dance unt
                     'regist_fee' => 380007,
                     'description' => 'UKM Dekorasi adalah Unit Kegiatan Mahasiswa yang diadakan oleh Petra Christian University yang pada tiap pertemuannya akan membuat kerajinan tangan yang berbeda.',
                     'logo_url' => 'logo/10_dekor.png',
-                    'poster_url' => null,
+                    'poster_url' => 'poster/10_dekot.jpg',
                 ],
 
                 [
