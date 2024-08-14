@@ -80,7 +80,10 @@
         <!-- List Navigation -->
         <div class="mt-6">
             <ul>
-                @if (session('division_slug') == 'sekkonkes' || session('division_slug') == 'it' || session('division_slug') == 'bph'|| session('field') == 'ketua')
+                @if (session('division_slug') == 'sekkonkes' ||
+                        session('division_slug') == 'it' ||
+                        session('division_slug') == 'bph' ||
+                        session('field') == 'ketua')
                     <a href="{{ route('admin.booth-admin') }}" class="text-md">
                         <li class="flex flex-row items-center p-3 my-2 hover:bg-gray-200 rounded-lg transition">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="me-2"
@@ -170,7 +173,10 @@
 <!-- Navbar Content -->
 <div id="smallNav" class="bg-white border-b-2 absolute w-full hidden z-[999]">
     <ul class="mx-2">
-        @if (session('division_slug') == 'sekkonkes' || session('division_slug') == 'it' || session('division_slug') == 'bph')
+        @if (session('division_slug') == 'sekkonkes' ||
+                session('division_slug') == 'it' ||
+                session('division_slug') == 'bph' ||
+                session('field') == 'ketua')
             <a href="{{ route('admin.booth-admin') }}" class="text-md">
                 <li class="flex flex-row items-center p-3 my-2 hover:bg-gray-200 rounded-lg transition">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="me-2"

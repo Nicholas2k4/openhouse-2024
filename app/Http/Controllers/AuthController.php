@@ -48,6 +48,11 @@ class AuthController extends Controller
                     $ukm_id = $admin->ukm_id;
                     $field = $admin->field;
                     $division_id = $admin->division_id;
+                    
+                    if ($division_id) {
+                        $division_slug = Division::where('id', $division_id)->first()->slug;
+                        session()->put('division_slug', $division_slug);
+                    }
 
                     session()->put('ukm_id', $ukm_id);
                     session()->put('field', $field);
