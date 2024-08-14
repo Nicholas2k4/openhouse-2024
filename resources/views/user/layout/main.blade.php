@@ -273,7 +273,7 @@
         @include('user.components.footer')
     </div>
 
-    {{-- @include('user.components.loader-logic') --}}
+    @include('user.components.loader-logic')
 
     {{-- AOS --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
