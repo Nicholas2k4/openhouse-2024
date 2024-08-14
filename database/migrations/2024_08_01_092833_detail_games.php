@@ -19,7 +19,6 @@ return new class extends Migration
             $table->integer('letter_index');
             $table->timestamps();
 
-            $table->foreign('nrp')->references('nrp')->on('users')->onDelete('cascade');
             $table->foreign('ukm_id')->references('id')->on('ukms')->onDelete('cascade');
         });
     }
