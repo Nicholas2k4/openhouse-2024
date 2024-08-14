@@ -216,7 +216,7 @@ Peserta UKM Dance akan berkontribusi dalam performance dan competition dance unt
                     'regist_fee' => 380000,
                     'description' => 'UKM Dekorasi adalah Unit Kegiatan Mahasiswa yang diadakan oleh Petra Christian University yang pada tiap pertemuannya akan membuat kerajinan tangan yang berbeda.',
                     'logo_url' => 'logo/10_dekor.png',
-                    'poster_url' => null,
+                    'poster_url' => '33_dekorasi',
                 ],
 
                 [
@@ -416,7 +416,7 @@ Tak hanya itu, UKM Pengembangan Diri juga menyelenggarakan kegiatan fine dining 
                     'regist_fee' => 255000,
                     'description' => 'Kegiatan rutin UKM Tenis Lapangan yang akan diadakan setiap hari Jumat, bertujuan untuk mengembangkan strategi permainan, serta penguatan aspek fisik dan mental. Setiap 4 pertemuan sekali, akan diadakan kompetisi antar peserta, agar para peserta dapat mempelajari cara membaca gerakan lawan dan merespons dengan taktik yang tepat. Melalui kompetisi tersebut, peserta diharapkan dapat menyempurnakan teknik dasar tenis lapangan (forehand & backhand, servis, dan smash)',
                     'logo_url' => 'logo/25_tenis_lapangan.png',
-                    'poster_url' => 'poster/25_tenis_lap.jpg',
+                    'poster_url' => 'poster/25_tenis-lapangan.jpg',
                 ],
 
                 [
@@ -428,7 +428,7 @@ Tak hanya itu, UKM Pengembangan Diri juga menyelenggarakan kegiatan fine dining 
                     'regist_fee' => 250000,
                     'description' => 'Di UKM Tenis Meja tahun ini, tentu saja selain latihan berbagai macam teknik dan juga sparing bersama teman kalian, kita akan mengadakan beberapa turnamen kecil maupun besar dan juga berkesempatan mendapatkan hadiah seruu.',
                     'logo_url' => 'logo/26_tenis_meja.png',
-                    'poster_url' => 'poster/26_tenis_meja.jpg',
+                    'poster_url' => 'poster/26_tenis-meja.jpg',
                 ],
                 [
                     'id' => (string)Str::uuid(),
