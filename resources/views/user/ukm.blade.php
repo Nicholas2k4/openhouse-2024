@@ -77,10 +77,10 @@
     <section id="first-section" class = "overflow-hidden relative">
         <div class = "px-[30px] md:px-[50px] xl:px-[100px] mx-auto text-center flex flex-row h-screen items-center">
             <img src = "{{ URL('asset/Artboard 1_SS_4.png') }}"
-                class = "fixed rotate-animation-1 img-shadow-1  bottom-[0px] left-[-70px] w-[300px] md:w-[400px] rotate-[50deg]">
+                class = "z-0 fixed rotate-animation-1 img-shadow-1  bottom-[0px] left-[-70px] w-[300px] md:w-[400px] rotate-[50deg]">
             <img src = "{{ URL('asset/Artboard 1_SS_3.png') }}"
-                class = "fixed rotate-animation-2 img-shadow-2  bottom-[90px] right-[-60px] w-[325px] md:w-[450px] rotate-[-50deg]">
-            <div class = "mx-auto w-3/4">
+                class = "z-0 fixed rotate-animation-2 img-shadow-2  bottom-[90px] right-[-60px] w-[325px] md:w-[450px] rotate-[-50deg]">
+            <div class = "z-[2] mx-auto w-3/4">
                 <h3
                     class = "glow-text  text-white font-bold text-center text-[48px] md:text-[80px] lg:text-[100px] leading-[1.125]">
                     Unit
