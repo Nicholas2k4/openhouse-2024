@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('nrp', 9)->unique();
             $table->string('field')->comment('Panitia/UKM');
+
             $table->timestamps();
 
             $table->foreign('ukm_id')->references('id')->on('ukms')->onDelete('cascade');

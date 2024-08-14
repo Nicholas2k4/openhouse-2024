@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
+use App\Models\Ukm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -20,7 +23,7 @@ class AdminController extends Controller
             ->where('ukm.slug', '=', $slug)
             ->select('u.name', 'u.nrp', 'u.line_id', 'u.phone')
             ->get();
-        
+
 
         // Mengembalikan hasil dalam format JSON
         return response()->json($results);
@@ -45,5 +48,33 @@ class AdminController extends Controller
     public function login()
     {
         return view('admin.login');
+    }
+
+    public function adminBooth()
+    {
+        $ukm = Ukm::all();
+        $data['ukms'] = $ukm;
+        $data['tabTitle'] = 'Input Admin UKM';
+        return view('admin.booth-admin', $data);
+    }
+
+    public function storeAdminBooth(Request $request)
+    {
+
+        $valid = Validator::make([$request->nrp], ['nrp' => 'unique:admins,nrp'], ['nrp.unique' => 'This NRP has been registered as an admin']);
+        if ($valid->fails()) {
+            return redirect()->route('admin.booth-admin')->with('unique', $valid->errors()->first());
+        }
+        try {
+            Admin::create([
+                'name' => $request->name,
+                'nrp' => $request->nrp,
+                'ukm_id' => $request->ukm,
+                'field' => 'UKM',
+            ]);
+            return redirect()->route('admin.booth-admin')->with('success', 'UKM Admin successfully added!');
+        } catch (\Illuminate\Database\QueryException $ex) {
+            return redirect()->route('admin.booth-admin')->with('unique', 'This NRP has been registered as an admin.');
+        }
     }
 }

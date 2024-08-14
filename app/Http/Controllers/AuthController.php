@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\Admin;
+use App\Models\Division;
+use App\Models\Ukm;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -46,10 +48,17 @@ class AuthController extends Controller
                     $ukm_id = $admin->ukm_id;
                     $field = $admin->field;
                     $division_id = $admin->division_id;
+                    $division_slug = Division::where('id', $division_id)->first()->slug;
+                    if ($ukm_id) {
+                        $ukm_slug = Ukm::where('id', $ukm_id)->first()->slug;
+                        session()->put('ukm_slug', $ukm_slug);
+                    }
 
                     session()->put('ukm_id', $ukm_id);
                     session()->put('field', $field);
                     session()->put('division_id', $division_id);
+                    session()->put('division_slug', $division_slug);
+
                     return redirect()->route('admin.validate');
                 } else {
                     return redirect()->route('admin.login')->with('error', 'Anda bukan admin');

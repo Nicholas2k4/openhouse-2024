@@ -195,7 +195,8 @@
                         } else {
                             Swal.fire({
                                 title: "This participant has been rejected",
-                                text: "NRP : " + nrp,
+                                // text: "NRP : " + nrp,
+                                text: data.message,
                                 icon: "error",
                             });
                         }
