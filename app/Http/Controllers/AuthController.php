@@ -37,7 +37,7 @@ class AuthController extends Controller
             session(['name' => $name]);
 
             if ($auth_type == 'user') {
-                return redirect()->route('user.home');
+                return redirect()->route('user.home')->with('login', 'Login Success !');
             } else if ($auth_type == 'admin') {
                 // cek ada di tabel admin ato ga
                 $admin = Admin::where('nrp', $nrp)->first();
