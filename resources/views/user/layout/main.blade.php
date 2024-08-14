@@ -322,8 +322,7 @@
 
         for (var list in lists) {
             $('.dropdown').append(
-                '<a class="py-1 ps-2 rounded-xl" href="' + lists[list] +
-                '" data-te-ripple-init data-te-ripple-color="light">' +
+                '<a class="py-1 ps-2 rounded-xl" href="' + lists[list] + '>' +
                 list + '</a> <hr>');
         }
         // });
@@ -354,13 +353,14 @@
                 for (var list in lists) {
                     $('.dropdown').append(
                         '<a class="py-1 ps-2 rounded-xl" href="' + lists[list] +
-                        '" data-te-ripple-init data-te-ripple-color="light">' + list +
+                        '>' + list +
                         '</a> <hr>');
                 }
             } else {
                 for (var list in lists) {
                     if (list.toUpperCase().indexOf(filter) > -1) {
-                        $('.dropdown').append('<a class="py-1 ps-2 rounded-xl" href="' + lists[list] + '" data-te-ripple-init data-te-ripple-color="light">' +
+                        $('.dropdown').append('<a class="py-1 ps-2 rounded-xl" href="' + lists[list] +
+                            '>' +
                             list + '</a> <hr>');
                     }
                 }
