@@ -45,8 +45,7 @@
         @elseif ($status == 'accepted' && $type == 'file')
             <h4 style="margin-top: 10px;">Hai {{ $user->name }}, selamat! kamu telah lolos seleksi.</h4>
             <h4 style="margin-top: 20px; margin-bottom: 5px">Kamu bisa melanjutkan proses menuju pembayaran.
-                <a href="{{ 'https://openhouse.petra.ac.id/pendaftaran/' . $ukm->slug }}">LINK PENDAFTARAN UKM
-                    {{ $ukm->name }}</a>
+                <a href="{{ 'https://openhouse.petra.ac.id/pendaftaran/' . $ukm->slug }}">LINK PENDAFTARAN {{ $ukm->name }}</a>
             </h4>
         @endif
 
