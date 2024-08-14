@@ -178,7 +178,7 @@ class ValidateController extends Controller
                 'file_validated' => 1,
             ]);
 
-            Log::channel('daily')->info('{name} ({nrp}) accepted {participant} selection file', [
+            Log::channel('daily')->info('accepted selection file', [
                 'name' => session('name'),
                 'nrp' => session('nrp'),
                 'participant' => $nrp
@@ -207,7 +207,7 @@ class ValidateController extends Controller
                 DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
                     'payment_validated' => 1,
                 ]);
-                Log::channel('daily')->info('{name} ({nrp}) accepted {participant} payment proof file', [
+                Log::channel('daily')->info('accepted payment proof file', [
                     'name' => session('name'),
                     'nrp' => session('nrp'),
                     'participant' => $nrp
@@ -238,7 +238,7 @@ class ValidateController extends Controller
             'payment_validated' => 2,
         ]);
 
-        Log::channel('daily')->info('{name} ({nrp}) rejected {participant} payment proof file', [
+        Log::channel('daily')->info('rejected payment proof file', [
             'name' => session('name'),
             'nrp' => session('nrp'),
             'participant' => $nrp
@@ -258,7 +258,7 @@ class ValidateController extends Controller
         DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
             'file_validated' => 2,
         ]);
-        Log::channel('daily')->info('{name} ({nrp}) rejected {participant} selection file', [
+        Log::channel('daily')->info('rejected selection file', [
             'name' => session('name'),
             'nrp' => session('nrp'),
             'participant' => $nrp
