@@ -31,9 +31,9 @@
 
     {{-- Maskot --}}
     <img src="{{ asset('assets/CORALIS POSE 1.png') }}" alt="Coralis"
-        class="maskot max-[475px]:hidden absolute lg:right-[-5vw] right-[-25vw] sm:top-[3000px] md:top-[3200px] lg:top-[3900px] xl:top-[5000px] lg:w-1/3 w-1/2">
+        class="maskot z-[9] max-[475px]:hidden absolute lg:right-[-5vw] right-[-25vw] sm:top-[3000px] md:top-[3200px] lg:top-[3900px] xl:top-[5000px] lg:w-1/3 w-1/2">
     <img src="{{ asset('assets/VERDARA POSE 1.png') }}" alt="Verdara"
-        class="maskot max-[475px]:hidden absolute lg:left-[-5vw] left-[-18vw] sm:top-[3000px] md:top-[3200px] lg:top-[3900px] xl:top-[5000px] lg:w-1/3 w-1/2">
+        class="maskot z-[9] max-[475px]:hidden absolute lg:left-[-5vw] left-[-18vw] sm:top-[3000px] md:top-[3200px] lg:top-[3900px] xl:top-[5000px] lg:w-1/3 w-1/2">
 
     {{-- Video --}}
     <section class="video w-full xl:h-[100vh] z-50 overflow-hidden flex items-center">
@@ -154,7 +154,7 @@
     </section>
 
 
-    <section class="faq w-screen flex justify-center items-center flex-col top-16 mt-[100px] h-fit z-50" id="faq">
+    <section class="faq w-screen flex justify-center items-center flex-col top-16 mt-[100px] h-fit !z-50" id="faq">
         <div class="flex justify-center items-center h-24 text-3xl font-bold">
             <h1 data-aos="fade-down" data-aos-once="true"
                 class="sm:text-7xl text-5xl font-bold text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mb-5">
@@ -162,7 +162,7 @@
         </div>
 
         <div
-            class="chats grid md:w-[700px] sm:w-[380px] max-sm:w-[310px] h-[550px] bg-gray-200 my-10 rounded-3xl overflow-hidden">
+            class="chats grid md:w-[700px] sm:w-[380px] max-sm:w-[310px] h-[550px] bg-gray-200 my-10 rounded-3xl overflow-hidden !z-50">
             <div class="chat-header w-full h-[70px] rounded-t-2xl flex justify-start items-center">
                 <img src="{{ asset('assets/VERDARA PP.png') }}" alt="faq-maskot"
                     class="rounded-full h-11 bg-yellow-400 mx-4">
