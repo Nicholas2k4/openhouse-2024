@@ -204,9 +204,9 @@
             fill: transparent;
             stroke-width: 10;
             stroke: white;
-            stroke-dasharray: 6000;
-            stroke-dashoffset: 6000;
-            animation: gacor 2.7s linear infinite;
+            stroke-dasharray: 11500;
+            stroke-dashoffset: 11500;
+            animation: gacor 2.2s linear infinite;
         }
 
         @keyframes gacor {
@@ -220,17 +220,17 @@
             }
 
             40% {
-                stroke-dashoffset: 6000;
+                stroke-dashoffset: 11500;
                 fill: transparent;
             }
 
             80% {
-                stroke-dashoffset: 12000;
+                stroke-dashoffset: 23000;
                 fill: transparent;
             }
 
             100% {
-                stroke-dashoffset: 12000;
+                stroke-dashoffset: 23000;
                 fill: black;
             }
         }
@@ -273,7 +273,7 @@
         @include('user.components.footer')
     </div>
 
-    @include('user.components.loader-logic')
+    {{-- @include('user.components.loader-logic') --}}
 
     {{-- AOS --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
