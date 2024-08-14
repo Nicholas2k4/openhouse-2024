@@ -358,11 +358,10 @@
                         '</a> <hr>');
                 }
             } else {
-                for (i = 0; i < li.length; i++) {
-                    txtValue = li[i];
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        $('.dropdown').append('<a class="py-1 ps-2 rounded-xl" href="" data-te-ripple-init data-te-ripple-color="light">' +
-                            txtValue + '</a> <hr>');
+                for (var list in lists) {
+                    if (list.toUpperCase().indexOf(filter) > -1) {
+                        $('.dropdown').append('<a class="py-1 ps-2 rounded-xl" href="' + lists[list] + '" data-te-ripple-init data-te-ripple-color="light">' +
+                            list + '</a> <hr>');
                     }
                 }
             }
