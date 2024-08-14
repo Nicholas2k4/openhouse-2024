@@ -7,7 +7,7 @@
 <div class="loader-container z-[5000] w-fit h-fit fixed">
     <div class="loader overflow-hidden w-screen h-screen flex justify-center items-center flex-col fixed" id="loader1">
         
-        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+        {{-- <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"> --}}
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="3840px" height="2160px"
             class="fixed sm:scale-[0.16] max-sm:scale-[0.09]"
             style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
@@ -168,7 +168,7 @@
     </div>
     <div class="loader overflow-hidden w-screen h-screen flex justify-center items-center flex-col fixed"
         id="loader2">
-        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+        {{-- <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"> --}}
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="3840px" height="2160px"
             class="fixed sm:scale-[0.16] max-sm:scale-[0.09]"
             style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
