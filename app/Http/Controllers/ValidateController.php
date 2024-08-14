@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\DetailRegistration;
 use App\Models\User;
 use App\Models\Ukm;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class ValidateController extends Controller
@@ -176,6 +177,12 @@ class ValidateController extends Controller
             DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
                 'file_validated' => 1,
             ]);
+
+            Log::channel('daily')->info('{name} ({nrp}) accepted {participant} selection file', [
+                'name' => session('name'),
+                'nrp' => session('nrp'),
+                'participant' => $nrp
+            ]);
             return response()->json(['message' => 'true']); // Berhasil validasi
         } else if ($selectionFile == 1) {
             return response()->json(['message' => 'false']); // File seleksi sudah divalidasi
@@ -199,6 +206,11 @@ class ValidateController extends Controller
 
                 DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
                     'payment_validated' => 1,
+                ]);
+                Log::channel('daily')->info('{name} ({nrp}) accepted {participant} payment proof file', [
+                    'name' => session('name'),
+                    'nrp' => session('nrp'),
+                    'participant' => $nrp
                 ]);
                 return response()->json(['message' => 'true']); // Berhasil validasi
             } else {
@@ -226,6 +238,11 @@ class ValidateController extends Controller
             'payment_validated' => 2,
         ]);
 
+        Log::channel('daily')->info('{name} ({nrp}) rejected {participant} payment proof file', [
+            'name' => session('name'),
+            'nrp' => session('nrp'),
+            'participant' => $nrp
+        ]);
         return response()->json(['message' => 'true']);
     }
 
@@ -241,7 +258,11 @@ class ValidateController extends Controller
         DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
             'file_validated' => 2,
         ]);
-
+        Log::channel('daily')->info('{name} ({nrp}) rejected {participant} selection file', [
+            'name' => session('name'),
+            'nrp' => session('nrp'),
+            'participant' => $nrp
+        ]);
         return response()->json(['message' => 'true']);
     }
 }
