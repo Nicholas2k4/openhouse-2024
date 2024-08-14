@@ -270,7 +270,7 @@
 
     </section>
 
-    @include('user.components.bubbles')
+    {{-- @include('user.components.bubbles') --}}
 @endsection
 
 @section('script')
