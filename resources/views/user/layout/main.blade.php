@@ -32,6 +32,32 @@
     {{-- AOS --}}
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    {{-- Meta tags --}}
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta name="keywords"
+        content="openhouse, petra, oh, open house, ukm, unit kegiatan mahasiswa, lk, lembaga kemahasiswaan, petranesian, uk petra">
+    <meta name="description"
+        content="Openhouse merupakan acara tahunan Petra Christian University untuk memperkenalkan unit-unit kegiatan mahasiswa dan lembaga kemahasiswaan yang ada di Petra Christian University.">
+    <meta name="author" content="OPENHOUSE 2024 | IT division">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://openhouse.petra.ac.id">
+    <meta property="og:title" content="OPENHOUSE 2024 - BEM PCU">
+    <meta property="og:description"
+        content="Openhouse merupakan acara tahunan Petra Christian University untuk memperkenalkan unit-unit kegiatan mahasiswa dan lembaga kemahasiswaan yang ada di Petra Christian University.">
+    <meta property="og:image" content="https://openhouse.petra.ac.id/assets/LOGO%20OPENHOUSE%20SEMIFINAL.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://openhouse.petra.ac.id">
+    <meta name="twitter:title" content="OPENHOUSE 2024 - BEM PCU">
+    <meta name="twitter:description"
+        content="Openhouse merupakan acara tahunan Petra Christian University untuk memperkenalkan unit-unit kegiatan mahasiswa dan lembaga kemahasiswaan yang ada di Petra Christian University.">
+    <meta name="twitter:image" content="https://openhouse.petra.ac.id/assets/LOGO%20OPENHOUSE%20SEMIFINAL.png">
+
     <script src="https://kit.fontawesome.com/fc45e0c6e7.js" crossorigin="anonymous"></script>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/arrow-long-right.css' rel='stylesheet'>
     <style>
