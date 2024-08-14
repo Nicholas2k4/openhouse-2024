@@ -23,6 +23,12 @@
             Swal.fire('Success', '{{ session('logout') }}', 'success');
         </script>
     @endif
+    @if (session()->has('login'))
+        <script>
+            Swal.fire('Success', '{{ session('login') }}', 'success');
+        </script>
+    @endif
+    
     {{-- Elements --}}
     <img src="{{ asset('assets/Coral_2.png') }}" alt="Coral"
         class="coral-2 absolute sm:top-[80vh] top-[50vh] md:top-[110vh] xl:top-[120vh] sm:right-[-10vw] right-[-15vw] rotate-[-30deg] sm:w-1/3 w-1/2">
@@ -46,7 +52,7 @@
     </section>
 
     {{-- Timeline --}}
-    <section class="timeline" id="timeline">
+    <section class="timeline !z-10" id="timeline">
         <div class="flex justify-center mt-10">
             <h1 data-aos="fade-down" data-aos-once="true"
                 class="sm:text-7xl text-5xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
@@ -75,7 +81,7 @@
                 </button>
             </div>
         </div>
-        <div class="timeline mt-10 relative flex justify-center">
+        <div class="timeline mt-10 relative flex justify-center z-[5]">
             <img src="{{ asset('assets/line.png') }}" class="absolute xl:w-10/12 w-full md:top-1 sm:top-3 xl:top-0 top-2"
                 alt="">
             <img src="{{ asset('assets/point_passive.png') }}"
@@ -84,7 +90,7 @@
             <img src="{{ asset('assets/point_passive.png') }}"
                 class="absolute md:w-[4%] xl:w-[2%] w-[6%] xl:right-52 right-16" alt="">
         </div>
-        <div class="active-timeline relative flex justify-center">
+        <div class="active-timeline relative flex justify-center z-[5]">
             <img src="{{ asset('assets/point_active.png') }}"
                 class="active1 active-timeline absolute md:w-[4%] xl:w-[2%] w-[6%] xl:left-52 left-16" alt="">
             <img src="{{ asset('assets/point_active.png') }}"
@@ -93,15 +99,15 @@
                 class="active3 active-timeline absolute md:w-[4%] xl:w-[2%] w-[6%] xl:right-52 right-16 opacity-0"
                 alt="">
         </div>
-        <div class="text-timeline mt-10 md:space-x-24 font-bold flex justify-around">
+        <div class="text-timeline mt-10 md:space-x-24 font-bold flex justify-around !z-10">
             <h1
-                class="sm:text-2xl text-xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
+                class="sm:text-2xl text-xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text !z-10">
                 16 Agustus</h1>
             <h1
-                class="sm:text-2xl text-xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
+                class="sm:text-2xl text-xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text !z-10">
                 23 Agustus</h1>
             <h1
-                class="sm:text-2xl text-xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
+                class="sm:text-2xl text-xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text !z-10">
                 30 Agustus</h1>
         </div>
     </section>
