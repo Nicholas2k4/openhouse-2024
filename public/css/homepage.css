@@ -130,6 +130,12 @@ h1 {
     box-shadow: 0 0 5px white, 0 0 10px white;
 }
 
+.swal2-title {
+    background: linear-gradient(to right, #DEC47C, #F7EECF, #DEC47C);
+    color: transparent;
+    background-clip: text;
+}
+
 @keyframes slideIn {
     from {
         transform: translateX(100%);

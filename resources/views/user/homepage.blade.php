@@ -35,9 +35,9 @@
 
     {{-- Maskot --}}
     <img src="{{ asset('assets/CORALIS POSE 1.png') }}" alt="Coralis"
-        class="maskot max-[475px]:hidden absolute lg:right-[-5vw] right-[-25vw] sm:top-[3000px] md:top-[3200px] lg:top-[3900px] xl:top-[5000px] lg:w-1/3 w-1/2">
+        class="maskot z-[9] max-[475px]:hidden absolute lg:right-[-5vw] right-[-25vw] sm:top-[3000px] md:top-[3200px] lg:top-[3900px] xl:top-[5000px] lg:w-1/3 w-1/2">
     <img src="{{ asset('assets/VERDARA POSE 1.png') }}" alt="Verdara"
-        class="maskot max-[475px]:hidden absolute lg:left-[-5vw] left-[-18vw] sm:top-[3000px] md:top-[3200px] lg:top-[3900px] xl:top-[5000px] lg:w-1/3 w-1/2">
+        class="maskot z-[9] max-[475px]:hidden absolute lg:left-[-5vw] left-[-18vw] sm:top-[3000px] md:top-[3200px] lg:top-[3900px] xl:top-[5000px] lg:w-1/3 w-1/2">
 
     {{-- Video --}}
     <section class="video w-full xl:h-[100vh] z-50 overflow-hidden flex items-center">
@@ -157,7 +157,7 @@
     </section>
 
 
-    <section class="faq w-screen flex justify-center items-center flex-col top-16 mt-[100px] h-fit z-50" id="faq">
+    <section class="faq w-screen flex justify-center items-center flex-col top-16 mt-[100px] h-fit !z-50" id="faq">
         <div class="flex justify-center items-center h-24 text-3xl font-bold">
             <h1 data-aos="fade-down" data-aos-once="true"
                 class="sm:text-7xl text-5xl font-bold text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mb-5">
@@ -165,7 +165,7 @@
         </div>
 
         <div
-            class="chats grid md:w-[700px] sm:w-[380px] max-sm:w-[310px] h-[550px] bg-gray-200 my-10 rounded-3xl overflow-hidden">
+            class="chats grid md:w-[700px] sm:w-[380px] max-sm:w-[310px] h-[550px] bg-gray-200 my-10 rounded-3xl overflow-hidden !z-50">
             <div class="chat-header w-full h-[70px] rounded-t-2xl flex justify-start items-center">
                 <img src="{{ asset('assets/VERDARA PP.png') }}" alt="faq-maskot"
                     class="rounded-full h-11 bg-yellow-400 mx-4">
@@ -468,91 +468,156 @@
         $('.16-aug-button').on('click', function() {
             Swal.fire({
                 title: 'Performance of the Week',
-                width: 800,
-                html: `<h5 class="font-bold text-xl text-center">16 Agustus 2024</h5>
-                <ul class="list-disc text-start ms-3 mt-5">
+                width: 600,
+                html: `<h5 class="font-bold text-xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text">16 Agustus 2024</h5>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> Gedung W </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, error?</p>
+                        <p>UKM Paduan Suara</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, molestias.</p>
+                        <p>UKM Taekwondo</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, delectus.</p>
+                        <p>UKM Teater</p>
+                    </li>
+                </ul>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> Gedung Q </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
+                    <li>
+                        <p>UKM Chinese Art</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Dance</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM ASFS</p>
+                    </li>
+                </ul>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> PCR Featuring Openhouse 2024 </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
+                    <li>
+                        <p>UKM Voli</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Catur</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Futsal</p>
                     </li>
-                </ul>`,
+                    <li>
+                        <p>UKM Badminton</p>
+                    </li>
+                    <li>
+                        <p>UKM Tenis Meja</p>
+                    </li>
+                    <li>
+                        <p>UKM Renang</p>
+                    </li>
+                    <li>
+                        <p>UKM Tenis Lapangan</p>
+                    </li>
+                    <li>
+                        <p>UKM Basket</p>
+                    </li>
+                </ul>
+                `,
             });
         });
 
         $('.23-aug-button').on('click', function() {
             Swal.fire({
                 title: 'Performance of the Week',
-                width: 800,
-                html: `<h5 class="font-bold text-xl text-center">23 Agustus 2024</h5>
-                <ul class="list-disc text-start ms-3 mt-5">
+                width: 600,
+                html: `<h5 class="font-bold text-xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text">23 Agustus 2024</h5>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> Gedung W </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, error?</p>
+                        <p>UKM Resimen Mahasiswa & EMR</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, molestias.</p>
+                        <p>UKM Dance</p>
+                    </li>
+                </ul>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> Gedung Q </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
+                    <li>
+                        <p>UKM Teater</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, delectus.</p>
+                        <p>UKM Taekwondo</p>
+                    </li>
+                </ul>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> PCR Featuring Openhouse 2024 </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
+                    <li>
+                        <p>UKM English Debate Society</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Pengembangan Diri</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Esport</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Matrapenza</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>LK BEM</p>
                     </li>
-                </ul>`,
+                    <li>
+                        <p>LK PELMA</p>
+                    </li>
+                    <li>
+                        <p>LK PERSMA</p>
+                    </li>
+                </ul>
+                `,
             });
         });
 
         $('.30-aug-button').on('click', function() {
             Swal.fire({
                 title: 'Performance of the Week',
-                width: 800,
-                html: `<h5 class="font-bold text-xl text-center">30 Agustus 2024</h5>
-                <ul class="list-disc text-start ms-3 mt-5">
+                width: 600,
+                html: `<h5 class="font-bold text-xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text">30 Agustus 2024</h5>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> Gedung W </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, error?</p>
+                        <p>UKM Vocal Group & Modeling</p>
+                    </li>
+                </ul>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> Gedung Q </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
+                    <li>
+                        <p>UKM Chinese Art</p>
+                    </li>
+                </ul>
+                <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> PCR Featuring Openhouse 2024 </h3>
+                <ul class="list-disc text-start ms-3 mt-3">
+                    <li>
+                        <p>UKM ASFS</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, molestias.</p>
+                        <p>UKM Dekorasi</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, delectus.</p>
+                        <p>UKM Ilustrasi</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Martografi</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM EMR - Menwa</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Vocal Group - Modelling</p>
                     </li>
                     <li>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, unde.</p>
+                        <p>UKM Tenis Paduan Suara - Orchestra</p>
+                    </li>
+                    <li>
+                        <p>UKM Matrapala</p>
                     </li>
                 </ul>`,
             });
