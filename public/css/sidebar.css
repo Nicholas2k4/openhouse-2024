@@ -1,5 +1,5 @@
 .hamburger {
-    z-index: 99999;
+    z-index: 200;
     transition: all 0.2s ease-in-out;
 }
 
@@ -12,7 +12,7 @@
     -ms-user-select: none;
     user-select: none;
     width: 50px !important;
-    z-index: 99999;
+    z-index: 200;
 }
 
 .hamRotate.active {
@@ -63,7 +63,7 @@ nav.hide-nav .hamburger {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 150;
     width: 0;
     opacity: 0;
     height: 100svh;
