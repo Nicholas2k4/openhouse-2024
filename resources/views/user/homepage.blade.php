@@ -479,7 +479,7 @@
                 <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> Gedung W </h3>
                 <ul class="list-disc text-start ms-3 mt-3">
                     <li>
-                        <p>UKM Paduan Suara</p>
+                        <p>UKM Paduan Suara & Orkestra</p>
                     </li>
                     <li>
                         <p>UKM Taekwondo</p>
