@@ -62,7 +62,7 @@ nav.hide-nav .hamburger {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 6;
+    z-index: 999;
     width: 0;
     opacity: 0;
     height: 100svh;
