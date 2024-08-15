@@ -81,19 +81,19 @@
         <div class="mt-6">
             <ul>
                 @if (session('division_slug') == 'sekkonkes' ||
-                        session('division_slug') == 'it' ||
-                        session('division_slug') == 'bph' ||
-                        session('field') == 'ketua')
-                    <a href="{{ route('admin.booth-admin') }}" class="text-md">
-                        <li class="flex flex-row items-center p-3 my-2 hover:bg-gray-200 rounded-lg transition">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="me-2"
-                                viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                                <path
-                                    d="M96 128a128 128 0 1 0 256 0A128 128 0 1 0 96 128zm94.5 200.2l18.6 31L175.8 483.1l-36-146.9c-2-8.1-9.8-13.4-17.9-11.3C51.9 342.4 0 405.8 0 481.3c0 17 13.8 30.7 30.7 30.7l131.7 0c0 0 0 0 .1 0l5.5 0 112 0 5.5 0c0 0 0 0 .1 0l131.7 0c17 0 30.7-13.8 30.7-30.7c0-75.5-51.9-138.9-121.9-156.4c-8.1-2-15.9 3.3-17.9 11.3l-36 146.9L238.9 359.2l18.6-31c6.4-10.7-1.3-24.2-13.7-24.2L224 304l-19.7 0c-12.4 0-20.1 13.6-13.7 24.2z" />
-                            </svg>
-                            Input Admin Booth
-                        </li>
-                    </a>
+                session('division_slug') == 'it' ||
+                session('division_slug') == 'bph' ||
+                session('field') == 'ketua')
+                <a href="{{ route('admin.booth-admin') }}" class="text-md">
+                    <li class="flex flex-row items-center p-3 my-2 hover:bg-gray-200 rounded-lg transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="me-2"
+                            viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path
+                                d="M96 128a128 128 0 1 0 256 0A128 128 0 1 0 96 128zm94.5 200.2l18.6 31L175.8 483.1l-36-146.9c-2-8.1-9.8-13.4-17.9-11.3C51.9 342.4 0 405.8 0 481.3c0 17 13.8 30.7 30.7 30.7l131.7 0c0 0 0 0 .1 0l5.5 0 112 0 5.5 0c0 0 0 0 .1 0l131.7 0c17 0 30.7-13.8 30.7-30.7c0-75.5-51.9-138.9-121.9-156.4c-8.1-2-15.9 3.3-17.9 11.3l-36 146.9L238.9 359.2l18.6-31c6.4-10.7-1.3-24.2-13.7-24.2L224 304l-19.7 0c-12.4 0-20.1 13.6-13.7 24.2z" />
+                        </svg>
+                        Input Admin Booth
+                    </li>
+                </a>
                 @endif
                 <a href="{{ route('admin.validate') }}" class="text-md">
                     <li class="flex flex-row items-center p-3 my-2 hover:bg-gray-200 rounded-lg transition">
@@ -174,19 +174,19 @@
 <div id="smallNav" class="bg-white border-b-2 absolute w-full hidden z-[999]">
     <ul class="mx-2">
         @if (session('division_slug') == 'sekkonkes' ||
-                session('division_slug') == 'it' ||
-                session('division_slug') == 'bph' ||
-                session('field') == 'ketua')
-            <a href="{{ route('admin.booth-admin') }}" class="text-md">
-                <li class="flex flex-row items-center p-3 my-2 hover:bg-gray-200 rounded-lg transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="me-2"
-                        viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                        <path
-                            d="M96 128a128 128 0 1 0 256 0A128 128 0 1 0 96 128zm94.5 200.2l18.6 31L175.8 483.1l-36-146.9c-2-8.1-9.8-13.4-17.9-11.3C51.9 342.4 0 405.8 0 481.3c0 17 13.8 30.7 30.7 30.7l131.7 0c0 0 0 0 .1 0l5.5 0 112 0 5.5 0c0 0 0 0 .1 0l131.7 0c17 0 30.7-13.8 30.7-30.7c0-75.5-51.9-138.9-121.9-156.4c-8.1-2-15.9 3.3-17.9 11.3l-36 146.9L238.9 359.2l18.6-31c6.4-10.7-1.3-24.2-13.7-24.2L224 304l-19.7 0c-12.4 0-20.1 13.6-13.7 24.2z" />
-                    </svg>
-                    Input Admin Booth
-                </li>
+        session('division_slug') == 'it' ||
+        session('division_slug') == 'bph' ||
+        session('field') == 'ketua')
+        <li class="p-4 my-2 hover:bg-gray-200 rounded-lg transition">
+            <a href="{{ route('admin.booth-admin') }}" class="flex flex-row text-md items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="me-2"
+                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                        d="M96 128a128 128 0 1 0 256 0A128 128 0 1 0 96 128zm94.5 200.2l18.6 31L175.8 483.1l-36-146.9c-2-8.1-9.8-13.4-17.9-11.3C51.9 342.4 0 405.8 0 481.3c0 17 13.8 30.7 30.7 30.7l131.7 0c0 0 0 0 .1 0l5.5 0 112 0 5.5 0c0 0 0 0 .1 0l131.7 0c17 0 30.7-13.8 30.7-30.7c0-75.5-51.9-138.9-121.9-156.4c-8.1-2-15.9 3.3-17.9 11.3l-36 146.9L238.9 359.2l18.6-31c6.4-10.7-1.3-24.2-13.7-24.2L224 304l-19.7 0c-12.4 0-20.1 13.6-13.7 24.2z" />
+                </svg>
+                Input Admin Booth
             </a>
+        </li>
         @endif
         <li class="p-4 my-2 hover:bg-gray-200 rounded-lg transition">
             <a href={{ route('admin.validate') }} class="flex flex-row text-md items-center justify-center">
@@ -201,12 +201,12 @@
 
         {{-- <li class="p-4 my-2 hover:bg-gray-200 rounded-lg transition">
             <a href="{{ route('admin.validate') }}" class="flex flex-row text-md items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
-                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                    <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
-                </svg>
-                Validate
-            </a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
+        </svg>
+        Validate
+        </a>
         </li> --}}
         <li class="p-4 my-2 hover:bg-gray-200 rounded-lg transition">
             <a href="{{ route('admin.generate') }}" class="flex flex-row text-md items-center justify-center">
