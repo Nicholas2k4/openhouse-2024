@@ -553,6 +553,9 @@
                     <li>
                         <p>UKM Taekwondo</p>
                     </li>
+                    <li>
+                        <p>UKM Paduan Suara & Orkestra</p>
+                    </li>
                 </ul>
                 <h3 class="font-bold text-3xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mt-5"> PCR Featuring Openhouse 2024 </h3>
                 <ul class="list-disc text-start ms-3 mt-3">
