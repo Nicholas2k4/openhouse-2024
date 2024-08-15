@@ -62,8 +62,8 @@ Route::get('/login', [AuthController::class, 'login'])->name('user.login');
 Route::get('/processLogin', [AuthController::class, 'processLogin'])->name('login.process');
 
 // Registration
+Route::get('/pendaftaran/{id}', [PendaftaranController::class, 'redirect'])->name('pendaftaran.redirect');
 Route::post('/storePendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store')->middleware('user');
-Route::get('/pendaftaran/{id}', [PendaftaranController::class, 'redirect'])->name('pendaftaran.redirect')->middleware('user');
 Route::post('/pembayaran', [PendaftaranController::class, 'payment'])->name('pendaftaran.payment')->middleware('user');
 
 // Information
