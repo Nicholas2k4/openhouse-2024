@@ -2,9 +2,9 @@
 @section('content')
 <div class="h-full justify-center px-4">
     <h1 class="text-3xl font-bold py-4">List Pendaftar & Validasi</h1>
-    <div class="flex p-2">
-        <label for="regFilter" class="self-center me-2">UKM</label>
-        <select name="" id="regFilter" class="border-2 border-gray-200 rounded">
+    <div class="flex flex-col lg:flex-row p-2">
+        <label for="regFilter" class="self-start lg:self-center me-2">UKM</label>
+        <select name="" id="regFilter" class="border-2 border-gray-200 rounded mb-2 lg:mb-0">
             <option value="">All</option>
             <option value="chinese">Chinese Art</option>
             <option value="asfs">ASFS</option>
@@ -34,17 +34,18 @@
             <option value="padus">Paduan Suara</option>
             <option value="orkestra">Orkestra</option>
         </select>
-        <label for="statusFilter" class="self-center ms-4 me-2">Status</label>
-        <select name="" id="statusFilter" class="border-2 border-gray-200 rounded">
+        <label for="statusFilter" class="self-start lg:self-center lg:ms-4 me-2">Status</label>
+        <select name="" id="statusFilter" class="border-2 border-gray-200 rounded mb-2 lg:mb-0">
             <option value="">All</option>
             <option value="pending">Pending</option>
             <option value="accepted">Accepted</option>
             <option value="rejected">Rejected</option>
         </select>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="self-center ms-4" viewBox="0 0 16 16">
+        <label for="searchReg" class="self-start lg:hidden">Search</label>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="self-center ms-4 hidden lg:block" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
         </svg>
-        <input type="search" name="" id="searchReg" class="ms-1 border-2 border-gray-200 rounded p-0.5" placeholder="NRP">
+        <input type="search" name="" id="searchReg" class="lg:ms-1 border-2 border-gray-200 rounded p-0.5" placeholder="NRP">
     </div>
     <div class="pb-10">
         <div id="regTable" class="overflow-auto rounded-lg bg-white drop-shadow-lg">
