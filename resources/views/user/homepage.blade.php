@@ -577,6 +577,9 @@
                     <li>
                         <p>LK PERSMA</p>
                     </li>
+                     <li>
+                        <p>LK TPS</p>
+                    </li>
                 </ul>
                 `,
             });
