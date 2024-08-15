@@ -28,7 +28,7 @@
             Swal.fire('Success', '{{ session('login') }}', 'success');
         </script>
     @endif
-    
+
     {{-- Elements --}}
     <img src="{{ asset('assets/Coral_2.png') }}" alt="Coral"
         class="coral-2 absolute sm:top-[80vh] top-[50vh] md:top-[110vh] xl:top-[120vh] sm:right-[-10vw] right-[-15vw] rotate-[-30deg] sm:w-1/3 w-1/2">
@@ -52,12 +52,12 @@
     </section>
 
     {{-- Timeline --}}
+    <div class="flex justify-center mt-10">
+        <h1 data-aos="fade-down" data-aos-once="true"
+            class="sm:text-7xl text-5xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
+            TIMELINE</h1>
+    </div>
     <section class="timeline !z-10" id="timeline">
-        <div class="flex justify-center mt-10">
-            <h1 data-aos="fade-down" data-aos-once="true"
-                class="sm:text-7xl text-5xl font-bold bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
-                TIMELINE</h1>
-        </div>
         <div class="img-container flex items-end w-[300vw] overflow-x-scroll mx-auto no-scrollbar">
             <div class="pulau1 w-[100vw] flex justify-center mb-3 flex-col space-y-10">
                 <img src="{{ asset('assets/SS.png') }}" class="mx-auto sm:w-[300px] w-[250px]" alt="">
@@ -194,9 +194,9 @@
             <div class="chat-footer w-full h-[58px] rounded-b-2xl flex justify-between place-self-end items-center">
                 <p class="ml-5 font-bold max-sm:text-xs text-[#1A4D2E]">Choose your question here</p>
                 <div class="flex items-center h-full" data-twe-dropdown-position="dropup">
-                    <i class="!transition-none fa-regular fa-comment-dots mx-5 text-2xl hover:cursor-pointer text-[#1A4D2E]" type="button"
-                        id="question-menu" data-twe-dropdown-toggle-ref aria-expanded="false" data-twe-ripple-init
-                        data-twe-ripple-color="light">
+                    <i class="!transition-none fa-regular fa-comment-dots mx-5 text-2xl hover:cursor-pointer text-[#1A4D2E]"
+                        type="button" id="question-menu" data-twe-dropdown-toggle-ref aria-expanded="false"
+                        data-twe-ripple-init data-twe-ripple-color="light">
                     </i>
                     <ul class="!transition-none question-container absolute z-[1000] float-left m-0 hidden min-w-max h-[180px] overflow-y-scroll list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-base shadow-lg data-[twe-dropdown-show]:block"
                         aria-labelledby="question-menu" data-twe-dropdown-menu-ref>
