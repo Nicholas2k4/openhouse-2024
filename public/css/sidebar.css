@@ -12,6 +12,7 @@
     -ms-user-select: none;
     user-select: none;
     width: 50px !important;
+    z-index: 99999;
 }
 
 .hamRotate.active {
