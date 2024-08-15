@@ -302,120 +302,124 @@
         <script>
             Swal.fire('Error', '{{ session('guest') }}', 'error');
         </script>
-    @endif
+        @endif @if (session()->has('closed'))
+            <script>
+                Swal.fire('Error', '{{ session('closed') }}', 'error');
+            </script>
+        @endif
 
-    @include('user.components.loader')
-    <div class="full-content">
-        @include('user.components.navbar')
-        @yield('content')
-        @include('user.components.footer')
-    </div>
+        @include('user.components.loader')
+        <div class="full-content">
+            @include('user.components.navbar')
+            @yield('content')
+            @include('user.components.footer')
+        </div>
 
-    @include('user.components.loader-logic')
+        @include('user.components.loader-logic')
 
-    {{-- AOS --}}
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        {{-- AOS --}}
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    {{-- TW Element --}}
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
+        {{-- TW Element --}}
+        <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
 
-    {{-- Swiper --}}
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        {{-- Swiper --}}
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    {{-- GSAP --}}
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+        {{-- GSAP --}}
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
-    @yield('script')
-    <script>
-        twe.config = {
-            darkMode: "class",
-            corePlugins: {
-                preflight: false,
-            },
-        };
+        @yield('script')
+        <script>
+            twe.config = {
+                darkMode: "class",
+                corePlugins: {
+                    preflight: false,
+                },
+            };
 
-        var lastScrollTop;
-        // var lists;
-        navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', function() {
-            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            var lastScrollTop;
+            // var lists;
+            navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', function() {
+                var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-            if (scrollTop > lastScrollTop) {
-                navbar.style.top = '-80px';
-                navbar.classList.add('hide-nav');
-            } else {
-                navbar.style.top = '0';
-                navbar.classList.remove('hide-nav');
+                if (scrollTop > lastScrollTop) {
+                    navbar.style.top = '-80px';
+                    navbar.classList.add('hide-nav');
+                } else {
+                    navbar.style.top = '0';
+                    navbar.classList.remove('hide-nav');
+                }
+
+                lastScrollTop = scrollTop;
+            });
+
+            // Search
+            const lists = @json($ukms);
+            // console.log(lists);
+            // $(document).ready(function() {
+
+            for (var list in lists) {
+                $('.dropdown').append(
+                    '<a class="py-1 ps-2 rounded-xl" href="' + lists[list] + '">' +
+                    list + '</a> <hr>');
+            }
+            // });
+
+            document.getElementById('search').addEventListener('blur', function() {
+                setTimeout(function() {
+                    document.querySelector(".dropdown").classList.remove('flex');
+                    document.querySelector(".dropdown").classList.add('hidden');
+                }, 100);
+            });
+
+            function show() {
+                document.querySelector(".dropdown").classList.remove('hidden');
+                document.querySelector(".dropdown").classList.add('flex');
             }
 
-            lastScrollTop = scrollTop;
-        });
+            function search() {
+                // Declare variables
+                var input, filter, ul, li, a, i, txtValue;
+                input = document.getElementById('search');
+                filter = input.value.toUpperCase();
+                ul = document.querySelector(".dropdown");
+                li = Object.keys(lists);
 
-        // Search
-        const lists = @json($ukms);
-        // console.log(lists);
-        // $(document).ready(function() {
+                $('.dropdown').empty();
 
-        for (var list in lists) {
-            $('.dropdown').append(
-                '<a class="py-1 ps-2 rounded-xl" href="' + lists[list] + '">' +
-                list + '</a> <hr>');
-        }
-        // });
-
-        document.getElementById('search').addEventListener('blur', function() {
-            setTimeout(function() {
-                document.querySelector(".dropdown").classList.remove('flex');
-                document.querySelector(".dropdown").classList.add('hidden');
-            }, 100);
-        });
-
-        function show() {
-            document.querySelector(".dropdown").classList.remove('hidden');
-            document.querySelector(".dropdown").classList.add('flex');
-        }
-
-        function search() {
-            // Declare variables
-            var input, filter, ul, li, a, i, txtValue;
-            input = document.getElementById('search');
-            filter = input.value.toUpperCase();
-            ul = document.querySelector(".dropdown");
-            li = Object.keys(lists);
-
-            $('.dropdown').empty();
-
-            if (filter == '' || filter == null) {
-                for (var list in lists) {
-                    $('.dropdown').append(
-                        '<a class="py-1 ps-2 rounded-xl" href="' + lists[list] +
-                        '">' + list +
-                        '</a> <hr>');
-                }
-            } else {
-                for (var list in lists) {
-                    if (list.toUpperCase().indexOf(filter) > -1) {
-                        $('.dropdown').append('<a class="py-1 ps-2 rounded-xl" href="' + lists[list] +
-                            '">' +
-                            list + '</a> <hr>');
+                if (filter == '' || filter == null) {
+                    for (var list in lists) {
+                        $('.dropdown').append(
+                            '<a class="py-1 ps-2 rounded-xl" href="' + lists[list] +
+                            '">' + list +
+                            '</a> <hr>');
+                    }
+                } else {
+                    for (var list in lists) {
+                        if (list.toUpperCase().indexOf(filter) > -1) {
+                            $('.dropdown').append('<a class="py-1 ps-2 rounded-xl" href="' + lists[list] +
+                                '">' +
+                                list + '</a> <hr>');
+                        }
                     }
                 }
             }
-        }
 
-        // Sidebar
-        // document.addEventListener("DOMContentLoaded", function() {
-        const hamburger = document.getElementById("hamburger");
-        const sidebar = document.getElementById("sidebar");
+            // Sidebar
+            // document.addEventListener("DOMContentLoaded", function() {
+            const hamburger = document.getElementById("hamburger");
+            const sidebar = document.getElementById("sidebar");
 
-        hamburger.addEventListener("click", function() {
-            sidebar.classList.toggle("active");
-            hamburger.classList.toggle("active");
-        });
-        // });
-    </script>
+            hamburger.addEventListener("click", function() {
+                sidebar.classList.toggle("active");
+                hamburger.classList.toggle("active");
+            });
+            // });
+        </script>
 
 </body>
 
