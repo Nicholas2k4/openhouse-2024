@@ -5,15 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>OPENHOUSE</title>
     <script src="https://kit.fontawesome.com/fc45e0c6e7.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="icon" href="{{ asset('assets/LOGO OPENHOUSE SEMIFINAL.png') }}">
 
     <style>
         body,
         html {
             overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 9.5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(-180deg, transparent 35%, white);
+            border-radius: 30px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #003563;
+        }
+
+        @font-face {
+            font-family: GeneralSans;
+            src: url('{{ asset('font/GeneralSans-Regular.otf') }}');
+        }
+
+        @font-face {
+            font-family: GeneralSansBold;
+            src: url('{{ asset('font/GeneralSans-Bold.otf') }}');
+        }
+
+        @font-face {
+            font-family: GeneralSansSemiBold;
+            src: url('{{ asset('font/GeneralSans-Semibold.otf') }}');
+        }
+
+        @font-face {
+            font-family: GeneralSansItalic;
+            src: url('{{ asset('font/GeneralSans-Italic.otf') }}');
+        }
+
+        * {
+            font-family: GeneralSans;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        span,
+        button {
+            font-family: GeneralSansBold !important;
+        }
+
+        p,
+        input,
+        a {
+            font-family: GeneralSans !important;
         }
 
         .reveal {
@@ -226,22 +281,60 @@
 
 
 
-    <!-- Video Section -->
-    <div class="z-5 min-h-screen" id = "video">
+    <!-- Title Section -->
+    <div class="z-5 min-h-screen flex items-center">
         <div
             class="pb-[40px] pt-[164px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] mx-auto h-full flex flex-col flex-wrap justify-center items-center">
-            <div class=" reveal from-left active z-[10] mt-10 lg:mt-0 text-center flex flex-col w-full">
-                <div class="glow-text mb-4 font-bold text-[48px] lg:text-[64px] text-white leading-tight">
+            <div class="reveal from-left active z-[10] mt-10 lg:mt-0 text-center flex flex-col w-full mb-2">
+                <h1 class="glow-text font-bold text-[48px] md:text-[80px] lg:text-[100px] leading-none text-white">
                     {{ $ukm->name }}
-                </div>
+                </h1>
             </div>
-            <div class="reveal from-right active  h-[100%] w-[100%] lg:h-[50%] lg:w-[60%]">
-                <div class="video-container aspect-w-16 aspect-h-9">
-                    <iframe class="w-full h-full" src="{{ $videoUrl }}" frameborder="0" allow="autoplay"></iframe>
+            <div class="reveal from-right active">
+                <div class = "group mt-5 button-animate">
+                    <a class = "text-[16px] md:text-[20px] lg:text-[24px] backdrop-blur-sm bg-white/10 border-[1px] border-[#79FFEF] rounded-full py-3 px-7 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
+                        id = "explore-button" href = "#card-section">
+                        <span class = "font-bold text-white group-hover:text-[#30518A]">Explore</span>
+                        <i class="text-white fa-solid fa-chevron-down group-hover:text-[#30518A]"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <!--Video Section-->
+    @if ($videoUrl !== '')
+        <div class="z-5 min-h-screen" id = "video">
+            <div
+                class="pb-[40px] pt-[164px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] mx-auto h-full flex flex-col flex-wrap justify-center items-center">
+                @if ($ukm->slug !== 'bpmf')
+                    <div class="reveal from-right active h-[100%] w-[100%] lg:h-[80%] lg:w-[80%]">
+                        <div class="video-container aspect-w-16 aspect-h-9">
+                            <iframe class="w-full h-full" src="{{ $videoUrl }}" frameborder="0"
+                                allow="autoplay"></iframe>
+                        </div>
+                    </div>
+                @else
+                <div class="reveal from-right active h-[100%] w-[100%] lg:h-[80%] lg:w-[80%] flex flex-col gap-3">
+                    <div class="video-container aspect-w-16 aspect-h-9">
+                        <iframe class="w-full h-full" src="{{ $videoUrl[0] }}" frameborder="0"
+                            allow="autoplay"></iframe>
+                    </div>
+                    <div class="video-container aspect-w-16 aspect-h-9">
+                        <iframe class="w-full h-full" src="{{ $videoUrl[1] }}" frameborder="0"
+                            allow="autoplay"></iframe>
+                    </div>
+                    <div class="video-container aspect-w-16 aspect-h-9">
+                        <iframe class="w-full h-full" src="{{ $videoUrl[2] }}" frameborder="0"
+                            allow="autoplay"></iframe>
+                    </div>
+                </div>
+
+                @endif
+            </div>
+        </div>
+    @endif
 
     <!-- About Section -->
     <div class="z-[10] min-h-screen">
@@ -284,10 +377,11 @@
                     class="backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-100 bg-gray-600 rounded p-5 flex flex-col justify-between">
                     <div>
                         <div class="text-[16px] text-white text-center">
-                            {{ \Str::limit($ukm->description, 600) }}
+                            {!! \Str::limit($ukm->description, 650) !!}
                         </div>
                     </div>
-                    @if (strlen($ukm->description) > 600)
+                    @if (strlen($ukm->description) > 650)
+                        <!--Read More-->
                         <button
                             class="mt-10 relative w-full text-[16px] text-white flex justify-end items-center gap-1 transition duration-500"
                             onclick="toggleModal()">
@@ -296,11 +390,6 @@
                             </div>
                             <i class="absolute top-[4px] fa-solid fa-arrow-right-long"></i>
                         </button>
-
-
-
-
-                        <!--Read More-->
                     @endif
                 </div>
             </div>
@@ -309,13 +398,13 @@
 
     <div id = "overlay" class = "z-[700] w-full h-[100vh] fixed top-0 left-0 bg-black opacity-60 hidden"></div>
     <!--Pop Up-->
-    <div class = "text-[20px] bg-modal hidden p-10 overflow-y-scroll z-[1000] text-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[500px] w-[300px] md:max-h-[500px] md:w-[600px] lg:max-h-[500px] lg:w-[800px]"
+    <div class = "text-[20px] bg-modal hidden p-10 pt-16 overflow-y-scroll z-[1000] text-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[500px] w-[300px] md:max-h-[500px] md:w-[600px] lg:max-h-[500px] lg:w-[800px]"
         id = "modal">
         <div class = "absolute w-full text-right top-[20px] right-[20px] ">
-            <button type="button" class="px-4 rounded " onclick="toggleModal()"><i
-                    class=" text-white fas fa-times"></i></button>
+            <button type="button" class="px-4 rounded text-xl" onclick="toggleModal()"><i
+                    class="text-white fas fa-times text-xl"></i></button>
         </div>
-        {{ $ukm->description }}
+        {!! $ukm->description !!}
     </div>
 
 
@@ -342,41 +431,37 @@
                         <div class="flex flex-row justify-center">
                             <div id = "show-slot"
                                 class = "flex flex-col justify-center pl-[20px] pr-[20px] border-r-[1px]">
-                                <div class = "text-white text-[48px] md:text-[100px] font-bold leading-tight">
-                                    {{ $ukm->current_slot }}</div>
+                                <div class = "text-white text-[56px] md:text-[90px] lg:text-[120px] font-bold leading-tight">
+                                    @if($ukm->current_slot !== 10000 )
+                                        {{ $ukm->current_slot }}
+                                    @else
+                                        <i class="fa-solid fa-infinity"></i>
+                                    @endif
+                                </div>
                                 <div
-                                    class = "text-white text-[16px] md:text-[26px] m-[-2px] pb-[4px] w-full text-center">
+                                    class = "text-white text-[26px] lg:text-[36px] m-[-2px] pb-[4px] w-fit text-center">
                                     Slot left</div>
                             </div>
 
-                            <div id = "show-regist-fee" class = "flex flex-col justify-center pr-[20px] pl-[20px]">
-                                <div class = "text-white text-[48px] md:text-[100px] font-bold leading-tight">
+                            <div id = "show-regist-fee" class = "flex flex-col justify-center pr-[20px] pl-[30px]">
+                                <div
+                                    class = "text-white text-center text-[56px] md:text-[90px] lg:text-[120px] font-bold leading-tight">
                                     @if ($ukm->regist_fee == 0)
-                                        0K
+                                        FREE
                                     @else
                                         {{ substr($ukm->regist_fee, 0, -3) }}K
                                     @endif
                                 </div>
                                 <div
-                                    class = "text-white text-[16px] md:text-[26px] m-[-2px] pb-[4px] w-full text-center">
+                                    class = "text-white text-[26px] lg:text-[36px] m-[-2px] pb-[4px] w-full max-md:w-fit text-center">
                                     Regist fee</div>
                             </div>
                         </div>
-
-                        <div class = "text-[18px] italic font-light text-white text-center">
-                            Fee is not paid at booking time, it will be paid after you have been accepted.
-                        </div>
-
                         <!--Button Book-->
-                        <a name = "ukm" value={{ $ukm->slug }} href="{{ route('pendaftaran.redirect', ['id' => $ukm->slug]) }}"
+                        <a name = "ukm" value={{ $ukm->slug }}
+                            href="{{ route('pendaftaran.redirect', ['id' => $ukm->slug]) }}"
                             class="mt-10 rounded-full hoverable glow-text w-full border-[#57C7D4] hover:bg-[#57C7D4]/50 backdrop-blur-sm bg-[#57C7D4]/15 border-[1px] text-white p-[15px] text-[24px] md:text-[28px] font-bold text-center">
                             Book Your Slot!
-                        </a>
-
-                        <!--Button Payment-->
-                        <a name = "ukm" value={{ $ukm->slug }} href="{{ route('pendaftaran.redirect', ['id' => $ukm->slug]) }}"
-                            class="mt-5 rounded-full hoverable glow-text w-full border-[#57C7D4] hover:bg-[#57C7D4]/50 backdrop-blur-sm  bg-[#57C7D4]/15 border-[1px] text-white p-[15px] text-[24px] md:text-[28px] font-bold text-center">
-                            Payment
                         </a>
                     </div>
                 </div>
@@ -389,6 +474,21 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
+        document.getElementById("explore-button").addEventListener('click', function(e) {
+            e.preventDefault();
+            let videoUrl = <?php echo json_encode($videoUrl); ?>;
+
+            if (videoUrl !== "") {
+                document.getElementById('video').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            } else {
+                document.getElementById('about').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+
         document.getElementById('bar').addEventListener('click', function() {
             var menu = document.getElementById('menu');
             if (menu.classList.contains('hidden')) {

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{ asset('assets/LOGO OPENHOUSE SEMIFINAL.png') }}">
     <title> OPENHOUSE | {{ $title }}</title>
@@ -32,11 +32,44 @@
     {{-- AOS --}}
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    {{-- Meta tags --}}
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta name="keywords"
+        content="openhouse, petra, oh, open house, ukm, unit kegiatan mahasiswa, lk, lembaga kemahasiswaan, petranesian, uk petra">
+    <meta name="description"
+        content="Openhouse merupakan acara tahunan Petra Christian University untuk memperkenalkan unit-unit kegiatan mahasiswa dan lembaga kemahasiswaan yang ada di Petra Christian University.">
+    <meta name="author" content="OPENHOUSE 2024 | IT division">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://openhouse.petra.ac.id">
+    <meta property="og:title" content="OPENHOUSE 2024 - BEM PCU">
+    <meta property="og:description"
+        content="Openhouse merupakan acara tahunan Petra Christian University untuk memperkenalkan unit-unit kegiatan mahasiswa dan lembaga kemahasiswaan yang ada di Petra Christian University.">
+    <meta property="og:image" content="https://openhouse.petra.ac.id/assets/LOGO%20OPENHOUSE%20SEMIFINAL.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://openhouse.petra.ac.id">
+    <meta name="twitter:title" content="OPENHOUSE 2024 - BEM PCU">
+    <meta name="twitter:description"
+        content="Openhouse merupakan acara tahunan Petra Christian University untuk memperkenalkan unit-unit kegiatan mahasiswa dan lembaga kemahasiswaan yang ada di Petra Christian University.">
+    <meta name="twitter:image" content="https://openhouse.petra.ac.id/assets/LOGO%20OPENHOUSE%20SEMIFINAL.png">
+
     <script src="https://kit.fontawesome.com/fc45e0c6e7.js" crossorigin="anonymous"></script>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/arrow-long-right.css' rel='stylesheet'>
     <style>
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden !important;
+            width: 100vw !important;
+        }
+
+        body {
+            width: 100vw !important;
+            overflow-x: hidden !important;
         }
 
         nav img {
@@ -56,12 +89,12 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #DF826C;
+            background: linear-gradient(-180deg, transparent 35%, white);
             border-radius: 30px;
         }
 
         ::-webkit-scrollbar-track {
-            background: #1A4D2E;
+            background: #003563;
         }
 
         @font-face {
@@ -175,16 +208,16 @@
                 radial-gradient(at 0% 100%, hsla(165, 49%, 41%, 1) 0px, transparent 50%),
                 radial-gradient(at 87% 97%, hsla(237, 54%, 26%, 1) 0px, transparent 50%),
                 radial-gradient(at 0% 0%, hsla(343, 99%, 46%, 1) 0px, transparent 50%); */
-                background-color: hsla(203, 100%, 15%, 1);
-    background-image:
-        radial-gradient(at 100% 0%, hsla(199, 77%, 64%, 1) 0px, transparent 50%),
-        radial-gradient(at 52% 93%, hsla(209, 100%, 83%, 1) 0px, transparent 50%),
-        radial-gradient(at 2% 99%, hsla(217, 58%, 53%, 1) 0px, transparent 50%),
-        radial-gradient(at 80% 50%, hsla(217, 57%, 53%, 1) 0px, transparent 50%),
-        radial-gradient(at 1% 41%, hsla(216, 100%, 32%, 1) 0px, transparent 50%),
-        radial-gradient(at 29% 19%, #0f52bd 0px, transparent 50%),
-        radial-gradient(at 18% 15%, hsla(217, 100%, 79%, 1) 0px, transparent 50%),
-        radial-gradient(at 84% 100%, hsla(207, 88%, 23%, 1) 0px, transparent 50%);
+            background-color: hsla(203, 100%, 15%, 1);
+            background-image:
+                radial-gradient(at 100% 0%, hsla(199, 77%, 64%, 1) 0px, transparent 50%),
+                radial-gradient(at 52% 93%, hsla(209, 100%, 83%, 1) 0px, transparent 50%),
+                radial-gradient(at 2% 99%, hsla(217, 58%, 53%, 1) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(217, 57%, 53%, 1) 0px, transparent 50%),
+                radial-gradient(at 1% 41%, hsla(216, 100%, 32%, 1) 0px, transparent 50%),
+                radial-gradient(at 29% 19%, #0f52bd 0px, transparent 50%),
+                radial-gradient(at 18% 15%, hsla(217, 100%, 79%, 1) 0px, transparent 50%),
+                radial-gradient(at 84% 100%, hsla(207, 88%, 23%, 1) 0px, transparent 50%);
             opacity: 1;
             transition: 1s cubic-bezier(.12, .44, 1, -0.39);
             overflow: hidden !important;
@@ -204,9 +237,9 @@
             fill: transparent;
             stroke-width: 10;
             stroke: white;
-            stroke-dasharray: 6000;
-            stroke-dashoffset: 6000;
-            animation: gacor 2.7s linear infinite;
+            stroke-dasharray: 11500;
+            stroke-dashoffset: 11500;
+            animation: gacor 2.2s linear infinite;
         }
 
         @keyframes gacor {
@@ -220,17 +253,17 @@
             }
 
             40% {
-                stroke-dashoffset: 6000;
+                stroke-dashoffset: 11500;
                 fill: transparent;
             }
 
             80% {
-                stroke-dashoffset: 12000;
+                stroke-dashoffset: 23000;
                 fill: transparent;
             }
 
             100% {
-                stroke-dashoffset: 12000;
+                stroke-dashoffset: 23000;
                 fill: black;
             }
         }
@@ -265,129 +298,128 @@
 </head>
 
 <body>
+    @if (session()->has('guest'))
+        <script>
+            Swal.fire('Error', '{{ session('guest') }}', 'error');
+        </script>
+        @endif @if (session()->has('closed'))
+            <script>
+                Swal.fire('Error', '{{ session('closed') }}', 'error');
+            </script>
+        @endif
 
-    @include('user.components.loader')
-    <div class="full-content">
-        @include('user.components.navbar')
-        @yield('content')
-        @include('user.components.footer')
-    </div>
+        @include('user.components.loader')
+        <div class="full-content">
+            @include('user.components.navbar')
+            @yield('content')
+            @include('user.components.footer')
+        </div>
 
-    @include('user.components.loader-logic')
+        @include('user.components.loader-logic')
 
-    {{-- AOS --}}
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        {{-- AOS --}}
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    {{-- TW Element --}}
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
+        {{-- TW Element --}}
+        <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
 
-    {{-- Swiper --}}
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        {{-- Swiper --}}
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    {{-- GSAP --}}
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+        {{-- GSAP --}}
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
-    <script>
-        twe.config = {
-            darkMode: "class",
-            corePlugins: {
-                preflight: false,
-            },
-        };
+        @yield('script')
+        <script>
+            twe.config = {
+                darkMode: "class",
+                corePlugins: {
+                    preflight: false,
+                },
+            };
 
-        var lastScrollTop;
-        navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', function() {
-            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            var lastScrollTop;
+            // var lists;
+            navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', function() {
+                var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-            if (scrollTop > lastScrollTop) {
-                navbar.style.top = '-80px';
-                navbar.classList.add('hide-nav');
-            } else {
-                navbar.style.top = '0';
-                navbar.classList.remove('hide-nav');
-            }
+                if (scrollTop > lastScrollTop) {
+                    navbar.style.top = '-80px';
+                    navbar.classList.add('hide-nav');
+                } else {
+                    navbar.style.top = '0';
+                    navbar.classList.remove('hide-nav');
+                }
 
-            lastScrollTop = scrollTop;
-        });
+                lastScrollTop = scrollTop;
+            });
 
-        // Search
-        // console.log(lists);
+            // Search
+            const lists = @json($ukms);
+            // console.log(lists);
+            // $(document).ready(function() {
 
-        // $(document).ready(function() {
-
-        var i = 0;
-        for (var list in lists) {
-            if (i <= 5) {
+            for (var list in lists) {
                 $('.dropdown').append(
-                    '<a class="py-1 px-3 rounded-xl" href="' + lists[list] +
-                    '" data-te-ripple-init data-te-ripple-color="light">' +
+                    '<a class="py-1 ps-2 rounded-xl" href="' + lists[list] + '">' +
                     list + '</a> <hr>');
             }
-            i++
-        }
-        // });
+            // });
 
-        document.getElementById('search').addEventListener('blur', function() {
-            setTimeout(function() {
-                document.querySelector(".dropdown").classList.remove('flex');
-                document.querySelector(".dropdown").classList.add('hidden');
-            }, 100);
-        });
+            document.getElementById('search').addEventListener('blur', function() {
+                setTimeout(function() {
+                    document.querySelector(".dropdown").classList.remove('flex');
+                    document.querySelector(".dropdown").classList.add('hidden');
+                }, 100);
+            });
 
-        function show() {
-            document.querySelector(".dropdown").classList.remove('hidden');
-            document.querySelector(".dropdown").classList.add('flex');
-        }
+            function show() {
+                document.querySelector(".dropdown").classList.remove('hidden');
+                document.querySelector(".dropdown").classList.add('flex');
+            }
 
-        function search() {
-            // Declare variables
-            var input, filter, ul, li, a, i, txtValue;
-            input = document.getElementById('search');
-            filter = input.value.toUpperCase();
-            ul = document.querySelector(".dropdown");
-            li = Object.keys(lists);
+            function search() {
+                // Declare variables
+                var input, filter, ul, li, a, i, txtValue;
+                input = document.getElementById('search');
+                filter = input.value.toUpperCase();
+                ul = document.querySelector(".dropdown");
+                li = Object.keys(lists);
 
-            $('.dropdown').empty();
+                $('.dropdown').empty();
 
-            if (filter == '' || filter == null) {
-                var i = 1;
-                for (var list in lists) {
-                    if (i <= 5) {
+                if (filter == '' || filter == null) {
+                    for (var list in lists) {
                         $('.dropdown').append(
-                            '<a class="py-1" href="' + lists[list] +
-                            '" data-te-ripple-init data-te-ripple-color="light">' + list +
+                            '<a class="py-1 ps-2 rounded-xl" href="' + lists[list] +
+                            '">' + list +
                             '</a> <hr>');
                     }
-                    i++
-                }
-            } else {
-                for (i = 0; i < li.length; i++) {
-                    txtValue = li[i];
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        $('.dropdown').append('<a class="py-1" href="" data-te-ripple-init data-te-ripple-color="light">' +
-                            txtValue + '</a> <hr>');
+                } else {
+                    for (var list in lists) {
+                        if (list.toUpperCase().indexOf(filter) > -1) {
+                            $('.dropdown').append('<a class="py-1 ps-2 rounded-xl" href="' + lists[list] +
+                                '">' +
+                                list + '</a> <hr>');
+                        }
                     }
                 }
             }
-        }
 
-        // Sidebar
-        // document.addEventListener("DOMContentLoaded", function() {
-        const hamburger = document.getElementById("hamburger");
-        const sidebar = document.getElementById("sidebar");
+            // Sidebar
+            // document.addEventListener("DOMContentLoaded", function() {
+            const hamburger = document.getElementById("hamburger");
+            const sidebar = document.getElementById("sidebar");
 
-        hamburger.addEventListener("click", function() {
-            sidebar.classList.toggle("active");
-            hamburger.classList.toggle("active");
-        });
-        // });
-    </script>
-
-
-    @yield('script')
+            hamburger.addEventListener("click", function() {
+                sidebar.classList.toggle("active");
+                hamburger.classList.toggle("active");
+            });
+            // });
+        </script>
 
 </body>
 

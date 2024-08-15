@@ -12,12 +12,6 @@
     <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('css/hamburger.css') }}">
-
-    <!-- JS -->
-    <script src="{{ asset('js/toggleNav.js') }}"></script>
-
     <script>
         $(document).ready(function() {
             $('#ukm').change(function() {
@@ -38,6 +32,7 @@
                                 <td class="py-2 px-4 border-b border-gray-200 text-sm">${user.line_id}</td>
                                 <td class="py-2 px-4 border-b border-gray-200 text-sm">${user.phone}</td>
                             </tr>`;
+                            // console.log(row);
                             tableBody.append(row);
                         });
                     }

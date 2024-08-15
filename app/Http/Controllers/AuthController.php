@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\Admin;
+use App\Models\Division;
+use App\Models\Ukm;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -37,7 +39,7 @@ class AuthController extends Controller
             session(['name' => $name]);
 
             if ($auth_type == 'user') {
-                return redirect()->route('user.home');
+                return redirect()->route('user.home')->with('login', 'Login Success !');
             } else if ($auth_type == 'admin') {
                 // cek ada di tabel admin ato ga
                 $admin = Admin::where('nrp', $nrp)->first();
@@ -46,12 +48,17 @@ class AuthController extends Controller
                     $ukm_id = $admin->ukm_id;
                     $field = $admin->field;
                     $division_id = $admin->division_id;
+                    
+                    if ($division_id) {
+                        $division_slug = Division::where('id', $division_id)->first()->slug;
+                        session()->put('division_slug', $division_slug);
+                    }
 
                     session()->put('ukm_id', $ukm_id);
                     session()->put('field', $field);
                     session()->put('division_id', $division_id);
 
-                    return redirect()->route('admin.showParticipants');
+                    return redirect()->route('admin.validate');
                 } else {
                     return redirect()->route('admin.login')->with('error', 'Anda bukan admin');
                 }

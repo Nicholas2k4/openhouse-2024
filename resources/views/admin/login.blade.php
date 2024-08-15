@@ -15,6 +15,12 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
+              body{
+        background-image: url('/img/EO_Edit.jpg');
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
         @font-face {
             font-family: GeneralSansBold;
             src: url('{{ asset('font/GeneralSans-Bold.otf') }}');
@@ -117,7 +123,7 @@
     <section class="login-container space-y-10 bg-[#0000004d] sm:p-10 rounded-2xl backdrop-blur-sm">
         <h1
             class="font-bold sm:text-8xl text-6xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
-            Open House 2024</h1>
+            Admin <br> Open House 2024</h1>
         <div class="login-button flex flex-col justify-center mx-auto">
             <a href="{{ route('user.auth', ['type' => 'admin']) }}"><img src="{{ asset('assets/Google.png') }}" class="google-logo"> <span
                     class="span1">Sign In with PCU Email</span></button>

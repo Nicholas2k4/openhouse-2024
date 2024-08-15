@@ -1,5 +1,5 @@
 .hamburger {
-    z-index: 7;
+    z-index: 200;
     transition: all 0.2s ease-in-out;
 }
 
@@ -12,6 +12,7 @@
     -ms-user-select: none;
     user-select: none;
     width: 50px !important;
+    z-index: 200;
 }
 
 .hamRotate.active {
@@ -62,20 +63,19 @@ nav.hide-nav .hamburger {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 6;
+    z-index: 150;
     width: 0;
     opacity: 0;
-    height: 100svh;
+    height: 100dvh;
     transition: all 0.5s ease-in-out;
     visibility: hidden;
 }
 
 .sidebar.active {
     width: 240px;
-    height: 100svh;
+    height: 100dvh;
     opacity: 1;
     visibility: visible;
-
     background-color: rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(8px);

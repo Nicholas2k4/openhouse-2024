@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailValidation;
+use App\Mail\PaymentMail;
 use Illuminate\Http\Request;
 use App\Models\DetailRegistration;
 use App\Models\User;
 use App\Models\Ukm;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class ValidateController extends Controller
 {
@@ -34,7 +38,7 @@ class ValidateController extends Controller
                 } else if ($status == 1) { // Accepted
                     $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', $status)->where('payment_validated', $status)->get();
                 } else if ($status == 0) {  //Pending
-                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', 0)->where('file_validated', 1)->get();
+                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', 0)->orWhere('payment_validated', 0)->get();
                 } else { // All
                     $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->get();
                 }
@@ -44,7 +48,7 @@ class ValidateController extends Controller
                 } else if ($status == 1) { // Accepted
                     $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', $status)->where('payment_validated', $status)->get();
                 } else if ($status == 0) { // Pending
-                    $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', 0)->where('file_validated', 1)->get();
+                    $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', 0)->orWhere('payment_validated', 0)->get();
                 } else { // All
                     $data = DetailRegistration::where('ukm_id', $ukm->id)->get();
                 }
@@ -54,7 +58,7 @@ class ValidateController extends Controller
                 } else if ($status == 1) { // Accepted
                     $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', $status)->where('payment_validated', $status)->get();
                 } else if ($status == 0) { // Pending
-                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', 0)->where('file_validated', 1)->get();
+                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', 0)->orWhere('payment_validated', 0)->get();
                 } else { // All
                     $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->get();
                 }
@@ -64,14 +68,33 @@ class ValidateController extends Controller
                 } else if ($status == 1) { // Accepted
                     $data = DetailRegistration::where('file_validated', $status)->where('payment_validated', $status)->get();
                 } else if ($status == 0) { // Pending
-                    $data = DetailRegistration::where('file_validated', 0)->where('file_validated', 1)->get();
+                    $data = DetailRegistration::where('file_validated', 0)->orWhere('payment_validated', 0)->where('file_validated', 1)->get();
                 } else { // All
                     $data = DetailRegistration::all();
                 }
             }
 
             foreach ($data as $row) {
-                $output .= '
+                if (!$row->drive_url) {
+
+                    $output .= '
+                    <tr class="text-nowrap text-md hover:bg-amber-100 transition">
+                        <td class="p-3 border-e-2 border-gray-200 flex flex-col">
+                            <span id="thisRowNrp" class="font-semibold">' . $row->nrp . '</span>
+                            <span>' . User::where('nrp', $row->nrp)->first()->name  . '</span>
+                        </td>
+                        <td class="p-3 border-e-2 border-gray-200">' . Ukm::where('id', $row->ukm_id)->first()->name . '</td>
+                        <td class="p-3 border-e-2 border-gray-200 text-center">
+                            <button class="hidden p-1.5 text-sm bg-sky-500 hover:bg-sky-600 transition text-white text-nowrap rounded" onclick="window.open(\'' . $row->drive_url . '\', \'_blank\')">
+                                File Seleksi
+                            </button>
+                            <button class="viewPayment p-1.5 text-sm bg-sky-500 hover:bg-sky-600 transition text-white text-nowrap rounded" data-nrp="' . $row->nrp . '" data-ukm="' . $row->ukm_id . '">
+                                File Payment
+                            </button>
+                        </td>
+                        <td class="p-3 border-e-2 border-gray-200">' . $row->code . '</td>';
+                } else {
+                    $output .= '
                     <tr class="text-nowrap text-md hover:bg-amber-100 transition">
                         <td class="p-3 border-e-2 border-gray-200 flex flex-col">
                             <span id="thisRowNrp" class="font-semibold">' . $row->nrp . '</span>
@@ -82,13 +105,15 @@ class ValidateController extends Controller
                             <button class="p-1.5 text-sm bg-sky-500 hover:bg-sky-600 transition text-white text-nowrap rounded" onclick="window.open(\'' . $row->drive_url . '\', \'_blank\')">
                                 File Seleksi
                             </button>
-                            <button class="viewPayment p-1.5 text-sm bg-sky-500 hover:bg-sky-600 transition text-white text-nowrap rounded" data-nrp="' . $row->nrp . '">
+                            <button class="viewPayment p-1.5 text-sm bg-sky-500 hover:bg-sky-600 transition text-white text-nowrap rounded" data-nrp="' . $row->nrp . '" data-ukm="' . $row->ukm_id . '">
                                 File Payment
                             </button>
                         </td>
                         <td class="p-3 border-e-2 border-gray-200">' . $row->code . '</td>';
+                }
 
-                if ($row->file_validated == 2) {
+
+                if ($row->file_validated == 2 || $row->payment_validated == 2) {
                     $output .= '
                         <td class="p-3 border-y-2 border-gray-200 font-bold text-yellow-500 text-center" colspan="3">Rejected</td>';
                 } else if ($row->file_validated == 1 && $row->payment_validated == 1) {
@@ -104,10 +129,10 @@ class ValidateController extends Controller
 
                 if ($row->file_validated != 2) {
                     $output .= '
-                            <button class="validateBtn p-1.5 text-sm bg-green-500 hover:bg-green-600 transition text-white text-nowrap rounded" data-nrp="' . $row->nrp . '">
+                            <button class="validateBtn p-1.5 text-sm bg-green-500 hover:bg-green-600 transition text-white text-nowrap rounded" data-nrp="' . $row->nrp . '" data-ukm="' . $row->ukm_id . '">
                                 Validate
                             </button>
-                            <button class="rejectBtn p-1.5 text-sm bg-red-500 hover:bg-red-600 transition text-white text-nowrap rounded" data-nrp="' . $row->nrp . '">
+                            <button class="rejectBtn p-1.5 text-sm bg-red-500 hover:bg-red-600 transition text-white text-nowrap rounded" data-nrp="' . $row->nrp . '" data-ukm="' . $row->ukm_id . '">
                                 Reject
                             </button>
                             ';
@@ -134,7 +159,8 @@ class ValidateController extends Controller
     public function viewPayment(Request $request)
     {
         $nrp = $request->get('nrp');
-        $file_path = DetailRegistration::where('nrp', $nrp)->first()->payment;
+        $ukm = $request->get('ukm');
+        $file_path = DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->first()->payment;
 
         return response()->json(['file_path' => $file_path]);
     }
@@ -142,10 +168,20 @@ class ValidateController extends Controller
     public function selectionValidate(Request $request)
     {
         $nrp = $request->get('nrp');
-        $selectionFile = DetailRegistration::where('nrp', $nrp)->first()->file_validated;
+        $ukm = $request->get('ukm');
+        $selectionFile = DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->first()->file_validated;
         if ($selectionFile == 0) {
-            DetailRegistration::where('nrp', $nrp)->update([
-                'file_validated' => 1
+            $user = User::where('nrp', $nrp)->first();
+            $data_ukm = Ukm::where('id', $ukm)->first();
+            Mail::to($nrp . '@john.petra.ac.id')->send(new PaymentMail($user, $data_ukm, 'accepted', 'file'));
+            DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
+                'file_validated' => 1,
+            ]);
+
+            Log::channel('daily')->info('accepted selection file', [
+                'name' => session('name'),
+                'nrp' => session('nrp'),
+                'participant' => $nrp
             ]);
             return response()->json(['message' => 'true']); // Berhasil validasi
         } else if ($selectionFile == 1) {
@@ -158,33 +194,75 @@ class ValidateController extends Controller
     public function paymentValidate(Request $request)
     {
         $nrp = $request->get('nrp');
+        $ukm = $request->get('ukm');
 
-        if (DetailRegistration::where('nrp', $nrp)->first()->file_validated == 1) {
-            $selectionFile = DetailRegistration::where('nrp', $nrp)->first()->payment_validated;
+        if (DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->first()->file_validated == 1) {
+            $selectionFile = DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->first()->payment_validated;
             if ($selectionFile == 0) {
-                DetailRegistration::where('nrp', $nrp)->update([
-                    'payment_validated' => 1
+
+                $user = User::where('nrp', $nrp)->first();
+                $data_ukm = Ukm::where('id', $ukm)->first();
+                Mail::to($nrp . '@john.petra.ac.id')->send(new PaymentMail($user, $data_ukm, 'accepted', 'payment'));
+
+                DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
+                    'payment_validated' => 1,
+                ]);
+                Log::channel('daily')->info('accepted payment proof file', [
+                    'name' => session('name'),
+                    'nrp' => session('nrp'),
+                    'participant' => $nrp
                 ]);
                 return response()->json(['message' => 'true']); // Berhasil validasi
             } else {
                 return response()->json(['message' => 'false']); // Payment sudah divalidasi
             }
-        } else if (DetailRegistration::where('nrp', $nrp)->first()->file_validated == 2) {
+        } else if (DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->first()->file_validated == 2) {
             return response()->json(['message' => 'warning']); // Rejected
         } else {
             return response()->json(['message' => 'not_yet']); // File seleksi belum divalidasi
         }
     }
 
-    public function rejectParticipant(Request $request)
+    public function rejectPayment(Request $request)
     {
         $nrp = $request->get('nrp');
+        $ukm = $request->get('ukm');
 
-        // Ukms::where('nrp', $nrp)->increment('current_slot'); // kalau ditolak, slot nambah 1
-        DetailRegistration::where('nrp', $nrp)->update([
-            'file_validated' => 2
+        $user = User::where('nrp', $nrp)->first();
+        // return response()->json(['message' => $user->name]);
+        $data_ukm = Ukm::where('id', $ukm)->first();
+        Mail::to($nrp . '@john.petra.ac.id')->send(new PaymentMail($user, $data_ukm, 'rejected', 'payment'));
+
+        Ukm::where('id', $ukm)->increment('current_slot'); // kalau ditolak, slot nambah 1
+        DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
+            'payment_validated' => 2,
         ]);
 
+        Log::channel('daily')->info('rejected payment proof file', [
+            'name' => session('name'),
+            'nrp' => session('nrp'),
+            'participant' => $nrp
+        ]);
+        return response()->json(['message' => 'true']);
+    }
+
+    public function rejectFile(Request $request)
+    {
+        $nrp = $request->get('nrp');
+        $ukm = $request->get('ukm');
+
+        Ukm::where('id', $ukm)->increment('current_slot'); // kalau ditolak, slot nambah 1
+        $user = User::where('nrp', $nrp)->first();
+        $data_ukm = Ukm::where('id', $ukm)->first();
+        Mail::to($nrp . '@john.petra.ac.id')->send(new PaymentMail($user, $data_ukm, 'rejected', 'file'));
+        DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
+            'file_validated' => 2,
+        ]);
+        Log::channel('daily')->info('rejected selection file', [
+            'name' => session('name'),
+            'nrp' => session('nrp'),
+            'participant' => $nrp
+        ]);
         return response()->json(['message' => 'true']);
     }
 }

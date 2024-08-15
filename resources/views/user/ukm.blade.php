@@ -2,8 +2,6 @@
 
 @section('head')
     <style>
-      
-
         .reveal {
             position: relative;
             transform: translateY(50px);
@@ -77,23 +75,24 @@
 
     <!--First section-->
     <section id="first-section" class = "overflow-hidden relative">
-        <div
-            class = "px-[30px] mt-[-64px] md:px-[50px] xl:px-[100px] mx-auto text-center flex flex-row h-screen items-center">
+        <div class = "px-[30px] md:px-[50px] xl:px-[100px] mx-auto text-center flex flex-row h-screen items-center">
             <img src = "{{ URL('asset/Artboard 1_SS_4.png') }}"
-                class = "fixed rotate-animation-1 img-shadow-1  bottom-[0px] left-[-70px] w-[300px] md:w-[400px] rotate-[50deg]">
+                class = "z-0 fixed rotate-animation-1 img-shadow-1  bottom-[0px] left-[-70px] w-[300px] md:w-[400px] rotate-[50deg]">
             <img src = "{{ URL('asset/Artboard 1_SS_3.png') }}"
-                class = "fixed rotate-animation-2 img-shadow-2  bottom-[90px] right-[-60px] w-[325px] md:w-[450px] rotate-[-50deg]">
-            <div class = "mx-auto w-3/4 z-10">
-                <h3 class = "glow-text  text-white font-bold text-3xl text-center sm:text-5xl">Unit
+                class = "z-0 fixed rotate-animation-2 img-shadow-2  bottom-[90px] right-[-60px] w-[325px] md:w-[450px] rotate-[-50deg]">
+            <div class = "z-[2] mx-auto w-3/4">
+                <h3
+                    class = "glow-text  text-white font-bold text-center text-[48px] md:text-[80px] lg:text-[100px] leading-[1.125]">
+                    Unit
                     Kegiatan
                     Mahasiswa
                 </h3>
 
                 <div class = "group mt-7 button-animate">
-                    <a class = "backdrop-blur-sm bg-white/10 border-[1px] border-[#79FFEF] rounded-full py-3 px-7 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
+                    <a class = "text-[16px] md:text-[20px] lg:text-[24px] backdrop-blur-sm bg-white/10 border-[1px] border-[#79FFEF] rounded-full py-3 px-7 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
                         id = "explore-button" href = "#card-section">
-                        <span class = "font-bold text-white group-hover:text-[#30518A]">Explore</span>
-                        <i class="text-white fa-solid fa-chevron-down group-hover:text-[#30518A]"></i>
+                        <span class = "font-bold text-white group-hover:text-[#30518A] transition-all !duration-300">Explore</span>
+                        <i class="text-white fa-solid fa-chevron-down group-hover:text-[#30518A] transition-all !duration-300"></i>
                     </a>
                 </div>
 
@@ -115,7 +114,7 @@
             <!--Card Contain-->
             <div class="w-full py-[200px] gap-y-[200px] mx-auto text-center flex flex-wrap">
 
-                @foreach ($ukms as $ukm)
+                @foreach ($list_ukms as $ukm)
                     @if (!in_array($ukm->name, ['LK BEM', 'LK TPS', 'LK MPM', 'LK BPMF', 'LK PERSMA', 'LK PELMA']))
                         <!--Card Start-->
                         <div
@@ -138,15 +137,20 @@
                                 <div class = "py-[5px] flex">
                                     <div id = "show-slot"
                                         class = "flex flex-col justify-center pl-[20px] pr-[20px] border-r-[1px]">
-                                        <div class = "text-white text-[40px] font-bold leading-tight">
-                                            {{ $ukm->current_slot }}</div>
+                                        <div class = "text-white text-center text-[40px] font-bold leading-tight">
+                                            @if($ukm->current_slot !== 10000 )
+                                            {{ $ukm->current_slot }}
+                                            @else
+                                            <i class="fa-solid fa-infinity"></i>
+                                            @endif
+                                        </div>
                                         <div class = "text-white text-[12px] m-[-2px] pb-[4px]">Slot left</div>
                                     </div>
 
                                     <div id = "show-regist-fee" class = "flex flex-col justify-center pr-[20px] pl-[20px]">
                                         <div class = "text-white text-[40px] font-bold leading-tight">
                                             @if ($ukm->regist_fee == 0)
-                                                0K
+                                                FREE
                                             @else
                                                 {{ substr($ukm->regist_fee, 0, -3) }}K
                                             @endif
@@ -155,13 +159,14 @@
                                     </div>
                                 </div>
                                 <!--Button-->
-                                <div class = "group button-animate">
-
-                                    <form action="{{ route('user.ukm.id', ['id' => $ukm->id]) }}" method="GET">
+                                <div class = "group !ease-in-out !duration-[400]">
+                                    <form action="{{ route('user.ukm.id', ['id' => $ukm->id]) }}" method="GET"
+                                        class="contents">
                                         <button type = "submit"
-                                            class = "px-[70px] bg-white rounded-full py-2 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
+                                            class = "transition-all !duration-[400] px-[70px] bg-white rounded-full py-2 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
                                             value={{ $ukm->id }}>
-                                            <span class = "text-black group-hover:text-[#30518A]">Details</span>
+                                            <span
+                                                class = "text-black group-hover:text-[#253b61] transition-all !duration-[400]">Details</span>
                                         </button>
                                     </form>
                                 </div>
