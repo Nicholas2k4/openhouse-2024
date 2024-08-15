@@ -46,7 +46,7 @@ Menjadi organisasi inspiratif yang membangkitkan semangat kemahasiswaan berlanda
 <li>Membangkitkan semangat mahasiswa dalam meraih potensi dan prestasi melalui kegiatan kemahasiswaan dan UKM.</li> 
 <li>Meningkatkan pelayanan dan aktif berdampak pada mahasiswa, serta masyarakat berlandaskan Firman Tuhan.</li>
 </ol>',
-                    'logo_url' => 'logo/1_bem_color.png',
+                    'logo_url' => 'logo/1_bem_final.png',
                     'poster_url' => null,
                 ],
                 [
