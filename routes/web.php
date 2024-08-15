@@ -62,16 +62,16 @@ Route::get('/login', [AuthController::class, 'login'])->name('user.login');
 Route::get('/processLogin', [AuthController::class, 'processLogin'])->name('login.process');
 
 // Registration
-Route::post('/storePendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
-Route::get('/pendaftaran/{id}', [PendaftaranController::class, 'redirect'])->name('pendaftaran.redirect');
-Route::post('/pembayaran', [PendaftaranController::class, 'payment'])->name('pendaftaran.payment');
+Route::post('/storePendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store')->middleware('user');
+Route::get('/pendaftaran/{id}', [PendaftaranController::class, 'redirect'])->name('pendaftaran.redirect')->middleware('user');
+Route::post('/pembayaran', [PendaftaranController::class, 'payment'])->name('pendaftaran.payment')->middleware('user');
 
 // Information
 Route::get('wait', [MainController::class, 'wait'])->name('user.wait');
 Route::get('/ukm', [UKMController::class, 'ukm'])->name('user.ukm');
 Route::get('/lk', [UKMController::class, 'lk'])->name('user.lk');
 
-Route::get('/game', [GameController::class, 'index'])->name('user.game');
+Route::get('/game', [GameController::class, 'index'])->name('user.game')->middleware('user');
 Route::get('/ukm/{id}', [UKMController::class, 'show'])->name('user.ukm.id');
 Route::get('/lk/{id}', [UKMController::class, 'show'])->name('user.lk.id');
 
