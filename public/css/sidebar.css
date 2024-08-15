@@ -66,17 +66,16 @@ nav.hide-nav .hamburger {
     z-index: 150;
     width: 0;
     opacity: 0;
-    height: 100svh;
+    height: 100dvh;
     transition: all 0.5s ease-in-out;
     visibility: hidden;
 }
 
 .sidebar.active {
     width: 240px;
-    height: 100svh;
+    height: 100dvh;
     opacity: 1;
     visibility: visible;
-
     background-color: rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(8px);

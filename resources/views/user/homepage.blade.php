@@ -47,7 +47,7 @@
 
     {{-- Video --}}
     <section class="video w-full xl:h-[100vh] z-50 overflow-hidden flex items-center">
-        <video src="{{ asset('assets/Video OH.mp4') }}" autoplay muted loop class="w-[100vw]"></video>
+        <video src="{{ asset('assets/Video OH.mp4') }}" autoplay muted loop playsinline class="w-[100vw]"></video>
         <div class="overlay"></div>
     </section>
 
