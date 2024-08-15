@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{ asset('assets/LOGO OPENHOUSE SEMIFINAL.png') }}">
     <title> OPENHOUSE | {{ $title }}</title>
@@ -63,7 +63,13 @@
     <style>
         html {
             scroll-behavior: smooth;
-            overflow-x: hidden;
+            overflow-x: hidden !important;
+            width: 100vw !important;
+        }
+
+        body {
+            width: 100vw !important;
+            overflow-x: hidden !important;
         }
 
         nav img {
