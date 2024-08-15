@@ -298,6 +298,11 @@
 </head>
 
 <body>
+    @if (session()->has('guest'))
+        <script>
+            Swal.fire('Error', '{{ session('guest') }}', 'error');
+        </script>
+    @endif
 
     @include('user.components.loader')
     <div class="full-content">
