@@ -15,12 +15,13 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
-              body{
-        background-image: url('/img/EO_Edit.jpg');
-        background-size:cover;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
+        body {
+            background-image: url('/img/EO_Edit.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
         @font-face {
             font-family: GeneralSansBold;
             src: url('{{ asset('font/GeneralSans-Bold.otf') }}');
@@ -80,134 +81,71 @@
             transform: scale(1.04);
         }
 
-        @media screen and (max-width: 425px) {
+        @media screen and (min-width: 500px) and (max-width: 700px) {
+
             .login-button a {
                 width: 350px;
-                height: 150px;
-                flex-direction: column;
-                text-align: center;
-                padding: 1rem;
+                height: 60px;
+                font-size: 24px;
             }
 
             .google-logo {
-                padding-right: 0;
-                margin-bottom: 10px;
+                width: 40px;
             }
+        }
+
+        @media screen and (max-width: 500px) {
+
+            .login-container {
+                padding-right: 2rem !important;
+                padding-left: 2rem !important;
+            }
+
+            .login-button a {
+                width: 280px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .google-logo {
+                width: 30px;
+                padding-right: 10px;
+            }
+
         }
     </style>
 </head>
 
 <body>
-    @if(session('error'))
-    <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Gagal',
-            text: '{{ session('error') }}',
-        });
-    </script>
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: '{{ session('error') }}',
+            });
+        </script>
     @endif
 
-    @if(session('info'))
-    <script>
-        Swal.fire({
-            icon: 'info',
-            title: 'Logout',
-            text: '{{ session('info') }}',
-        });
-    </script>
+    @if (session('info'))
+        <script>
+            Swal.fire({
+                icon: 'info',
+                title: 'Logout',
+                text: '{{ session('info') }}',
+            });
+        </script>
     @endif
     {{-- sptw dpt video res tinggi :D --}}
     {{-- <video src="{{ asset('assets/SS_Motion.mp4') }}" loop autoplay muted class="absolute w-[100vh] h-[100vh]"></video> --}}
 
-    <section class="login-container space-y-10 bg-[#0000004d] sm:p-10 rounded-2xl backdrop-blur-sm">
+    <section class="login-container sm:space-y-10 space-y-3 bg-[#0000004d] sm:p-10 rounded-2xl backdrop-blur-sm p-5">
         <h1
-            class="font-bold sm:text-8xl text-6xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] inline-block text-transparent bg-clip-text">
+            class="font-bold sm:text-6xl md:text-8xl text-5xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text">
             Admin <br> Open House 2024</h1>
         <div class="login-button flex flex-col justify-center mx-auto">
-            <a href="{{ route('user.auth', ['type' => 'admin']) }}"><img src="{{ asset('assets/Google.png') }}" class="google-logo"> <span
-                    class="span1">Sign In with PCU Email</span></button>
-        </div>
-
-        <div id="background-wrap">
-            <div id="pop1" class="bubble x1">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div id="pop2" class="bubble x2">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div id="pop3" class="bubble x3">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div id="pop4" class="bubble x4">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div id="pop5" class="bubble x5">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div id="pop6" class="bubble x6">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div id="pop7" class="bubble x7">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div id="pop8" class="bubble x8">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div id="pop9" class="bubble x9">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div id="pop10" class="bubble x10">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div id="pop11" class="bubble x11">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+            <a href="{{ route('user.auth', ['type' => 'admin']) }}"><img src="{{ asset('assets/Google.png') }}"
+                    class="google-logo"> <span class="span1">Sign In with PCU Email</span></button>
         </div>
     </section>
 </body>
