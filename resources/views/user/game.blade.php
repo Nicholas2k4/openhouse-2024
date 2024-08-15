@@ -88,7 +88,8 @@
     {{-- <div></div> --}}
     <div class = "fixed h-screen w-full overflow-hidden">
         <div class="fixed h-screen w-screen overflow-hidden top-0 left-0">
-            <video src="{{ asset('assets/loop.mp4') }}" class="object-cover object-fit h-screen w-screen" autoplay></video>
+            <video src="{{ asset('assets/loop.mp4') }}" class="object-cover object-fit h-screen w-screen" autoplay muted
+                playsinline loop></video>
         </div>
 
         <div
