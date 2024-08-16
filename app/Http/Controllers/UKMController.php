@@ -43,11 +43,9 @@ class UKMController extends Controller
         return json_encode($ukms_temp);
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        $ukm = Ukm::findOrFail($id);
-
-        $slug = Ukm::where('id', $id)->value('slug');
+        $ukm = Ukm::where('slug', $slug)->firstOrFail();
 
         if (File::exists(public_path('foto/' . $slug))) {
             $imageFiles = File::files(public_path('foto/' . $slug));
@@ -62,16 +60,6 @@ class UKMController extends Controller
         }
 
         $posterFiles = File::files(public_path('poster'));
-
-        foreach ($posterFiles as $posterFile) {
-            $filename = pathinfo($posterFile->getFilename(), PATHINFO_FILENAME);
-            if (strpos($filename, $slug) !== false) {
-                $posterUrl = 'poster/' . $posterFile->getFilename();
-                break;
-            } else {
-                $posterUrl = "";
-            }
-        }
 
         $videoUrls = [
             'esport' => 'https://drive.google.com/file/d/1AWrSAsLvKp1TWi3maatBR38gazApTN7z/preview',
@@ -111,6 +99,6 @@ class UKMController extends Controller
 
         $videoUrl = $videoUrls[$slug] ?? "";
 
-        return view('user/show', compact('ukm', 'id', 'imageUrls', 'posterUrl', 'videoUrl'));
+        return view('user/show', compact('ukm', 'imageUrls', 'videoUrl'));
     }
 }
