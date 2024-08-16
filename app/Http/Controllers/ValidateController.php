@@ -152,7 +152,8 @@ class ValidateController extends Controller
                 ';
             }
 
-            return response()->json(['registrations' => $output]);
+            $dataCount = count($data);
+            return response()->json(['registrations' => $output, 'dataCount' => $dataCount]);
         }
     }
 
