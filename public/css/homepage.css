@@ -22,7 +22,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100%;
-    background: linear-gradient(-180deg, rgba(56, 132, 175, 0) 0%, rgba(56, 132, 175, 0.4) 90%, rgba(56, 132, 175, 0.9) 100%);
+    background: linear-gradient(-180deg, rgba(56, 132, 175, 0) 0%, rgba(56, 132, 175, 0.2) 60%, rgba(56, 132, 175, 0.685) 100%);
     box-shadow: 0 0 30px rgba(56, 132, 175, 1), 0 0 60px rgba(56, 132, 175, 1), 0 0 90px rgba(56, 132, 175, 1), 0 0 120px rgba(56, 132, 175, 1);
     pointer-events: none;
     /* So it doesn't interfere with video controls */
