@@ -92,6 +92,11 @@ class PendaftaranController extends Controller
 
         // restriction 3 ukm
         $ukm_slug = $slug;
+
+        if($ukm_slug == 'orkestra' || $ukm_slug == 'padus'){
+            return redirect()->route('user.home')->with('closed', 'closed');
+        }
+
         $count = DetailRegistration::where('nrp', $nrp)->count();
         $ukm = Ukm::where('slug', $ukm_slug)->first();
         $detail_registration = DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm->id)->first();

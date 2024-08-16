@@ -28,6 +28,11 @@
             Swal.fire('Success', '{{ session('login') }}', 'success');
         </script>
     @endif
+    @if (session()->has('closed'))
+        <script>
+            Swal.fire('Error', 'Silahkan langsung mendaftar di booth', 'error');
+        </script>
+    @endif
 
     {{-- Elements --}}
     <img src="{{ asset('assets/Coral_2.png') }}" alt="Coral"
