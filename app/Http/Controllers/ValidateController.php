@@ -182,7 +182,7 @@ class ValidateController extends Controller
             ]);
 
             Log::channel('daily')->info(session('nrp')  . '-' . session('name') . '-' . $admin_ukm_name .
-                ' has accepted selection file of ' . $user->nrp . '-' . $user->name . '-' . $data_ukm->name);
+                ', has accepted selection file of ' . $user->nrp . '-' . $user->name . '-' . $data_ukm->name);
             return response()->json(['message' => 'true']); // Berhasil validasi
         } else if ($selectionFile == 1) {
             return response()->json(['message' => 'false']); // File seleksi sudah divalidasi
@@ -195,6 +195,7 @@ class ValidateController extends Controller
     {
         $nrp = $request->get('nrp');
         $ukm = $request->get('ukm');
+        $admin_ukm_name = Ukm::where('id', session('ukm_id'))->first()->name;
 
         if (DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->first()->file_validated == 1) {
             $selectionFile = DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->first()->payment_validated;
@@ -207,11 +208,8 @@ class ValidateController extends Controller
                 DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
                     'payment_validated' => 1,
                 ]);
-                Log::channel('daily')->info('accepted payment proof file', [
-                    'name' => session('name'),
-                    'nrp' => session('nrp'),
-                    'participant' => $nrp
-                ]);
+                Log::channel('daily')->info(session('nrp')  . '-' . session('name') . '-' . $admin_ukm_name .
+                    ', has accepted payment file of ' . $user->nrp . '-' . $user->name . '-' . $data_ukm->name);
                 return response()->json(['message' => 'true']); // Berhasil validasi
             } else {
                 return response()->json(['message' => 'false']); // Payment sudah divalidasi
@@ -227,21 +225,18 @@ class ValidateController extends Controller
     {
         $nrp = $request->get('nrp');
         $ukm = $request->get('ukm');
+        $admin_ukm_name = Ukm::where('id', session('ukm_id'))->first()->name;
 
         $user = User::where('nrp', $nrp)->first();
         // return response()->json(['message' => $user->name]);
         $data_ukm = Ukm::where('id', $ukm)->first();
         Mail::to($nrp . '@john.petra.ac.id')->send(new PaymentMail($user, $data_ukm, 'rejected', 'payment'));
 
+        Log::channel('daily')->info(session('nrp')  . '-' . session('name') . '-' . $admin_ukm_name .
+            ', has rejected payment file of ' . $user->nrp . '-' . $user->name . '-' . $data_ukm->name);
         Ukm::where('id', $ukm)->increment('current_slot'); // kalau ditolak, slot nambah 1
         DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
             'payment_validated' => 2,
-        ]);
-
-        Log::channel('daily')->info('rejected payment proof file', [
-            'name' => session('name'),
-            'nrp' => session('nrp'),
-            'participant' => $nrp
         ]);
         return response()->json(['message' => 'true']);
     }
@@ -250,6 +245,7 @@ class ValidateController extends Controller
     {
         $nrp = $request->get('nrp');
         $ukm = $request->get('ukm');
+        $admin_ukm_name = Ukm::where('id', session('ukm_id'))->first()->name;
 
         Ukm::where('id', $ukm)->increment('current_slot'); // kalau ditolak, slot nambah 1
         $user = User::where('nrp', $nrp)->first();
@@ -258,11 +254,8 @@ class ValidateController extends Controller
         DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->update([
             'file_validated' => 2,
         ]);
-        Log::channel('daily')->info('rejected selection file', [
-            'name' => session('name'),
-            'nrp' => session('nrp'),
-            'participant' => $nrp
-        ]);
+        Log::channel('daily')->info(session('nrp')  . '-' . session('name') . '-' . $admin_ukm_name .
+            ', has rejected selection file of ' . $user->nrp . '-' . $user->name . '-' . $data_ukm->name);
         return response()->json(['message' => 'true']);
     }
 }
