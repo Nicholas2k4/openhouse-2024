@@ -135,7 +135,7 @@
                                         class="block max-sm:text-sm font-medium leading-6 text-slate-50">Mohon mengisi jadwal seleksi di bawah ini</label>
                                     <div class="mt-2">
                                         <a 
-                                        class="block max-sm:text-sm font-medium leading-6 text-slate-50" href="https://petra.id/Audisi_VocalGroup_OH24">petra.id/Audisi_VocalGroup_OH24</a>
+                                        class="block max-sm:text-sm font-medium leading-6 text-slate-50" href="https://petra.id/Audisi_VocalGroup_OH24" target="blank">petra.id/Audisi_VocalGroup_OH24</a>
                                     </div>
                                     {{-- <p class="mt-3  leading-6 text-gray-600">*Jika UKM meminta CV / Portofolio, silakan sematkan link google drive di sini.</p> --}}
                                 </div>
