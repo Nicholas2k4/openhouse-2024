@@ -54,6 +54,7 @@
                     dataType: "json",
                     success: function(data) {
                         $("#result").html(data.registrations);
+                        $("#dataCount").html("Showing " + data.dataCount + " participants data");
                     },
                     error: function(xhr, status, error) {
                         alert("Error", error);
