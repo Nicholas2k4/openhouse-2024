@@ -19,6 +19,7 @@ class RegistrationSeeder extends Seeder
 
         for ($i = 0; $i < 50; $i++) {
             $random_ukm = Ukm::all()->random();
+            
             if ($i < 10) {
                 $detail_registrations[] = [
                     'id' => (string)Str::uuid(),
@@ -27,7 +28,7 @@ class RegistrationSeeder extends Seeder
                     'payment' => $random_ukm->payment,
                     'code' => 'ABC123',
                     'drive_url' => 'https://drive.google.com/drive/folders/1A6cQZlPTy5Xtc8IrlKcnwelcyuyhroiS?usp=sharing',
-                    'file_validated' => rand(0, 2),
+                    'file_validated' => 0,
                     'payment_validated' => 0,
                 ];
             } else {
@@ -37,8 +38,8 @@ class RegistrationSeeder extends Seeder
                     'ukm_id' => $random_ukm->id,
                     'payment' => $random_ukm->payment,
                     'code' => 'ABC123',
-                    'drive_url' => 'https://drive.google.com/drive/folders/1A6cQZlPTy5Xtc8IrlKcnwelcyuyhroiS?usp=sharing',
-                    'file_validated' => rand(0, 2),
+                    'drive_url' => '',
+                    'file_validated' => 1,
                     'payment_validated' => 0,
                 ];
             }

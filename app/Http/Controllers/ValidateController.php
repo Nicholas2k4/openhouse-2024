@@ -38,7 +38,10 @@ class ValidateController extends Controller
                 } else if ($status == 1) { // Accepted
                     $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', $status)->where('payment_validated', $status)->get();
                 } else if ($status == 0) {  //Pending
-                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', 0)->orWhere('payment_validated', 0)->get();
+                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where(function ($query) {
+                        $query->where('file_validated', 0)
+                            ->orWhere('payment_validated', 0);
+                    })->get();
                 } else { // All
                     $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->get();
                 }
@@ -48,7 +51,10 @@ class ValidateController extends Controller
                 } else if ($status == 1) { // Accepted
                     $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', $status)->where('payment_validated', $status)->get();
                 } else if ($status == 0) { // Pending
-                    $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', 0)->orWhere('payment_validated', 0)->get();
+                    $data = DetailRegistration::where('ukm_id', $ukm->id)->where(function ($query) {
+                        $query->where('file_validated', 0)
+                            ->orWhere('payment_validated', 0);
+                    })->get();
                 } else { // All
                     $data = DetailRegistration::where('ukm_id', $ukm->id)->get();
                 }
@@ -58,7 +64,10 @@ class ValidateController extends Controller
                 } else if ($status == 1) { // Accepted
                     $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', $status)->where('payment_validated', $status)->get();
                 } else if ($status == 0) { // Pending
-                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', 0)->orWhere('payment_validated', 0)->get();
+                    $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where(function ($query) {
+                        $query->where('file_validated', 0)
+                            ->orWhere('payment_validated', 0);
+                    })->get();
                 } else { // All
                     $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->get();
                 }
@@ -68,7 +77,10 @@ class ValidateController extends Controller
                 } else if ($status == 1) { // Accepted
                     $data = DetailRegistration::where('file_validated', $status)->where('payment_validated', $status)->get();
                 } else if ($status == 0) { // Pending
-                    $data = DetailRegistration::where('file_validated', 0)->orWhere('payment_validated', 0)->where('file_validated', 1)->get();
+                    $data = DetailRegistration::where(function ($query) {
+                        $query->where('file_validated', 0)
+                            ->orWhere('payment_validated', 0);
+                    })->where('file_validated', 1)->get();
                 } else { // All
                     $data = DetailRegistration::all();
                 }
@@ -76,7 +88,6 @@ class ValidateController extends Controller
 
             foreach ($data as $row) {
                 if (!$row->drive_url) {
-
                     $output .= '
                     <tr class="text-nowrap text-md hover:bg-amber-100 transition">
                         <td class="p-3 border-e-2 border-gray-200 flex flex-col">
@@ -92,7 +103,10 @@ class ValidateController extends Controller
                                 File Payment
                             </button>
                         </td>
-                        <td class="p-3 border-e-2 border-gray-200">' . $row->code . '</td>';
+                        <td class="p-3 border-e-2 border-gray-200 flex flex-col">
+                            <span>' . User::where('nrp', $row->nrp)->first()->line_id . '</span>
+                            <span>' . User::where('nrp', $row->nrp)->first()->phone  . '</span>
+                        </td>';
                 } else {
                     $output .= '
                     <tr class="text-nowrap text-md hover:bg-amber-100 transition">
@@ -109,7 +123,10 @@ class ValidateController extends Controller
                                 File Payment
                             </button>
                         </td>
-                        <td class="p-3 border-e-2 border-gray-200">' . $row->code . '</td>';
+                        <td class="p-3 border-e-2 border-gray-200 flex flex-col">
+                            <span>' . User::where('nrp', $row->nrp)->first()->line_id . '</span>
+                            <span>' . User::where('nrp', $row->nrp)->first()->phone  . '</span>
+                        </td>';
                 }
 
 
@@ -153,7 +170,11 @@ class ValidateController extends Controller
             }
 
             $dataCount = count($data);
-            return response()->json(['registrations' => $output, 'dataCount' => $dataCount]);
+            if ($filter == '') {
+                return response()->json(['registrations' => $output, 'dataCount' => $dataCount, 'ukmName' => 'All']);
+            } else {
+                return response()->json(['registrations' => $output, 'dataCount' => $dataCount, 'ukmName' => $ukm->name]);
+            }
         }
     }
 
