@@ -30,8 +30,8 @@ use App\Http\Controllers\UKMController;
  */
 Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
 
-// Route::prefix('admin')->middleware('isLogin')->group(function () {
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('isLogin')->group(function () {
+// Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'validatePage'])->name('admin.home');
     Route::get('logout', [AuthController::class, 'adminLogout'])->name('admin.logout');
     // Route::get('participant', [AdminController::class, 'participant'])->name('admin.showParticipants');
@@ -48,7 +48,6 @@ Route::prefix('admin')->group(function () {
     Route::post('rejectFile', [ValidateController::class, 'rejectFile'])->name('admin.rejectFile');
     Route::post('giveLetter', [GenerateController::class, 'giveLetter'])->name('admin.giveLetter');
 });
-
 /**
  * User Routes
  * 
