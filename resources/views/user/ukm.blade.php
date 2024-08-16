@@ -138,7 +138,7 @@
                                     <div id = "show-slot"
                                         class = "flex flex-col justify-center pl-[20px] pr-[20px] border-r-[1px]">
                                         <div class = "text-white text-center text-[40px] font-bold leading-tight">
-                                            @if($ukm->current_slot > 1000 )
+                                            @if($ukm->current_slot < 1000 )
                                             {{ $ukm->current_slot }}
                                             @else
                                             <i class="fa-solid fa-infinity"></i>
