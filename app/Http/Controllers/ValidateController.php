@@ -170,6 +170,8 @@ class ValidateController extends Controller
     {
         $nrp = $request->get('nrp');
         $ukm = $request->get('ukm');
+        $admin_ukm_name = Ukm::where('id', session('ukm_id'))->first()->name;
+
         $selectionFile = DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm)->first()->file_validated;
         if ($selectionFile == 0) {
             $user = User::where('nrp', $nrp)->first();
@@ -179,11 +181,8 @@ class ValidateController extends Controller
                 'file_validated' => 1,
             ]);
 
-            Log::channel('daily')->info('accepted selection file', [
-                'name' => session('name'),
-                'nrp' => session('nrp'),
-                'participant' => $nrp
-            ]);
+            Log::channel('daily')->info(session('nrp')  . '-' . session('name') . '-' . $admin_ukm_name .
+                ' has accepted selection file of ' . $user->nrp . '-' . $user->name . '-' . $data_ukm->name);
             return response()->json(['message' => 'true']); // Berhasil validasi
         } else if ($selectionFile == 1) {
             return response()->json(['message' => 'false']); // File seleksi sudah divalidasi
