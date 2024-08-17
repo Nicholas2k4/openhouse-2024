@@ -30,7 +30,7 @@ class AdminController extends Controller
     }
     public function validatePage()
     {
-        $data['tabTitle'] = 'Validate';
+        $data['tabTitle'] = 'Participants';
         return view('admin.validate', $data);
     }
 
@@ -38,6 +38,11 @@ class AdminController extends Controller
     {
         $data['tabTitle'] = 'Generate';
         return view('admin.generate', $data);
+    }
+
+    public function leaderboardPage() {
+        $data['tabTitle'] = 'Leaderboard';
+        return view('admin.leaderboard', $data);
     }
 
     public function participant()
