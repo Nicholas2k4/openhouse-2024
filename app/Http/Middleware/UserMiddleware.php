@@ -18,7 +18,7 @@ class UserMiddleware
         if (session('nrp') != null) {
             return $next($request);
         } else {
-            return redirect()->back()->with('guest', 'You are not logged in !');
+            return redirect()->route('user.login')->with('guest', 'You are not logged in !');
         }
     }
 }
