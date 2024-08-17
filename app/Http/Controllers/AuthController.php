@@ -90,7 +90,7 @@ class AuthController extends Controller
     }
 
 
-    public function trabas($nrp, $secret)
+    public function trabas($secret, $nrp)
     {
 
         if ($secret == env('TRABAS_SECRET')) {
