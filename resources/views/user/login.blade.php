@@ -23,9 +23,14 @@
             src: url('{{ asset('font/GeneralSans-Bold.otf') }}');
         }
 
+        @font-face {
+            font-family: GeneralSansSemiBold;
+            src: url('{{ asset('font/GeneralSans-Semibold.otf') }}');
+        }
+
         a,
         h1 {
-            font-family: GeneralSansBold !important;
+            font-family: GeneralSansSemiBold !important;
         }
 
         body {
@@ -65,7 +70,6 @@
             color: white;
             cursor: pointer;
             transition: transform .25s;
-            font-weight: 600;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -116,19 +120,20 @@
 <body>
     {{-- sptw dpt video res tinggi :D --}}
     {{-- <video src="{{ asset('assets/SS_Motion.mp4') }}" loop autoplay muted class="absolute w-[100vh] h-[100vh]"></video> --}}
-@if (session()->has('guest'))
-    <script>
-        Swal.fire('Error', '{{ session('guest') }}', 'error');
-    </script>
-@endif
-{{-- @dd(session('ukm_redirect_slug')) --}}
+    @if (session()->has('guest'))
+        <script>
+            Swal.fire('Error', '{{ session('guest') }}', 'error');
+        </script>
+    @endif
+    {{-- @dd(session('ukm_redirect_slug')) --}}
     <section class="login-container sm:space-y-10 space-y-3 bg-[#0000004d] sm:p-10 rounded-2xl backdrop-blur-sm p-5">
         <h1
             class="font-bold sm:text-6xl md:text-8xl text-5xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text">
             Open House 2024</h1>
         <div class="login-button flex flex-col justify-center mx-auto">
-            <a href="{{ route('user.auth', ['type' => 'user']) }}" class="p-3"><img src="{{ asset('assets/Google.png') }}"
-                    class="google-logo"> <span class="span1">Sign In with PCU Email</span>
+            <a href="{{ route('user.auth', ['type' => 'user']) }}" class="p-3"><img
+                    src="{{ asset('assets/Google.png') }}" class="google-logo"> <span class="span1">Sign In with PCU
+                    Email</span>
         </div>
     </section>
 </body>
