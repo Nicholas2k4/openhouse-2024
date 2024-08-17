@@ -73,7 +73,7 @@
                 <div class="border-b border-gray-900/10 pb-2">
                     <h2
                         class="sm:text-2xl text-2xl font-bold text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mb-5">
-                        Pendaftaran UKM</h2>
+                        Pendaftaran {{$ukm_name}}</h2>
                     <p class=" text-base leading-6 text-slate-50 text-center">Silakan mengisi form ini dengan benar.</p>
 
 

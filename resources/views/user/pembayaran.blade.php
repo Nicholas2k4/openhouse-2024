@@ -62,10 +62,9 @@
                   html: '<div style="text-align: justify; text-justify: left;">' +
                         '<p><b>1.</b> Scan QRIS yang tertera di layar</p>' +
                         '<p><b>2.</b> Masukan nominal pembayaran sesuai yang tertera di layar</p>' +
-                        '<p><b>3.</b> Berita acara ditulis: (NRP) (UKM) (Kode unik). Kode unik berupa 4 karakter sesuai yang tertera di layar. Contoh: C14229999 Basket XyZa</p>' +
-                        '<p><b>4.</b> Screenshot dan upload bukti pembayaran di tempat yang sudah disediakan dengan format (.PNG/.JPG/.JPEG/.HEIC) dengan ukuran maksimal 5 MB</p>' +
-                        '<p><b>5.</b> Tekan tombol submit</p>' +
-                        '<p><b>6.</b> Cek halaman ini secara berkala untuk melihat status pembayaran Anda</p>' +
+                        '<p><b>3.</b> Screenshot dan upload bukti pembayaran di tempat yang sudah disediakan dengan format (.PNG/.JPG/.JPEG/.HEIC) dengan ukuran maksimal 5 MB</p>' +
+                        '<p><b>4.</b> Tekan tombol submit</p>' +
+                        '<p><b>5.</b> Cek halaman ini secara berkala untuk melihat status pembayaran Anda</p>' +
                         '</div>',
                   confirmButtonText: 'Tutup',
                   showCloseButton: true
@@ -85,9 +84,8 @@
         <div class="space-y-12">
           <div class="border-b border-gray-900/10 pb-12">
             <h2 class="sm:text-2xl text-2xl font-bold text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mb-5">Pembayaran UKM</h2>
-            <h2 class="text-base text-slate-50 text-center leading-7 pb-2">Nominal: Rp. {{ number_format($price, 0, ',', '.') }}</h2>
-            <h1 class="font-semibold text-xl text-center text-slate-50 leading-7">Kode Unik Anda:</h1>
-            <h1 class="sm:text-2xl text-2xl font-bold text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mb-5">{{$code}}</h1>
+            <h2 class="text-base text-slate-50 text-center leading-7 pb-2">Nominal:</h2>
+            <h1 class="sm:text-2xl text-2xl font-bold text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text mb-5">Rp. {{ number_format($price, 0, ',', '.') }}</h1>
 
           <div class="flex items-center justify-center mt-6">
             <button type="button" id="myButton" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Lihat Panduan Pembayaran</button>
