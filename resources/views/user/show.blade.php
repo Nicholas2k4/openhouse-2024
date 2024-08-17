@@ -416,7 +416,7 @@
                 class="py-[50px] md:py-[100px] px-[30px] md:px-[50px] xl:px-[100px] gap-[20px] mx-auto h-full flex flex-col justify-center items-center md:flex md:flex-row md:justify-between md:items-center">
                 <!-- Right Side (Poster Optional) -->
                 <div class="reveal from-left z-[10] flex flex-col w-full sm:w-2/5 items-center mt-5">
-                    @if ($ukm->poster_url !== '')
+                    @if ($ukm->poster_url != '')
                         <img class = "w-[300px] md:w-[300px] h-auto" src = '{{ URL($ukm->poster_url) }}' />
                     @else
                         <img class = "w-[400px] md:w-[400px] h-auto"
