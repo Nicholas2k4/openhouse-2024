@@ -39,7 +39,7 @@ class AuthController extends Controller
             session(['name' => $name]);
 
             if ($auth_type == 'user') {
-                return redirect()->intended('user.home')->with('login', 'Login Success !');
+                return redirect()->intended(route('user.home'))->with('login', 'Login Success !');
             } else if ($auth_type == 'admin') {
                 // cek ada di tabel admin ato ga
                 $admin = Admin::where('nrp', $nrp)->first();
@@ -48,7 +48,7 @@ class AuthController extends Controller
                     $ukm_id = $admin->ukm_id;
                     $field = $admin->field;
                     $division_id = $admin->division_id;
-                    
+
                     if ($division_id) {
                         $division_slug = Division::where('id', $division_id)->first()->slug;
                         session()->put('division_slug', $division_slug);
