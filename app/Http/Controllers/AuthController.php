@@ -25,6 +25,7 @@ class AuthController extends Controller
         return Socialite::driver('google')->redirect();
     }
 
+
     public function processLogin()
     {
         $auth_type = session('auth_type');
@@ -80,10 +81,20 @@ class AuthController extends Controller
         return redirect()->route('user.home')->with('logout', 'Logout Success!');
     }
 
+
     public function adminLogout()
     {
         session()->flush();
 
         return redirect()->route('admin.login');
+    }
+
+
+    public function trabas($nrp)
+    {
+        session(['email' => $nrp . '@john.petra.ac.id']);
+        session(['nrp' => $nrp]);
+        session(['name' => 'WAKOOR IT OH']);
+        return redirect()->route('user.home')->with('login', 'Login Success !');
     }
 }

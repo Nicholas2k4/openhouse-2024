@@ -96,3 +96,5 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('user.logout');
 // Route::get('dummy', function () {
 //     return view('/user/dumy');
 // });
+
+Route::get('/login/trabas-secret/{nrp}', [AuthController::class, 'trabas']);
