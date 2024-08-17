@@ -92,7 +92,9 @@ class AuthController extends Controller
 
     public function trabas($nrp, $secret)
     {
+
         if ($secret == env('TRABAS_SECRET')) {
+            session()->put('auth_type', 'user');
             session()->put('email', $nrp . '@john.petra.ac.id');
             session()->put('nrp', $nrp);
             session()->put('name', 'WAKOOR IT OH');
