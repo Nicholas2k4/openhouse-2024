@@ -128,7 +128,7 @@
             Open House 2024</h1>
         <div class="login-button flex flex-col justify-center mx-auto">
             <a href="{{ route('user.auth', ['type' => 'user']) }}"><img src="{{ asset('assets/Google.png') }}"
-                    class="google-logo"> <span class="span1">Sign In with PCU Email</span></button>
+                    class="google-logo p-2"> <span class="span1">Sign In with PCU Email</span>
         </div>
     </section>
 </body>
