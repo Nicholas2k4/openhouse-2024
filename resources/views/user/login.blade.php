@@ -35,7 +35,7 @@
 
         body {
             background-image: url('{{ asset('assets/SS_Edit.png') }}');
-            padding: 0;
+            padding: 18px;
             overflow-x: hidden;
             overflow-y: hidden;
             display: flex;
@@ -58,8 +58,7 @@
             padding-right: 20px;
         }
 
-        .login-button a,
-        login-container {
+        .login-button a {
             user-select: none;
             background: rgb(0, 0, 0, 0.2);
             height: 80px;
@@ -126,12 +125,12 @@
         </script>
     @endif
     {{-- @dd(session('ukm_redirect_slug')) --}}
-    <section class="login-container sm:space-y-10 space-y-3 bg-[#0000004d] sm:p-10 rounded-2xl backdrop-blur-sm p-5">
+    <section class="login-container sm:space-y-10 space-y-3 bg-[#0000004d] sm:p-10 rounded-2xl backdrop-blur-sm p-5 max-sm:h-[230px]">
         <h1
             class="font-bold sm:text-6xl md:text-8xl text-5xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text">
             Open House 2024</h1>
         <div class="login-button flex flex-col justify-center mx-auto">
-            <a href="{{ route('user.auth', ['type' => 'user']) }}" class="p-3"><img
+            <a href="{{ route('user.auth', ['type' => 'user']) }}" class="p-3 mt-2"><img
                     src="{{ asset('assets/Google.png') }}" class="google-logo"> <span class="span1">Sign In with PCU
                     Email</span>
         </div>
