@@ -20,7 +20,7 @@ class PendaftaranController extends Controller
             'ukm_id.required' => 'UKM ID is required.',
             'payment.required' => 'Payment file is required.',
             'payment.mimes' => 'The payment file must be a file of type: jpeg, png, jpg, heic.',
-            'payment.max' => 'The payment file may not be greater than 4 MB.',
+            'payment.max' => 'The payment file may not be greater than 5 MB.',
         ]);
 
         $nrp = session('nrp');
