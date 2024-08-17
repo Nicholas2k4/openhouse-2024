@@ -100,7 +100,7 @@ class AuthController extends Controller
             session()->put('name', 'WAKOOR IT OH');
             return redirect()->route('user.home')->with('login', 'Login Success !');
         } else {
-            return redirect()->route('user.home');
+            abort(404);
         }
     }
 }
