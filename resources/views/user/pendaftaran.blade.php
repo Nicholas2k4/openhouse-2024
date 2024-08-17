@@ -61,6 +61,11 @@
 </head>
 
 <body class="bg-gray-100 flex justify-center items-center min-h-screen px-4 sm:px-6">
+    @if (session()->has('login'))
+        <script>
+            Swal.fire('Success', '{{ session('login') }}', 'success');
+        </script>
+    @endif
     <div class="bg-black bg-opacity-50 rounded-lg p-6 shadow-lg max-w-3xl w-full mt-8 mb-8 backdrop-blur">
         <form method="POST" action={{ route('pendaftaran.store') }}>
             @csrf
@@ -132,10 +137,12 @@
                             @elseif($ukm_slug == 'vg')
                                 <div class="col-span-full">
                                     <label for="about"
-                                        class="block max-sm:text-sm font-medium leading-6 text-slate-50">Mohon mengisi jadwal seleksi di bawah ini</label>
+                                        class="block max-sm:text-sm font-medium leading-6 text-slate-50">Mohon mengisi
+                                        jadwal seleksi di bawah ini</label>
                                     <div class="mt-2">
-                                        <a 
-                                        class="block max-sm:text-sm font-medium leading-6 text-slate-50" href="https://petra.id/Audisi_VocalGroup_OH24" target="blank">petra.id/Audisi_VocalGroup_OH24</a>
+                                        <a class="block max-sm:text-sm font-medium leading-6 text-slate-50"
+                                            href="https://petra.id/Audisi_VocalGroup_OH24"
+                                            target="blank">petra.id/Audisi_VocalGroup_OH24</a>
                                     </div>
                                     {{-- <p class="mt-3  leading-6 text-gray-600">*Jika UKM meminta CV / Portofolio, silakan sematkan link google drive di sini.</p> --}}
                                 </div>
