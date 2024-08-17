@@ -61,6 +61,11 @@
 </head>
 
 <body class="bg-gray-100 flex justify-center items-center min-h-screen px-4 sm:px-6">
+    @if (session()->has('login'))
+        <script>
+            Swal.fire('Success', '{{ session('login') }}', 'success');
+        </script>
+    @endif
     <div class="bg-black bg-opacity-50 rounded-lg p-6 shadow-lg max-w-3xl w-full mt-8 mb-8 backdrop-blur">
         <form method="POST" action={{ route('pendaftaran.store') }}>
             @csrf
@@ -85,6 +90,7 @@
                                         class="px-2 bg-[#f7eecf] block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 max-sm:text-sm sm:leading-6"
                                         readonly required>
                                 </div>
+
                             </div>
 
                             <div class="sm:col-span-3">
@@ -102,7 +108,8 @@
                                 <label for="last_name"
                                     class="block max-sm:text-sm font-medium leading-6 text-slate-50">ID line</label>
                                 <div class="mt-2">
-                                    <input type="text" name="line_id" id="last-name" autocomplete="family-name" required
+                                    <input type="text" name="line_id" id="last-name" autocomplete="family-name"
+                                        required
                                         class="px-2 bg-[#f7eecf] block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 max-sm:text-sm sm:leading-6">
                                 </div>
                             </div>
@@ -111,7 +118,8 @@
                                 <label for="last_name"
                                     class="block max-sm:text-sm font-medium leading-6 text-slate-50">No. Telp</label>
                                 <div class="mt-2">
-                                    <input type="text" name="phone" id="last-name" autocomplete="family-name" required
+                                    <input type="text" name="phone" id="last-name" autocomplete="family-name"
+                                        required
                                         class="px-2 bg-[#f7eecf] block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 max-sm:text-sm sm:leading-6">
                                 </div>
                             </div>
@@ -123,6 +131,18 @@
                                     <div class="mt-2">
                                         <input id="about" name="drive_url" rows="3" type="url" required
                                             class="px-2 bg-[#f7eecf] block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 max-sm:text-sm sm:leading-6"></input>
+                                    </div>
+                                    {{-- <p class="mt-3  leading-6 text-gray-600">*Jika UKM meminta CV / Portofolio, silakan sematkan link google drive di sini.</p> --}}
+                                </div>
+                            @elseif($ukm_slug == 'vg')
+                                <div class="col-span-full">
+                                    <label for="about"
+                                        class="block max-sm:text-sm font-medium leading-6 text-slate-50">Mohon mengisi
+                                        jadwal seleksi di bawah ini</label>
+                                    <div class="mt-2">
+                                        <a class="block max-sm:text-sm font-medium leading-6 text-slate-50"
+                                            href="https://petra.id/Audisi_VocalGroup_OH24"
+                                            target="blank">petra.id/Audisi_VocalGroup_OH24</a>
                                     </div>
                                     {{-- <p class="mt-3  leading-6 text-gray-600">*Jika UKM meminta CV / Portofolio, silakan sematkan link google drive di sini.</p> --}}
                                 </div>

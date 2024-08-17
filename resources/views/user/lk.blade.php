@@ -169,7 +169,7 @@
                             </div>
                             <!--Button-->
                             <div class = "group button-animate">
-                                <form action="{{ route('user.lk.id', ['id' => $ukm->id]) }}" class="action">
+                                <form action="{{ route('user.lk.slug', ['slug' => $ukm->slug]) }}" class="action">
                                     <button
                                         class = "px-[70px] bg-white rounded-full py-2 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset">
                                         <span class = "text-black group-hover:text-[#30518A]">Details</span>

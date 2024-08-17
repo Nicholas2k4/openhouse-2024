@@ -112,7 +112,7 @@
             </div> --}}
 
             <!--Card Contain-->
-            <div class="w-full py-[200px] gap-y-[200px] mx-auto text-center flex flex-wrap">
+            <div class="w-full py-[200px] gap-y-[200px] gap-x-[20px] mx-auto text-center flex flex-wrap">
 
                 @foreach ($list_ukms as $ukm)
                     @if (!in_array($ukm->name, ['LK BEM', 'LK TPS', 'LK MPM', 'LK BPMF', 'LK PERSMA', 'LK PELMA']))
@@ -138,7 +138,7 @@
                                     <div id = "show-slot"
                                         class = "flex flex-col justify-center pl-[20px] pr-[20px] border-r-[1px]">
                                         <div class = "text-white text-center text-[40px] font-bold leading-tight">
-                                            @if($ukm->current_slot > 1000 )
+                                            @if($ukm->current_slot < 1000 )
                                             {{ $ukm->current_slot }}
                                             @else
                                             <i class="fa-solid fa-infinity"></i>
@@ -159,14 +159,13 @@
                                     </div>
                                 </div>
                                 <!--Button-->
-                                <div class = "group !ease-in-out !duration-[400]">
-                                    <form action="{{ route('user.ukm.id', ['id' => $ukm->id]) }}" method="GET"
-                                        class="contents">
+                                <div class = "group">
+
+                                    <form action="{{ route('user.ukm.slug', ['slug' => $ukm->slug]) }}" method="GET">
                                         <button type = "submit"
-                                            class = "transition-all !duration-[400] px-[70px] bg-white rounded-full py-2 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
-                                            value={{ $ukm->id }}>
-                                            <span
-                                                class = "text-black group-hover:text-[#253b61] transition-all !duration-[400]">Details</span>
+                                            class = "px-[70px] bg-white rounded-full py-2 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
+                                            value={{ $ukm->slug }}>
+                                            <span class = "text-black group-hover:text-[#30518A]">Details</span>
                                         </button>
                                     </form>
                                 </div>

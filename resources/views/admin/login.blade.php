@@ -135,7 +135,15 @@
                 text: '{{ session('info') }}',
             });
         </script>
-    @endif
+    @endif @if (session('guest'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: '{{ session('guest') }}',
+        });
+    </script>
+@endif
     {{-- sptw dpt video res tinggi :D --}}
     {{-- <video src="{{ asset('assets/SS_Motion.mp4') }}" loop autoplay muted class="absolute w-[100vh] h-[100vh]"></video> --}}
 

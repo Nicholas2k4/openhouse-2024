@@ -54,6 +54,7 @@
                     dataType: "json",
                     success: function(data) {
                         $("#result").html(data.registrations);
+                        $("#dataCount").html("Showing " + data.dataCount + " " + data.ukmName + " participants data");
                     },
                     error: function(xhr, status, error) {
                         alert("Error", error);
@@ -98,11 +99,20 @@
                     },
                     success: function(data) {
                         console.log("{{ asset('') }}" + data.file_path);
-                        Swal.fire({
-                            imageUrl: "{{ asset('') }}" + "storage/" + data.file_path,
-                            imageHeight: 800,
-                            imageAlt: "Bukti Pembayaran UKM",
-                        });
+                        if (data.file_path == null) {
+                            Swal.fire({
+                                title: "This participant hasn't paid yet",
+                                text: "NRP : " + nrp,
+                                icon: "error",
+                            });
+                        } else {
+                            Swal.fire({
+                                imageUrl: "{{ asset('') }}" + "storage/" + data.file_path,
+                                imageHeight: 800,
+                                imageAlt: "Bukti Pembayaran UKM",
+                            });
+                        }
+
                     },
                     error: function(xhr, status, error) {
                         alert("Error", error);
@@ -147,7 +157,7 @@
                             });
                         } else {
                             Swal.fire({
-                                title: "TThis participant has been rejected",
+                                title: "This participant has been rejected",
                                 text: "NRP : " + nrp,
                                 icon: "error",
                             });

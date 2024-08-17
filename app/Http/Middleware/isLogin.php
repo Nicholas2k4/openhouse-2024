@@ -18,7 +18,7 @@ class isLogin
     public function handle(Request $request, Closure $next): Response
     {
         if (!session('field') || !session('nrp')) {
-            return redirect()->route('admin.login');
+            return redirect()->route('admin.login')->with('guest', 'You are not logged in!');
         }
 
         return $next($request);

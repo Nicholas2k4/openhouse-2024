@@ -15,10 +15,12 @@ class UserMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $slug = $request->route('id');
         if (session('nrp') != null) {
             return $next($request);
         } else {
-            return back()->with('guest', 'You are not logged in !');
+            session()->put('ukm_redirect_slug', $slug);
+            return redirect()->route('user.login')->with('guest', 'You are not logged in !');
         }
     }
 }
