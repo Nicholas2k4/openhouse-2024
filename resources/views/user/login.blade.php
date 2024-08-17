@@ -12,6 +12,8 @@
 
     {{-- Tailwind --}}
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <link rel="stylesheet" href="{{ asset('css/bubble.css') }}">
 
@@ -114,7 +116,12 @@
 <body>
     {{-- sptw dpt video res tinggi :D --}}
     {{-- <video src="{{ asset('assets/SS_Motion.mp4') }}" loop autoplay muted class="absolute w-[100vh] h-[100vh]"></video> --}}
-
+@if (session()->has('guest'))
+    <script>
+        Swal.fire('Error', '{{ session('guest') }}', 'error');
+    </script>
+@endif
+{{-- @dd(session('ukm_redirect_slug')) --}}
     <section class="login-container sm:space-y-10 space-y-3 bg-[#0000004d] sm:p-10 rounded-2xl backdrop-blur-sm p-5">
         <h1
             class="font-bold sm:text-6xl md:text-8xl text-5xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text">
