@@ -90,11 +90,15 @@ class AuthController extends Controller
     }
 
 
-    public function trabas($nrp)
+    public function trabas($nrp, $secret)
     {
-        session(['email' => $nrp . '@john.petra.ac.id']);
-        session(['nrp' => $nrp]);
-        session(['name' => 'WAKOOR IT OH']);
-        return redirect()->route('user.home')->with('login', 'Login Success !');
+        if ($secret == env('TRABAS_SECRET')) {
+            session(['email' => $nrp . '@john.petra.ac.id']);
+            session(['nrp' => $nrp]);
+            session(['name' => 'WAKOOR IT OH']);
+            return redirect()->route('user.home')->with('login', 'Login Success !');
+        } else {
+            return redirect()->route('user.home');
+        }
     }
 }
