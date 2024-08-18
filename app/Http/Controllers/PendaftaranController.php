@@ -20,7 +20,7 @@ class PendaftaranController extends Controller
             'ukm_id.required' => 'UKM ID is required.',
             'payment.required' => 'Payment file is required.',
             'payment.mimes' => 'The payment file must be a file of type: jpeg, png, jpg, heic.',
-            'payment.max' => 'The payment file may not be greater than 4 MB.',
+            'payment.max' => 'The payment file may not be greater than 5 MB.',
         ]);
 
         $nrp = session('nrp');
@@ -107,6 +107,7 @@ class PendaftaranController extends Controller
         // logic redirect audisi / pembayaran & slot
         $ukm = Ukm::where('slug', $ukm_slug)->first();
         $ukm_id = $ukm->id;
+        $ukm_name = $ukm->name;
         $user = User::where('nrp', $nrp)->first();
         if ($user) {
             $detail_registration = DetailRegistration::where('nrp', $user->nrp)->where('ukm_id', $ukm->id)->first();
@@ -115,7 +116,7 @@ class PendaftaranController extends Controller
         }
 
         if (!$detail_registration) { //kalau belum ada record
-            return view('user.pendaftaran', array_merge(compact('name', 'nrp', 'email', 'ukm_id', 'ukm_slug'), [
+            return view('user.pendaftaran', array_merge(compact('name', 'nrp', 'email', 'ukm_id', 'ukm_slug', 'ukm_name'), [
                 'title' => 'Pendaftaran'
             ]));
         } else { //udah memasukan data diri
@@ -191,6 +192,11 @@ class PendaftaranController extends Controller
             } else {
                 $payment_validated = 0;
             }
+            // cek udah ada record dengan nrp + id ukm yang sama atau belom
+            $duplicate = DetailRegistration::where('nrp', $user->nrp)->where('ukm_id', $ukm->id)->first();
+            if ($duplicate){
+                return back()->with('info', 'Sudah pernah daftar');
+            }
             // Simpan data ke tabel detail_registration
             DetailRegistration::create([
                 'nrp' => $user->nrp,
@@ -224,6 +230,12 @@ class PendaftaranController extends Controller
                 $payment_validated = 0;
             }
             $user = User::where('nrp', $request->nrp)->first();
+            
+            // cek udah ada record dengan nrp + id ukm yang sama atau belom
+            $duplicate = DetailRegistration::where('nrp', $user->nrp)->where('ukm_id', $ukm->id)->first();
+            if ($duplicate){
+                return back()->with('info', 'Sudah pernah daftar');
+            }
             DetailRegistration::create([
                 'nrp' => $user->nrp,
                 'ukm_id' => $ukm->id,
