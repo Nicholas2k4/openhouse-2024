@@ -307,6 +307,21 @@
                     }
                 });
             });
+
+            function fetch_data() {
+                $.ajax({
+                    url: "{{ route('admin.fetchLeaderboard') }}",
+                    method: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $("#rankResult").html(data.allRanks);
+                        $("#rankCount").html("Showing " + data.dataCount + " participants data");
+                    },
+                    error: function(xhr, status, error) {
+                        alert("Error", error);
+                    },
+                });
+            }
         });
     </script>
 </body>

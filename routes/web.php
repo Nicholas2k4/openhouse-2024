@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\ValidateController;
 use App\Http\Controllers\GenerateController;
+use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\UKMController;
@@ -30,6 +31,8 @@ use App\Http\Controllers\UKMController;
  */
 Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
 
+// Route::prefix('admin')->group(function () {
+
 Route::prefix('admin')->middleware('isLogin')->group(function () {
     Route::get('/', [AdminController::class, 'validatePage'])->name('admin.home');
     Route::get('logout', [AuthController::class, 'adminLogout'])->name('admin.logout');
@@ -37,6 +40,8 @@ Route::prefix('admin')->middleware('isLogin')->group(function () {
     Route::get('get-users-by-activity', [AdminController::class, 'getUsersByActivity'])->name('admin.getUsersByActivity');
     Route::get('participant', [AdminController::class, 'validatePage'])->name('admin.validate');
     Route::get('generate', [AdminController::class, 'generatePage'])->name('admin.generate');
+    Route::get('leaderboard', [AdminController::class, 'leaderboardPage'])->name('admin.leaderboard');
+    Route::get('fetchLeaderboard', [LeaderboardController::class, 'fetch_leaderboard'])->name('admin.fetchLeaderboard');
     Route::get('filterSearch', [ValidateController::class, 'filterSearch'])->name('admin.filterSearch');
     Route::get('admin-booth', [AdminController::class, 'adminBooth'])->name('admin.booth-admin');
     Route::post('store-admin-booth', [AdminController::class, 'storeAdminBooth'])->name('admin.store-admin-booth');
