@@ -323,9 +323,8 @@
                     },
                 });
             }
+            fetchLeaderboard();
         });
-
-        fetchLeaderboard();
     </script>
 </body>
 
