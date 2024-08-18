@@ -54,7 +54,8 @@
                     dataType: "json",
                     success: function(data) {
                         $("#result").html(data.registrations);
-                        $("#dataCount").html("Showing " + data.dataCount + " " + data.ukmName + " participants data");
+                        $("#dataCount").html("Showing " + data.dataCount + " " + data.ukmName +
+                            " participants data");
                     },
                     error: function(xhr, status, error) {
                         alert("Error", error);
@@ -86,7 +87,6 @@
                 fetchData(nrp, filter, status);
             });
 
-            fetchData();
 
             // Ajax lihat file pembayaran
             function viewPayment(nrp = "", ukm = "") {
@@ -323,6 +323,8 @@
                 });
             }
         });
+
+        fetchLeaderboard();
     </script>
 </body>
 
