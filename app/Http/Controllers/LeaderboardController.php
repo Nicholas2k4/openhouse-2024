@@ -31,10 +31,20 @@ class LeaderboardController extends Controller
                         <td class="p-3 border-e-2 border-gray-200 flex flex-col">
                             <span id="thisRowNrp" class="font-semibold">' . $row->nrp . '</span>
                             <span>' . $user->name . '</span>
-                        </td>
-                        <td class="p-3 border-e-2 border-gray-200">' . $user->line_id . '</td>
-                        <td class="p-3 border-e-2 border-gray-200">' . $user->phone . '</td>
-                        <td class="p-3 border-e-2 border-gray-200">' . $row->score . '</td>
+                        </td>';
+
+                    if ($user->line_id == null || $user->phone == null) {
+                        $output .=
+                            '<td class="p-3 border-e-2 border-gray-200">-</td>
+                            <td class="p-3 border-e-2 border-gray-200">-</td>';
+                    } else {
+                        $output .=
+                            '<td class="p-3 border-e-2 border-gray-200">' . $user->line_id . '</td>
+                            <td class="p-3 border-e-2 border-gray-200">' . $user->phone . '</td>';
+                    }
+
+                    $output .=
+                        '<td class="p-3 border-e-2 border-gray-200">' . $row->score . '</td>
                     </tr>';
                 }
             }
