@@ -319,10 +319,11 @@
                         $("#rankCount").html("Showing " + data.dataCount + " participants data");
                     },
                     error: function(xhr, status, error) {
-                        alert("Error", error);
+                        alert("Error", xhr.responseText);
                     },
                 });
             }
+
             fetchLeaderboard();
         });
     </script>
