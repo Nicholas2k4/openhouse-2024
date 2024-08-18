@@ -42,7 +42,7 @@
             });
 
             // Ajax Filter & Search
-            function fetch_data(nrp = "", filter = "", status = "") {
+            function fetchData(nrp = "", filter = "", status = "") {
                 $.ajax({
                     url: "{{ route('admin.filterSearch') }}",
                     method: "GET",
@@ -67,7 +67,7 @@
                 var nrp = $("#searchReg").val();
                 var filter = $("#regFilter").val();
                 var status = $("#statusFilter").val();
-                fetch_data(nrp, filter, status);
+                fetchData(nrp, filter, status);
             });
 
             // Filter
@@ -75,7 +75,7 @@
                 var nrp = $("#searchReg").val();
                 var filter = $("#regFilter").val();
                 var status = $("#statusFilter").val();
-                fetch_data(nrp, filter, status);
+                fetchData(nrp, filter, status);
             });
 
             //Status
@@ -83,10 +83,10 @@
                 var nrp = $("#searchReg").val();
                 var filter = $("#regFilter").val();
                 var status = $("#statusFilter").val();
-                fetch_data(nrp, filter, status);
+                fetchData(nrp, filter, status);
             });
 
-            fetch_data();
+            fetchData();
 
             // Ajax lihat file pembayaran
             function viewPayment(nrp = "", ukm = "") {
@@ -308,7 +308,7 @@
                 });
             });
 
-            function fetch_data() {
+            function fetchLeaderboard() {
                 $.ajax({
                     url: "{{ route('admin.fetchLeaderboard') }}",
                     method: "GET",

@@ -41,7 +41,7 @@ Route::prefix('admin')->middleware('isLogin')->group(function () {
     Route::get('participant', [AdminController::class, 'validatePage'])->name('admin.validate');
     Route::get('generate', [AdminController::class, 'generatePage'])->name('admin.generate');
     Route::get('leaderboard', [AdminController::class, 'leaderboardPage'])->name('admin.leaderboard');
-    Route::get('fetchLeaderboard', [LeaderboardController::class, 'fetch_leaderboard'])->name('admin.fetchLeaderboard');
+    Route::get('fetchLeaderboard', [LeaderboardController::class, 'fetchLeaderboard'])->name('admin.fetchLeaderboard');
     Route::get('filterSearch', [ValidateController::class, 'filterSearch'])->name('admin.filterSearch');
     Route::get('admin-booth', [AdminController::class, 'adminBooth'])->name('admin.booth-admin');
     Route::post('store-admin-booth', [AdminController::class, 'storeAdminBooth'])->name('admin.store-admin-booth');

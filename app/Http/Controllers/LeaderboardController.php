@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class LeaderboardController extends Controller
 {
-    public function fetch_leaderBoard(Request $request) {
+    public function fetchLeaderBoard(Request $request) {
         $output = '';
         if ($request->ajax()) {
             $data = DetailGame::select('nrp', DB::raw('COUNT(*) as score'))->groupBy('nrp')->orderBy('score', 'desc')->get();
