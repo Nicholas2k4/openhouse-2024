@@ -87,6 +87,7 @@
                 fetchData(nrp, filter, status);
             });
 
+            fetchData();
 
             // Ajax lihat file pembayaran
             function viewPayment(nrp = "", ukm = "") {
