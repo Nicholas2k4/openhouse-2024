@@ -324,7 +324,7 @@
                 });
             }
 
-            // fetchLeaderboard();
+            fetchLeaderboard();
         });
     </script>
 </body>

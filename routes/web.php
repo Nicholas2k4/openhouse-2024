@@ -40,7 +40,7 @@ Route::prefix('admin')->middleware('isLogin')->group(function () {
     Route::get('get-users-by-activity', [AdminController::class, 'getUsersByActivity'])->name('admin.getUsersByActivity');
     Route::get('participant', [AdminController::class, 'validatePage'])->name('admin.validate');
     Route::get('generate', [AdminController::class, 'generatePage'])->name('admin.generate');
-    Route::get('leaderboard', [AdminController::class, 'leaderboardPage'])->name('admin.leaderboard');
+    Route::get('leaderboard', [AdminController::class, 'leaderBoardPage'])->name('admin.leaderboard');
     Route::get('fetchLeaderboard', [LeaderboardController::class, 'fetchLeaderboard'])->name('admin.fetchLeaderboard');
     Route::get('filterSearch', [ValidateController::class, 'filterSearch'])->name('admin.filterSearch');
     Route::get('admin-booth', [AdminController::class, 'adminBooth'])->name('admin.booth-admin');
