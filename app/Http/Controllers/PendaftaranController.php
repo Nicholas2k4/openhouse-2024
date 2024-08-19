@@ -90,19 +90,25 @@ class PendaftaranController extends Controller
             return redirect()->route('user.home');
         }
 
-        // restriction 3 ukm
+        // Max 3 UKM checking
         $ukm_slug = $slug;
 
-        if($ukm_slug == 'orkestra' || $ukm_slug == 'padus'){
+        if ($ukm_slug == 'orkestra' || $ukm_slug == 'padus') {
             return redirect()->route('user.home')->with('closed', 'closed');
         }
 
         $count = DetailRegistration::where('nrp', $nrp)->count();
         $ukm = Ukm::where('slug', $ukm_slug)->first();
-        $detail_registration = DetailRegistration::where('nrp', $nrp)->where('ukm_id', $ukm->id)->first();
+        $detail_registration = DetailRegistration::where('nrp', $nrp)
+            ->where('ukm_id', $ukm->id)
+            ->where('file_validated', '<>', 2)
+            ->where('payment_validated', '<>', 2)
+            ->first();
         if ($count >= 3 && !$detail_registration) {
             back()->with('limit', 'Maksimal mendaftar 3 UKM');
         }
+        // End of Max 3 UKM Checking
+
 
         // logic redirect audisi / pembayaran & slot
         $ukm = Ukm::where('slug', $ukm_slug)->first();
@@ -194,7 +200,7 @@ class PendaftaranController extends Controller
             }
             // cek udah ada record dengan nrp + id ukm yang sama atau belom
             $duplicate = DetailRegistration::where('nrp', $user->nrp)->where('ukm_id', $ukm->id)->first();
-            if ($duplicate){
+            if ($duplicate) {
                 return back()->with('info', 'Sudah pernah daftar');
             }
             // Simpan data ke tabel detail_registration
@@ -230,10 +236,10 @@ class PendaftaranController extends Controller
                 $payment_validated = 0;
             }
             $user = User::where('nrp', $request->nrp)->first();
-            
+
             // cek udah ada record dengan nrp + id ukm yang sama atau belom
             $duplicate = DetailRegistration::where('nrp', $user->nrp)->where('ukm_id', $ukm->id)->first();
-            if ($duplicate){
+            if ($duplicate) {
                 return back()->with('info', 'Sudah pernah daftar');
             }
             DetailRegistration::create([
