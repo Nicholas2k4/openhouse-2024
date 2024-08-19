@@ -33,14 +33,22 @@ class LeaderboardController extends Controller
                             <span>' . $user->name . '</span>
                         </td>';
 
-                    if ($user->line_id == null || $user->phone == null) {
+                    if ($user->line_id == null && $user->phone != null) {
                         $output .=
                             '<td class="p-3 border-e-2 border-gray-200">-</td>
-                            <td class="p-3 border-e-2 border-gray-200">-</td>';
-                    } else {
+                            <td class="p-3 border-e-2 border-gray-200">' . $user->phone . '</td>';
+                    } else if ($user->phone == null && $user->line_id != null) {
                         $output .=
                             '<td class="p-3 border-e-2 border-gray-200">' . $user->line_id . '</td>
+                            <td class="p-3 border-e-2 border-gray-200">-</td>';
+                    } else if ($user->line_id != null && $user->phone != null) {
+                        $output .= '
+                            <td class="p-3 border-e-2 border-gray-200">' . $user->line_id . '</td>
                             <td class="p-3 border-e-2 border-gray-200">' . $user->phone . '</td>';
+                    } else {
+                        $output .= '
+                            <td class="p-3 border-e-2 border-gray-200">-</td>
+                            <td class="p-3 border-e-2 border-gray-200">-</td>';
                     }
 
                     $output .=
