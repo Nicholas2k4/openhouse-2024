@@ -37,9 +37,9 @@ class UKMController extends Controller
 
         foreach ($ukms as $ukm) {
             if (substr($ukm->name, 0, 2) == 'LK') {
-                $ukms_temp[$ukm->name] = '/lk/' . $ukm->id;
+                $ukms_temp[$ukm->name] = '/lk/' . $ukm->slug;
             } else if (substr($ukm->name, 0, 3) == 'UKM') {
-                $ukms_temp[$ukm->name] = '/ukm/' . $ukm->id;
+                $ukms_temp[$ukm->name] = '/ukm/' . $ukm->slug;
             }
         }
         return $ukms_temp;
