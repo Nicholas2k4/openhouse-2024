@@ -55,6 +55,18 @@ class LeaderboardController extends Controller
                         '<td class="p-3 border-e-2 border-gray-200">' . $row->score . '</td>
                     </tr>';
                 }
+                else{
+                    $output .= '
+                    <tr class="text-nowrap text-md hover:bg-amber-100 transition">
+                        <td class="p-3 border-e-2 border-gray-200 flex flex-col">
+                            <span id="thisRowNrp" class="font-semibold">' . $row->nrp . '</span>
+                            <span>-</span>
+                        </td>
+                        <td class="p-3 border-e-2 border-gray-200">-</td>
+                        <td class="p-3 border-e-2 border-gray-200">-</td>
+                        <td class="p-3 border-e-2 border-gray-200">' . $row->score . '</td>
+                    </tr>';
+                }
             }
 
             return response()->json(['allRanks' => $output, 'dataCount' => $data->count()]);
