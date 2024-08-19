@@ -208,7 +208,7 @@ class PendaftaranController extends Controller
             // Check for duplicate records
             $duplicate = DetailRegistration::where('nrp', $user->nrp)->where('ukm_id', $ukm->id)->first();
             if ($duplicate) {
-                // DB::rollBack();
+                DB::rollBack();
                 return back()->with('info', 'Sudah pernah daftar');
             }
 
