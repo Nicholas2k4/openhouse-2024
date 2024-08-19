@@ -23,14 +23,19 @@
             src: url('{{ asset('font/GeneralSans-Bold.otf') }}');
         }
 
+        @font-face {
+            font-family: GeneralSansSemiBold;
+            src: url('{{ asset('font/GeneralSans-Semibold.otf') }}');
+        }
+
         a,
         h1 {
-            font-family: GeneralSansBold !important;
+            font-family: GeneralSansSemiBold !important;
         }
 
         body {
             background-image: url('{{ asset('assets/SS_Edit.png') }}');
-            padding: 0;
+            padding: 18px;
             overflow-x: hidden;
             overflow-y: hidden;
             display: flex;
@@ -53,8 +58,7 @@
             padding-right: 20px;
         }
 
-        .login-button a,
-        login-container {
+        .login-button a {
             user-select: none;
             background: rgb(0, 0, 0, 0.2);
             height: 80px;
@@ -65,7 +69,6 @@
             color: white;
             cursor: pointer;
             transition: transform .25s;
-            font-weight: bold;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -99,7 +102,7 @@
             }
 
             .login-button a {
-                width: 280px;
+                width: 290px;
                 height: 50px;
                 font-size: 20px;
             }
@@ -116,19 +119,20 @@
 <body>
     {{-- sptw dpt video res tinggi :D --}}
     {{-- <video src="{{ asset('assets/SS_Motion.mp4') }}" loop autoplay muted class="absolute w-[100vh] h-[100vh]"></video> --}}
-@if (session()->has('guest'))
-    <script>
-        Swal.fire('Error', '{{ session('guest') }}', 'error');
-    </script>
-@endif
-{{-- @dd(session('ukm_redirect_slug')) --}}
-    <section class="login-container sm:space-y-10 space-y-3 bg-[#0000004d] sm:p-10 rounded-2xl backdrop-blur-sm p-5">
+    @if (session()->has('guest'))
+        <script>
+            Swal.fire('Error', '{{ session('guest') }}', 'error');
+        </script>
+    @endif
+    {{-- @dd(session('ukm_redirect_slug')) --}}
+    <section class="login-container sm:space-y-10 space-y-3 bg-[#0000004d] sm:p-10 rounded-2xl backdrop-blur-sm p-5 max-sm:h-[230px]">
         <h1
             class="font-bold sm:text-6xl md:text-8xl text-5xl text-center bg-gradient-to-r from-[#DEC47C] via-[#F7EECF] to-[#DEC47C] text-transparent bg-clip-text">
             Open House 2024</h1>
         <div class="login-button flex flex-col justify-center mx-auto">
-            <a href="{{ route('user.auth', ['type' => 'user']) }}"><img src="{{ asset('assets/Google.png') }}"
-                    class="google-logo p-2"> <span class="span1">Sign In with PCU Email</span>
+            <a href="{{ route('user.auth', ['type' => 'user']) }}" class="p-3 mt-2"><img
+                    src="{{ asset('assets/Google.png') }}" class="google-logo"> <span class="span1">Sign In with PCU
+                    Email</span>
         </div>
     </section>
 </body>

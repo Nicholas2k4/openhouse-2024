@@ -42,7 +42,7 @@
             });
 
             // Ajax Filter & Search
-            function fetch_data(nrp = "", filter = "", status = "") {
+            function fetchData(nrp = "", filter = "", status = "") {
                 $.ajax({
                     url: "{{ route('admin.filterSearch') }}",
                     method: "GET",
@@ -54,7 +54,8 @@
                     dataType: "json",
                     success: function(data) {
                         $("#result").html(data.registrations);
-                        $("#dataCount").html("Showing " + data.dataCount + " " + data.ukmName + " participants data");
+                        $("#dataCount").html("Showing " + data.dataCount + " " + data.ukmName +
+                            " participants data");
                     },
                     error: function(xhr, status, error) {
                         alert("Error", error);
@@ -67,7 +68,7 @@
                 var nrp = $("#searchReg").val();
                 var filter = $("#regFilter").val();
                 var status = $("#statusFilter").val();
-                fetch_data(nrp, filter, status);
+                fetchData(nrp, filter, status);
             });
 
             // Filter
@@ -75,7 +76,7 @@
                 var nrp = $("#searchReg").val();
                 var filter = $("#regFilter").val();
                 var status = $("#statusFilter").val();
-                fetch_data(nrp, filter, status);
+                fetchData(nrp, filter, status);
             });
 
             //Status
@@ -83,10 +84,10 @@
                 var nrp = $("#searchReg").val();
                 var filter = $("#regFilter").val();
                 var status = $("#statusFilter").val();
-                fetch_data(nrp, filter, status);
+                fetchData(nrp, filter, status);
             });
 
-            fetch_data();
+            fetchData();
 
             // Ajax lihat file pembayaran
             function viewPayment(nrp = "", ukm = "") {
@@ -307,6 +308,22 @@
                     }
                 });
             });
+
+            function fetchLeaderboard() {
+                $.ajax({
+                    url: "{{ route('admin.fetchLeaderboard') }}",
+                    method: "GET",
+                    success: function(data) {
+                        $("#rankResult").html(data.allRanks);
+                        $("#rankCount").html("Showing " + data.dataCount + " participants data");
+                    },
+                    error: function(xhr, status, error) {
+                        alert("Error", xhr.responseText);
+                    },
+                });
+            }
+
+            fetchLeaderboard();
         });
     </script>
 </body>

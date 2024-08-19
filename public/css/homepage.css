@@ -128,6 +128,7 @@ h1 {
     background-color: #4477CE4d;
     color: white;
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 0 5px white, 0 0 10px white;
 }
 
