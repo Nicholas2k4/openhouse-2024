@@ -128,11 +128,11 @@ class PendaftaranController extends Controller
                 'title' => 'Pendaftaran'
             ]));
         } else { //udah memasukan data diri
-            if ($ukm_slug == 'vg' || $ukm_slug == 'ilustrasi') {
+            if ($ukm_slug == 'vg' || $ukm_slug == 'ilustrasi' || $ukm_slug == 'esport') {
                 if ($detail_registration->file_validated == 0 || $detail_registration->file_validated == 2) { //vg / ilus & belum diterima
                     $status_file = $detail_registration->file_validated;
                     return view('user.wait', compact('name', 'nrp', 'email', 'ukm_slug', 'status_file'));
-                } else { // vg / ilus & sudah diterima
+                } else { // vg / ilus /esport & sudah diterima
                     $code = $detail_registration->code;
                     $status_pembayaran = $detail_registration->payment_validated;
                     $url = $detail_registration->payment;
@@ -154,119 +154,123 @@ class PendaftaranController extends Controller
     }
 
     public function store(Request $request)
-{
-    // Find the UKM based on the provided ID
-    $ukm_id = $request->ukm_id;
-    $ukm = Ukm::where('id', $ukm_id)->first();
-
-    // Validate the input
-    if ($ukm->slug == 'ilustrasi') {
-        $request->validate([
-            'nrp' => 'required|string|max:9',
-            'line_id' => 'required|string|max:255',
-            'drive_url' => 'required|string|max:255',
-            'phone' => 'required|string|max:255',
-        ]);
-    } else {
-        $request->validate([
-            'nrp' => 'required|string|max:9',
-            'line_id' => 'required|string|max:255',
-            'drive_url' => 'nullable|string|max:255',
-            'phone' => 'required|string|max:255',
-        ]);
-    }
-
-    DB::beginTransaction();
-
-    try {
-        // Find the user based on the NRP
-        $user = User::where('nrp', $request->nrp)->first();
-        $current_slot = $ukm->current_slot;
-
-        // Check if the current slot is available
-        if ($current_slot < 1) {
-            return back()->with('warning', 'Slot habis');
-        }
-
-        if ($user) {
-            $user->timestamps = false;
-            // Update line_id and phone in the user record
-            $user->update([
-                'line_id' => $request->line_id,
-                'phone' => $request->phone,
+    {
+        // Find the UKM based on the provided ID
+        $ukm_id = $request->ukm_id;
+        $ukm = Ukm::where('id', $ukm_id)->first();
+    
+        // Validate the input
+        if ($ukm->slug == 'ilustrasi') {
+            $request->validate([
+                'nrp' => 'required|string|max:9',
+                'line_id' => 'required|string|max:255',
+                'drive_url' => 'required|string|max:255',
+                'phone' => 'required|string|max:255',
             ]);
-
-            // Decrease the UKM slot
-            $ukm->update(['current_slot' => $current_slot - 1]);
-
-            // Determine file validation status
-            $file_validated = in_array($ukm->slug, ['vg', 'ilustrasi']) ? 0 : 1;
-
-            // Determine payment validation status for free UKMs
-            $payment_validated = in_array($ukm->slug, ['esport', 'orkestra', 'menwa']) ? 1 : 0;
-
-            // Check for duplicate records
-            $duplicate = DetailRegistration::where('nrp', $user->nrp)->where('ukm_id', $ukm->id)->first();
-            if ($duplicate) {
-                DB::rollBack();
-                return back()->with('info', 'Sudah pernah daftar');
-            }
-
-            // Create the detail_registration record
-            DetailRegistration::create([
-                'nrp' => $user->nrp,
-                'ukm_id' => $ukm->id,
-                'payment' => null,
-                'code' => Str::random(4),
-                'drive_url' => $request->drive_url,
-                'file_validated' => $file_validated,
-                'payment_validated' => $payment_validated,
-            ]);
-
         } else {
-            // Create a new user record if not found
-            User::create([
-                'name' => $request->name,
-                'nrp' => $request->nrp,
-                'line_id' => $request->line_id,
-                'phone' => $request->phone,
-            ]);
-
-            // Decrease the UKM slot
-            $ukm->update(['current_slot' => $current_slot - 1]);
-
-            // Determine file validation status
-            $file_validated = in_array($ukm->slug, ['vg', 'ilustrasi']) ? 0 : 1;
-
-            // Determine payment validation status for free UKMs
-            $payment_validated = in_array($ukm->slug, ['esport', 'orkestra', 'menwa']) ? 1 : 0;
-
-            $user = User::where('nrp', $request->nrp)->first();
-
-            // Check for duplicate records
-            $duplicate = DetailRegistration::where('nrp', $user->nrp)->where('ukm_id', $ukm->id)->first();
-            if ($duplicate) {
-                DB::rollBack();
-                return back()->with('info', 'Sudah pernah daftar');
-            }
-
-            // Create the detail_registration record
-            DetailRegistration::create([
-                'nrp' => $user->nrp,
-                'ukm_id' => $ukm->id,
-                'payment' => null,
-                'code' => Str::random(4),
-                'drive_url' => $request->drive_url,
-                'file_validated' => $file_validated,
-                'payment_validated' => $payment_validated,
+            $request->validate([
+                'nrp' => 'required|string|max:9',
+                'line_id' => 'required|string|max:255',
+                'drive_url' => 'nullable|string|max:255',
+                'phone' => 'required|string|max:255',
             ]);
         }
-
-        DB::commit();
-        return back()->with('info', 'Pendaftaran berhasil');
-    } catch (Exception $e) {
-        DB::rollBack();
-        return back()->with('error', 'Terjadi kesalahan saat mendaftar: ' . $e->getMessage());
+    
+        DB::beginTransaction();
+    
+        try {
+            // Lock the row to prevent race conditions
+            $ukm = Ukm::where('id', $ukm_id)->lockForUpdate()->first();
+            $current_slot = $ukm->current_slot;
+    
+            // Check if the current slot is available
+            if ($current_slot < 1) {
+                DB::rollBack();
+                return back()->with('warning', 'Slot habis');
+            }
+    
+            $user = User::where('nrp', $request->nrp)->first();
+    
+            if ($user) {
+                $user->timestamps = false;
+                // Update line_id and phone in the user record
+                $user->update([
+                    'line_id' => $request->line_id,
+                    'phone' => $request->phone,
+                ]);
+    
+                // Decrease the UKM slot
+                $ukm->update(['current_slot' => $current_slot - 1]);
+    
+                // Determine file validation status
+                $file_validated = in_array($ukm->slug, ['vg', 'ilustrasi', 'esport']) ? 0 : 1;
+    
+                // Determine payment validation status for free UKMs
+                $payment_validated = in_array($ukm->slug, ['esport', 'orkestra', 'menwa']) ? 1 : 0;
+    
+                // Check for duplicate records
+                $duplicate = DetailRegistration::where('nrp', $user->nrp)->where('ukm_id', $ukm->id)->first();
+                if ($duplicate) {
+                    DB::rollBack();
+                    return back()->with('info', 'Sudah pernah daftar');
+                }
+    
+                // Create the detail_registration record
+                DetailRegistration::create([
+                    'nrp' => $user->nrp,
+                    'ukm_id' => $ukm->id,
+                    'payment' => null,
+                    'code' => Str::random(4),
+                    'drive_url' => $request->drive_url,
+                    'file_validated' => $file_validated,
+                    'payment_validated' => $payment_validated,
+                ]);
+    
+            } else {
+                // Create a new user record if not found
+                User::create([
+                    'name' => $request->name,
+                    'nrp' => $request->nrp,
+                    'line_id' => $request->line_id,
+                    'phone' => $request->phone,
+                ]);
+    
+                // Decrease the UKM slot
+                $ukm->update(['current_slot' => $current_slot - 1]);
+    
+                // Determine file validation status
+                $file_validated = in_array($ukm->slug, ['vg', 'ilustrasi', 'esport']) ? 0 : 1;
+    
+                // Determine payment validation status for free UKMs
+                $payment_validated = in_array($ukm->slug, ['esport', 'orkestra', 'menwa']) ? 1 : 0;
+    
+                $user = User::where('nrp', $request->nrp)->first();
+    
+                // Check for duplicate records
+                $duplicate = DetailRegistration::where('nrp', $user->nrp)->where('ukm_id', $ukm->id)->first();
+                if ($duplicate) {
+                    DB::rollBack();
+                    return back()->with('info', 'Sudah pernah daftar');
+                }
+    
+                // Create the detail_registration record
+                DetailRegistration::create([
+                    'nrp' => $user->nrp,
+                    'ukm_id' => $ukm->id,
+                    'payment' => null,
+                    'code' => Str::random(4),
+                    'drive_url' => $request->drive_url,
+                    'file_validated' => $file_validated,
+                    'payment_validated' => $payment_validated,
+                ]);
+            }
+    
+            DB::commit();
+            return back()->with('info', 'Pendaftaran berhasil');
+        } catch (Exception $e) {
+            DB::rollBack();
+            return back()->with('error', 'Terjadi kesalahan saat mendaftar: ' . $e->getMessage());
+        }
     }
-}
+    
 }
