@@ -15,7 +15,7 @@
         text-align: center;
     ">
         <div class="">
-            <img src="{{ asset('assets/LOGO OPENHOUSE SEMIFINAL.png') }}" alt=""
+            <img src="https://openhouse.petra.ac.id/assets/LOGO%20OPENHOUSE%20SEMIFINAL.png" alt=""
                 style="width: 100px; height: 50px">
         </div>
         <h3 style="margin-left: 0.5rem; margin-bottom: 0; margin-top: 9px; font-size: 24px; color: black;">Open House
