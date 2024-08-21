@@ -318,7 +318,7 @@
                         $("#rankCount").html("Showing " + data.dataCount + " participants data");
                     },
                     error: function(xhr, status, error) {
-                        alert("Error", xhr.responseText);
+                        alert(xhr.responseText);
                     },
                 });
             }

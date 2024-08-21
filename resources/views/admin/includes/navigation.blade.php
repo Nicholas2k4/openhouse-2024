@@ -117,6 +117,10 @@
                         Letters Generate
                     </li>
                 </a>
+                @if (session('division_slug') == 'sekkonkes' ||
+                session('division_slug') == 'it' ||
+                session('division_slug') == 'bph' ||
+                session('field') == 'ketua')
                 <a href="{{ route('admin.leaderboard') }}" class="text-md">
                     <li class="flex flex-row items-center p-3 my-2 hover:bg-gray-200 rounded-lg transition">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
@@ -125,6 +129,7 @@
                         Game Leaderboard
                     </li>
                 </a>
+                @endif
             </ul>
         </div>
 
@@ -228,6 +233,10 @@
                 Letters Generate
             </a>
         </li>
+        @if (session('division_slug') == 'sekkonkes' ||
+        session('division_slug') == 'it' ||
+        session('division_slug') == 'bph' ||
+        session('field') == 'ketua')
         <li class="p-4 my-2 hover:bg-gray-200 rounded-lg transition">
             <a href="{{ route('admin.leaderboard') }}" class="flex flex-row text-md items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
@@ -236,6 +245,7 @@
                 Game Leaderboard
             </a>
         </li>
+        @endif
         <li class="p-4 my-2 hover:bg-rose-500 rounded-lg transition">
             <a href={{ route('admin.logout') }} class="flex flex-row text-md items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
