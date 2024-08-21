@@ -20,12 +20,45 @@
     <!-- SWEET ALERT -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
     <!-- JS -->
     {{-- <script src="{{ asset('js/validateScript.js') }}"></script> --}}
+
+    <style>
+        .loader {
+            transition: opacity 0.75s, visibility 0.75s;
+        }
+
+        .loader--hidden {
+            overflow-y: visible;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader::after {
+            content: "";
+            width: 75px;
+            height: 75px;
+            border: 5px solid white;
+            border-top-color: #000000;
+            border-radius: 50%;
+            animation: loading 0.75s ease infinite;
+        }
+
+        @keyframes loading {
+            from {
+                transform: rotate(0turn);
+            }
+
+            to {
+                transform: rotate(1turn);
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <div class="loader fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-white z-[9999]"></div>
+
     @include('admin.includes.alerts')
     @include('admin.includes.navigation')
     <div class="lg:ms-64 h-screen">
@@ -34,6 +67,11 @@
 
 
     <script>
+        window.addEventListener("load", () => {
+            document.querySelector(".loader").classList.add("loader--hidden");
+            body.css("overflow-y", "auto");
+        })
+
         $(document).ready(function() {
             $.ajaxSetup({
                 headers: {
