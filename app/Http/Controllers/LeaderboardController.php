@@ -56,19 +56,19 @@ class LeaderboardController extends Controller
                         '<td class="p-3 border-e-2 border-gray-200">' . $row->score . '</td>
                     </tr>';
                 } else {
-                    $client = new Client();
-                    $url = "https://john.petra.ac.id/~justin/finger.php?s=" . $row->nrp;
+                    // $client = new Client();
+                    // $url = "https://john.petra.ac.id/~justin/finger.php?s=" . $row->nrp;
 
-                    $response = $client->get($url);
-                    $APIResult = json_decode($response->getBody(), true);
+                    // $response = $client->get($url);
+                    // $APIResult = json_decode($response->getBody(), true);
 
-                    $nama = $APIResult['hasil'][0]['nama'] ?? 'Unknown';
+                    // $nama = $APIResult['hasil'][0]['nama'] ?? 'Unknown';
 
                     $output .= '
                     <tr class="text-nowrap text-md hover:bg-amber-100 transition">
                         <td class="p-3 border-e-2 border-gray-200 flex flex-col">
                             <span id="thisRowNrp" class="font-semibold">' . $row->nrp . '</span>
-                            <span>' . $nama . '</span>
+                            <span>-</span>
                         </td>
                         <td class="p-3 border-e-2 border-gray-200">-</td>
                         <td class="p-3 border-e-2 border-gray-200">-</td>
