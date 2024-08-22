@@ -22,10 +22,10 @@ class GameController extends Controller
         }
 
         // DAY 1 - Be ready to welcome the new dawn!
-        $day1Sentence = "Be ready to welcome the new dawn!";
+        // $day1Sentence = "Be ready to welcome the new dawn!";
 
         // DAY 2 - The coming of brighter tomorrow
-        // $day2Sentence = "The coming of brighter tomorrow"
+        $day2Sentence = "The coming of brighter tomorrow";
 
         // DAY 3 - For he is risen so we are destined
         // $day3Sentence = "For he is risen so we are destined"
@@ -45,7 +45,7 @@ class GameController extends Controller
 
         $data['letters'] = $letters;
         $data['title'] = 'Game';
-        $data['day1Sentence'] = $day1Sentence;
+        $data['day1Sentence'] = $day2Sentence;
         $data['userSentence'] = $userSentence;
         $data['ukms'] = UKMController::getUkms();
 
