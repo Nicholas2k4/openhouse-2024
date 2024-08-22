@@ -33,7 +33,7 @@ class GameController extends Controller
         $letters = DB::table('detail_games')->where('nrp', $nrp)->pluck('letter', 'letter_index');
         $letters = $letters->toArray();
 
-        $day1SentenceNoSpaces = str_replace(' ', '', $day1Sentence);
+        $day1SentenceNoSpaces = str_replace(' ', '', $day2Sentence);
         $userSentence = '';
         foreach (str_split($day1SentenceNoSpaces) as $index => $day1Letter) {
             if (array_key_exists($index, $letters)) {
