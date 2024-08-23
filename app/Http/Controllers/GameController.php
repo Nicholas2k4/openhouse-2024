@@ -33,11 +33,11 @@ class GameController extends Controller
         $letters = DB::table('detail_games')->where('nrp', $nrp) ->where('created_at', '>', '2024-08-22 10:00:00')->pluck('letter', 'letter_index');
         $letters = $letters->toArray();
 
-        $day2SentenceNoSpaces = str_replace(' ', '', $day2Sentence);
+        $day1SentenceNoSpaces = str_replace(' ', '', $day2Sentence);
         $userSentence = '';
-        foreach (str_split($day2SentenceNoSpaces) as $index => $day2Letter) {
+        foreach (str_split($day1SentenceNoSpaces) as $index => $day1Letter) {
             if (array_key_exists($index, $letters)) {
-                $userSentence .= $day2Letter;
+                $userSentence .= $day1Letter;
             } else {
                 $userSentence .= ' ';
             }
@@ -45,7 +45,7 @@ class GameController extends Controller
 
         $data['letters'] = $letters;
         $data['title'] = 'Game';
-        $data['day2Sentence'] = $day2Sentence;
+        $data['day1Sentence'] = $day2Sentence;
         $data['userSentence'] = $userSentence;
         $data['ukms'] = UKMController::getUkms();
 
