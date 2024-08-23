@@ -93,8 +93,10 @@
                     success: function(data) {
                         $("#result").html(data.registrations);
                         $("#dataCount").html("Showing " + data.dataCount + " " + data.ukmName + " participants data");
-                        document.querySelector(".loader").classList.add("loader--hidden");
-                        body.css("overflow-y", "auto");
+                        if ($("#dataCount").html() === "Showing " + data.dataCount + " " + data.ukmName + " participants data") {
+                            document.querySelector(".loader").classList.add("loader--hidden");
+                            body.css("overflow-y", "auto");
+                        }
                     },
                     error: function(xhr, status, error) {
                         alert("Error", error);
@@ -355,8 +357,10 @@
                     success: function(data) {
                         $("#rankResult").html(data.allRanks);
                         $("#rankCount").html("Showing " + data.dataCount + " participants data");
-                        document.querySelector(".loader").classList.add("loader--hidden");
-                        body.css("overflow-y", "auto");
+                        if ($("#dataCount").html() === "Showing " + data.dataCount + " " + data.ukmName + " participants data") {
+                            document.querySelector(".loader").classList.add("loader--hidden");
+                            body.css("overflow-y", "auto");
+                        }
                     },
                     error: function(xhr, status, error) {
                         alert(xhr.responseText);
