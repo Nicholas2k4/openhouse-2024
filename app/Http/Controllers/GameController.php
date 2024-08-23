@@ -23,6 +23,7 @@ class GameController extends Controller
 
         // DAY 1 - Be ready to welcome the new dawn!
         // $day1Sentence = "Be ready to welcome the new dawn!";
+        // $day1Sentence = "Be ready to welcome the new dawn!";
 
         // DAY 2 - The coming of brighter tomorrow
         $day2Sentence = "The coming of brighter tomorrow";
@@ -30,14 +31,14 @@ class GameController extends Controller
         // DAY 3 - For he is risen so we are destined
         // $day3Sentence = "For he is risen so we are destined"
 
-        $letters = DB::table('detail_games')->where('nrp', $nrp)->pluck('letter', 'letter_index');
+        $letters = DB::table('detail_games')->where('nrp', $nrp)->where('created_at', '>', '2024-08-22 10:00:00')->pluck('letter', 'letter_index');
         $letters = $letters->toArray();
 
-        $day1SentenceNoSpaces = str_replace(' ', '', $day2Sentence);
+        $day2SentenceNoSpaces = str_replace(' ', '', $day2Sentence);
         $userSentence = '';
-        foreach (str_split($day1SentenceNoSpaces) as $index => $day1Letter) {
+        foreach (str_split($day2SentenceNoSpaces) as $index => $day2Letter) {
             if (array_key_exists($index, $letters)) {
-                $userSentence .= $day1Letter;
+                $userSentence .= $day2Letter;
             } else {
                 $userSentence .= ' ';
             }
@@ -45,7 +46,7 @@ class GameController extends Controller
 
         $data['letters'] = $letters;
         $data['title'] = 'Game';
-        $data['day1Sentence'] = $day2Sentence;
+        $data['day2Sentence'] = $day2Sentence;
         $data['userSentence'] = $userSentence;
         $data['ukms'] = UKMController::getUkms();
 
