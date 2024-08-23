@@ -367,6 +367,6 @@
             fetchLeaderboard();
         });
     </script>
-</body>
+</body class="overflow-y-hidden">
 
 </html>
