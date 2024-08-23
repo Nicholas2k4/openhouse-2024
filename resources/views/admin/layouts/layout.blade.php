@@ -67,12 +67,12 @@
 
 
     <script>
-        window.addEventListener("load", () => {
-            document.querySelector(".loader").classList.add("loader--hidden");
-            body.css("overflow-y", "auto");
-        })
-
         $(document).ready(function() {
+            // window.addEventListener("load", () => {
+            //     document.querySelector(".loader").classList.add("loader--hidden");
+            //     body.css("overflow-y", "auto");
+            // })
+
             $.ajaxSetup({
                 headers: {
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -92,8 +92,9 @@
                     dataType: "json",
                     success: function(data) {
                         $("#result").html(data.registrations);
-                        $("#dataCount").html("Showing " + data.dataCount + " " + data.ukmName +
-                            " participants data");
+                        $("#dataCount").html("Showing " + data.dataCount + " " + data.ukmName + " participants data");
+                        document.querySelector(".loader").classList.add("loader--hidden");
+                        body.css("overflow-y", "auto");
                     },
                     error: function(xhr, status, error) {
                         alert("Error", error);
@@ -354,6 +355,8 @@
                     success: function(data) {
                         $("#rankResult").html(data.allRanks);
                         $("#rankCount").html("Showing " + data.dataCount + " participants data");
+                        document.querySelector(".loader").classList.add("loader--hidden");
+                        body.css("overflow-y", "auto");
                     },
                     error: function(xhr, status, error) {
                         alert(xhr.responseText);
@@ -364,6 +367,6 @@
             fetchLeaderboard();
         });
     </script>
-</body>
+</body class="overflow-y-hidden">
 
 </html>
