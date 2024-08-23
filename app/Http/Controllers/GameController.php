@@ -36,9 +36,9 @@ class GameController extends Controller
 
         $day2SentenceNoSpaces = str_replace(' ', '', $day2Sentence);
         $userSentence = '';
-        foreach (str_split($day1SentenceNoSpaces) as $index => $day1Letter) {
+        foreach (str_split($day2SentenceNoSpaces) as $index => $day2Letter) {
             if (array_key_exists($index, $letters)) {
-                $userSentence .= $day1Letter;
+                $userSentence .= $day2Letter;
             } else {
                 $userSentence .= ' ';
             }
