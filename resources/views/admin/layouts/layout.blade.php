@@ -357,7 +357,7 @@
                     success: function(data) {
                         $("#rankResult").html(data.allRanks);
                         $("#rankCount").html("Showing " + data.dataCount + " participants data");
-                        if ($("#dataCount").html() === "Showing " + data.dataCount + " " + data.ukmName + " participants data") {
+                        if ($("#rankCount").html() === "Showing " + data.dataCount + " participants data") {
                             document.querySelector(".loader").classList.add("loader--hidden");
                             body.css("overflow-y", "auto");
                         }
