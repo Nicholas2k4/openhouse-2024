@@ -298,7 +298,7 @@
             <div class = "mx-auto w-full flex flex-wrap gap-1 md:gap-3 mt-[20px]">
                 <div class = "flex flex-wrap justify-center gap-y-4 gap-x-10">
                     @php
-                        $words = explode(' ', $day2Sentence);
+                        $words = explode(' ', $daySentence);
                         $i = 0;
                     @endphp
                     @foreach ($words as $word)
