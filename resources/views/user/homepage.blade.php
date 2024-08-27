@@ -176,7 +176,7 @@
         </div>
 
         <div
-            class="chats grid md:w-[700px] sm:w-[380px] max-sm:w-[310px] h-[550px] bg-gray-200 my-10 rounded-3xl overflow-hidden !z-50">
+            class="chats grid md:w-[700px] sm:w-[380px] max-sm:w-[310px] h-[550px] bg-gray-200 mb-10 mt-5 rounded-3xl overflow-hidden !z-50">
             <div class="chat-header w-full h-[70px] rounded-t-2xl flex justify-start items-center">
                 <img src="{{ asset('assets/VERDARA PP.png') }}" alt="faq-maskot"
                     class="rounded-full h-11 bg-yellow-400 mx-4">
