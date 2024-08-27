@@ -139,8 +139,8 @@ class ValidateController extends Controller
                     ';
                 } else {
                     $output .= '
-                        <td class="p-3 border-e-2 border-gray-200 font-bold text-' . ($row->file_validated == 1 ? 'green' : ($row->file_validated == 2 ? 'yellow' : 'red')) . '-500">' . ($row->file_validated == 1 ? 'Yes' : ($row->file_validated == 2 ? 'Rejected' : 'No')) . '</td>
-                        <td class="p-3 border-e-2 border-gray-200 font-bold text-' . ($row->payment_validated == 1 ? 'green' : ($row->file_validated == 2 ? 'yellow' : 'red')) . '-500">' . ($row->payment_validated == 1 ? 'Yes' : ($row->file_validated == 2 ? 'Rejected' : 'No')) . '</td>
+                        <td class="p-3 border-e-2 border-gray-200 font-bold text-center text-' . ($row->file_validated == 1 ? 'green' : ($row->file_validated == 2 ? 'yellow' : 'red')) . '-500">' . ($row->file_validated == 1 ? 'Yes' : ($row->file_validated == 2 ? 'Rejected' : 'No')) . '</td>
+                        <td class="p-3 border-e-2 border-gray-200 font-bold text-center text-' . ($row->payment_validated == 1 ? 'green' : ($row->file_validated == 2 ? 'yellow' : 'red')) . '-500">' . ($row->payment_validated == 1 ? 'Yes' : ($row->file_validated == 2 ? 'Rejected' : 'No')) . '</td>
                         <td class="p-3 border-s-2 text-center text-nowrap">';
                 }
 
