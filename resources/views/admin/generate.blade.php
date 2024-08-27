@@ -2,6 +2,9 @@
 @section('content')
 <script>
     $(document).ready(function() {
+        document.querySelector(".loader").classList.add("loader--hidden");
+        body.css("overflow-y", "auto");
+
         $('#generateForm').on('submit', function(event) {
             event.preventDefault();
 

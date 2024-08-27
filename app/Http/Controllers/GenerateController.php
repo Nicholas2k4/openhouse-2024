@@ -10,10 +10,10 @@ class GenerateController extends Controller
     public function giveLetter(Request $request)
     {
         // DAY 1 - Be ready to welcome the new dawn!
-        $letters = ["B", "e", "r", "e", "a", "d", "y", "t", "o", "w", "e", "l", "c", "o", "m", "e", "t", "h", "e", "n", "e", "w", "d", "a", "w", "n", "!"];
+        // $letters = ["B", "e", "r", "e", "a", "d", "y", "t", "o", "w", "e", "l", "c", "o", "m", "e", "t", "h", "e", "n", "e", "w", "d", "a", "w", "n", "!"];
 
         // DAY 2 - The coming of brighter tomorrow
-        // $letters = ["T", "h", "e", "c", "o", "m", "i", "n", "g", "o", "f", "b", "r", "i", "g", "h", "t", "e", "r", "t", "o", "m", "o", "r", "r", "o", "w"];
+        $letters = ["T", "h", "e", "c", "o", "m", "i", "n", "g", "o", "f", "b", "r", "i", "g", "h", "t", "e", "r", "t", "o", "m", "o", "r", "r", "o", "w"];
 
         // DAY 3 - For he is risen so we are destined
         // $letters = ["F", "o", "r", "h", "e", "i", "s", "r", "i", "s", "e", "n", "s", "o", "w", "e", "a", "r", "e", "d", "i", "n", "s", "t", "e", "d"];
