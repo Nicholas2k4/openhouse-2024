@@ -74,6 +74,12 @@
                             <span>FAQ</span>
                         </li>
                     </a>
+                    <a href="https://petra.id/OpenHouse2024">
+                        <li>
+                            <i class="fa-solid fa-copy"></i>
+                            <span>Angket Evaluasi</span>
+                        </li>
+                    </a>
                 </ul>
             </div>
         </div>
