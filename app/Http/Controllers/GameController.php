@@ -26,10 +26,10 @@ class GameController extends Controller
         // $day1Sentence = "Be ready to welcome the new dawn!";
 
         // DAY 2 - The coming of brighter tomorrow
-        $day2Sentence = "The coming of brighter tomorrow";
+        // $day2Sentence = "The coming of brighter tomorrow";
 
         // DAY 3 - For he is risen so we are destined
-        // $day3Sentence = "For he is risen so we are destined"
+        $day2Sentence = "For he is risen so we are destined";
 
         $letters = DB::table('detail_games')->where('nrp', $nrp)->where('created_at', '>', '2024-08-22 10:00:00')->pluck('letter', 'letter_index');
         $letters = $letters->toArray();
