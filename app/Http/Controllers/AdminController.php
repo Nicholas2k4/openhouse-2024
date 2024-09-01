@@ -110,7 +110,7 @@ class AdminController extends Controller
             Log::info('UKM dapet');
 
             $user = User::where('nrp', $nrp)->first();
-            $ukms = [];
+            $ukms = []; 
 
             Log::info('UKM dapet lagi');
             $ukm_cnt = 0;
