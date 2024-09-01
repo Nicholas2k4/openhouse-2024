@@ -17,7 +17,8 @@ class GroupchatMail extends Mailable
      * Create a new message instance.
      */
 
-    protected $user, $ukms;
+    protected $user;
+    protected $ukms;
     public function __construct($user, $ukms)
     {
         $this->user = $user;

@@ -98,16 +98,22 @@ class AdminController extends Controller
     {
         // Getting all NRP that have been registered in UKM
         $nrps = DetailRegistration::groupBy('nrp')->pluck('nrp');
-        // foreach ($nrps as $nrp) {
-        $ukms = DetailRegistration::where('nrp', 'c14220139')
-            ->where('isInvited', 0)
-            ->where('payment_validated', 1)
-            ->get();
-        $user = User::where('nrp', 'c14220139')->first();
-        // $ukms = $ukms->toArray();
-        $mail = new GroupchatMail($user, $ukms);
+        foreach ($nrps as $nrp) {
+            $user_ukms = DetailRegistration::where('nrp', $nrp)
+                ->where('isInvited', 0)
+                ->where('payment_validated', 1)
+                ->get();
+            $user = User::where('nrp', $nrp)->first();
+            $ukms = [];
+            foreach ($user_ukms as $i => $user_ukm) {
+                $ukm_temp = Ukm::where('id', $user_ukm->ukm_id)->first();
+                $ukms[$i] = $ukm_temp;
+            };
+            $mail = new GroupchatMail($user, $ukms);
 
-        dispatch(new SendMailJob($mail, 'c14220139'));
+            dispatch(new SendMailJob($mail, $nrp));
+            DetailRegistration::where('nrp', $nrp)->update(['isInvited' => 1]);
+        }
         return response()->json(['success' => true, 'msg' => 'Emails successfully sent!']);
     }
 }

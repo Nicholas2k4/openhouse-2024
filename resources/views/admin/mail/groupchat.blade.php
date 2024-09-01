@@ -31,11 +31,12 @@
         padding: 0.5rem 0.5rem 0.5rem 1rem;
         border-radius: 0.75rem;
     ">
-        <h4 style="margin-top: 10px;">Hai {{ $user->name }}, silahkan join grup UKM yang telah kamu ikuti.</h4>
+        <h4 style="margin-top: 10px; margin-bottom: 20px;">Hai {{ $user->name }}, silahkan join grup UKM yang telah
+            kamu ikuti.</h4>
         @foreach ($ukms as $ukm)
-            <a href="{{ $ukm->groupchat }}" target="_blank"
-                style="margin-top: 20px; margin-bottom: 5px; font-weight:bold; text-decoration:underline">Link grup
-                {{ $ukm->name }}</a>
+            <h4 style="margin: 0px !important;">Link Grup {{ $ukm->name }} : </h4>
+            <a href="{{ $ukm->groupchat }}" target="_blank" style="font-weight:bold; text-decoration:underline">
+                {{ $ukm->groupchat }}</a><br>
         @endforeach
 
         <h4 style="margin-bottom: 10px">Jika ada pertanyaan lebih lanjut, silahkan hubungi OA Line Openhouse
