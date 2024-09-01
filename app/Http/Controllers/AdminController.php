@@ -123,14 +123,14 @@ class AdminController extends Controller
             $mail = new GroupchatMail($user, $ukms);
 
             Log::info('Next line is dispatch');
-            if($ukm_cnt > 0){
+            if ($ukm_cnt > 0) {
                 dispatch(new SendMailJob($mail, $nrp));
+                $counter++;
+                if ($counter >= 475) {
+                    break;
+                }
             }
             DetailRegistration::where('nrp', $nrp)->where('payment_validated', 1)->update(['isInvited' => 1]);
-            $counter++;
-            if ($counter >= 475) {
-                break;
-            }
         }
         return response()->json(['success' => true, 'msg' => 'Emails successfully sent!']);
     }
