@@ -2,8 +2,6 @@
 
 namespace App\Http;
 
-
-use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -69,9 +67,4 @@ class Kernel extends HttpKernel
         'user' => \App\Http\Middleware\UserMiddleware::class,
         'isClosed' => \App\Http\Middleware\ClosedRegistration::class,
     ];
-
-    protected function schedule(Schedule $schedule)
-    {
-        $schedule->command('app:send-invitation-mail')->everyMinute();
-    }
 }
