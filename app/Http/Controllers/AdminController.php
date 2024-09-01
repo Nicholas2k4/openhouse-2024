@@ -104,7 +104,7 @@ class AdminController extends Controller
                 ->where('isInvited', 0)
                 ->where('payment_validated', 1)
                 ->get();
-            $user = User::where('nrp', $nrp)->first();
+            $user = User::where('nrp', $user_ukms->nrp)->first();
             $ukms = [];
             foreach ($user_ukms as $i => $user_ukm) {
                 $ukm_temp = Ukm::where('id', $user_ukm->ukm_id)->first();
@@ -112,10 +112,10 @@ class AdminController extends Controller
             };
             $mail = new GroupchatMail($user, $ukms);
 
-            dispatch(new SendMailJob($mail, $nrp));
-            DetailRegistration::where('nrp', $nrp)->update(['isInvited' => 1]);
+            dispatch(new SendMailJob($mail, $user_ukms->nrp));
+            DetailRegistration::where('nrp', $user_ukms->nrp)->update(['isInvited' => 1]);
             $counter++;
-            if ($counter >= 498) {
+            if ($counter >= 475) {
                 break;
             }
         }

@@ -35,7 +35,8 @@
             kamu ikuti.</h4>
         @foreach ($ukms as $ukm)
             <h4 style="margin: 0px !important;">Link Grup {{ $ukm->name }} : </h4>
-            <a href="{{ $ukm->groupchat }}" target="_blank" style="font-weight:bold; text-decoration:underline">
+            <a href="{{ $ukm->groupchat }}" target="_blank"
+                style="font-weight:bold; text-decoration:underline; margin-bottom:3px;">
                 {{ $ukm->groupchat }}</a><br>
         @endforeach
 
