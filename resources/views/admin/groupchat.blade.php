@@ -25,24 +25,39 @@
 
             $("#sendGroupchat").on("click", function(e) {
                 e.preventDefault();
-                $.ajax({
-                    method: "POST",
-                    url: "{{ route('admin.sendGroupchat') }}",
-                    success: function(res) {
-                        Swal.fire({
-                            title: res.success ? 'Success' : 'Error',
-                            text: res.msg,
-                            icon: res.success ? 'success' : 'error'
+                Swal.fire({
+                    title: "Confirmation",
+                    text: "Are you sure to send invitation emails?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, SEND!",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            method: "POST",
+                            url: "{{ route('admin.sendGroupchat') }}",
+                            success: function(res) {
+                                Swal.fire({
+                                    title: res.success ? 'Success' : 'Error',
+                                    text: res.msg,
+                                    icon: res.success ? 'success' : 'error'
+                                });
+                            },
+                            error: function(xhr, error, status) {
+                                Swal.fire({
+                                    title: 'Error',
+                                    text: xhr.responseText,
+                                    icon: 'error'
+                                });
+                            }
                         });
-                    },
-                    error: function(xhr, error, status) {
-                        Swal.fire({
-                            title: 'Error',
-                            text: xhr.responseText,
-                            icon: 'error'
-                        });
+                    } else {
+                        return;
                     }
                 });
+
             });
         });
     </script>
