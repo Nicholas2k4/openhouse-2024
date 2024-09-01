@@ -21,4 +21,9 @@ class Ukm extends Model
     ];
 
     public $timestamps = false;
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'detail_registrations', 'ukm_id', 'nrp');
+    }
 }

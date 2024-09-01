@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendMailJob;
+use App\Mail\GroupchatMail;
 use App\Models\Admin;
+use App\Models\DetailRegistration;
 use App\Models\Ukm;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -40,7 +44,8 @@ class AdminController extends Controller
         return view('admin.generate', $data);
     }
 
-    public function leaderboardPage() {
+    public function leaderboardPage()
+    {
         $data['tabTitle'] = 'Leaderboard';
         return view('admin.leaderboard', $data);
     }
@@ -81,5 +86,28 @@ class AdminController extends Controller
         } catch (\Illuminate\Database\QueryException $ex) {
             return redirect()->route('admin.booth-admin')->with('unique', 'This NRP has been registered as an admin.');
         }
+    }
+
+    public function groupchat()
+    {
+        $data['tabTitle'] = 'Groupchat Email';
+        return view('admin.groupchat', $data);
+    }
+
+    public function sendGroupchat()
+    {
+        // Getting all NRP that have been registered in UKM
+        $nrps = DetailRegistration::groupBy('nrp')->pluck('nrp');
+        // foreach ($nrps as $nrp) {
+        $ukms = DetailRegistration::where('nrp', 'c14220139')
+            ->where('isInvited', 0)
+            ->where('payment_validated', 1)
+            ->get();
+        $user = User::where('nrp', 'c14220139')->first();
+        // $ukms = $ukms->toArray();
+        $mail = new GroupchatMail($user, $ukms);
+
+        dispatch(new SendMailJob($mail, 'c14220139'));
+        return response()->json(['success' => true, 'msg' => 'Emails successfully sent!']);
     }
 }
