@@ -126,7 +126,7 @@ class AdminController extends Controller
             if ($ukm_cnt > 0) {
                 dispatch(new SendMailJob($mail, $nrp));
                 $counter++;
-                if ($counter >= 475) {
+                if ($counter >= 200) {
                     break;
                 }
             }
