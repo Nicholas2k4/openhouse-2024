@@ -35,9 +35,13 @@
             kamu ikuti.</h4>
         @foreach ($ukms as $ukm)
             <h4 style="margin: 0px !important;">Link Grup {{ $ukm->name }} : </h4>
-            <a href="{{ $ukm->groupchat }}" target="_blank"
-                style="font-weight:bold; text-decoration:underline; margin-bottom:3px;">
-                {{ $ukm->groupchat }}</a><br>
+            @if (!empty($ukm->groupchat))
+                <a href="{{ $ukm->groupchat }}" target="_blank"
+                    style="font-weight:bold; text-decoration:underline; margin-bottom:3px;">
+                    {{ $ukm->groupchat }}</a><br>
+            @else
+                <p>Belum ada grup untuk ukm ini</p>
+            @endif
         @endforeach
 
         <h4 style="margin-bottom: 10px">Jika ada pertanyaan lebih lanjut, silahkan hubungi OA Line Openhouse
