@@ -98,6 +98,7 @@ class AdminController extends Controller
     {
         // Getting all NRP that have been registered in UKM
         $nrps = DetailRegistration::groupBy('nrp')->pluck('nrp');
+        $counter = 0;
         foreach ($nrps as $nrp) {
             $user_ukms = DetailRegistration::where('nrp', $nrp)
                 ->where('isInvited', 0)
@@ -113,6 +114,10 @@ class AdminController extends Controller
 
             dispatch(new SendMailJob($mail, $nrp));
             DetailRegistration::where('nrp', $nrp)->update(['isInvited' => 1]);
+            $counter++;
+            if ($counter >= 498) {
+                break;
+            }
         }
         return response()->json(['success' => true, 'msg' => 'Emails successfully sent!']);
     }
