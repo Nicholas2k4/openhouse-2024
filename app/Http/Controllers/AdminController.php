@@ -11,6 +11,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 
 class AdminController extends Controller
 {
@@ -98,22 +99,34 @@ class AdminController extends Controller
     {
         // Getting all NRP that have been registered in UKM
         $nrps = DetailRegistration::groupBy('nrp')->pluck('nrp');
+        Log::info('$nrps dapet');
         $counter = 0;
         foreach ($nrps as $nrp) {
+            Log::info('Lagi proses nrp ' . $nrp);
             $user_ukms = DetailRegistration::where('nrp', $nrp)
                 ->where('isInvited', 0)
                 ->where('payment_validated', 1)
                 ->get();
-            $user = User::where('nrp', $user_ukms->nrp)->first();
+            Log::info('UKM dapet');
+
+            $user = User::where('nrp', $nrp)->first();
             $ukms = [];
+
+            Log::info('UKM dapet lagi');
+            $ukm_cnt = 0;
             foreach ($user_ukms as $i => $user_ukm) {
                 $ukm_temp = Ukm::where('id', $user_ukm->ukm_id)->first();
                 $ukms[$i] = $ukm_temp;
+                Log::info('Mail for UKM ' . $ukm_temp->slug);
+                $ukm_cnt++;
             };
             $mail = new GroupchatMail($user, $ukms);
 
-            dispatch(new SendMailJob($mail, $user_ukms->nrp));
-            DetailRegistration::where('nrp', $user_ukms->nrp)->update(['isInvited' => 1]);
+            Log::info('Next line is dispatch');
+            if($ukm_cnt > 0){
+                dispatch(new SendMailJob($mail, $nrp));
+            }
+            DetailRegistration::where('nrp', $nrp)->where('payment_validated', 1)->update(['isInvited' => 1]);
             $counter++;
             if ($counter >= 475) {
                 break;
