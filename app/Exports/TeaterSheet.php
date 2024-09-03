@@ -22,7 +22,6 @@ class TeaterSheet implements WithTitle, WithHeadings, FromQuery, WithMapping
             'Nama',
             'ID Line',
             'Nomor Telepon',
-            'payment'
         ];
     }
 
@@ -38,7 +37,7 @@ class TeaterSheet implements WithTitle, WithHeadings, FromQuery, WithMapping
             ->join('ukms', 'detail_registrations.ukm_id', '=', 'ukms.id')
             ->where('ukms.slug', 'teater')
             ->where('detail_registrations.payment_validated', 1)
-            ->select('users.name', 'users.nrp', 'users.line_id', 'users.phone', 'detail_registrations.code', 'detail_registrations.payment_validated');
+            ->select('users.name', 'users.nrp', 'users.line_id', 'users.phone');
     }
 
     public function map($row): array
@@ -49,7 +48,6 @@ class TeaterSheet implements WithTitle, WithHeadings, FromQuery, WithMapping
             $row->name,
             $row->line_id,
             $row->phone,
-            $row->payment_validated == 1 ? 'Tervalidasi' : 'Tidak tervalidasi',
         ];
     }
 }
