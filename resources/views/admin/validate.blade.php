@@ -2,11 +2,13 @@
 @section('content')
     <div class="h-full justify-center px-4">
         <h1 class="text-3xl font-bold py-4">List Pendaftar & Validasi</h1>
-        <div class="w-full">
-            <a href="{{ route('admin.exportData') }}" target="_blank" class="contents">
-                <button class="w-full bg-green-500 p-2 rounded-xl font-medium text-xl text-white">Export Excel</button>
-            </a>
-        </div>
+        @if (session('division_slug') == 'sekkonkes' || session('division_slug') == 'it' || session('division_slug') == 'bph')
+            <div class="w-full">
+                <a href="{{ route('admin.exportData') }}" target="_blank" class="contents">
+                    <button class="w-full bg-green-500 p-2 rounded-xl font-medium text-xl text-white">Export Excel</button>
+                </a>
+            </div>
+        @endif
         <div class="flex flex-col lg:flex-row p-2">
             <label for="regFilter" class="self-start lg:self-center me-2">UKM</label>
             <select name="" id="regFilter" class="border-2 border-gray-200 rounded mb-2 lg:mb-0">
