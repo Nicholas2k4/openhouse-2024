@@ -24,6 +24,6 @@ class Ukm extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'detail_registrations', 'ukm_id', 'nrp');
+        return $this->belongsToMany(User::class, 'detail_registrations', 'ukm_id', 'nrp', 'id', 'nrp');
     }
 }

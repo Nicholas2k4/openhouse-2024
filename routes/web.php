@@ -45,7 +45,8 @@ Route::prefix('admin')->middleware('isLogin')->group(function () {
     Route::get('filterSearch', [ValidateController::class, 'filterSearch'])->name('admin.filterSearch');
     Route::get('admin-booth', [AdminController::class, 'adminBooth'])->name('admin.booth-admin');
     Route::get('groupchat', [AdminController::class, 'groupchat'])->name('admin.groupchat');
-    
+    Route::get('exportData', [AdminController::class, 'exportData'])->name('admin.exportData');
+
     Route::post('store-admin-booth', [AdminController::class, 'storeAdminBooth'])->name('admin.store-admin-booth');
     Route::post('selectionValidate', [ValidateController::class, 'selectionValidate'])->name('admin.selectionValidate');
     Route::post('paymentValidate', [ValidateController::class, 'paymentValidate'])->name('admin.paymentValidate');

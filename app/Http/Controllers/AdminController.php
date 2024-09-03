@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\DataUKMExport;
 use App\Jobs\SendMailJob;
 use App\Mail\GroupchatMail;
 use App\Models\Admin;
@@ -12,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
 {
@@ -92,6 +94,9 @@ class AdminController extends Controller
     public function groupchat()
     {
         $data['tabTitle'] = 'Groupchat Email';
+        // $data['test'] = Ukm::where('slug', 'basket')->with('users')->get();
+        // dd($data['test'][0]);
+
         return view('admin.groupchat', $data);
     }
 
@@ -110,7 +115,7 @@ class AdminController extends Controller
             Log::info('UKM dapet');
 
             $user = User::where('nrp', $nrp)->first();
-            $ukms = []; 
+            $ukms = [];
 
             Log::info('UKM dapet lagi');
             $ukm_cnt = 0;
@@ -133,5 +138,10 @@ class AdminController extends Controller
             DetailRegistration::where('nrp', $nrp)->where('payment_validated', 1)->update(['isInvited' => 1]);
         }
         return response()->json(['success' => true, 'msg' => 'Emails successfully sent!']);
+    }
+
+    public function exportData()
+    {
+        return Excel::download(new DataUKMExport, 'Data Openhouse 2024.xlsx');
     }
 }
