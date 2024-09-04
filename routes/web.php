@@ -44,6 +44,9 @@ Route::prefix('admin')->middleware('isLogin')->group(function () {
     Route::get('fetchLeaderboard', [LeaderboardController::class, 'fetchLeaderboard'])->name('admin.fetchLeaderboard');
     Route::get('filterSearch', [ValidateController::class, 'filterSearch'])->name('admin.filterSearch');
     Route::get('admin-booth', [AdminController::class, 'adminBooth'])->name('admin.booth-admin');
+    Route::get('groupchat', [AdminController::class, 'groupchat'])->name('admin.groupchat');
+    Route::get('exportData', [AdminController::class, 'exportData'])->name('admin.exportData');
+
     Route::post('store-admin-booth', [AdminController::class, 'storeAdminBooth'])->name('admin.store-admin-booth');
     Route::post('selectionValidate', [ValidateController::class, 'selectionValidate'])->name('admin.selectionValidate');
     Route::post('paymentValidate', [ValidateController::class, 'paymentValidate'])->name('admin.paymentValidate');
@@ -51,6 +54,7 @@ Route::prefix('admin')->middleware('isLogin')->group(function () {
     Route::post('rejectPayment', [ValidateController::class, 'rejectPayment'])->name('admin.rejectPayment');
     Route::post('rejectFile', [ValidateController::class, 'rejectFile'])->name('admin.rejectFile');
     Route::post('giveLetter', [GenerateController::class, 'giveLetter'])->name('admin.giveLetter');
+    Route::post('sendGroupchat', [AdminController::class, 'sendGroupchat'])->name('admin.sendGroupchat');
 });
 
 /**
@@ -67,10 +71,10 @@ Route::get('/login', [AuthController::class, 'login'])->name('user.login');
 Route::get('/processLogin', [AuthController::class, 'processLogin'])->name('login.process');
 
 // Registration
-Route::get('/pendaftaran/{id}', [PendaftaranController::class, 'redirect'])->name('pendaftaran.redirect')->middleware('user');
+Route::get('/pendaftaran/{id}', [PendaftaranController::class, 'redirect'])->name('pendaftaran.redirect')->middleware('isClosed');
 // Route::get('/pendaftaran/{id}', [MainController::class, 'index'])->name('pendaftaran.redirect');
-Route::post('/storePendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store')->middleware('user');
-Route::post('/pembayaran', [PendaftaranController::class, 'payment'])->name('pendaftaran.payment')->middleware('user');
+Route::post('/storePendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store')->middleware('isClosed');
+Route::post('/pembayaran', [PendaftaranController::class, 'payment'])->name('pendaftaran.payment')->middleware('isClosed');
 
 // Information
 Route::get('wait', [MainController::class, 'wait'])->name('user.wait');

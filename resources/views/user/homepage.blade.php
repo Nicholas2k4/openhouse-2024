@@ -30,7 +30,7 @@
     @endif
     @if (session()->has('closed'))
         <script>
-            Swal.fire('Error', 'Silahkan langsung mendaftar di booth', 'error');
+            Swal.fire('Error', 'Registration closed!', 'error');
         </script>
     @endif
 

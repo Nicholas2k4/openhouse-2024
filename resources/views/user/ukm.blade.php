@@ -91,8 +91,10 @@
                 <div class = "group mt-7 button-animate">
                     <a class = "text-[16px] md:text-[20px] lg:text-[24px] backdrop-blur-sm bg-white/10 border-[1px] border-[#79FFEF] rounded-full py-3 px-7 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
                         id = "explore-button" href = "#card-section">
-                        <span class = "font-bold text-white group-hover:text-[#30518A] transition-all !duration-300">Explore</span>
-                        <i class="text-white fa-solid fa-chevron-down group-hover:text-[#30518A] transition-all !duration-300"></i>
+                        <span
+                            class = "font-bold text-white group-hover:text-[#30518A] transition-all !duration-300">Explore</span>
+                        <i
+                            class="text-white fa-solid fa-chevron-down group-hover:text-[#30518A] transition-all !duration-300"></i>
                     </a>
                 </div>
 
@@ -138,10 +140,12 @@
                                     <div id = "show-slot"
                                         class = "flex flex-col justify-center pl-[20px] pr-[20px] border-r-[1px]">
                                         <div class = "text-white text-center text-[40px] font-bold leading-tight">
-                                            @if($ukm->current_slot < 1000 )
+                                            @if($ukm->current_slot <= 0)
+                                            {{ 0 }}
+                                            @elseif($ukm->current_slot < 1000 )
                                             {{ $ukm->current_slot }}
                                             @else
-                                            <i class="fa-solid fa-infinity"></i>
+                                                <i class="fa-solid fa-infinity"></i>
                                             @endif
                                         </div>
                                         <div class = "text-white text-[12px] m-[-2px] pb-[4px]">Slot left</div>
@@ -161,13 +165,18 @@
                                 <!--Button-->
                                 <div class = "group">
 
-                                    <form action="{{ route('user.ukm.slug', ['slug' => $ukm->slug]) }}" method="GET">
+                                    {{-- <form action="{{ route('user.ukm.slug', ['slug' => $ukm->slug]) }}" method="GET">
                                         <button type = "submit"
                                             class = "px-[70px] bg-white rounded-full py-2 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
                                             value={{ $ukm->slug }}>
                                             <span class = "text-black group-hover:text-[#30518A]">Details</span>
                                         </button>
-                                    </form>
+                                    </form> --}}
+
+                                    <button type = "submit" onclick="Swal.fire('Pendaftaran telah ditutup', '', 'error')"
+                                        class = "px-[70px] bg-white rounded-full py-2 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset">
+                                        <span class = "text-black group-hover:text-[#30518A]">Details</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
