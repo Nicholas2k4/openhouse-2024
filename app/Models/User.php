@@ -60,4 +60,8 @@ class User extends Model
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function ukms() {
+        return $this->belongsToMany(Ukm::class, 'detail_registrations', 'ukm_id', 'nrp', 'id', 'nrp');
+    }
 }

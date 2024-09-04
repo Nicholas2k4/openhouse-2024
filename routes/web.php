@@ -67,10 +67,10 @@ Route::get('/login', [AuthController::class, 'login'])->name('user.login');
 Route::get('/processLogin', [AuthController::class, 'processLogin'])->name('login.process');
 
 // Registration
-Route::get('/pendaftaran/{id}', [PendaftaranController::class, 'redirect'])->name('pendaftaran.redirect')->middleware('user');
-// Route::get('/pendaftaran/{id}', [MainController::class, 'index'])->name('pendaftaran.redirect');
-Route::post('/storePendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store')->middleware('user');
-Route::post('/pembayaran', [PendaftaranController::class, 'payment'])->name('pendaftaran.payment')->middleware('user');
+// Route::get('/pendaftaran/{id}', [PendaftaranController::class, 'redirect'])->name('pendaftaran.redirect')->middleware('user');
+// Route::get('/pendaftaran/{id}', [MainController::class, 'index'])->name('pendaftaran.redirect'); mbo ga kepake kek e
+// Route::post('/storePendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store')->middleware('user');
+// Route::post('/pembayaran', [PendaftaranController::class, 'payment'])->name('pendaftaran.payment')->middleware('user');
 
 // Information
 Route::get('wait', [MainController::class, 'wait'])->name('user.wait');
