@@ -91,12 +91,17 @@ class PendaftaranController extends Controller
 
         // close
         $list_ukm = ['vg', 'ilustrasi', 'esport'];
+
+        $data = DetailRegistration::where('nrp', $nrp)->where('ukm_id', Ukm::where('slug', $slug)->pluck('id')->first())->where('file_validated', 1)->first();
+        // dd(!in_array($slug, $list_ukm));
+
+        
         if (in_array($slug, $list_lk)) {
             return redirect()->route('user.home');
         }
 
-        if (!in_array($slug, $list_ukm)) {
-            return redirect()->route('user.ukm.slug', ['slug', $slug])->with('error', 'Pendaftaran telah ditutup !');
+        if (!in_array($slug, $list_ukm) || $data == null) {
+            return redirect()->route('user.home')->with('closed', 'Pendaftaran telah ditutup !');
         }
 
         // Max 3 UKM checking

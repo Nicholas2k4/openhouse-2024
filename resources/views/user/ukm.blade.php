@@ -171,21 +171,18 @@
                                 <!--Button-->
                                 <div class = "group">
 
-                                    @if ($ukm->slug == 'vg' || $ukm->slug == 'ilustrasi' || $ukm->slug == 'esport')
-                                        <form action="{{ route('user.ukm.slug', ['slug' => $ukm->slug]) }}" method="GET">
-                                            <button type = "submit"
-                                                class = "px-[70px] bg-white rounded-full py-2 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
-                                                value={{ $ukm->slug }}>
-                                                <span class = "text-black group-hover:text-[#30518A]">Details</span>
-                                            </button>
-                                        </form>
-                                    @else
+                                    <form action="{{ route('user.ukm.slug', ['slug' => $ukm->slug]) }}" method="GET">
                                         <button type = "submit"
+                                            class = "px-[70px] bg-white rounded-full py-2 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
+                                            value={{ $ukm->slug }}>
+                                            <span class = "text-black group-hover:text-[#30518A]">Details</span>
+                                        </button>
+                                    </form>
+                                    {{-- <button type = "submit"
                                             onclick="Swal.fire('Pendaftaran telah ditutup', '', 'error')"
                                             class = "px-[70px] bg-white rounded-full py-2 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset">
                                             <span class = "text-black group-hover:text-[#30518A]">Details</span>
-                                        </button>
-                                    @endif
+                                        </button> --}}
                                 </div>
                             </div>
                         </div>
