@@ -88,8 +88,15 @@ class PendaftaranController extends Controller
         }
 
         $list_lk = ['bem', 'tps', 'mpm', 'bpmf', 'persma', 'pelma'];
+
+        // close
+        $list_ukm = ['vg', 'ilustrasi', 'esport'];
         if (in_array($slug, $list_lk)) {
             return redirect()->route('user.home');
+        }
+
+        if (!in_array($slug, $list_ukm)) {
+            return redirect()->route('user.ukm.slug', ['slug', $slug])->with('error', 'Pendaftaran telah ditutup !');
         }
 
         // Max 3 UKM checking
