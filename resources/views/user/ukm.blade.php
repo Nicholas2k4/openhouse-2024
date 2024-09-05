@@ -57,6 +57,12 @@
 @endsection
 
 @section('content')
+    @if (session()->has('error'))
+        <script>
+            Swal.fire('Pendaftaran telah ditutup !', '', 'error');
+        </script>
+    @endif
+
     <div
         class = "animated-background fixed h-screen w-full bg-gradient-to-t from-[#4476CB] to-[#57C7D4] from-20% overflow-hidden">
     </div>
@@ -140,10 +146,10 @@
                                     <div id = "show-slot"
                                         class = "flex flex-col justify-center pl-[20px] pr-[20px] border-r-[1px]">
                                         <div class = "text-white text-center text-[40px] font-bold leading-tight">
-                                            @if($ukm->current_slot <= 0)
-                                            {{ 0 }}
-                                            @elseif($ukm->current_slot < 1000 )
-                                            {{ $ukm->current_slot }}
+                                            @if ($ukm->current_slot <= 0)
+                                                {{ 0 }}
+                                            @elseif($ukm->current_slot < 1000)
+                                                {{ $ukm->current_slot }}
                                             @else
                                                 <i class="fa-solid fa-infinity"></i>
                                             @endif
@@ -165,18 +171,18 @@
                                 <!--Button-->
                                 <div class = "group">
 
-                                    {{-- <form action="{{ route('user.ukm.slug', ['slug' => $ukm->slug]) }}" method="GET">
+                                    <form action="{{ route('user.ukm.slug', ['slug' => $ukm->slug]) }}" method="GET">
                                         <button type = "submit"
                                             class = "px-[70px] bg-white rounded-full py-2 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset"
                                             value={{ $ukm->slug }}>
                                             <span class = "text-black group-hover:text-[#30518A]">Details</span>
                                         </button>
-                                    </form> --}}
-
-                                    <button type = "submit" onclick="Swal.fire('Pendaftaran telah ditutup', '', 'error')"
-                                        class = "px-[70px] bg-white rounded-full py-2 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset">
-                                        <span class = "text-black group-hover:text-[#30518A]">Details</span>
-                                    </button>
+                                    </form>
+                                    {{-- <button type = "submit"
+                                            onclick="Swal.fire('Pendaftaran telah ditutup', '', 'error')"
+                                            class = "px-[70px] bg-white rounded-full py-2 space-x-3  group-hover:bg-[#79FFEF] group-hover:shadow-no-offset">
+                                            <span class = "text-black group-hover:text-[#30518A]">Details</span>
+                                        </button> --}}
                                 </div>
                             </div>
                         </div>
