@@ -80,7 +80,7 @@
             });
 
             // Ajax Filter & Search
-            function fetchData(nrp = "", filter = "", status = "") {
+            function fetchData(nrp = "", filter = "", status = "", sort = "") {
                 $.ajax({
                     url: "{{ route('admin.filterSearch') }}",
                     method: "GET",
@@ -88,6 +88,7 @@
                         nrp: nrp,
                         filter: filter,
                         status: status,
+                        sort: sort,
                     },
                     dataType: "json",
                     success: function(data) {
@@ -109,7 +110,8 @@
                 var nrp = $("#searchReg").val();
                 var filter = $("#regFilter").val();
                 var status = $("#statusFilter").val();
-                fetchData(nrp, filter, status);
+                var sort = $("#sort").val();
+                fetchData(nrp, filter, status, sort);
             });
 
             // Filter
@@ -117,7 +119,8 @@
                 var nrp = $("#searchReg").val();
                 var filter = $("#regFilter").val();
                 var status = $("#statusFilter").val();
-                fetchData(nrp, filter, status);
+                var sort = $("#sort").val();
+                fetchData(nrp, filter, status, sort);
             });
 
             //Status
@@ -125,7 +128,17 @@
                 var nrp = $("#searchReg").val();
                 var filter = $("#regFilter").val();
                 var status = $("#statusFilter").val();
-                fetchData(nrp, filter, status);
+                var sort = $("#sort").val();
+                fetchData(nrp, filter, status, sort);
+            });
+
+            //Status
+            $(document).on("change", "#sort", function() {
+                var nrp = $("#searchReg").val();
+                var filter = $("#regFilter").val();
+                var status = $("#statusFilter").val();
+                var sort = $("#sort").val();
+                fetchData(nrp, filter, status, sort);
             });
 
             fetchData();

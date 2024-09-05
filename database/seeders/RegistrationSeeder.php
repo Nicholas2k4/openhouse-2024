@@ -30,6 +30,7 @@ class RegistrationSeeder extends Seeder
                     'drive_url' => 'https://drive.google.com/drive/folders/1A6cQZlPTy5Xtc8IrlKcnwelcyuyhroiS?usp=sharing',
                     'file_validated' => 0,
                     'payment_validated' => 0,
+                    'created_at' => now(),
                 ];
             } else {
                 $detail_registrations[] = [
@@ -41,6 +42,7 @@ class RegistrationSeeder extends Seeder
                     'drive_url' => '',
                     'file_validated' => 1,
                     'payment_validated' => 0,
+                    'created_at' => now(),
                 ];
             }
         }
