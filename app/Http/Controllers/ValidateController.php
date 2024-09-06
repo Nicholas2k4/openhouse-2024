@@ -13,8 +13,27 @@ use Illuminate\Support\Facades\Mail;
 
 class ValidateController extends Controller
 {
+
     public function filterSearch(Request $request)
     {
+        function extractTimestampFromFilename($filename)
+        {
+            $filenameWithoutExtension = pathinfo($filename, PATHINFO_FILENAME);
+
+            $parts = explode('_', $filenameWithoutExtension);
+
+            $date = $parts[1];
+            $time = $parts[2];
+
+            $formattedDate = \DateTime::createFromFormat('d-m-y', $date)->format('d-m-Y');
+
+            $dateTime = $formattedDate . ' ' . str_replace('-', ':', $time);
+
+            $timestamp = \DateTime::createFromFormat('d-m-Y H:i:s', $dateTime)->getTimestamp();
+
+            return date('d-m-Y H:i:s', $timestamp);
+        }
+
         $output = '';
         if ($request->ajax()) {
             $nrp = $request->get('nrp');
@@ -36,117 +55,181 @@ class ValidateController extends Controller
             if ($sort == 'asc') {
                 if ($nrp != '' && $ukm) { // NRP not empty & UKM not empty
                     if ($status == 2) { // Rejected
-                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', 2)->orderBy('updated_at', 'asc')->get();
+                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', 2)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') ASC
+")->get();
                     } else if ($status == 1) { // Accepted
-                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', 1)->where('payment_validated', 1)->orderBy('updated_at', 'asc')->get();
+                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', 1)->where('payment_validated', 1)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') ASC
+")->get();
                     } else if ($status == 0) {  //Pending
                         $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where(function ($query) {
                             $query->where('file_validated', 0)
                                 ->orWhere('file_validated', 1)
                                 ->where('payment_validated', 0);
-                        })->orderBy('updated_at', 'asc')->get();
+                        })->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') ASC
+")->get();
                     } else { // All
-                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->orderBy('updated_at', 'asc')->get();
+                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') ASC
+")->get();
                     }
                 } else if ($nrp == '' && $ukm) { // NRP empty & UKM not empty
                     if ($status == 2) { // Rejected
-                        $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', 2)->orderBy('updated_at', 'asc')->get();
+                        $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', 2)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') ASC
+")->get();
                     } else if ($status == 1) { // Accepted
-                        $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', 1)->where('payment_validated', 1)->orderBy('updated_at', 'asc')->get();
+                        $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', 1)->where('payment_validated', 1)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') ASC
+")->get();
                     } else if ($status == 0) { // Pending
                         $data = DetailRegistration::where('ukm_id', $ukm->id)->where(function ($query) {
                             $query->where('file_validated', 0)
                                 ->orWhere('file_validated', 1)
                                 ->where('payment_validated', 0);
-                        })->orderBy('updated_at', 'asc')->get();
+                        })->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') ASC
+")->get();
                     } else { // All
-                        $data = DetailRegistration::where('ukm_id', $ukm->id)->orderBy('updated_at', 'asc')->get();
+                        $data = DetailRegistration::where('ukm_id', $ukm->id)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') ASC
+")->get();
                     }
                 } else if ($nrp != '' && !$ukm) { // NRP not empty & UKM empty
                     if ($status == 2) { // Rejected
-                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', 2)->orderBy('updated_at', 'asc')->get();
+                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', 2)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') ASC
+")->get();
                     } else if ($status == 1) { // Accepted
-                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', 1)->where('payment_validated', 1)->orderBy('updated_at', 'asc')->get();
+                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', 1)->where('payment_validated', 1)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') ASC
+")->get();
                     } else if ($status == 0) { // Pending
                         $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where(function ($query) {
                             $query->where('file_validated', 0)
                                 ->orWhere('file_validated', 1)
                                 ->where('payment_validated', 0);
-                        })->orderBy('updated_at', 'asc')->get();
+                        })->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') ASC
+")->get();
                     } else { // All
-                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->orderBy('updated_at', 'asc')->get();
+                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') ASC
+")->get();
                     }
                 } else if ($nrp == '' && !$ukm) { // NRP empty & UKM empty
                     if ($status == 2) { // Rejected
-                        $data = DetailRegistration::where('file_validated', 2)->orderBy('updated_at', 'asc')->get();
+                        $data = DetailRegistration::where('file_validated', 2)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') ASC
+")->get();
                     } else if ($status == 1) { // Accepted
-                        $data = DetailRegistration::where('file_validated', 1)->where('payment_validated', 1)->orderBy('updated_at', 'asc')->get();
+                        $data = DetailRegistration::where('file_validated', 1)->where('payment_validated', 1)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') ASC
+")->get();
                     } else if ($status == 0) { // Pending
                         $data = DetailRegistration::where(function ($query) {
                             $query->where('file_validated', 0)
                                 ->orWhere('file_validated', 1)
                                 ->where('payment_validated', 0);
-                        })->where('file_validated', 1)->orderBy('updated_at', 'asc')->get();
+                        })->where('file_validated', 1)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') ASC
+")->get();
                     } else { // All
-                        $data = DetailRegistration::orderBy('updated_at', 'asc')->get();
+                        $data = DetailRegistration::orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') ASC
+")->get();
                     }
                 }
             } else {
                 if ($nrp != '' && $ukm) { // NRP not empty & UKM not empty
                     if ($status == 2) { // Rejected
-                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', 2)->orderBy('updated_at', 'desc')->get();
+                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', 2)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') DESC
+")->get();
                     } else if ($status == 1) { // Accepted
-                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', 1)->where('payment_validated', 1)->orderBy('updated_at', 'desc')->get();
+                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where('file_validated', 1)->where('payment_validated', 1)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') DESC
+")->get();
                     } else if ($status == 0) {  //Pending
                         $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->where(function ($query) {
                             $query->where('file_validated', 0)
                                 ->orWhere('file_validated', 1)
                                 ->where('payment_validated', 0);
-                        })->orderBy('updated_at', 'desc')->get();
+                        })->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') DESC
+")->get();
                     } else { // All
-                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->orderBy('updated_at', 'desc')->get();
+                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('ukm_id', $ukm->id)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') DESC
+")->get();
                     }
                 } else if ($nrp == '' && $ukm) { // NRP empty & UKM not empty
                     if ($status == 2) { // Rejected
-                        $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', 2)->orderBy('updated_at', 'desc')->get();
+                        $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', 2)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') DESC
+")->get();
                     } else if ($status == 1) { // Accepted
-                        $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', 1)->where('payment_validated', 1)->orderBy('updated_at', 'desc')->get();
+                        $data = DetailRegistration::where('ukm_id', $ukm->id)->where('file_validated', 1)->where('payment_validated', 1)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') DESC
+")->get();
                     } else if ($status == 0) { // Pending
                         $data = DetailRegistration::where('ukm_id', $ukm->id)->where(function ($query) {
                             $query->where('file_validated', 0)
                                 ->orWhere('file_validated', 1)
                                 ->where('payment_validated', 0);
-                        })->orderBy('updated_at', 'desc')->get();
+                        })->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') DESC
+")->get();
                     } else { // All
-                        $data = DetailRegistration::where('ukm_id', $ukm->id)->orderBy('updated_at', 'desc')->get();
+                        $data = DetailRegistration::where('ukm_id', $ukm->id)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') DESC
+")->get();
                     }
                 } else if ($nrp != '' && !$ukm) { // NRP not empty & UKM empty
                     if ($status == 2) { // Rejected
-                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', 2)->orderBy('updated_at', 'desc')->get();
+                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', 2)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') DESC
+")->get();
                     } else if ($status == 1) { // Accepted
-                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', 1)->where('payment_validated', 1)->orderBy('updated_at', 'desc')->get();
+                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where('file_validated', 1)->where('payment_validated', 1)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') DESC
+")->get();
                     } else if ($status == 0) { // Pending
                         $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->where(function ($query) {
                             $query->where('file_validated', 0)
                                 ->orWhere('file_validated', 1)
                                 ->where('payment_validated', 0);
-                        })->orderBy('updated_at', 'desc')->get();
+                        })->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') DESC
+")->get();
                     } else { // All
-                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->orderBy('updated_at', 'desc')->get();
+                        $data = DetailRegistration::where('nrp', 'like', '%' . $nrp . '%')->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') DESC
+")->get();
                     }
                 } else if ($nrp == '' && !$ukm) { // NRP empty & UKM empty
                     if ($status == 2) { // Rejected
-                        $data = DetailRegistration::where('file_validated', 2)->orderBy('updated_at', 'desc')->get();
+                        $data = DetailRegistration::where('file_validated', 2)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') DESC
+")->get();
                     } else if ($status == 1) { // Accepted
-                        $data = DetailRegistration::where('file_validated', 1)->where('payment_validated', 1)->orderBy('updated_at', 'desc')->get();
+                        $data = DetailRegistration::where('file_validated', 1)->where('payment_validated', 1)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') DESC
+")->get();
                     } else if ($status == 0) { // Pending
                         $data = DetailRegistration::where(function ($query) {
                             $query->where('file_validated', 0)
                                 ->orWhere('file_validated', 1)
                                 ->where('payment_validated', 0);
-                        })->where('file_validated', 1)->orderBy('updated_at', 'desc')->get();
+                        })->where('file_validated', 1)->orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') DESC
+")->get();
                     } else { // All
-                        $data = DetailRegistration::orderBy('updated_at', 'desc')->get();
+                        $data = DetailRegistration::orderByRaw("
+    STR_TO_DATE(SUBSTRING_INDEX(SUBSTRING_INDEX(payment, '_', -2), '.', 1), '%d-%m-%y_%H-%i-%s') DESC
+")->get();
                     }
                 }
             }
@@ -194,7 +277,12 @@ class ValidateController extends Controller
                         </td>';
                 }
 
-                $output .= '<td class="p-3 border-e-2 border-gray-200">' . $row->updated_at . '</td>';
+                if ($row->payment != null) {
+                    $output .= '<td class="p-3 border-e-2 border-gray-200">' . extractTimestampFromFilename($row->payment) . '</td>';
+                } else {
+                    $output .= '<td class="p-3 border-e-2 border-gray-200">-</td>';
+                }
+
 
 
                 if ($row->file_validated == 2 || $row->payment_validated == 2) {

@@ -80,7 +80,7 @@
             });
 
             // Ajax Filter & Search
-            function fetchData(nrp = "", filter = "", status = "", sort = "") {
+            function fetchData(nrp = "", filter = "", status = "", sort = "asc") {
                 $.ajax({
                     url: "{{ route('admin.filterSearch') }}",
                     method: "GET",
